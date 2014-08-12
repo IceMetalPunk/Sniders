@@ -1,0 +1,1 @@
+rundll32    shimgvw.dll    ImageView_PrintTo /pt   xxx.png   "printer name"

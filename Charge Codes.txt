@@ -1,0 +1,16 @@
+
+
+10	Wirk Ticket 
+20-29	Credit non Discountable
+	21	Cash Received
+	22	Credit Card Payment
+	23	Check Payment  Curson to allow enter check Number freeform)
+	24	Write Off
+	25               Other Payment  Enter Freeform
+
+30 - 39 Misce Items
+	31 Charge	Lost Suit
+	32 Charge Misc
+	33 Charge  Delivery
+	35  Credit Not Used
+	36   Credit Misc	

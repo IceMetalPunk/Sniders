@@ -1,0 +1,107 @@
+<style>
+  BODY { font-size:12pt; width:400px; }
+  
+  .center, .center td { text-align:center; }
+  .left { text-align:left; }
+  .right { text-align:right; }
+  .bottom { vertical-align:bottom; }
+  .top { vertical-align:top; }
+  .middle { vertical-align:middle; }
+
+  .code { font-family:"Free 3 of 9"; }
+  .ticketHead { color:#aaaaaa; font-family:Calibri; }
+  .bold { font-weight:bold; }
+  .big { font-size:36pt; }
+  .medium { font-size:18pt; }
+  .small { font-size:12pt; }
+  .ticketTable { border:0px; }
+  .divider { border-bottom:3px solid #000000; }
+  .topdivider { border-top:3px solid #000000; }
+  
+  .$$TYPE$$line { font-weight:bold; }
+
+</style>
+
+<table class="ticketTable">
+  <tr>
+    <td colSpan='4' class='medium ticketHead bold left'>$$TYPE$$</td>
+  </tr>
+
+  <tr>
+    <td class='medium right bottom'>$$W-TKT$$-$$W-TKT-SUB$$</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='left'><span class='small ticketHead bold'>Use Date</span><br />
+                       $$W-USE-DT$$</td>
+  </tr>
+
+  <tr>
+    <td class='big code' colspan='2'>$$W-TKT$$-$$W-TKT-SUB$$</td>
+    <td>&nbsp;</td>
+    <td><span class='ticketHead bold left'>Shipping Method</span><br/>
+         $$=W-SHP-INST$$</td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><span class='small ticketHead bold'>Order Date</span><br />
+        $$W-ORDER-DT$$</td>
+  </tr>
+
+  <tr>
+    <td colSpan='4'><span class='medium' style='font-weight:bold'>$$C-NAME$$</span><br />
+                    $$C-ADDR1$$<br />
+                    $$C-ADDR2$$<br />
+                    $$C-CITY$$, $$C-STATE$$ $$C-ZIP$$</td>
+  </tr>
+  <tr>
+    <td colSpan='4' class='divider'>&nbsp;$$W-REF$$</td>
+  </tr>
+
+  <tr class='MAINline center'>
+    <td class='small'><span class='ticketHead'>Coat</span><br />
+                      $$W-COAT$$</td>
+    <td class='small' colSpan='2'><span class='ticketHead'>Pants</span><br />
+                      $$W-PANT-STYLE$$</td>
+    <td class='small'><span class='ticketHead'>Shirt</span><br />
+                     $$W-SHIRT$$</td>
+  </tr>
+  
+  <tr class='ACCESSORIESline center'>
+    <td class='small'><span class='ticketHead'>Vest</span><br />
+                      $$W-VEST$$</td>
+    <td class='small' colSpan='2'><span class='ticketHead'>Sash</span><br />
+                      $$W-SASH$$</td>
+    <td class='small'><span class='ticketHead'>Tie</span><br />
+                     $$W-TIE$$</td>
+  </tr>
+  
+  <tr class='SHOEline center'>
+    <td class='small'><span class='ticketHead'>Shoe Style</span><br />
+                      $$W-SHOE$$</td>
+    <td class='small' colSpan='2'><span class='ticketHead'>Color</span><br />
+                      $$W-SHOE-COLOR$$</td>
+    <td class='small'><span class='ticketHead'>Size</span><br />
+                     $$W-SHOE-SIZE$$</td>
+  </tr>
+
+  <tr>
+    <td colSpan='4' class='topdivider'>$$W-COMMENTS$$</td>
+  </tr>
+
+
+  <tr class='center'>
+    <td colSpan='4'><img src='logo.png' width='50%' height='50%' /></td>
+  </tr>
+  <tr class='center'>
+    <td colSpan='4' class='small'>3435 Lawson Blvd<br />
+                                  Oceanside, NY 11572<br />
+                                  1-800-442-2828</td>
+  </tr>
+
+  <tr class='center top'>
+    <td colSpan='4' class='medium'>$$W-TKT$$-$$W-TKT-SUB$$ <span class='big code'>$$W-TKT$$-$$W-TKT-SUB$$</span></td>
+  </tr>
+</table>

@@ -1,0 +1,1081 @@
+.MainTable{padding-top:59px;}
+.menu{position:fixed;width:100%;}
+/*new style for search and new menu*/
+
+
+
+ .clear {
+
+
+
+  clear: both;
+
+
+
+  height: 0px;
+
+
+
+  }
+
+
+
+ img{border:0px;} 
+
+
+
+input:focus, select:focus{
+
+
+
+	outline:none;}
+
+
+
+.nav-holder{
+
+
+
+	position:relative;
+
+
+
+	margin-top:10px;
+
+
+
+	width: 960px;
+
+
+
+	margin-right: auto;
+
+
+
+	margin-left: auto;
+
+
+
+}  
+
+
+
+.search-txtbox {
+
+
+
+	behavior: url(PIE.htc);
+
+
+
+	position:relative;
+
+
+
+	-webkit-border-radius: 8px;
+
+
+
+-moz-border-radius: 8px;
+
+
+
+border-radius: 8px;
+
+
+
+border: solid 1px #B6B5B5;
+
+
+
+height: 25px;
+
+
+
+padding:2px;
+
+
+
+}
+
+
+
+
+
+
+
+.search-txtbox:focus{
+
+
+
+	border: 1px solid #CFDAD9;
+
+
+
+	box-shadow: 0px 0px 8px #746B58;
+
+
+
+	-moz-box-shadow: 0px 0px 8px #746B58;
+
+
+
+	-webkit-box-shadow: 0px 0px 8px #746B58;
+
+
+
+	}
+
+
+
+
+
+
+
+.srch-btn {
+
+
+
+	behavior: url(PIE.htc);
+
+
+
+	position:relative;
+
+
+
+	-webkit-border-radius: 8px;
+
+
+
+	-moz-border-radius: 8px;
+
+
+
+	border-radius: 8px;
+
+
+
+	border:1px solid #746B58;
+
+
+
+	height: 25px;
+
+
+
+	width:70px;
+
+
+
+	color:#746B58;
+
+
+
+	font-weight:bold;
+
+
+
+	cursor:pointer;
+
+
+
+	background-color: #FFF;
+
+
+
+	background-image: url(btn-bg.png);
+
+
+
+	background-repeat: repeat-x;
+
+
+
+	background-position: top;
+
+
+
+}
+
+
+
+.srch-btn:hover{
+
+
+
+	color: #746B58;
+
+
+
+	background-color: #F7F0C9;
+
+
+
+	background-image:none;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+.nav-menu {
+
+
+
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+
+
+	font-size: 14px;
+
+
+
+	font-weight: bold;
+
+
+
+	text-align: center;
+
+
+
+	display: table;
+
+
+
+	margin-right: auto;
+
+
+
+	margin-left: auto;
+
+
+
+	list-style:none;
+
+
+
+}
+
+
+
+
+
+
+
+.nav-menu li{
+
+
+
+	float:left;
+
+
+
+	margin-left:15px;
+
+
+
+	margin-right:15px;
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+.sub-menu {
+
+
+
+	background-color: #746B58;
+
+
+
+	border: 1px solid #8D8674;
+
+
+
+	list-style-type: none;
+
+
+
+	width: 133px;
+
+
+
+	position: absolute;
+
+
+
+	top: 11px;
+
+
+
+	padding: 5px;
+
+
+
+	border-radius: 0px 0px 8px 8px;
+
+
+
+	behavior: url(PIE.htc);
+
+
+
+	-webkit-border-radius: 0px 0px 8px 8px;
+
+
+
+	-moz-border-radius: 0px 0px 8px 8px;
+
+
+
+	z-index:99;
+
+
+
+}
+
+
+
+.sub-menu li {}
+
+
+
+.sub-menu a{
+
+
+
+	padding:5px;
+
+
+
+	color: #135699;
+
+
+
+}
+
+
+
+.sub-menu a:hover{
+
+
+
+	display:inline-block;
+
+
+
+	width:90%;
+
+
+
+	color:#FFF;
+
+
+
+	background-color: #534D40;
+
+
+
+}	
+
+
+
+.nav-holder a{
+
+
+
+	text-decoration:none;
+
+
+
+	padding-top: 6px;
+
+
+
+display: inline-block;}
+
+
+
+	
+
+
+
+.nav-holder a:hover{
+
+
+
+	text-decoration:underline;}		
+
+
+
+  .search
+
+
+
+  {
+
+
+
+	width:800px;
+
+
+
+	min-height:30px;
+
+
+
+	margin: auto;
+
+
+
+	padding: 6px;
+
+
+
+	border-radius: 0px 0px 5px 5px;
+
+
+
+	position:relative;
+
+
+
+	background-color:#746B58;
+
+
+
+  }
+
+
+
+.small-lbl {
+
+
+
+	font-family: Verdana, Geneva, sans-serif;
+
+
+
+	font-size: 13px;
+
+
+
+	font-weight: bold;
+
+
+
+	color: #F7F0C9;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* style name : orange style */
+
+
+
+
+
+
+
+/* Controls the page background colors and margings */
+
+
+
+.MainPage
+
+
+
+{
+
+
+
+	margin-left: 0px;
+
+
+
+	margin-top: 0px;
+
+
+
+	margin-right: 0px;
+
+
+
+	margin-bottom: 0px;
+
+
+
+	background-color: #F7F2D4;
+
+
+
+	color: #000;
+
+
+
+}
+
+
+
+
+
+
+
+/* main table */
+
+
+
+.MainTable
+
+
+
+ {
+
+
+
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+
+
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+/* Report Title */
+
+
+
+.Title {
+
+
+
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+
+
+	font-size: 20px;
+
+
+
+	font-weight: bold;
+
+
+
+	color: #746B58;
+
+
+
+	background-color: #F7F2D4;
+
+
+
+	padding-left: 10px;
+
+
+
+}
+
+
+
+
+
+
+
+/* Separate between sections  */
+
+
+
+.Separator 
+
+
+
+{
+
+
+
+	background-color: #8D8674;
+
+
+
+	color: black;
+
+
+
+}
+
+
+
+
+
+
+
+/* The first grouping levels */
+
+
+
+.MainGroup {
+
+
+
+	font-family: Arial, Helvetica, sans-serif;
+
+
+
+	font-size: 14px;
+
+
+
+	font-weight: bold;
+
+
+
+	color: #FFF;
+
+
+
+	background-color: #8D8674;
+
+
+
+}
+
+
+
+
+
+
+
+/* Any subgrouping levels */
+
+
+
+.SubGroup{
+
+
+
+font-family: "Courier New", Courier, monospace;
+
+font-size: 13px;
+
+font-weight: bold;
+
+color: #555241;
+
+background-color: #D6CDB6;
+
+border-top-width: 1px;
+
+border-bottom-width: 1px;
+
+border-top-style: solid;
+
+border-bottom-style: solid;
+
+border-top-color: white;
+
+}
+
+
+
+
+
+
+
+
+
+/* records Table Header */
+
+
+
+.TableHeader
+
+
+
+ {
+
+
+
+	font-family: Georgia,"Times New Roman", Times, serif;
+
+
+
+	font-size: 12px;
+
+
+
+	font-weight: bold;
+
+
+
+	color: #2384E5;
+
+
+
+	background-color: #EEE;
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+/* columns header */
+
+
+
+.ColumnHeader
+
+
+
+{
+
+
+
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+
+
+
+	font-size: 13px;
+
+
+
+	font-weight: bold;
+
+
+
+	color: #F7F0C9;
+
+
+
+	background-color: #8D8674;
+
+
+
+	height: 45px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Table Cell */
+
+
+
+.TableCell
+
+
+
+ {
+
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+
+
+	font-size: 13px;
+
+
+
+	color: black;
+
+
+
+	background-color: white;
+
+
+
+	height: 30px;
+
+
+
+	border-bottom-width: 1px;
+
+
+
+	border-bottom-style: solid;
+
+
+
+	border-bottom-color: #746B58;
+
+
+
+}
+
+
+
+
+
+
+
+/* Alternate table’s cell (Toggling) */
+
+
+
+.AlternateTableCell{
+
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+
+
+	font-size: 13px;
+
+
+
+	color: black;
+
+
+
+	background-color: #FFF;
+
+
+
+	height:30px;
+
+
+
+	border-bottom-width: 1px;
+
+
+
+	border-bottom-style: solid;
+
+
+
+	border-bottom-color: #8D8674;
+
+
+
+}
+
+
+
+
+
+
+
+/* navigation menu */
+
+
+
+
+
+
+
+ .menu {
+
+
+
+	font-family: Georgia, "Times New Roman", Times, serif;
+
+
+
+	color: #FFFFFF;
+
+
+
+	background-color: #C6C29B;
+
+
+
+	background-image: url(coffe.png);
+
+
+
+	background-repeat: repeat;
+
+
+
+	border-bottom-width: 3px;
+
+
+
+	border-bottom-style: solid;
+
+
+
+	border-bottom-color: #746B58;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.menu_hover
+
+
+
+{
+
+
+
+	color: #000000;
+
+
+
+	background-color: #B4AD9A;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+a:visited {
+
+
+
+	font-size: 12px;
+
+
+
+	font-weight: bold;
+
+
+
+	color:#F7F0C9;
+
+
+
+	}
+
+
+
+a:link {
+
+
+
+	font-family: Tahoma, Geneva, sans-serif;
+
+
+
+	font-size: 12px;
+
+
+
+	font-weight: bold;
+
+
+
+	color: #F7F0C9;
+
+
+
+	}	
+
+
+
+	
+
+
+
+   
+
+
+
+ /* page Footer */
+
+
+
+.TableFooter
+
+
+
+ {
+
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+
+
+}     
+
+
+
+  #close_search{
+
+	 position:absolute;
+
+	 right:5px;}                   

@@ -1,0 +1,5 @@
+sum
+avg
+min
+max
+count

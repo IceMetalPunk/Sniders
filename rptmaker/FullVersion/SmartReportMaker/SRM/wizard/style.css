@@ -1,0 +1,37 @@
+		A   	       	{color:	#FF0000; text-decoration:none}
+		A:link			{color:	#FF0000; text-decoration:none}
+		A:visited		{color:	#FF0000; text-decoration:none}
+		A:hover 		{color: #FF0000; text-decoration:underline}
+
+
+body {
+    color: #000000;
+   font-family:verdana, Arial, Helvetica, sans-serif;
+}
+
+td, textarea, input, select {
+	font-family: verdana;
+	font-size: 13px;
+	color: #000000;
+	font-weight: normal;
+
+}
+
+.arrow_btn
+{
+font-style: normal; font-variant: normal; font-weight: normal; font-size: 8pt; font-family: verdana, arial, helvetica; color: #000000; border-left: 1px solid #cccccc; border-right: 1px solid #eeeeee; border-top: 1px solid #eeeeee; border-bottom: 1px solid #cccccc; background-color: #ffffff
+}.control_label {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 15px;
+}
+.step_title {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.error
+{
+	font-weight:bold;
+	color:#00CC00;
+}

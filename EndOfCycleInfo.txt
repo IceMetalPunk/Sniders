@@ -1,0 +1,10 @@
+End-of-Week Processing
+-----------------------
+Report: sum of totals in TAB table, group by customer
+        --> SELECT `AB-CUSTNO`, SUM(`AB-AMT`) as TOTAL FROM `t-a-billing` GROUP BY `AB-CUSTNO`
+
+	Allow filtering
+
+Backup TAB
+
+Reset billing date in lookup table

@@ -1,0 +1,45 @@
+t-work has ticket numbers as W-TKT with supplemental numbers (i.e. shoes, etc.) in W-TKT-SUP
+--------> Total ticket number is [W-TKT]-[W-TKT-SUP]
+
+New ticket numbers come from t-lookup as `l-type`=`Wrk`, with `l-DESC` as the letter and `l-VALUE` as the number.
+---------> Rolls over at 999 and at Z
+
+//------------------------------------------------------------//
+
+  Ticket Format:
+//--------------//
+
+(See printed/marked page for details)
+Accessories-Only tickets have only bottom half
+Full outfits have only top half except shirt section
+---> Shirt section includes extra line before comments if cane, susp, or gloves ordered
+
+Both have 5 lines -- extra is comments/height/weight
+
+Barcode font - "Free 3 of 9"
+Logo on bottom + full adress
+Shipping method at top
+Barcode number & code on top and bottom
+
+On top, barcode, date of use, order date, shipping type, customer name & address, reference
+
+
+Shoes get their own 4-chunk ticket like full outfit w/ shoes bold
+Cane, glove, and susp trigger separate accessories ticket
+
+//-------------//
+
+  Scanning I/O:
+//-------------//
+Scan/type bar code number
+
+IN:
+If exists in `t-outitems` table, delete row
+--Else, skip with warning
+
+OUT:
+Ask for ticket number, then scan barcode
+--Take from `t-inventory` where code = `l-BARCODE`
+--If found, add to `t-outitems` 
+--Else, allow data entry for new item into `t-inventory`
+--Then add item to summary list and show new barcode entry

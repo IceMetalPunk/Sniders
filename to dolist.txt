@@ -1,0 +1,16 @@
+
+1.	No printing during billing cycle with 0 balance
+2.	No off book processing (but keep in mind)
+3.	Consolidate old invoice for week on high level (invoice totals only) order by earliest date then inv number
+4.    	On all invoices show opening  alance for week  
+5.      Customer balance ob t-customer after posting   with posting date
+6       end of posting summary:
+
+	total amt billed for week
+        total payments
+        total credit
+
+7 Backup setup.  Automatic backup 3AM everyday including Sunday and sent to Dropbox and local compter by day
+8. Mysqldump or whatever software to install
+9.  Customer maint function
+

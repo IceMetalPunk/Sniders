@@ -1,0 +1,6772 @@
+Customer 11344 has 22 bills
+GenerateBillNumber 11344 has 22 bills
+GenerateBill 11344 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11344 has 22 bills
+Customer 11239 has 19 bills
+GenerateBillNumber 11239 has 19 bills
+GenerateBill 11239 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11239 has 19 bills
+Customer 10928 has 21 bills
+GenerateBillNumber 10928 has 21 bills
+GenerateBill 10928 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10928 has 21 bills
+Customer 11730 has 24 bills
+GenerateBillNumber 11730 has 24 bills
+GenerateBill 11730 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11730 has 24 bills
+Customer 11165 has 23 bills
+GenerateBillNumber 11165 has 23 bills
+GenerateBill 11165 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11165 has 23 bills
+Customer 11786 has 19 bills
+GenerateBillNumber 11786 has 19 bills
+GenerateBill 11786 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11786 has 19 bills
+Customer 11471 has 21 bills
+GenerateBillNumber 11471 has 21 bills
+GenerateBill 11471 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11471 has 21 bills
+Customer 11024 has 20 bills
+GenerateBillNumber 11024 has 20 bills
+GenerateBill 11024 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11024 has 20 bills
+Customer 00130 has 21 bills
+GenerateBillNumber 00130 has 21 bills
+GenerateBill 00130 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00130 has 21 bills
+Customer 10883 has 22 bills
+GenerateBillNumber 10883 has 22 bills
+GenerateBill 10883 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10883 has 22 bills
+Customer 00139 has 23 bills
+GenerateBillNumber 00139 has 23 bills
+GenerateBill 00139 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00139 has 23 bills
+Customer BRIDE has 20 bills
+GenerateBillNumber BRIDE has 20 bills
+GenerateBill BRIDE has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR BRIDE has 20 bills
+Customer 11233 has 21 bills
+GenerateBillNumber 11233 has 21 bills
+GenerateBill 11233 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11233 has 21 bills
+Customer 10750 has 19 bills
+GenerateBillNumber 10750 has 19 bills
+GenerateBill 10750 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10750 has 19 bills
+Customer 11512 has 19 bills
+GenerateBillNumber 11512 has 19 bills
+GenerateBill 11512 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11512 has 19 bills
+Customer 11364 has 20 bills
+GenerateBillNumber 11364 has 20 bills
+GenerateBill 11364 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11364 has 20 bills
+Customer 11077 has 22 bills
+GenerateBillNumber 11077 has 22 bills
+GenerateBill 11077 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11077 has 22 bills
+Customer 10882 has 23 bills
+GenerateBillNumber 10882 has 23 bills
+GenerateBill 10882 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10882 has 23 bills
+Customer 11780 has 1 bills
+GenerateBillNumber 11780 has 1 bills
+GenerateBill 11780 has 1 bills
+   At start, it has 1 bills
+   Customer with 1 bills
+Non-work
+CopyToTAR 11780 has 1 bills
+Customer 30002 has 20 bills
+GenerateBillNumber 30002 has 20 bills
+GenerateBill 30002 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 30002 has 20 bills
+Customer 00242 has 21 bills
+GenerateBillNumber 00242 has 21 bills
+GenerateBill 00242 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00242 has 21 bills
+Customer 11493 has 23 bills
+GenerateBillNumber 11493 has 23 bills
+GenerateBill 11493 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11493 has 23 bills
+Customer 10961 has 22 bills
+GenerateBillNumber 10961 has 22 bills
+GenerateBill 10961 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10961 has 22 bills
+Customer 10601 has 23 bills
+GenerateBillNumber 10601 has 23 bills
+GenerateBill 10601 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10601 has 23 bills
+Customer 11199 has 22 bills
+GenerateBillNumber 11199 has 22 bills
+GenerateBill 11199 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11199 has 22 bills
+Customer 11612 has 22 bills
+GenerateBillNumber 11612 has 22 bills
+GenerateBill 11612 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11612 has 22 bills
+Customer 20622 has 22 bills
+GenerateBillNumber 20622 has 22 bills
+GenerateBill 20622 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 20622 has 22 bills
+Customer 11222 has 24 bills
+GenerateBillNumber 11222 has 24 bills
+GenerateBill 11222 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11222 has 24 bills
+Customer 11186 has 22 bills
+GenerateBillNumber 11186 has 22 bills
+GenerateBill 11186 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11186 has 22 bills
+Customer 11838 has 19 bills
+GenerateBillNumber 11838 has 19 bills
+GenerateBill 11838 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11838 has 19 bills
+Customer 11476 has 21 bills
+GenerateBillNumber 11476 has 21 bills
+GenerateBill 11476 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11476 has 21 bills
+Customer 00595 has 21 bills
+GenerateBillNumber 00595 has 21 bills
+GenerateBill 00595 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00595 has 21 bills
+Customer 10823 has 19 bills
+GenerateBillNumber 10823 has 19 bills
+GenerateBill 10823 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10823 has 19 bills
+Customer 10975 has 20 bills
+GenerateBillNumber 10975 has 20 bills
+GenerateBill 10975 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10975 has 20 bills
+Customer 10509 has 23 bills
+GenerateBillNumber 10509 has 23 bills
+GenerateBill 10509 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10509 has 23 bills
+Customer 11783 has 20 bills
+GenerateBillNumber 11783 has 20 bills
+GenerateBill 11783 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11783 has 20 bills
+Customer 11663 has 21 bills
+GenerateBillNumber 11663 has 21 bills
+GenerateBill 11663 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11663 has 21 bills
+Customer 10760 has 23 bills
+GenerateBillNumber 10760 has 23 bills
+GenerateBill 10760 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10760 has 23 bills
+Customer 11134 has 21 bills
+GenerateBillNumber 11134 has 21 bills
+GenerateBill 11134 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11134 has 21 bills
+Customer 10933 has 23 bills
+GenerateBillNumber 10933 has 23 bills
+GenerateBill 10933 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10933 has 23 bills
+Customer 11833 has 21 bills
+GenerateBillNumber 11833 has 21 bills
+GenerateBill 11833 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11833 has 21 bills
+Customer 11299 has 21 bills
+GenerateBillNumber 11299 has 21 bills
+GenerateBill 11299 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11299 has 21 bills
+Customer 11004 has 23 bills
+GenerateBillNumber 11004 has 23 bills
+GenerateBill 11004 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11004 has 23 bills
+Customer 10911 has 22 bills
+GenerateBillNumber 10911 has 22 bills
+GenerateBill 10911 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10911 has 22 bills
+Customer 10745 has 23 bills
+GenerateBillNumber 10745 has 23 bills
+GenerateBill 10745 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10745 has 23 bills
+Customer 10871 has 21 bills
+GenerateBillNumber 10871 has 21 bills
+GenerateBill 10871 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10871 has 21 bills
+Customer 11842 has 21 bills
+GenerateBillNumber 11842 has 21 bills
+GenerateBill 11842 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11842 has 21 bills
+Customer 10910 has 19 bills
+GenerateBillNumber 10910 has 19 bills
+GenerateBill 10910 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10910 has 19 bills
+Customer 00378 has 19 bills
+GenerateBillNumber 00378 has 19 bills
+GenerateBill 00378 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00378 has 19 bills
+Customer 10382 has 22 bills
+GenerateBillNumber 10382 has 22 bills
+GenerateBill 10382 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10382 has 22 bills
+Customer 11562 has 23 bills
+GenerateBillNumber 11562 has 23 bills
+GenerateBill 11562 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11562 has 23 bills
+Customer 11649 has 20 bills
+GenerateBillNumber 11649 has 20 bills
+GenerateBill 11649 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11649 has 20 bills
+Customer 11539 has 21 bills
+GenerateBillNumber 11539 has 21 bills
+GenerateBill 11539 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11539 has 21 bills
+Customer 11344 has 22 bills
+GenerateBillNumber 11344 has 22 bills
+GenerateBill 11344 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11344 has 22 bills
+Customer 11239 has 19 bills
+GenerateBillNumber 11239 has 19 bills
+GenerateBill 11239 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11239 has 19 bills
+Customer 10928 has 21 bills
+GenerateBillNumber 10928 has 21 bills
+GenerateBill 10928 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10928 has 21 bills
+Customer 11730 has 24 bills
+GenerateBillNumber 11730 has 24 bills
+GenerateBill 11730 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11730 has 24 bills
+Customer 11165 has 23 bills
+GenerateBillNumber 11165 has 23 bills
+GenerateBill 11165 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11165 has 23 bills
+Customer 11786 has 19 bills
+GenerateBillNumber 11786 has 19 bills
+GenerateBill 11786 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11786 has 19 bills
+Customer 11471 has 21 bills
+GenerateBillNumber 11471 has 21 bills
+GenerateBill 11471 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11471 has 21 bills
+Customer 11024 has 20 bills
+GenerateBillNumber 11024 has 20 bills
+GenerateBill 11024 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11024 has 20 bills
+Customer 00130 has 21 bills
+GenerateBillNumber 00130 has 21 bills
+GenerateBill 00130 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00130 has 21 bills
+Customer 10883 has 22 bills
+GenerateBillNumber 10883 has 22 bills
+GenerateBill 10883 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10883 has 22 bills
+Customer 00139 has 23 bills
+GenerateBillNumber 00139 has 23 bills
+GenerateBill 00139 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00139 has 23 bills
+Customer BRIDE has 20 bills
+GenerateBillNumber BRIDE has 20 bills
+GenerateBill BRIDE has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR BRIDE has 20 bills
+Customer 11233 has 21 bills
+GenerateBillNumber 11233 has 21 bills
+GenerateBill 11233 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11233 has 21 bills
+Customer 10750 has 19 bills
+GenerateBillNumber 10750 has 19 bills
+GenerateBill 10750 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10750 has 19 bills
+Customer 11512 has 19 bills
+GenerateBillNumber 11512 has 19 bills
+GenerateBill 11512 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11512 has 19 bills
+Customer 11364 has 20 bills
+GenerateBillNumber 11364 has 20 bills
+GenerateBill 11364 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11364 has 20 bills
+Customer 11077 has 22 bills
+GenerateBillNumber 11077 has 22 bills
+GenerateBill 11077 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11077 has 22 bills
+Customer 10882 has 23 bills
+GenerateBillNumber 10882 has 23 bills
+GenerateBill 10882 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10882 has 23 bills
+Customer 11780 has 1 bills
+GenerateBillNumber 11780 has 1 bills
+GenerateBill 11780 has 1 bills
+   At start, it has 1 bills
+   Customer with 1 bills
+Non-work
+CopyToTAR 11780 has 1 bills
+Customer 30002 has 20 bills
+GenerateBillNumber 30002 has 20 bills
+GenerateBill 30002 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 30002 has 20 bills
+Customer 00242 has 21 bills
+GenerateBillNumber 00242 has 21 bills
+GenerateBill 00242 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00242 has 21 bills
+Customer 11493 has 23 bills
+GenerateBillNumber 11493 has 23 bills
+GenerateBill 11493 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11493 has 23 bills
+Customer 10961 has 22 bills
+GenerateBillNumber 10961 has 22 bills
+GenerateBill 10961 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10961 has 22 bills
+Customer 10601 has 23 bills
+GenerateBillNumber 10601 has 23 bills
+GenerateBill 10601 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10601 has 23 bills
+Customer 11199 has 22 bills
+GenerateBillNumber 11199 has 22 bills
+GenerateBill 11199 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11199 has 22 bills
+Customer 11612 has 22 bills
+GenerateBillNumber 11612 has 22 bills
+GenerateBill 11612 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11612 has 22 bills
+Customer 20622 has 22 bills
+GenerateBillNumber 20622 has 22 bills
+GenerateBill 20622 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 20622 has 22 bills
+Customer 11222 has 24 bills
+GenerateBillNumber 11222 has 24 bills
+GenerateBill 11222 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11222 has 24 bills
+Customer 11186 has 22 bills
+GenerateBillNumber 11186 has 22 bills
+GenerateBill 11186 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11186 has 22 bills
+Customer 11838 has 19 bills
+GenerateBillNumber 11838 has 19 bills
+GenerateBill 11838 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11838 has 19 bills
+Customer 11476 has 21 bills
+GenerateBillNumber 11476 has 21 bills
+GenerateBill 11476 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11476 has 21 bills
+Customer 00595 has 21 bills
+GenerateBillNumber 00595 has 21 bills
+GenerateBill 00595 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00595 has 21 bills
+Customer 10823 has 19 bills
+GenerateBillNumber 10823 has 19 bills
+GenerateBill 10823 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10823 has 19 bills
+Customer 10975 has 20 bills
+GenerateBillNumber 10975 has 20 bills
+GenerateBill 10975 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10975 has 20 bills
+Customer 10509 has 23 bills
+GenerateBillNumber 10509 has 23 bills
+GenerateBill 10509 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10509 has 23 bills
+Customer 11783 has 20 bills
+GenerateBillNumber 11783 has 20 bills
+GenerateBill 11783 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11783 has 20 bills
+Customer 11663 has 21 bills
+GenerateBillNumber 11663 has 21 bills
+GenerateBill 11663 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11663 has 21 bills
+Customer 10760 has 23 bills
+GenerateBillNumber 10760 has 23 bills
+GenerateBill 10760 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10760 has 23 bills
+Customer 11134 has 21 bills
+GenerateBillNumber 11134 has 21 bills
+GenerateBill 11134 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11134 has 21 bills
+Customer 10933 has 23 bills
+GenerateBillNumber 10933 has 23 bills
+GenerateBill 10933 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10933 has 23 bills
+Customer 11833 has 21 bills
+GenerateBillNumber 11833 has 21 bills
+GenerateBill 11833 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11833 has 21 bills
+Customer 11299 has 21 bills
+GenerateBillNumber 11299 has 21 bills
+GenerateBill 11299 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11299 has 21 bills
+Customer 11004 has 23 bills
+GenerateBillNumber 11004 has 23 bills
+GenerateBill 11004 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11004 has 23 bills
+Customer 10911 has 22 bills
+GenerateBillNumber 10911 has 22 bills
+GenerateBill 10911 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10911 has 22 bills
+Customer 10745 has 23 bills
+GenerateBillNumber 10745 has 23 bills
+GenerateBill 10745 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10745 has 23 bills
+Customer 10871 has 21 bills
+GenerateBillNumber 10871 has 21 bills
+GenerateBill 10871 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10871 has 21 bills
+Customer 11842 has 21 bills
+GenerateBillNumber 11842 has 21 bills
+GenerateBill 11842 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11842 has 21 bills
+Customer 10910 has 19 bills
+GenerateBillNumber 10910 has 19 bills
+GenerateBill 10910 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10910 has 19 bills
+Customer 00378 has 19 bills
+GenerateBillNumber 00378 has 19 bills
+GenerateBill 00378 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00378 has 19 bills
+Customer 10382 has 22 bills
+GenerateBillNumber 10382 has 22 bills
+GenerateBill 10382 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10382 has 22 bills
+Customer 11562 has 23 bills
+GenerateBillNumber 11562 has 23 bills
+GenerateBill 11562 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11562 has 23 bills
+Customer 11649 has 20 bills
+GenerateBillNumber 11649 has 20 bills
+GenerateBill 11649 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11649 has 20 bills
+Customer 11539 has 21 bills
+GenerateBillNumber 11539 has 21 bills
+GenerateBill 11539 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11539 has 21 bills
+Customer 11344 has 22 bills
+GenerateBillNumber 11344 has 22 bills
+GenerateBill 11344 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11344 has 22 bills
+Customer 11239 has 19 bills
+GenerateBillNumber 11239 has 19 bills
+GenerateBill 11239 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11239 has 19 bills
+Customer 10928 has 21 bills
+GenerateBillNumber 10928 has 21 bills
+GenerateBill 10928 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10928 has 21 bills
+Customer 11730 has 24 bills
+GenerateBillNumber 11730 has 24 bills
+GenerateBill 11730 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11730 has 24 bills
+Customer 11165 has 23 bills
+GenerateBillNumber 11165 has 23 bills
+GenerateBill 11165 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11165 has 23 bills
+Customer 11786 has 19 bills
+GenerateBillNumber 11786 has 19 bills
+GenerateBill 11786 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Customer 11344 has 22 bills
+GenerateBillNumber 11344 has 22 bills
+GenerateBill 11344 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11344 has 22 bills
+Customer 11239 has 19 bills
+GenerateBillNumber 11239 has 19 bills
+GenerateBill 11239 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11239 has 19 bills
+Customer 10928 has 21 bills
+GenerateBillNumber 10928 has 21 bills
+GenerateBill 10928 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10928 has 21 bills
+Customer 11730 has 24 bills
+GenerateBillNumber 11730 has 24 bills
+GenerateBill 11730 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11730 has 24 bills
+Customer 11165 has 23 bills
+GenerateBillNumber 11165 has 23 bills
+GenerateBill 11165 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11165 has 23 bills
+Customer 11786 has 19 bills
+GenerateBillNumber 11786 has 19 bills
+GenerateBill 11786 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11786 has 19 bills
+Customer 11471 has 21 bills
+GenerateBillNumber 11471 has 21 bills
+GenerateBill 11471 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11471 has 21 bills
+Customer 11024 has 20 bills
+GenerateBillNumber 11024 has 20 bills
+GenerateBill 11024 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11024 has 20 bills
+Customer 00130 has 21 bills
+GenerateBillNumber 00130 has 21 bills
+GenerateBill 00130 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00130 has 21 bills
+Customer 10883 has 22 bills
+GenerateBillNumber 10883 has 22 bills
+GenerateBill 10883 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10883 has 22 bills
+Customer 00139 has 23 bills
+GenerateBillNumber 00139 has 23 bills
+GenerateBill 00139 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00139 has 23 bills
+Customer BRIDE has 20 bills
+GenerateBillNumber BRIDE has 20 bills
+GenerateBill BRIDE has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR BRIDE has 20 bills
+Customer 11233 has 21 bills
+GenerateBillNumber 11233 has 21 bills
+GenerateBill 11233 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11233 has 21 bills
+Customer 10750 has 19 bills
+GenerateBillNumber 10750 has 19 bills
+GenerateBill 10750 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10750 has 19 bills
+Customer 11512 has 19 bills
+GenerateBillNumber 11512 has 19 bills
+GenerateBill 11512 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11512 has 19 bills
+Customer 11364 has 20 bills
+GenerateBillNumber 11364 has 20 bills
+GenerateBill 11364 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11364 has 20 bills
+Customer 11077 has 22 bills
+GenerateBillNumber 11077 has 22 bills
+GenerateBill 11077 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11077 has 22 bills
+Customer 10882 has 23 bills
+GenerateBillNumber 10882 has 23 bills
+GenerateBill 10882 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Customer 11344 has 22 bills
+GenerateBillNumber 11344 has 22 bills
+GenerateBill 11344 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11344 has 22 bills
+Customer 11239 has 19 bills
+GenerateBillNumber 11239 has 19 bills
+GenerateBill 11239 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11239 has 19 bills
+Customer 10928 has 21 bills
+GenerateBillNumber 10928 has 21 bills
+GenerateBill 10928 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10928 has 21 bills
+Customer 11730 has 24 bills
+GenerateBillNumber 11730 has 24 bills
+GenerateBill 11730 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11730 has 24 bills
+Customer 11165 has 23 bills
+GenerateBillNumber 11165 has 23 bills
+GenerateBill 11165 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11165 has 23 bills
+Customer 11786 has 19 bills
+GenerateBillNumber 11786 has 19 bills
+GenerateBill 11786 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11786 has 19 bills
+Customer 11471 has 21 bills
+GenerateBillNumber 11471 has 21 bills
+GenerateBill 11471 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11471 has 21 bills
+Customer 11024 has 20 bills
+GenerateBillNumber 11024 has 20 bills
+GenerateBill 11024 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11024 has 20 bills
+Customer 00130 has 21 bills
+GenerateBillNumber 00130 has 21 bills
+GenerateBill 00130 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00130 has 21 bills
+Customer 10883 has 22 bills
+GenerateBillNumber 10883 has 22 bills
+GenerateBill 10883 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10883 has 22 bills
+Customer 00139 has 23 bills
+GenerateBillNumber 00139 has 23 bills
+GenerateBill 00139 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00139 has 23 bills
+Customer BRIDE has 20 bills
+GenerateBillNumber BRIDE has 20 bills
+GenerateBill BRIDE has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR BRIDE has 20 bills
+Customer 11233 has 21 bills
+GenerateBillNumber 11233 has 21 bills
+GenerateBill 11233 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11233 has 21 bills
+Customer 10750 has 19 bills
+GenerateBillNumber 10750 has 19 bills
+GenerateBill 10750 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10750 has 19 bills
+Customer 11512 has 19 bills
+GenerateBillNumber 11512 has 19 bills
+GenerateBill 11512 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11512 has 19 bills
+Customer 11364 has 20 bills
+GenerateBillNumber 11364 has 20 bills
+GenerateBill 11364 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11364 has 20 bills
+Customer 11077 has 22 bills
+GenerateBillNumber 11077 has 22 bills
+GenerateBill 11077 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Customer 11344 has 22 bills
+GenerateBillNumber 11344 has 22 bills
+GenerateBill 11344 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11344 has 22 bills
+Customer 11239 has 19 bills
+GenerateBillNumber 11239 has 19 bills
+GenerateBill 11239 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11239 has 19 bills
+Customer 10928 has 21 bills
+GenerateBillNumber 10928 has 21 bills
+GenerateBill 10928 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10928 has 21 bills
+Customer 11730 has 24 bills
+GenerateBillNumber 11730 has 24 bills
+GenerateBill 11730 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11730 has 24 bills
+Customer 11165 has 23 bills
+GenerateBillNumber 11165 has 23 bills
+GenerateBill 11165 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11165 has 23 bills
+Customer 11786 has 19 bills
+GenerateBillNumber 11786 has 19 bills
+GenerateBill 11786 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11786 has 19 bills
+Customer 11471 has 21 bills
+GenerateBillNumber 11471 has 21 bills
+GenerateBill 11471 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11471 has 21 bills
+Customer 11024 has 20 bills
+GenerateBillNumber 11024 has 20 bills
+GenerateBill 11024 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11024 has 20 bills
+Customer 00130 has 21 bills
+GenerateBillNumber 00130 has 21 bills
+GenerateBill 00130 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00130 has 21 bills
+Customer 10883 has 22 bills
+GenerateBillNumber 10883 has 22 bills
+GenerateBill 10883 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10883 has 22 bills
+Customer 00139 has 23 bills
+GenerateBillNumber 00139 has 23 bills
+GenerateBill 00139 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00139 has 23 bills
+Customer BRIDE has 20 bills
+GenerateBillNumber BRIDE has 20 bills
+GenerateBill BRIDE has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR BRIDE has 20 bills
+Customer 11233 has 21 bills
+GenerateBillNumber 11233 has 21 bills
+GenerateBill 11233 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11233 has 21 bills
+Customer 10750 has 19 bills
+GenerateBillNumber 10750 has 19 bills
+GenerateBill 10750 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10750 has 19 bills
+Customer 11512 has 19 bills
+GenerateBillNumber 11512 has 19 bills
+GenerateBill 11512 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11512 has 19 bills
+Customer 11364 has 20 bills
+GenerateBillNumber 11364 has 20 bills
+GenerateBill 11364 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11364 has 20 bills
+Customer 11077 has 22 bills
+GenerateBillNumber 11077 has 22 bills
+GenerateBill 11077 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11077 has 22 bills
+Customer 10882 has 23 bills
+GenerateBillNumber 10882 has 23 bills
+GenerateBill 10882 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10882 has 23 bills
+Customer 11780 has 1 bills
+GenerateBillNumber 11780 has 1 bills
+GenerateBill 11780 has 1 bills
+   At start, it has 1 bills
+   Customer with 1 bills
+Non-work
+CopyToTAR 11780 has 1 bills
+Customer 30002 has 20 bills
+GenerateBillNumber 30002 has 20 bills
+GenerateBill 30002 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 30002 has 20 bills
+Customer 00242 has 21 bills
+GenerateBillNumber 00242 has 21 bills
+GenerateBill 00242 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00242 has 21 bills
+Customer 11493 has 23 bills
+GenerateBillNumber 11493 has 23 bills
+GenerateBill 11493 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11493 has 23 bills
+Customer 10961 has 22 bills
+GenerateBillNumber 10961 has 22 bills
+GenerateBill 10961 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10961 has 22 bills
+Customer 10601 has 23 bills
+GenerateBillNumber 10601 has 23 bills
+GenerateBill 10601 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10601 has 23 bills
+Customer 11199 has 22 bills
+GenerateBillNumber 11199 has 22 bills
+GenerateBill 11199 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11199 has 22 bills
+Customer 11612 has 22 bills
+GenerateBillNumber 11612 has 22 bills
+GenerateBill 11612 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11612 has 22 bills
+Customer 20622 has 22 bills
+GenerateBillNumber 20622 has 22 bills
+GenerateBill 20622 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 20622 has 22 bills
+Customer 11222 has 24 bills
+GenerateBillNumber 11222 has 24 bills
+GenerateBill 11222 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11222 has 24 bills
+Customer 11186 has 22 bills
+GenerateBillNumber 11186 has 22 bills
+GenerateBill 11186 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11186 has 22 bills
+Customer 11838 has 19 bills
+GenerateBillNumber 11838 has 19 bills
+GenerateBill 11838 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11838 has 19 bills
+Customer 11476 has 21 bills
+GenerateBillNumber 11476 has 21 bills
+GenerateBill 11476 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11476 has 21 bills
+Customer 00595 has 21 bills
+GenerateBillNumber 00595 has 21 bills
+GenerateBill 00595 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00595 has 21 bills
+Customer 10823 has 19 bills
+GenerateBillNumber 10823 has 19 bills
+GenerateBill 10823 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10823 has 19 bills
+Customer 10975 has 20 bills
+GenerateBillNumber 10975 has 20 bills
+GenerateBill 10975 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10975 has 20 bills
+Customer 10509 has 23 bills
+GenerateBillNumber 10509 has 23 bills
+GenerateBill 10509 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10509 has 23 bills
+Customer 11783 has 20 bills
+GenerateBillNumber 11783 has 20 bills
+GenerateBill 11783 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11783 has 20 bills
+Customer 11663 has 21 bills
+GenerateBillNumber 11663 has 21 bills
+GenerateBill 11663 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11663 has 21 bills
+Customer 10760 has 23 bills
+GenerateBillNumber 10760 has 23 bills
+GenerateBill 10760 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10760 has 23 bills
+Customer 11134 has 21 bills
+GenerateBillNumber 11134 has 21 bills
+GenerateBill 11134 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11134 has 21 bills
+Customer 10933 has 23 bills
+GenerateBillNumber 10933 has 23 bills
+GenerateBill 10933 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10933 has 23 bills
+Customer 11833 has 21 bills
+GenerateBillNumber 11833 has 21 bills
+GenerateBill 11833 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11833 has 21 bills
+Customer 11299 has 21 bills
+GenerateBillNumber 11299 has 21 bills
+GenerateBill 11299 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11299 has 21 bills
+Customer 11004 has 23 bills
+GenerateBillNumber 11004 has 23 bills
+GenerateBill 11004 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11004 has 23 bills
+Customer 10911 has 22 bills
+GenerateBillNumber 10911 has 22 bills
+GenerateBill 10911 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10911 has 22 bills
+Customer 10745 has 23 bills
+GenerateBillNumber 10745 has 23 bills
+GenerateBill 10745 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10745 has 23 bills
+Customer 10871 has 21 bills
+GenerateBillNumber 10871 has 21 bills
+GenerateBill 10871 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10871 has 21 bills
+Customer 11842 has 21 bills
+GenerateBillNumber 11842 has 21 bills
+GenerateBill 11842 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11842 has 21 bills
+Customer 10910 has 19 bills
+GenerateBillNumber 10910 has 19 bills
+GenerateBill 10910 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10910 has 19 bills
+Customer 00378 has 19 bills
+GenerateBillNumber 00378 has 19 bills
+GenerateBill 00378 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00378 has 19 bills
+Customer 10382 has 22 bills
+GenerateBillNumber 10382 has 22 bills
+GenerateBill 10382 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10382 has 22 bills
+Customer 11562 has 23 bills
+GenerateBillNumber 11562 has 23 bills
+GenerateBill 11562 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11562 has 23 bills
+Customer 11649 has 20 bills
+GenerateBillNumber 11649 has 20 bills
+GenerateBill 11649 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11649 has 20 bills
+Customer 11539 has 21 bills
+GenerateBillNumber 11539 has 21 bills
+GenerateBill 11539 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11539 has 21 bills
+Customer 11344 has 22 bills
+GenerateBillNumber 11344 has 22 bills
+GenerateBill 11344 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11344 has 22 bills
+Customer 11239 has 19 bills
+GenerateBillNumber 11239 has 19 bills
+GenerateBill 11239 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11239 has 19 bills
+Customer 10928 has 21 bills
+GenerateBillNumber 10928 has 21 bills
+GenerateBill 10928 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10928 has 21 bills
+Customer 11730 has 24 bills
+GenerateBillNumber 11730 has 24 bills
+GenerateBill 11730 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11730 has 24 bills
+Customer 11165 has 23 bills
+GenerateBillNumber 11165 has 23 bills
+GenerateBill 11165 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11165 has 23 bills
+Customer 11786 has 19 bills
+GenerateBillNumber 11786 has 19 bills
+GenerateBill 11786 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11786 has 19 bills
+Customer 11471 has 21 bills
+GenerateBillNumber 11471 has 21 bills
+GenerateBill 11471 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11471 has 21 bills
+Customer 11024 has 20 bills
+GenerateBillNumber 11024 has 20 bills
+GenerateBill 11024 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11024 has 20 bills
+Customer 00130 has 21 bills
+GenerateBillNumber 00130 has 21 bills
+GenerateBill 00130 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00130 has 21 bills
+Customer 10883 has 22 bills
+GenerateBillNumber 10883 has 22 bills
+GenerateBill 10883 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10883 has 22 bills
+Customer 00139 has 23 bills
+GenerateBillNumber 00139 has 23 bills
+GenerateBill 00139 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00139 has 23 bills
+Customer BRIDE has 20 bills
+GenerateBillNumber BRIDE has 20 bills
+GenerateBill BRIDE has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR BRIDE has 20 bills
+Customer 11233 has 21 bills
+GenerateBillNumber 11233 has 21 bills
+GenerateBill 11233 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11233 has 21 bills
+Customer 10750 has 19 bills
+GenerateBillNumber 10750 has 19 bills
+GenerateBill 10750 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10750 has 19 bills
+Customer 11512 has 19 bills
+GenerateBillNumber 11512 has 19 bills
+GenerateBill 11512 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11512 has 19 bills
+Customer 11364 has 20 bills
+GenerateBillNumber 11364 has 20 bills
+GenerateBill 11364 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11364 has 20 bills
+Customer 11077 has 22 bills
+GenerateBillNumber 11077 has 22 bills
+GenerateBill 11077 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11077 has 22 bills
+Customer 10882 has 23 bills
+GenerateBillNumber 10882 has 23 bills
+GenerateBill 10882 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10882 has 23 bills
+Customer 11780 has 1 bills
+GenerateBillNumber 11780 has 1 bills
+GenerateBill 11780 has 1 bills
+   At start, it has 1 bills
+   Customer with 1 bills
+Non-work
+CopyToTAR 11780 has 1 bills
+Customer 30002 has 20 bills
+GenerateBillNumber 30002 has 20 bills
+GenerateBill 30002 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 30002 has 20 bills
+Customer 00242 has 21 bills
+GenerateBillNumber 00242 has 21 bills
+GenerateBill 00242 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00242 has 21 bills
+Customer 11493 has 23 bills
+GenerateBillNumber 11493 has 23 bills
+GenerateBill 11493 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11493 has 23 bills
+Customer 10961 has 22 bills
+GenerateBillNumber 10961 has 22 bills
+GenerateBill 10961 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10961 has 22 bills
+Customer 10601 has 23 bills
+GenerateBillNumber 10601 has 23 bills
+GenerateBill 10601 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10601 has 23 bills
+Customer 11199 has 22 bills
+GenerateBillNumber 11199 has 22 bills
+GenerateBill 11199 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11199 has 22 bills
+Customer 11612 has 22 bills
+GenerateBillNumber 11612 has 22 bills
+GenerateBill 11612 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11612 has 22 bills
+Customer 20622 has 22 bills
+GenerateBillNumber 20622 has 22 bills
+GenerateBill 20622 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 20622 has 22 bills
+Customer 11222 has 24 bills
+GenerateBillNumber 11222 has 24 bills
+GenerateBill 11222 has 24 bills
+   At start, it has 24 bills
+   Customer with 24 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11222 has 24 bills
+Customer 11186 has 22 bills
+GenerateBillNumber 11186 has 22 bills
+GenerateBill 11186 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11186 has 22 bills
+Customer 11838 has 19 bills
+GenerateBillNumber 11838 has 19 bills
+GenerateBill 11838 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11838 has 19 bills
+Customer 11476 has 21 bills
+GenerateBillNumber 11476 has 21 bills
+GenerateBill 11476 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11476 has 21 bills
+Customer 00595 has 21 bills
+GenerateBillNumber 00595 has 21 bills
+GenerateBill 00595 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00595 has 21 bills
+Customer 10823 has 19 bills
+GenerateBillNumber 10823 has 19 bills
+GenerateBill 10823 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10823 has 19 bills
+Customer 10975 has 20 bills
+GenerateBillNumber 10975 has 20 bills
+GenerateBill 10975 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10975 has 20 bills
+Customer 10509 has 23 bills
+GenerateBillNumber 10509 has 23 bills
+GenerateBill 10509 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10509 has 23 bills
+Customer 11783 has 20 bills
+GenerateBillNumber 11783 has 20 bills
+GenerateBill 11783 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11783 has 20 bills
+Customer 11663 has 21 bills
+GenerateBillNumber 11663 has 21 bills
+GenerateBill 11663 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11663 has 21 bills
+Customer 10760 has 23 bills
+GenerateBillNumber 10760 has 23 bills
+GenerateBill 10760 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10760 has 23 bills
+Customer 11134 has 21 bills
+GenerateBillNumber 11134 has 21 bills
+GenerateBill 11134 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11134 has 21 bills
+Customer 10933 has 23 bills
+GenerateBillNumber 10933 has 23 bills
+GenerateBill 10933 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10933 has 23 bills
+Customer 11833 has 21 bills
+GenerateBillNumber 11833 has 21 bills
+GenerateBill 11833 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11833 has 21 bills
+Customer 11299 has 21 bills
+GenerateBillNumber 11299 has 21 bills
+GenerateBill 11299 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11299 has 21 bills
+Customer 11004 has 23 bills
+GenerateBillNumber 11004 has 23 bills
+GenerateBill 11004 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11004 has 23 bills
+Customer 10911 has 22 bills
+GenerateBillNumber 10911 has 22 bills
+GenerateBill 10911 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10911 has 22 bills
+Customer 10745 has 23 bills
+GenerateBillNumber 10745 has 23 bills
+GenerateBill 10745 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10745 has 23 bills
+Customer 10871 has 21 bills
+GenerateBillNumber 10871 has 21 bills
+GenerateBill 10871 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10871 has 21 bills
+Customer 11842 has 21 bills
+GenerateBillNumber 11842 has 21 bills
+GenerateBill 11842 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11842 has 21 bills
+Customer 10910 has 19 bills
+GenerateBillNumber 10910 has 19 bills
+GenerateBill 10910 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10910 has 19 bills
+Customer 00378 has 19 bills
+GenerateBillNumber 00378 has 19 bills
+GenerateBill 00378 has 19 bills
+   At start, it has 19 bills
+   Customer with 19 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 00378 has 19 bills
+Customer 10382 has 22 bills
+GenerateBillNumber 10382 has 22 bills
+GenerateBill 10382 has 22 bills
+   At start, it has 22 bills
+   Customer with 22 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 10382 has 22 bills
+Customer 11562 has 23 bills
+GenerateBillNumber 11562 has 23 bills
+GenerateBill 11562 has 23 bills
+   At start, it has 23 bills
+   Customer with 23 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11562 has 23 bills
+Customer 11649 has 20 bills
+GenerateBillNumber 11649 has 20 bills
+GenerateBill 11649 has 20 bills
+   At start, it has 20 bills
+   Customer with 20 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11649 has 20 bills
+Customer 11539 has 21 bills
+GenerateBillNumber 11539 has 21 bills
+GenerateBill 11539 has 21 bills
+   At start, it has 21 bills
+   Customer with 21 bills
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+Non-work
+CopyToTAR 11539 has 21 bills

@@ -1,0 +1,44 @@
+					Sniders Formal Wear
+					3435 Lawson Blvd
+					Oceanside ny  11572
+
+					516-442-2828
+
+
+
+     Store Name
+     Addr1
+     City,    Stat,   Zip						SUMMARY  #  FOR WEEK ENDING       MONTH DAY YEAR
+
+
+
+   inv dt               WORK TICKET       DATE OF USE            REFERENCE                                                                   AMT(CHG)       AMT(CREDIT_)			
+		
+(iF INV DATE SAME AS PREVIOUSR DONT PRINT)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                               	Net Total                 $AMT
+
+							Discount         
+
+							Grand Totsal
+
+
+
+
+
+
+	

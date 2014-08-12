@@ -1,0 +1,29 @@
+<html>
+  <head>
+			<title>Invoice for 00001</title>
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+		<style>
+		  * { font-size:14pt; }
+			TH { font-weight:bold; padding:4px; border:1px solid #000000; background-color:#aaaaaa; }
+			TD { border:1px solid #000000; padding:4px; }
+			TABLE { border-collapse: collapse; }
+			@media print {
+			  BUTTON { display:none; }
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.9.1.js"></script>
+	</head>
+	<body>
+		<button onclick="window.location='invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
+		<br />
+		<span style='float:right'><a href="index.php"><img src="logo.png" /></a><br />
+		3435 Lawson Blvd<br />
+		Oceanside, NY 11572<br />
+		<br />
+		(516)442-2828</span><br clear='both' />
+		TUXEDO SHOWROOM<br />5214 CHURCH AVE.<br />BROOKLYN, NY 11203<br />		<table>
+			<h3>Invoice # as of 3/14/2014</h3><tr><th>Invoice Date</th><th>Ticket Number</th><th>Use Date</th><th>Reference</th><th>Credit</th><th>Charge</th></tr><tr style='border-top:2px solid #000000'><td>3/14/2014&nbsp;</td><td>B029-1&nbsp;</td><td>3/15/2014&nbsp;</td><td>Johnny&nbsp;</td><td>&nbsp;</td><td>$15.00</td><tr><td>&nbsp;</td><td>B029-0&nbsp;</td><td>3/15/2014&nbsp;</td><td>Johnny&nbsp;</td><td>&nbsp;</td><td>$32.00</td><tr style='border-top:2px solid #000000'><td>&nbsp;</td><td>&nbsp;</td><td>3/14/2014&nbsp;</td><td>45485&nbsp;</td><td>$10.00</td><td>&nbsp;</td><tr><td>&nbsp;</td><td>&nbsp;</td><td>3/14/2014&nbsp;</td><td>Payment&nbsp;</td><td>$10.00</td><td>&nbsp;</td><tr><td>&nbsp;</td><td>&nbsp;</td><td>3/14/2014&nbsp;</td><td>Miscellaneous Credit&nbsp;</td><td>$10.00</td><td>&nbsp;</td><tr><th>Total</th><td colspan='5' style='text-align:right'>$47.00</td></tr><tr><th>Payments</th><td colspan='5' style='text-align:right'>$20.00</td></tr><tr><th>Credit</th><td colspan='5' style='text-align:right'>$10.00</td></tr><tr><td colspan='6'>&nbsp;</td></tr><tr style='border-top:2px solid #000000'><th>Remaining Balance</th><td colspan='5' style='text-align:right; background-color:#cccccc'>$17.00</td></tr><script>$(function() { window.print(); });</script>		</table>
+		<br />
+		<button onclick="window.location='invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
+		</body>
+</html>

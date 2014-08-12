@@ -1,0 +1,7 @@
+Minor:
+  * Move Use Date on work ticket templates under the bar code to make room at the top for hole punching.
+
+Major:
+  1) Focus on billing first
+     a) Inlcude column for customer that indicates don't print bills for it and instead create "false" invoice numbers
+  2) Credits, Payments, and Misc. Charges on one page

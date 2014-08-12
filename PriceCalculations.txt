@@ -1,0 +1,7 @@
+Item Prices: If complete outfit, P-COMP-PR of Coat Style + Sum of P-UPCHARGE-O for Individual Items
+Else, just Sum of P-ITEM prices
+
+Shoe prices: complete outfit = P-COMP-PR
+Else it's P-ITEM
+
+Total price = Item Prices + Shoe Prices

@@ -1,0 +1,216 @@
+@charset "utf-8";
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #10BBB4;
+	margin: 0px;
+	padding: 0px;
+	direction: ltr;
+	background-image: 
+}
+
+input, select, textarea{
+	background-color: #E1FDFC;
+	border: 1px dotted #10BBB4;
+	color: #10BBB4;
+}
+
+input:focus,select:focus,textarea:focus{
+	background-color: #E0E0E0;
+}
+
+label{
+	color:#10BBB4;}	
+
+.txt-area {
+	width: 186px;
+}
+
+.container {
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 2px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #10BBB4;
+	border: 1px solid #10BBB4;
+	font-size: 12px;
+}
+.form-title {
+	font-size: 14px;
+	font-weight: bold;
+	color: 
+white;
+	background-color: 
+#999;
+	height: 44px;
+	margin-bottom: 10px;
+	padding-top: 5px;
+	padding-left: 10px;
+}
+.form-title h3 {
+	margin: 0px;
+	padding: 0px;
+}
+.form-title h6 {
+	font-weight: normal;
+	color: 
+#E1FDFC;
+	padding: 0px;
+	margin: 0px;
+	font-size: 10px;
+}
+
+
+.red-lbl {
+	background-color: #10BBB4;
+	background-repeat: repeat-x;
+	color: #FFF;
+}
+.input-td {
+}
+
+.txtbox {
+	height: 20px;
+	width: 190px;
+	
+}
+.form-grid {
+	text-align: left;
+	font-weight: bold;
+}
+.form-grid td{
+	padding-left:5px;
+	height:26px;
+}
+.select-list {
+	height: 22px;
+	width: 190px;
+	padding: 1px;
+}
+
+.big-txtarea{
+	width: 300px;
+	height: 100px;
+}
+	
+	.btn{
+	background-color: #CCCCCC;
+	border: 1px solid #CCCCCC;
+	color: #10BBB4;
+	font-weight: bold;
+	width: 70px;
+	height: 25px;
+	margin-right: 5px;
+	margin-left: 5px;
+	background-image: url(images/btn-bg.png);
+	background-repeat: repeat-x;
+}
+	
+	.btn:hover{
+	color: #8C8C8C;
+}
+/*pager style*/
+.paginationTG{
+font: 11px Tahoma, Verdana, Arial, "Trebuchet MS", Helvetica, sans-serif;
+color: #3D3D3D;
+margin-top: 20px;
+margin-left: auto;
+width: 195px;
+margin-right: auto;
+margin-bottom: 5px;
+}
+
+.paginationTG ul{
+margin: 0;
+padding: 0;
+}
+
+.paginationTG li{
+list-style-type: none;
+display: inline;
+padding-bottom: 1px;
+}
+
+.paginationTG a, .paginationTG a:visited{
+padding: 5px 8px;
+text-decoration: none; 
+background-color: inherit;
+color: #325C99;
+font-weight: bold;
+}
+
+.paginationTG a:hover, .paginationTG a:active{
+	color: #ffffff;
+	background-color: #8AAAD9;
+	text-decoration: none;
+}
+
+.paginationTG li.currentpage{
+	background-color: 
+#325C99;
+font-weight: bold;
+padding: 5px 9px;
+color: #ffffff;
+}
+
+.paginationTG li.disablepage{
+padding: 0 5px;
+border: 1px solid #929292;
+color: #929292;
+}
+
+.paginationTG li.nextpage{
+font-weight: bold;
+}
+
+* html .paginationTG li.currentpage, * html .paginationTG li.disablepage{ /*IE 6 and below. Adjust non linked LIs slightly to account for bugs*/
+padding-right: 9px;
+padding-left: 9px;
+}
+
+/*2nd pager*/
+.pager {
+	text-align: center;
+	margin-top:10px;
+	margin-bottom:5px;
+}
+.pager-btn {
+	background-color: #CCCCCC;
+	border: 1px solid #CCCCCC;
+	color: #10BBB4;
+	font-weight: bold;
+	height: 25px;
+	background-image: url(images/btn-bg.png);
+	background-repeat: repeat-x;
+	margin-left: 3px;
+}
+
+.pager-btn:hover{
+	color: #8C8C8C;
+}
+
+.pager-records {
+	width: 45px;
+	margin-left: 3px;
+	font-weight: bold;
+	text-align: center;
+}
+/*errors*/
+.error-message { display: block; line-height: 22px; background: #FBE3E4 url('images/error.gif') no-repeat 10px 6px; padding: 3px 10px 3px 35px; color:#8a1f11;border: 1px solid #FBC2C4; -moz-border-radius:5px; -webkit-border-radius:5px;
+margin-top:5px;
+margin-bottom:5px; }
+
+.success-message{
+	display: block;
+	line-height: 22px;
+	background: #ECFFEC url('images/success.gif') no-repeat 10px 6px;
+	padding: 3px 10px 3px 35px;
+	color: #009900;
+	border: 1px solid #C6FFC6;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+   
