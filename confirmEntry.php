@@ -111,7 +111,7 @@
       $shoeprice=0;
       $total=0;
       /* Calculate the price  if not replacement */
-      if ($types[$_POST['b_type']]!="Replacement") {
+      if ($types[$_POST['b_type']]!="Replacement" && $types[$_POST['b_type']]!="Fashion show" && $types[$_POST['b_type']]!="Try On") {
       $items=array(
         "pants"=>!empty($_POST['p_style'])?$_POST['p_style']:"",
         "shirt"=>!empty($_POST['s_style'])?$_POST['s_style']:"",
