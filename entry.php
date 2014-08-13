@@ -59,7 +59,7 @@
         <option value="202">Standard-Discount</option>
         <option value="208">Standard-Discount 2</option>
         <option value="207">Fashion Show</option>
-        <option value="206">Replacement</option>
+        <option value="206">Replacement</option> 
         <option value="205">Try-On</option>
       </select>
       <br />
