@@ -42,7 +42,7 @@
     $vals["W-USE-DT"]="STR_TO_DATE('".$_POST['full_use_date']." 00:00:00', '%m/%e/%Y %H:%i:%s')"; // Use date
     $vals["W-SHP-INST"]=$_POST['d_type']; // Shipping instructions
     $vals["W-COD-INV"]="0";  // COD invoice number
-    $vals["W-BILL-INV"]="0"; // Billing invoice number
+    $vals["W-BILL-INV"]="000000"; // Billing invoice number
     $vals["W-REF"]="'".mysql_real_escape_string($_POST['ref'])."'"; // Reference name
     $vals["W-COMP-OUT"]=(!empty($_POST['complete']))?"1":"0"; // Complete outfit?
     $vals["W-COAT"]="'".$_POST['c_style']."'"; // Coat style
@@ -153,39 +153,17 @@
     $vals["W-TKT-PRINTED"]="0"; // Ticket printed?
     $vals["W-TKT-BILLED"]="0"; // Ticket billed?
 
-		/* Create a SQL query for the billing insertion */
-		$bills["AB-CUSTNO"]=$vals["W-CUSTNO"];
-		$bills["AB-USE-DT"]=$vals["W-USE-DT"];
-		$bills["AB-TKT"]=$vals["W-TKT"];
-		$bills["AB-TKT-SUB"]=$vals["W-TKT-SUB"];
-		$bills["AB-BILL-DT"]="NOW()";
-		$bills["AB-BILL-TYP"]=10;
-		$bills["AB-REF"]=$vals["W-REF"];
-		$bills["AB-AMT"]=$vals["W-AMT"];
+    /* Create a SQL query from the data */
 		$cols="(";
 		$values="(";
-		foreach ($bills as $col=>$val) {
+		foreach ($vals as $col=>$val) {
 			if ($cols!="(") { $cols.=", "; }
 			if ($values!="(") { $values.=", "; }
 			$cols.="`".$col."`";
 			$values.=$val;
-		}			
-		$q="INSERT INTO `t-a-billing` ".$cols.") VALUES ".$values.")";
-		$billQuery=mysql_query($q);
-		if (!$billQuery) { $query=FALSE; }
-		else {    
-      /* Create a SQL query from the data */
-			$cols="(";
-			$values="(";
-			foreach ($vals as $col=>$val) {
-				if ($cols!="(") { $cols.=", "; }
-				if ($values!="(") { $values.=", "; }
-				$cols.="`".$col."`";
-				$values.=$val;
-			}
-			$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
-			$query=mysql_query($q);
-    }
+		}
+		$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
+		$query=mysql_query($q);
 		
     /* Create one for the shoe ticket if needed */
     if ($query && !empty($_POST["sh_style"]) && empty($_POST['accessories'])) {
@@ -196,42 +174,20 @@
       $vals["W-SHOE-COLOR"]="'".$_POST['sh_color']."'"; // Shoe color
       $vals["W-SHOE-SIZE"]="'".$_POST['sh_size']."'"; // Shoe size
 
-		  /* Create a SQL query for the billing insertion */
-			$bills["AB-CUSTNO"]=$vals["W-CUSTNO"];
-			$bills["AB-USE-DT"]=$vals["W-USE-DT"];
-			$bills["AB-TKT"]=$vals["W-TKT"];
-			$bills["AB-TKT-SUB"]=$vals["W-TKT-SUB"];
-			$bills["AB-BILL-DT"]="NOW()";
-			$bills["AB-BILL-TYP"]=10;
-			$bills["AB-REF"]=$vals["W-REF"];
-			$bills["AB-AMT"]=$vals["W-AMT"];
+			/* Create a SQL query from the data */
 			$cols="(";
-      $values="(";
-      foreach ($bills as $col=>$val) {
-        if ($cols!="(") { $cols.=", "; }
-        if ($values!="(") { $values.=", "; }
-        $cols.="`".$col."`";
-        $values.=$val;
-      }			
-			$q="INSERT INTO `t-a-billing` ".$cols.") VALUES ".$values.")";
-      $billQuery=mysql_query($q);
-			
-			if (!$billQuery) { $query=FALSE; }
-			else {
-				/* Create a SQL query from the data */
-				$cols="(";
-				$values="(";
-				foreach ($vals as $col=>$val) {
-					if ($cols!="(") { $cols.=", "; }
-					if ($values!="(") { $values.=", "; }
-					$cols.="`".$col."`";
-					$values.=$val;
-				}
-				$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
-				$query=mysql_query($q);
+			$values="(";
+			foreach ($vals as $col=>$val) {
+				if ($cols!="(") { $cols.=", "; }
+				if ($values!="(") { $values.=", "; }
+				$cols.="`".$col."`";
+				$values.=$val;
 			}
-    }
-    if ($query && $billQuery) { ?>
+			$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
+			$query=mysql_query($q);
+		}
+
+    if ($query) { ?>
       <b>Ticket added. Please wait while we begin printing.</b><br />
       <form name="redirect" action="printTicket.php" method="post">
         <input type="hidden" name="ticket" value="<?php echo $_POST['ticket']; ?>" />

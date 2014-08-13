@@ -32,6 +32,8 @@
 	
 	if (!$query || mysql_num_rows($query)<=0) { $error="Customer not found."; }
 	else {
+		$customerData=mysql_fetch_assoc($query);
+
 		$adjNum=GenerateAdjustmentNumber();
 		if (($_POST['adjustType']>=20 && $_POST['adjustType']<=29) || ($_POST['adjustType']>39 && $_POST['adjustType']<50)) {
 		  $_POST['amt']*=-1;
@@ -50,17 +52,18 @@
 			"Not Used"=>42
 		);
 		$q="INSERT INTO `t-a-billing` VALUES(";
-		$q.="'".mysql_real_escape_string($_POST['c_num'])."', ";
-		$q.="NOW(), ";
-		$q.="'".$adjNum."', 0, '', NOW(), ";
-		$q.=$_POST['adjustType'].", ";
-		$q.="NOW(), ";
-		if (!empty($_POST['freeform'])) { $q.="'".mysql_real_escape_string($_POST['freeform'])."', "; }
+		$q.="'".mysql_real_escape_string($_POST['c_num'])."', "; // Customer number
+		$q.="'', '', "; // Bill date and number -- initially empty
+		$q.="NOW(), '".$adjNum."', "; // Adjustment date and number
+		$q.=$_POST['adjustType'].", "; // Adjustment type
+		if (!empty($_POST['freeform'])) { $q.="'".mysql_real_escape_string($_POST['freeform'])."', "; } // Freeform info if any, or...
 		else {
-		  $ind=array_search($_POST['adjustType'], $types);
+		  $ind=array_search($_POST['adjustType'], $types); // Textual description of adjustment type
 			$q.="'".mysql_real_escape_string($ind)."', ";
 		}
-		$q.=$_POST['amt'];
+		$q.=$_POST['amt'].", "; // Subtotal
+		$q.="0.0, "; // Discount percentage -- Adjustments are not discounted for now. Needs discussion.
+		$q.=$_POST['amt']; // Total after discount -- Same as subtotal for adjustments, unless we end up discounting them. Needs discussion.
 		$q.=")";
 		$query=mysql_query($q);
 		if (!$query) { $error=mysql_error(); }

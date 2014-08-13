@@ -35,6 +35,7 @@
 			TABLE { border-collapse: collapse; }
 			@media print {
 			  BUTTON { display:none; }
+				.message { display: none; }
 			}
 		</style>
 		<script type="text/javascript" src="jquery-1.9.1.js"></script>
@@ -43,7 +44,7 @@
 		<button onclick="window.location='invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
 		<br />
 		<span style='float:right'><a href="index.php"><img src="logo.png" /></a><br />
-		3435 Lawson Blvd<br />
+		2882 Long Beach Rd<br />
 		Oceanside, NY 11572<br />
 		<br />
 		(516)442-2828</span><br clear='both' />
@@ -75,121 +76,98 @@
 							
 					return $num;
 				}
-				$q="SELECT `AB-INV-DT`, `AB-BILL-NO` FROM `t-a-billing` WHERE (`AB-CUSTNO`,`AB-INV-DT`) IN (SELECT `AB-CUSTNO`, MAX(`AB-INV-DT`) FROM `t-a-billing` WHERE `AB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND DATEDIFF(`AB-USE-DT`, '".$nextCycle."')<=0 AND `AB-BILL-NO` IS NOT NULL AND `AB-BILL-NO`!='' GROUP BY `AB-CUSTNO`)";
+				
+				$q="SELECT COUNT(`W-CUSTNO`) AS num FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 				$query=mysql_query($q);
-				if (!$query || mysql_num_rows($query)<=0) {
-				  $invNum=GenerateInvoiceNumber();
+				
+				/* If there's no new items to invoice, show that message and set the number to RECAP instead of generating a new one */
+				if ($query===FALSE || mysql_num_rows($query)<=0) {
+					$invNum="RECAP";
+					echo "<span class='message'><br />There are no new items to be invoiced. Press CTRL+P to print this cycle's invoice recap.<br /></span>";
 				}
 				else {
-					$invNum=mysql_fetch_assoc($query);
-					$invNum=$invNum["AB-BILL-NO"]; 
+					$q=mysql_fetch_assoc($query);
+					if ($q["num"]<=0) {
+						$invNum="RECAP";
+						echo "<span class='message'>There are no new items to be invoiced. Press CTRL+P to print this cycle's invoice recap.<br /></span>";
+					}
+					
+					/* If there are new items, make a new invoice number */
+					else {
+						$invNum=GenerateInvoiceNumber();
+					}
 				}
 				
-				echo "<h3>Invoice #".$invNum." as of ".date("n/j/Y")."</h3>";
+				echo "<h3>Invoice ".($invNum!="RECAP"?"#":"").$invNum." as of ".date("n/j/Y")."</h3>";
 				
-				/* TODO: Change names to view */
-			  $q="SELECT * FROM `t-a-billing` WHERE `AB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND DATEDIFF(`AB-USE-DT`, '".$nextCycle."')<=0 ORDER BY `AB-BILL-NO`, `AB-BILL-TYP`, `AB-INV-DT`";
+				//$q="SELECT * FROM `t-a-billing` WHERE `AB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND DATEDIFF(`AB-USE-DT`, '".$nextCycle."')<=0 ORDER BY `AB-BILL-NO`, `AB-BILL-TYP`, `AB-INV-DT`";
+				$q="SELECT * FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-ADJ-TYPE`=1 ORDER BY `TAB-INV-NO`, `TAB-INV-DT`";
+				$num=0;
+				$subtotal=0;
+				$total=0;
+				$lastDate="";
+				$worked=false;
+				
+				/* Get previous invoices for the current cycle and, if any exist, show a consolidation of them */
 				$query=mysql_query($q);
 				$now=date("Y-n-j");
-				if (!$query || mysql_num_rows($query)<=0) {
-				  echo "<tr><td>You have no items to invoice for this billing cycle.</td></tr>";
+				if ($query && mysql_num_rows($query)>0) {
+				  echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice Number</th><th colspan='2'>Invoice Total</th></tr>";
+					while ($row=mysql_fetch_assoc($query)) {
+						echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2'>$".number_format($row["TAB-TOTAL"],2)."</td></tr>";
+						$total+=$row["TAB-TOTAL"];
+					}
+					if ($invNum!="RECAP") { echo "<tr><td colspan='5'>&nbsp;</td></tr>"; }
 				}
-				else {
-				  $num=0;
+				
+				/* List new items */
+				if ($invNum!="RECAP") {
+					echo "<tr><th>Invoice Date</th><th>Ticket Number</th><th>Use Date</th><th>Reference</th><th>Amount</th></tr>";
+					$q="SELECT * FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
+					$query=mysql_query($q);
+					
 					$subtotal=0;
-					$credit=0;
-					$payment=0;
-					$total=0;
 					$lastDate="";
 					$worked=false;
 					
-					$rows=array();
 					while ($row=mysql_fetch_assoc($query)) {
-					  $rows[]=$row;
+						echo "<tr><td>".$now."</td><td>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td>".$row["W-REF"]."</td><td>$".number_format($row["W-AMT"], 2)."</td>";
+						$subtotal+=$row["W-AMT"];
 					}
 					
-					$totals=array();
-					$dates=array();
-					foreach ($rows as $i=>$row) {
-					  if ($row['AB-BILL-NO']!=$invNum && !empty($row['AB-BILL-NO'])) {
-							if (!isset($totals[$row['AB-BILL-NO']])) {
-								$totals[$row['AB-BILL-NO']]=0;
-							}
-							if (!isset($dates[$row['AB-BILL-NO']])) {
-								$dates[$row['AB-BILL-NO']]=$row['AB-BILL-DT'];
-							}
-							if ($row["AB-BILL-TYP"]<20 || ($row["AB-BILL-TYP"]>29 && $row["AB-BILL-TYP"]<40)) {
-								$totals[$row['AB-BILL-NO']]+=$row["AB-AMT"];
-							}
-						}
-						else {
-						  $row['AB-BILL-NO']=$invNum;
-						}
-					}
-					
-					echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice Number</th><th colspan='2'>Invoice Total</th></tr>";
-					foreach ($totals as $num=>$tot) {
-					  echo "<tr><td colspan='2'>".$dates[$num]."</td><td colspan='2'>".$num."</td><td colspan='2'>".$tot."</td></tr>";
-					}
-					
-				  echo "<tr><th>Invoice Date</th><th>Ticket Number</th><th>Use Date</th><th>Reference</th><th>Credit</th><th>Charge</th></tr>";
-				  foreach ($rows as $i=>$row) {
-					  $num++;
-					  $dt=$row["AB-INV-DT"];
-						if ($dt=="" || $dt==NULL) {
-							$dt=$now;
-						}
-						if ($row['AB-BILL-NO']==$invNum) {
-							echo "<tr";
-							if (($row["AB-BILL-TYP"]!=10 || $num==1) && !$worked) { 
-								if ($num>1) { $worked=true; }
-								echo " style='border-top:2px solid #000000'";
-							}
-							echo "><td>";
-							if ($lastDate!=$dt) { echo date("n/j/Y", strtotime($dt)); }
-							echo "&nbsp;</td>";
-							if ($row["AB-BILL-TYP"]==10) { echo "<td>".$row["AB-TKT"]."-".$row["AB-TKT-SUB"]."&nbsp;</td>"; }
-							else { echo "<td>&nbsp;</td>"; }
-							echo "<td>".date("n/j/Y", strtotime($row["AB-USE-DT"]))."&nbsp;</td><td>".$row["AB-REF"]."&nbsp;</td>";
-						}
-						if ($row["AB-BILL-TYP"]<20 || ($row["AB-BILL-TYP"]>29 && $row["AB-BILL-TYP"]<40)) {
-							$subtotal+=$row["AB-AMT"];
-							if ($row['AB-BILL-NO']==$invNum) {
-								echo "<td>&nbsp;</td><td>$".number_format(abs($row["AB-AMT"]), 2)."</td>";
-							}
-						}
-						else if ($row["AB-BILL-TYP"]>=40) {
-							$credit+=abs($row["AB-AMT"]);
-							if ($row['AB-BILL-NO']==$invNum) {
-								echo "<td>$".number_format(abs($row["AB-AMT"]), 2)."</td><td>&nbsp;</td>";
-							}
-						}
-						else {
-							$payment+=abs($row["AB-AMT"]);
-							if ($row['AB-BILL-NO']==$invNum) {
-								echo "<td>$".number_format(abs($row["AB-AMT"]), 2)."</td><td>&nbsp;</td>";
-							}
-						}
-						
-						$lastDate=$dt;
-					}
+					/* Display subtotals and discounts etc. */
 					$disc=$customerData["C-DISCNT-PCT"];
+					echo "<tr style='border-top:2px solid #000000'><th>Subtotal</th><td colspan='4' style='text-align:right'>$".number_format($subtotal,2)."</td></tr>";
 					if ($disc>0) {
-						echo "<tr style='border-top:2px solid #000000'><th>Subtotal</th><td colspan='5' style='text-align:right'>$".number_format($subtotal,2)."</td></tr>";
-						echo "<tr><th>Discount</th><td colspan='5' style='text-align:right'>".$disc."%</td></tr>";
+						echo "<tr><th>Discount</th><td colspan='4' style='text-align:right'>".$disc."%</td></tr>";
 					}
-						$total=$subtotal*(100-$disc)/100;
-					echo "<tr><th>Total</th><td colspan='5' style='text-align:right'>$".number_format($total,2)."</td></tr>";
-					echo "<tr><th>Payments</th><td colspan='5' style='text-align:right'>$".number_format($payment,2)."</td></tr>";
-					echo "<tr><th>Credit</th><td colspan='5' style='text-align:right'>$".number_format($credit, 2)."</td></tr>";
-					echo "<tr><td colspan='6'>&nbsp;</td></tr>";
-					echo "<tr style='border-top:2px solid #000000'><th>Remaining Balance</th><td colspan='5' style='text-align:right; background-color:#cccccc'>$".number_format($total-$credit-$payment, 2)."</td></tr>";
+					$total+=$subtotal*(100-$disc)/100;
+					
 				}
 				
-				$q="UPDATE `t-a-billing` SET `AB-INV-DT`='".mysql_real_escape_string($now)."', `AB-BILL-NO`='".mysql_real_escape_string($invNum)."' WHERE `AB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND DATEDIFF(`AB-USE-DT`, '".$nextCycle."')<=0 AND `AB-INV-DT` IS NULL";
-				$query=mysql_query($q);
+				/* Display totals */
+				echo "<tr><td colspan='5'>&nbsp;</td></tr>";
+				echo "<tr style='border-top:2px solid #000000'><th>Total</th><td colspan='4' style='text-align:right'>$".number_format($total,2)."</td></tr>";
 				
-				echo "<script>$(function() { window.print(); });</script>";				
+				/* Insert invoice into billing table */
+				if ($invNum!="RECAP") {
+					$q="INSERT INTO `t-a-billing` VALUES (";
+					$q.="'".mysql_real_escape_string($_POST['c_num'])."', "; // Customer number
+					$q.="0, '', "; // Bill date and number -- Initially blank prior to billing
+					$q.="NOW(), '".mysql_real_escape_string($invNum)."', "; // Invoice date and number
+					$q.="1, '', "; // Adjustment reference -- Blank for invoices (N/A)
+					$q.=$subtotal.", ".$disc.", ".($subtotal*(100-$disc)/100).")"; // Subtotal, discount, and total for JUST THIS INVOICE (not counting consolidated previous invoices)
+					
+					$query=mysql_query($q);
+					
+					/* And also update the fields in the view (which updates the work table and removes them from the view) */
+					$q="UPDATE `v-a-invoice` SET `W-INV-NO`='".mysql_real_escape_string($invNum)."' WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
+					$query=mysql_query($q);
+				}
+				
+				if ($invNum!="RECAP") {
+					echo "<script>$(function() { window.print(); });</script>";				
+				}
 			?>
 		</table>
 		<br />
