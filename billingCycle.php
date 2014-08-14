@@ -76,7 +76,7 @@
 					},
 					"json"
 				).fail(function() {
-				  GetInvoiceProgress(); 
+				  GetInvoiceProgress();
 				});
 			}
 			GetInvoiceProgress();

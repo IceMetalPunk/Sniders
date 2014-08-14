@@ -22,7 +22,7 @@
 		}
 	}
 	
-	/* Function to generate new invoice numbers */
+	/* Function to generate new invoice numbers */ 
 	function GenerateInvoiceNumber() {
 	
 	  // Get current invoice number
