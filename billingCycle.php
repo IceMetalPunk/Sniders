@@ -13,7 +13,8 @@
   </head>
 	<body>
 <?php
-  pclose(popen("start php processBilling.php /B", "r")); // Start the billing process in the background.
+  //pclose(popen("start php processBilling.php /B", "r")); // Start the billing process in the background.
+	pclose(popen("start php batchInvoice.php /B", "r"));
 ?>
 		<a href="index.php"><span style="float:right"><img src="logo.png" /></span></a><br clear="both" />
 		

@@ -12,16 +12,6 @@
 		if (!$query || mysql_num_rows($query)<=0) { $error="Customer not found."; }
 		else {
 			$customerData=mysql_fetch_assoc($query);
-			
-			$q="SELECT * FROM `t-lookup` WHERE `l-VALUE`=301";
-			$query=mysql_query($q);
-			if (!$query || mysql_num_rows($query)<=0) {
-				$error="Billing cycle date not found.";
-			}
-			else {
-				$nextCycle=mysql_fetch_assoc($query);
-				$nextCycle=$nextCycle["l-DESC"];
-			}
 		}
 		
 		if ($error=="") {
@@ -43,10 +33,9 @@
 	<body>
 		<button onclick="window.location='invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
 		<br />
-		<span style='float:right'><a href="index.php"><img src="logo.png" /></a><br />
+		<span style='float:right'><a href="index.php"><img src="logo.png" border=0 /></a><br />
 		2882 Long Beach Rd<br />
 		Oceanside, NY 11572<br />
-		<br />
 		(516)442-2828</span><br clear='both' />
 		<?php
 		  echo $customerData["C-NAME"]."<br />";
@@ -98,19 +87,16 @@
 					}
 				}
 				
-				echo "<h3>Invoice ".($invNum!="RECAP"?"#":"").$invNum." as of ".date("n/j/Y")."</h3>";
+				$now=date("n/j/Y");
+				echo "<h3>Invoice ".($invNum!="RECAP"?"#":"").$invNum." as of ".$now."</h3>";
 				
-				//$q="SELECT * FROM `t-a-billing` WHERE `AB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND DATEDIFF(`AB-USE-DT`, '".$nextCycle."')<=0 ORDER BY `AB-BILL-NO`, `AB-BILL-TYP`, `AB-INV-DT`";
-				$q="SELECT * FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-ADJ-TYPE`=1 ORDER BY `TAB-INV-NO`, `TAB-INV-DT`";
 				$num=0;
 				$subtotal=0;
 				$total=0;
-				$lastDate="";
-				$worked=false;
 				
 				/* Get previous invoices for the current cycle and, if any exist, show a consolidation of them */
+				$q="SELECT * FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-ADJ-TYPE`=1 ORDER BY `TAB-INV-NO`, `TAB-INV-DT`";
 				$query=mysql_query($q);
-				$now=date("Y-n-j");
 				if ($query && mysql_num_rows($query)>0) {
 				  echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice Number</th><th colspan='2'>Invoice Total</th></tr>";
 					while ($row=mysql_fetch_assoc($query)) {
@@ -127,8 +113,6 @@
 					$query=mysql_query($q);
 					
 					$subtotal=0;
-					$lastDate="";
-					$worked=false;
 					
 					while ($row=mysql_fetch_assoc($query)) {
 						echo "<tr><td>".$now."</td><td>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td>".$row["W-REF"]."</td><td>$".number_format($row["W-AMT"], 2)."</td>";

@@ -1,6 +1,7 @@
 BODY {
   background-color:#eeeeee;
 }
+img { border: 0px; }
 * { font-size:18pt; } /* Default font size for everything is 18pt */
 
 /* Text in header-3 style is size 24pt, light gray, with a light gray bottom border that reaches the entire page width */
