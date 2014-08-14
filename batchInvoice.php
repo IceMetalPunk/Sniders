@@ -127,14 +127,14 @@
 		// Save the invoice
 		if (!file_exists("billing")) { mkdir("billing"); }
 		if (!file_exists("billing/invoices")) { mkdir("billing/invoices"); }
-		file_put_contents("billing/invoices/invoice_".$invNum.".html", ob_get_contents());
+		file_put_contents("billing/invoices/unprinted/invoice_".$invNum.".html", ob_get_contents());
 
 		ob_end_clean();
 		
 		// FIXIT: Attempt to print it
-		$cmd="start ./billing/invoices/printhtml.exe file='invoice_".$invNum.".html' header='' footer='' title='' /B";
-		file_put_contents("debug.txt", $cmd);
-		pclose(popen($cmd, "r"));
+		//$cmd="start ./billing/invoices/printhtml.exe file='invoice_".$invNum.".html' header='' footer='' title='' /B";
+		//file_put_contents("debug.txt", $cmd);
+		//pclose(popen($cmd, "r"));
 		//shell_exec('./billing/invoices/printhtml.exe file="invoice_'.$invNum.'.html" header="" footer="" title=""');
 	}
 	

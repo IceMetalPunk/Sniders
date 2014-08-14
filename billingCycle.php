@@ -26,10 +26,10 @@
 			
 			function SetProgress(amt, text) {
 				onBill=amt;
-				$("#billProg").animate({width: ((onBill/numBills)*100)+"%" }, { duration: 500, queue:false});
+				$("#billProg").animate({width: (amt*100)+"%" }, { duration: 500, queue:false});
 				$("#billProgText").html(text);
 			}
-			function GetProgress() {
+			function GetBillProgress() {
 			  if (canceled) { return false; }
 			  $.get(
 					"getBillingProgress.php",
@@ -37,7 +37,7 @@
 					  if (canceled) { return false; }
 					  if (data.total<0) {
 						  SetProgress(0, "Connecting to database...");
-							 checkTimer=setTimeout(GetProgress, 100);
+							 checkTimer=setTimeout(GetBillProgress, 100);
 						}
 						else if (data.total==0) {
 						  SetProgress(0, "No Bills To Process");
@@ -45,16 +45,41 @@
 						else {
 						  numBills=data.total;
 							SetProgress(data.on, "Processing bill "+data.on+"/"+data.total);
-							if (data.on<data.total) { checkTimer=setTimeout(GetProgress, 100); }
+							if (data.on<data.total) { checkTimer=setTimeout(GetBillProgress, 100); }
 							else { SetProgress(data.total, "Billing Complete"); canceled=true; document.title="Billing Complete"; }
 						}
 					},
 					"json"
 				).fail(function() {
-				  GetProgress();
+				  GetBillProgress();
 				});
 			}
-			GetProgress();
+			function GetInvoiceProgress() {
+			  if (canceled) { return false; }
+			  $.get(
+					"getInvoiceProgress.php",
+					function (data) {
+					  if (canceled) { return false; }
+					  if (data.total<0) {
+						  SetProgress(0, "Connecting to database...");
+							 checkTimer=setTimeout(GetInvoiceProgress, 100);
+						}
+						else if (data.total==0) {
+						  SetProgress(0, "No Invoices To Process");
+						}
+						else {
+						  numInvoices=data.total;
+							SetProgress(data.on/data.total, "Invoicing "+data.on+"/"+data.total);
+							if (data.on<data.total) { checkTimer=setTimeout(GetInvoiceProgress, 100); }
+							else { SetProgress(1, "Invoicing Complete"); canceled=true; document.title="Invoicing Complete"; }
+						}
+					},
+					"json"
+				).fail(function() {
+				  GetInvoiceProgress();
+				});
+			}
+			GetInvoiceProgress();
 			
 			function CancelProgress() {
 			  if (!confirm("Are you sure you want to cancel the billing process?")) { return false; }
