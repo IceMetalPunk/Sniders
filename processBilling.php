@@ -1,4 +1,5 @@
 <?php
+	
   set_time_limit(60*60*24*365);
 	
   /* Connect to the MySQL-running server (on localhost, with username root and no password) */
@@ -10,36 +11,157 @@
 	$billNums=array();
 	$custBills=array();
 	
-	function GenerateBill() {
-
-	}
-	
-	function GenerateAdjustmentNumber() {
-	  $q="SELECT `l-DESC` FROM `t-lookup` WHERE `l-VALUE`=999";
+	/* Generate an individual bill for a customer */
+	function MakeBill($custRow) {
+		global $cycleDate;
+		$customer=$custRow["TAB-CUSTNO"];
+		
+		/* Get the customer's current balance */
+		$q="SELECT `AS-BAL` FROM `t-a-summary` WHERE `AS-CUSTNO`='".mysql_real_escape_string($customer)."' AND `AS-BILL-NO`='CLOSING'";
 		$query=mysql_query($q);
-		$row=mysql_fetch_assoc($query);
-		$num=$row["l-DESC"];
-		$newNum=substr($num, 1);
-		$newNum+=1;
-		if ($newNum>99999) { $newNum=10001; }
-		while (strlen($newNum)<5) { $newNum="0".$newNum; }
-		$newNum="A".$newNum;
-		$q="UPDATE `t-lookup` SET `l-DESC`='".$newNum."' WHERE `l-VALUE`=999";
-		mysql_query($q);
-		return $num;
+		if ($query && mysql_num_rows($query)>0) {
+			$openingBalance=mysql_fetch_assoc($query);
+			$openingBalance=$openingBalance["AS-BAL"];
+		}
+		
+		/* If there's no closing balance recorded, check for a monthly opening balance */
+		else {
+			$q="SELECT `AS-BAL` FROM `t-a-summary` WHERE `AS-CUSTNO`='".mysql_real_escape_string($customer)."' AND `AS-BILL-NO`='OPENING'";
+			$query=mysql_query($q);
+			if ($query && mysql_num_rows($query)>0) {
+				$openingBalance=mysql_fetch_assoc($query);
+				$openingBalance=$openingBalance["AS-BAL"];
+			}
+			else {
+				$openingBalance=0;
+			}
+		}
+		
+		/* Get all unbilled items from TAB */
+		$q="SELECT * FROM `t-a-billing`, `t-customer` WHERE `C-CUSTNO`=`TAB-CUSTNO` AND `TAB-CUSTNO`='".$customer."' AND `TAB-BILL-NO`='' AND `TAB-ADJ-TYPE`!=0 ORDER BY `TAB-ADJ-TYPE`, `TAB-INV-DT`";
+		$query=mysql_query($q);
+		
+		if (!$query || mysql_num_rows($query)<=0) {
+			return false;
+		}
+		
+		/* Begin bill generation */
+		$billNum=GenerateBillNumber($custRow);
+		file_put_contents("debug.txt", "Bill ".$billNum);
+		ob_start();
+		ob_clean();
+		
+		include "billHeader.php";
+		$onInvoices=true;
+		$balance=$openingBalance;
+		$credits=0;
+		$charges=0;
+		while ($row=mysql_fetch_assoc($query)) {
+		
+			/* If we're printing invoice numbers... */
+			if ($onInvoices) {
+			
+				/* Check if we're now on adjustments, and if so, print the header for them and this item itself */
+				if ($row["TAB-ADJ-TYPE"]>1) {
+					$onInvoices=false;
+					echo "<tr><th>Item Date</th><th colspan='3'>Item Number</th><th>Charges</th><th colspan='2'>Credits</th>";
+					$charge=($row["TAB-ADJ-TYPE"]>=30 && $row["TAB-ADJ-TYPE"]<40);
+					$balance+=$row["TAB-TOTAL"];
+					if ($charge) { $charges+=$row["TAB-TOTAL"]; }
+					else { $credits+=$row["TAB-TOTAL"]; }
+					echo "<tr><td>".$row["TAB-INV-DT"]."</td><td colspan='3'>".$row["TAB-INV-NO"]."</td><td class='right'>".($charge?"$".number_format($row["TAB-TOTAL"],2):"")."</td><td class='right'>".($charge?"":"(-$".number_format(abs($row["TAB-TOTAL"]),2).")")."</td>";
+				}
+				
+				/* If we're still on invoices, output those */
+				else {
+					$balance+=$row["TAB-TOTAL"];
+					$charges+=$row["TAB-TOTAL"];
+					echo "<tr><td>".$row["TAB-INV-DT"]."</td><td>".$row["TAB-INV-NO"]."</td><td class='right'>$".number_format($row["TAB-SUBTOTAL"],2)."</td><td class='right'>".$row["TAB-DSCOUNT"]."%</td><td class='right'>$".number_format($row["TAB-TOTAL"],2)."</td><td style='border-left:0px'>&nbsp;</td>\r\n";
+				}
+			}
+			
+			/* Else if we're printing adjustments, output those */
+			else {
+				$charge=($row["TAB-ADJ-TYPE"]>=30 && $row["TAB-ADJ-TYPE"]<40);
+				$balance+=$row["TAB-TOTAL"];
+				if ($charge) { $charges+=$row["TAB-TOTAL"]; }
+				else { $credits+=$row["TAB-TOTAL"]; }
+				echo "<tr><td>".$row["TAB-INV-DT"]."</td><td colspan='3'>".$row["TAB-INV-NO"]."</td><td class='right'>".($charge?"$".number_format($row["TAB-TOTAL"],2):"")."</td><td class='right'>".($charge?"":"(-$".number_format(abs($row["TAB-TOTAL"]),2).")")."</td>";
+			}
+			
+					
+			/* Copy info to TAR (bill history table) */
+			$q="INSERT INTO `t-a-rec` VALUES (";
+			$q.="'".mysql_real_escape_string($customer)."', "; // Customer number
+			$q.="NOW(), "; // Posted date
+			$q.="'".mysql_real_escape_string($cycleDate)."', "; // End-of-billing-cycle date
+			$q.="'".mysql_real_escape_string($billNum)."', "; // Bill number
+			$q.="'".mysql_real_escape_string($row["TAB-INV-NO"])."', "; // Invoice/Adjustment number
+			$q.="'".mysql_real_escape_string($row["TAB-ADJ-REF"])."', "; // Adjustment reference, if any
+			$q.=mysql_real_escape_string($row["TAB-ADJ-TYPE"]).", "; // Adjustment type, or 0=bill, 1=invoice
+			$q.=mysql_real_escape_string($row["TAB-TOTAL"]).")";
+			$TARQuery=mysql_query($q);
+		}
+		
+		/* Output the final balance */
+		echo "<tr><td colspan='6'>&nbsp;</td></tr><tr><th>Balance</th><th colspan='5' class='right'>".($balance<0?"-$".abs($balance):"$".$balance)."</th></tr>";
+		
+		include "billFooter.php";
+		file_put_contents("billing/bills/unprinted/bill_".$billNum.".html", ob_get_contents());
+		ob_end_clean();
+		
+		/* Remove this customer's items from TAB (unbilled items table) */
+		$q="DELETE FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($customer)."'";
+		$query=mysql_query($q);
+		
+		/* Insert info into TAS (bill summary table) */
+		$q="INSERT INTO `t-a-summary` VALUES (";
+		$q.="'".mysql_real_escape_string($customer)."', "; // Customer number
+		$q.=mysql_real_escape_string($balance).", "; // Balance
+		$q.="NOW(), "; // Bill date
+		$q.="'".mysql_real_escape_string($billNum)."')"; // Bill number
+		$query=mysql_query($q);
+		
+		/* Update the customer's closing balance in TAS */
+		$q="UPDATE `t-a-summary` SET `AS-BAL`=".mysql_real_escape_string($balance).", `AS-DT`=NOW() WHERE `AS-CUSTNO`='".mysql_real_escape_string($customer)."' AND `AS-BILL-NO`='CLOSING'";
+		$query=mysql_query($q);
+		
+		/* If it wasn't in the table before, then we insert it instead */
+		if (mysql_affected_rows($query)<=0) {
+			$q="INSERT INTO `t-a-summary` VALUES (";
+			$q.="'".mysql_real_escape_string($customer)."', "; // Customer number
+			$q.=mysql_real_escape_string($balance).", "; // Balance
+			$q.="NOW(), "; // Date of last update
+			$q.="'CLOSING')"; // This is the closing balance, so there's no bill number; instead it's marked as CLOSING
+			$query=mysql_query($q);
+		}
+		
 	}
 	
-	function GenerateBillNumber() {
-		global $custBills;
-		global $billNums;
+	/* Process all the unbilled items and generate bills for them */
+	function MakeBills() {
+		/* Get all the bills that need to be made this cycle */
+		$q="SELECT DISTINCT `TAB-CUSTNO`, `t-customer`.* FROM `t-a-billing`, `t-customer`  WHERE `C-CUSTNO`=`TAB-CUSTNO` AND `TAB-BILL-NO`='' ORDER BY `C-NAME`";
+		$query=mysql_query($q);
 		
-	  if (empty($custBills[0])) { return ""; }
-	  $customer=$custBills[0]["C-CUSTNO"];
-	  if (!empty($billNums[$customer])) { return $billNums[$customer]; }
-		
+		if (!$query || mysql_num_rows($query)<=0) {
+			file_put_contents("billCycleProgress.txt", "-1\r\n0");
+		}
+		else {
+			$numBills=mysql_num_rows($query);
+			$onBill=0;
+			while ($row=mysql_fetch_assoc($query)) {
+				MakeBill($row);
+				++$onBill;
+				file_put_contents("billCycleProgress.txt", $onBill."\r\n".$numBills);
+			}
+		}
+	}
+	
+	function GenerateBillNumber($custRow) {
 		$q="SELECT `l-DESC` FROM `t-lookup` WHERE ";
 
-		if ($custBills[0]["C-BILLING-METH"]==0) {
+		if ($custRow["C-BILLING-METH"]==0) {
 			$q.="`l-VALUE`=998";
 			$query=mysql_query($q);
 			
@@ -53,8 +175,6 @@
 			if ($newNum>99999) {$newNum=10001; }
 			$q="UPDATE `t-lookup` SET `l-DESC`='".$newNum."' WHERE `l-VALUE`=998";
 			$query=mysql_query($q);
-			
-			$billNums[$customer]=$num;
 			
 			return $num;
 		}
@@ -74,128 +194,21 @@
 			$q="UPDATE `t-lookup` SET `l-DESC`='".$newNum."' WHERE `l-VALUE`=997";
 			$query=mysql_query($q);
 			
-			$billNums[$data["C-CUSTNO"]]=$num;
-			
 			return $num;
 		}
 		
 	}
-	
-	function CopyToTAR() {
-		global $custBills;
-		global $billNums;
-		
-  	$customer=$custBills[0]["C-CUSTNO"];
-	  $billNum=$billNums[$customer];
-		
-		$workAmt=0;
-		$workNum=0;
-		foreach ($custBills as $ind=>$data) {
-		  if ($data["AB-BILL-TYP"]==10) {
-			  $workNum++;
-				$workAmt+=$data["AB-AMT"];
-			}
-			else {
-			  $amt=$data["AB-AMT"];
-				if ($data["C-DISCNT-PCT"]!=0 && $data["AB-BILL-TYP"]<20 || $data["AB-BILL-TYP"]>29) {
-				  $amt*=(100-$data["C-DISCNT-PCT"])/100;
-				}
-				$q="INSERT INTO `t-a-rec` VALUES (";
-				$q.="'".$data["AB-CUSTNO"]."', ";
-				$q.="'".$data["AB-USE-DT"]."', ";
-				$q.="'".$data["AB-BILL-DT"]."', ";
-				if ($data["AB-TKT"]=="UNDEF") {
-					$q.="'".GenerateAdjustmentNumber()."', ";
-				}
-				else {
-				  $q.="'".$data["AB-TKT"]."', ";
-				}
-				$q.=$data["AB-BILL-TYP"].", ";
-				$q.=$amt.", ";
-				$q.="NOW()";
-				$q.=")";
-				$query=mysql_query($q);
-			}
-		}
-		
-		if ($workNum>0) {
-		  if ($data["C-DISCNT-PCT"]!=0) { $workAmt*=(100-$data["C-DISCNT-PCT"])/100; }
-			
-			$q="INSERT INTO `t-a-rec` VALUES (";
-			$q.="'".$customer."', ";
-			$q.="NOW(), ";
-			$q.="NOW()', ";
-			$q.="'".$billNum."', ";
-			$q.="10, ";
-			$q.=$workAmt.", ";
-			$q.="NOW()";
-			$q.=")";
-			$query=mysql_query($q);
-		}
-		
-	}
 
-	function CopyToTAS() {
-		
-	}
-
-	function ClearTAB() {
-		sleep(1);
-	}
-
-	/* TODO: GET CYCLE END DATE FROM LOOKUP TABLE */
-	
-	/* Track how many bills there are to be processed this cycle */
-	/* TODO: INSERT LOOKUP END DATE INTO QUERIES */
-	$q="SELECT COUNT(*) AS numBills FROM `t-a-billing` B, `t-customer` C WHERE DATEDIFF(`AB-USE-DT`, NOW())<=0 AND B.`AB-CUSTNO`=C.`C-CUSTNO`";
+	/* GET CYCLE END DATE FROM LOOKUP TABLE */
+	$q="SELECT `l-DESC` FROM `t-lookup` WHERE `l-VALUE`=301";
 	$query=mysql_query($q);
+	$cycleDate=mysql_fetch_assoc($query);
+	$cycleDate=$cycleDate["l-DESC"];
 	
-	if (!$query) {
-		file_put_contents("billCycleProgress.txt", "-1\r\nThere are no bills in this cycle.");
-	}
-	else {
-	
-		$row=mysql_fetch_assoc($query);
-		$numBills=$row["numBills"];
-
-		/* Keep track of the bills in their raw table form */
-		$bills=array();
+	/* Make the bills */
+	@unlink("billCycleProgress.txt");
+	MakeBills();
 		
-		/* Initialize the progress updates */
-		$cont=$numBills."\r\n0";
-		file_put_contents("billCycleProgress.txt", $cont);
-		
-		/* Grab the bills to begin processing */
-		$q="SELECT * FROM `t-a-billing` B, `t-customer` C WHERE DATEDIFF(`AB-USE-DT`, NOW())<=0 AND B.`AB-CUSTNO`=C.`C-CUSTNO` ORDER BY C.`C-NAME`, B.`AB-USE-DT`, B.`AB-TKT`";
-		$query=mysql_query($q);
-		
-		$onCust=-1;
-		/* For each bill... */
-		while ($row=mysql_fetch_assoc($query)) {
-			/* Update the progress and store the raw bill data */
-			$cont=$numBills."\r\n".count($bills);
-			file_put_contents("billCycleProgress.txt", $cont);
-
-			if ($onCust<0) { $onCust=$row["C-CUSTNO"]; }
-
-			$bills[]=$row;
-			if ($row["C-CUSTNO"]!=$onCust) {
-			  $billNumbers[$row["C-CUSTNO"]]=GenerateBillNumber();
-				GenerateBill();
-				CopyToTAR();
-				CopyToTAS();
-				$custBills=array();
-				$onCust=$row["C-CUSTNO"];
-			}				
-			$custBills[]=$row;
-		}
-		
-		/* Update the final progress and clear the billing table of all the processed bills */
-		$cont=$numBills."\r\n".count($bills);
-		file_put_contents("billCycleProgress.txt", $cont);
-		ClearTAB();
-	}
-	
 	mysql_close($link);
 		
 ?>

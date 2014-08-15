@@ -1,0 +1,107 @@
+BODY {
+  background-color:#eeeeee;
+}
+img { border: 0px; }
+* { font-size:18pt; } /* Default font size for everything is 18pt */
+
+/* Text in header-3 style is size 24pt, light gray, with a light gray bottom border that reaches the entire page width */
+h3 {
+  font-size:24pt;
+  color:#aaaaaa;
+  border-bottom:2px inset #aaaaaa;
+  width:100%;
+}
+
+/* The active input field (whether input textbox or select-dropdown) has a light blue background */
+select:focus, input:focus, button:focus { background-color:#00eeff; }
+
+/* Data entry tables have no border and reach the entire page width, and their cells' borders collapse together */
+table.entryTable, table.bottomRow {
+  border:0px;
+  width:100%;
+  border-collapse:collapse;
+}
+
+/* Right-aligned fields */
+.right { text-align:right; }
+
+/* Data entry table cells have top and bottom borders as well as extra spacing on the right and bottom */
+.entryTable td {
+  padding-right:10px;
+  padding-bottom:4px;
+  border-bottom:1px solid #000000;
+  border-top:1px solid #000000;
+}
+
+/* Autocomplete list items have slightly smaller fonts, size 14pt, to better show long lists */
+.ui-corner-all { font-size:14pt; }
+
+/* Since the bottom row of the data entry form (the cane, glove, and suspenders) shouldn't be aligned to the rest of the form,
+   it's in its own table. As such, we remove the upper border for it so it blends seemlessly with the other table instead of doubling
+   with the other's bottom border and making it too thick. */
+.bottomRow td { border-top:0px; }
+
+/* Make the calendar font smaller than its large default */
+.ui-state-default, .ui-datepicker-calendar * { font-size:9pt !important; }
+.ui-datepicker-calendar { width:120px !important; }
+.ui-datepicker-header * { font-size:9pt !important; }
+.ui-datepicker-header { width:100% !important; }
+#ui-datepicker-div { width:auto !important; }
+.ui-datepicker-calendar  td, .ui-datepicker-calendar a, .ui-datepicker-calendar span { width:16px; height:16px; }
+
+/* Set the main form and accessories form to default visibilities */
+#mainForm { display: inline; }
+#accForm { display: none; }
+
+/* Buttons shouldn't have huge text */
+input[type=button], input[type=submit], input[type=reset], button, button * { font-size:12pt; }
+
+/* Some screens have sections that are initially hidden */
+.hiddenSection { display:none; }
+
+/* Certain places, like confirmation screens, need smaller font sizes */
+.smalltext, .smalltext * { font-size:12pt; }
+
+/* Make errors stand out */
+.error { display:none; color:#ff0000; font-weight:bold; }
+
+/* Progress bar styles - Background */
+.progBG {
+	background-color:#ffffff;
+	width:200px;
+	height:20px;
+	border:1px solid #000000;
+	padding:0px;
+	position:relative;
+}
+
+/* Progress bar styles - Foreground */
+.progFG {
+	background-color: #0000ff;
+	width:0%;
+	height:100%;
+	display:inline;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+/* Progress bar styles - Text */
+.progText {
+  background-color:transparent;
+	width:100%;
+	height:100%;
+	text-align:center;
+	padding-left:2px;
+	padding-right:2px;
+	vertical-align: middle;
+	display:inline;
+	color:#ff8800;
+	font-size:14px;
+	padding-top:0px;
+	padding-bottom:0px;
+	font-weight:bold;
+	position:relative;
+	left:0px;
+	top:0px;
+}

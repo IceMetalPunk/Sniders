@@ -22,6 +22,9 @@ table.entryTable, table.bottomRow {
   border-collapse:collapse;
 }
 
+/* Right-aligned fields */
+.right { text-align:right; }
+
 /* Data entry table cells have top and bottom borders as well as extra spacing on the right and bottom */
 .entryTable td {
   padding-right:10px;

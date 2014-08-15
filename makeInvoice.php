@@ -100,7 +100,7 @@
 				if ($query && mysql_num_rows($query)>0) {
 				  echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice Number</th><th colspan='2'>Invoice Total</th></tr>";
 					while ($row=mysql_fetch_assoc($query)) {
-						echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2'>$".number_format($row["TAB-TOTAL"],2)."</td></tr>";
+						echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2' class='right'>$".number_format($row["TAB-TOTAL"],2)."</td></tr>";
 						$total+=$row["TAB-TOTAL"];
 					}
 					if ($invNum!="RECAP") { echo "<tr><td colspan='5'>&nbsp;</td></tr>"; }
@@ -115,15 +115,15 @@
 					$subtotal=0;
 					
 					while ($row=mysql_fetch_assoc($query)) {
-						echo "<tr><td>".$now."</td><td>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td>".$row["W-REF"]."</td><td>$".number_format($row["W-AMT"], 2)."</td>";
+						echo "<tr><td>".$now."</td><td>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td>".$row["W-REF"]."</td><td class='right'>$".number_format($row["W-AMT"], 2)."</td>";
 						$subtotal+=$row["W-AMT"];
 					}
 					
 					/* Display subtotals and discounts etc. */
 					$disc=$customerData["C-DISCNT-PCT"];
-					echo "<tr style='border-top:2px solid #000000'><th>Subtotal</th><td colspan='4' style='text-align:right'>$".number_format($subtotal,2)."</td></tr>";
+					echo "<tr style='border-top:2px solid #000000'><th>Subtotal</th><td colspan='4' class='right'>$".number_format($subtotal,2)."</td></tr>";
 					if ($disc>0) {
-						echo "<tr><th>Discount</th><td colspan='4' style='text-align:right'>".$disc."%</td></tr>";
+						echo "<tr><th>Discount</th><td colspan='4' class='right'>".$disc."%</td></tr>";
 					}
 					$total+=$subtotal*(100-$disc)/100;
 					
@@ -131,7 +131,7 @@
 				
 				/* Display totals */
 				echo "<tr><td colspan='5'>&nbsp;</td></tr>";
-				echo "<tr style='border-top:2px solid #000000'><th>Total</th><td colspan='4' style='text-align:right'>$".number_format($total,2)."</td></tr>";
+				echo "<tr style='border-top:2px solid #000000'><th>Total</th><td colspan='4' class='right'>$".number_format($total,2)."</td></tr>";
 				
 				/* Insert invoice into billing table */
 				if ($invNum!="RECAP") {
