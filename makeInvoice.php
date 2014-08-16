@@ -94,14 +94,14 @@
 				$subtotal=0;
 				$total=0;
 				
-				/* Get previous invoices for the current cycle and, if any exist, show a consolidation of them */
-				$q="SELECT * FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-ADJ-TYPE`=1 ORDER BY `TAB-INV-NO`, `TAB-INV-DT`";
+				/* Get previous invoices for the current cycle and, if any exist, show a consolidation of their totals (including adjustment charges, but not credits) */
+				$q="SELECT *, SUM(`TAB-TOTAL`) as `TAB-SUM` FROM `t-a-billing` WHERE `TAB-INV-NO`!=0 AND (`TAB-ADJ-TYPE`=0 OR `TAB-ADJ-TYPE` BETWEEN 30 and 39) GROUP BY `TAB-INV-NO` ORDER BY `TAB-INV-DT` ASC";
 				$query=mysql_query($q);
 				if ($query && mysql_num_rows($query)>0) {
-				  echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice Number</th><th colspan='2'>Invoice Total</th></tr>";
+				  echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice Number</th><th colspan='2'>Invoice Total Charges</th></tr>";
 					while ($row=mysql_fetch_assoc($query)) {
-						echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2' class='right'>$".number_format($row["TAB-TOTAL"],2)."</td></tr>";
-						$total+=$row["TAB-TOTAL"];
+						echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2' class='right'>$".number_format($row["TAB-SUM"],2)."</td></tr>";
+						$total+=$row["TAB-SUM"];
 					}
 					if ($invNum!="RECAP") { echo "<tr><td colspan='5'>&nbsp;</td></tr>"; }
 				}
@@ -117,6 +117,15 @@
 					while ($row=mysql_fetch_assoc($query)) {
 						echo "<tr><td>".$now."</td><td>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td>".$row["W-REF"]."</td><td class='right'>$".number_format($row["W-AMT"], 2)."</td>";
 						$subtotal+=$row["W-AMT"];
+					}
+					
+					/* List new adjusted charges */
+					$q="SELECT * FROM `t-a-billing` WHERE `TAB-INV-NO`='' AND `TA-ADJ-TYPE`>9 AND `TA-ADJ-TYPE` NOT BETEEN 30 and 39";
+					$query=mysql_query($q);
+					if ($query && mysql_num_rows($query)>0) {
+						while ($row=mysql_fetch_assoc($query)) {
+							echo "<tr><td>"
+						}
 					}
 					
 					/* Display subtotals and discounts etc. */
