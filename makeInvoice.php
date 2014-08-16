@@ -120,14 +120,21 @@
 					}
 					
 					/* List new adjusted charges */
-					$q="SELECT * FROM `t-a-billing` WHERE `TAB-INV-NO`='' AND `TA-ADJ-TYPE`>9 AND `TA-ADJ-TYPE` NOT BETEEN 30 and 39";
+					$q="SELECT * FROM `t-a-billing` WHERE `TAB-INV-NO`='' AND `TA-ADJ-TYPE`>9 AND `TA-ADJ-TYPE` BETEEN 30 and 39";
 					$query=mysql_query($q);
 					if ($query && mysql_num_rows($query)>0) {
 						while ($row=mysql_fetch_assoc($query)) {
-							echo "<tr><td>&nbsp;</td><td>".$row["TAB-ADJ-NO"]."</td><td>&nbsp;</td><td>".$row["TAB-ADJ-REF"]."</td><td>".$row["TAB-TOTAL"]."</td></tr>";
+							echo "<tr><td>&nbsp;</td><td>".$row["TAB-ADJ-NO"]."</td><td>&nbsp;</td><td>".$row["TAB-ADJ-REF"]."</td><td class='right'>".$row["TAB-TOTAL"]."</td></tr>";
 							$subtotal+=$row["TAB-AMT"];
 						}
 					}
+					
+				/* List any credits or payments for the week */
+				$q="SELECT * FROM `t-a-billing` WHERE `TA-ADJ-TYPE`>9 AND `TA-ADJ-TYPE` NOT BETWEEN 30 and 39";
+				$query=mysql_query($q);
+				if ($query && mysql_num_rows($query)>0) {
+					echo "<tr><th colspan='5'>Payments and Credits</th></tr><tr>Transaction #</tr><td>Details</td><td class='right' colspan='3'>Amount</td></tr>";
+				}
 					
 					/*
 					

@@ -2,9 +2,20 @@ QUESTIONS:
 1) Should payments, credits, extra charges, and other adjustments be listed on the invoice as the date they were entered or the date they were invoiced?
 
 TODO:
-1) Adjustments shown on invoices with charges consolidated in with work tickets, and payments/credits separate at the bottom (and not consolidated).
-2) Invoices update customer's current balance in the customer table.
-3) End-of-week cycle includes processing invoices into accounts receivable and printing a summary of all (nonzero) account balances.
+1) Invoice changes:
+	a. Include opening balance
+	b. Include adjusted charges (lost items, etc.) with work tickets and consolidate them into "previous invoice" totals
+	c. Include payments and other adjusted credits on invoices in a separate section and DO NOT consolidate them into "previous invoice" totals
+	d. Only include charges (with discount) and "previous invoice" totals in the total invoice amount
+	e. Show a "total balance" at the bottom, which includes the invoice's total minus the listed payments and credits
+3) End-of-week cycle
+	a. Process invoices into accounts receivable table
+	b. Print a summary of all (nonzero) account balances
+	c. Update the customer table to have the closing
+4) End-of-month cycle
+	a. Print a summary of all customers' nonzero balances for the month
+	b. For each customer, print a statement
+		i. The statement should list all invoice totals for the month and their opening and closing balance
 
 --------------------------
 INSTALLATION AND SETUP
