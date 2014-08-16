@@ -57,7 +57,8 @@ CONFIGURING FIREFOX:
 
 CONFIGURING THE TICKET PRINTER:
 8) Install WebKit HTML to Image from here: http://wkhtmltopdf.googlecode.com/files/wkhtmltox-0.11.0_rc1-installer.exe
-8a) Keep SnidersPrinter running in the taskbar at all times.
+8a) Install PrintHTML from www.printhtml.com/download.php AND ALSO install the DHTML Editing Control for Applications Redistributable Package from the same page.
+8b) Keep SnidersPrinter running in the taskbar at all times.
 
 BACKING UP THE DATABASE [OPTIONAL--CAN BE DONE AT ANY TIME]:
 9) Click the WAMP icon and click phpmyadmin.
@@ -74,4 +75,4 @@ NOTES:
 *-Firefox installation (step 1) and configuations (steps 7-7d) must be done on every computer using the system. Steps 2-6 and 8 must only be done on the main server computer.
 *-On all non-server computers, you should set the homepage of Firefox (Firefox button->Options->Options) to the local IP of the server on the network. This can be found by opening a command prompt on the server computer and typing ipconfig. It'll be listed as "IPv4 Address". Only the server should NOT have its homepage changed.
 
--To backup database, run: C:\wamp\bin\mysql\mysql###\bin\mysqldump -uUSERNAME -pPASSWORD sniders2013 > OUTPUT_FILE.sql
+-To backup database from a command prompt, you can run the following command: C:\wamp\bin\mysql\mysql5.6.12\bin\mysqldump -uUSERNAME -pPASSWORD sniders2013 > OUTPUT_FILE.sql

@@ -108,7 +108,7 @@
 				
 				/* List new items */
 				if ($invNum!="RECAP") {
-					echo "<tr><th>Invoice Date</th><th>Ticket Number</th><th>Use Date</th><th>Reference</th><th>Amount</th></tr>";
+					echo "<tr><th>Invoice Date</th><th>Transaction #</th><th>Use Date</th><th>Reference</th><th>Amount</th></tr>";
 					$q="SELECT * FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 					$query=mysql_query($q);
 					
@@ -124,9 +124,12 @@
 					$query=mysql_query($q);
 					if ($query && mysql_num_rows($query)>0) {
 						while ($row=mysql_fetch_assoc($query)) {
-							echo "<tr><td>"
+							echo "<tr><td>&nbsp;</td><td>".$row["TAB-ADJ-NO"]."</td><td>&nbsp;</td><td>".$row["TAB-ADJ-REF"]."</td><td>".$row["TAB-TOTAL"]."</td></tr>";
+							$subtotal+=$row["TAB-AMT"];
 						}
 					}
+					
+					/*
 					
 					/* Display subtotals and discounts etc. */
 					$disc=$customerData["C-DISCNT-PCT"];
