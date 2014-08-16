@@ -7,25 +7,18 @@ WAMP SETUP:
 2b) During WAMP's setup, set the SMTP to smtp.gmail.com with the username barryg22@gmail.com.
 2c) Also set Firefox to WAMP's default browser if asked.
 
-DROPBOX SETUP:
-3) Install Dropbox from dropbox.com.
-3a) Connect Dropbox to the account barryg22@comcast.net with password tuxman22.
-
-4) Delete the C:\wamp\www folder; we'll be redirecting our Dropbox here.
-4a) Open a command prompt as an administrator by entering Command Prompt in the
-    Start Menu search, then right-clicking its icon and choosing Run As Administrator.
-4b) In the command prompt, enter the following command:
-
-    mklink /J "C:\wamp\www" "PATH_TO_DROPBOX_HERE"
-
-    Replace PATH_TO_DROPBOX_HERE with the full path to the Dropbox folder.
-    Usually that's something like C:\Users\Username\Dropbox, but double-check
-    that first to be sure.
+GITHUB SETUP:
+3) Install GitHub from windows.github.com
+3a) Open the Git Shell from the desktop
+3b) Run the following command to change to the WAMP root:
+	cd "C:\wamp\www"
+3c) Run the following command to setup the GitHub repository in that directory:
+	git clone https://github.com/IceMetalPunk/Sniders.git
 
 DATABASE IMPORT:
 5) Click the WAMP icon and click phpmyadmin.
 5a) Login with the username "root" and a blank password.
-5b) Click Import and browse for the most recent sniders2013.sql file in the Dropbox folder. Import that.
+5b) Click Import and browse for the most recent sniders2013.sql file in the WAMP/www folder. Import that.
 5c) If the import says the file is too large, do the following:
   5c.1) Click the WAMP icon, go to PHP, and click php.ini
   5c.2) Change the line that says upload_max_filesize to be 50M
@@ -46,7 +39,7 @@ MAKING WAMP START WITH WINDOWS:
 CONFIGURING FIREFOX:
 7) Go to the folder %APPDATA%/Mozilla/Firefox/Profiles.
 7a) Go to the first (and hopefully only) folder in here.
-7b) Copy the file prefs.js from the Dropbox folder into this folder, replacing the old version if asked.
+7b) Copy the file prefs.js from the WAMP/www folder into this folder, replacing the old version if asked.
 7c) Open Firefox.
 7d) Press F11 to enter Fullscreen Mode, then close Firefox.
 
