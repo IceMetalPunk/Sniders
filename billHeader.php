@@ -14,7 +14,7 @@
 		<span style='float:right'><a href="index.php"><img src="logo.png" border=0 /></a><br />
 		2882 Long Beach Rd<br />
 		Oceanside, NY 11572<br />
-		(516)442-2828</span><br clear='both' />
+		(516)442-2828</span><br clear='both' /> 
 		<?php
 		  echo $custRow["C-NAME"]."<br />";
 			echo $custRow["C-ADDR1"]."<br />";
