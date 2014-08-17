@@ -19,7 +19,8 @@
 		<title>Invoice for <?php echo $_POST['c_num']; ?></title>
 		<link rel="stylesheet" href="styles.css" type="text/css" />
 		<style>
-		  * { font-size:14pt; }
+		  * { font-size:10pt; }
+			.topHeaders, .topHeaders * { font-size: 14pt; }
 			TH { font-weight:bold; padding:4px; border:1px solid #000000; background-color:#aaaaaa; }
 			TD { border:1px solid #000000; padding:4px; }
 			TABLE { border-collapse: collapse; }
@@ -33,66 +34,66 @@
 	<body>
 		<button onclick="window.location='invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
 		<br />
+		<span class="topHeaders">
 		<span style='float:right'><a href="index.php"><img src="logo.png" border=0 /></a><br />
 		2882 Long Beach Rd<br />
 		Oceanside, NY 11572<br />
 		(516)442-2828</span><br clear='both' />
 		<?php
-		  echo $customerData["C-NAME"]."<br />";
-			echo $customerData["C-ADDR1"]."<br />";
-			if (!empty($customerData["C-ADDR2"])) {
-			  echo $customerData["C-ADDR2"]."<br />";
+			function GenerateInvoiceNumber() {
+				$q="SELECT `l-DESC` FROM `t-lookup` WHERE `l-VALUE`=997";
+				$query=mysql_query($q);
+				$row=mysql_fetch_assoc($query);
+				$num=$row["l-DESC"];
+
+				/* Update to new invoice number */
+				$newNum=explode("-", $num);
+				$numPart=$newNum[1]+1;
+				if ($numPart>99999) { $numPart="0001"; }
+				while (strlen($numPart)<4) { $numPart="0".$numPart; }
+				$newNum="I".date("y")."-".$numPart;
+
+				$q="UPDATE `t-lookup` SET `l-DESC`='".$newNum."' WHERE `l-VALUE`=997";
+				$query=mysql_query($q);
+						
+				return $num;
 			}
-			echo $customerData["C-CITY"].", ".$customerData["C-STATE"]." ".$customerData["C-ZIP"]."<br /><br />";
+				
+			$q="SELECT COUNT(`W-CUSTNO`) AS num FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
+			$query=mysql_query($q);
+			
+			/* If there's no new items to invoice, show that message and set the number to RECAP instead of generating a new one */
+			if ($query===FALSE || mysql_num_rows($query)<=0) {
+				$invNum="RECAP";
+			}
+			else {
+				$q=mysql_fetch_assoc($query);
+				if ($q["num"]<=0) {
+					$invNum="RECAP";
+				}
+				
+				/* If there are new items, make a new invoice number */
+				else {
+					$invNum=GenerateInvoiceNumber();
+				}
+			}
+			
+			$now=date("n/j/Y");
+			echo "<span style='float:left'>".$customerData["C-NAME"]."</span>"; // Customer name
+			echo "<span style='float:right; font-weight:bold'>Invoice ".($invNum=="RECAP"?$invNum:"#".$invNum)."</span><br />"; // Invoice #
+			echo "<span style='float:left'>".$customerData["C-ADDR1"]."</span>"; // Customer address line 1
+			echo "<span style='float:right; font-weight:bold'>".$now."</span><br />"; // Current date
+			if (!empty($customerData["C-ADDR2"])) {
+				echo "<span style='float:left'>".$customerData["C-ADDR2"]."</span><br />"; // Customer address line 2
+			}
+			echo "<span style='float:left'>".$customerData["C-CITY"].", ".$customerData["C-STATE"]." ".$customerData["C-ZIP"]."</span></span><br /><br />";
 		?>
 		<table>
 			<?php
-			  function GenerateInvoiceNumber() {
-					$q="SELECT `l-DESC` FROM `t-lookup` WHERE `l-VALUE`=997";
-					$query=mysql_query($q);
-					$row=mysql_fetch_assoc($query);
-					$num=$row["l-DESC"];
-
-					/* Update to new invoice number */
-					$newNum=explode("-", $num);
-					$numPart=$newNum[1]+1;
-					if ($numPart>99999) { $numPart="0001"; }
-					while (strlen($numPart)<4) { $numPart="0".$numPart; }
-					$newNum="I".date("y")."-".$numPart;
-
-					$q="UPDATE `t-lookup` SET `l-DESC`='".$newNum."' WHERE `l-VALUE`=997";
-					$query=mysql_query($q);
-							
-					return $num;
-				}
-				
-				$q="SELECT COUNT(`W-CUSTNO`) AS num FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
-				$query=mysql_query($q);
-				
-				/* If there's no new items to invoice, show that message and set the number to RECAP instead of generating a new one */
-				if ($query===FALSE || mysql_num_rows($query)<=0) {
-					$invNum="RECAP";
-					echo "<span class='message'>There are no new items to be invoiced. Press CTRL+P to print this cycle's invoice recap.<br /></span>";
-				}
-				else {
-					$q=mysql_fetch_assoc($query);
-					if ($q["num"]<=0) {
-						$invNum="RECAP";
-						echo "<span class='message'>There are no new items to be invoiced. Press CTRL+P to print this cycle's invoice recap.<br /></span>";
-					}
-					
-					/* If there are new items, make a new invoice number */
-					else {
-						$invNum=GenerateInvoiceNumber();
-					}
-				}
-				
-				$now=date("n/j/Y");
-				echo "<h3>Invoice ".($invNum!="RECAP"?"#":"").$invNum." as of ".$now."</h3>";
-				
 				$num=0;
 				$subtotal=0;
 				$total=0;
+				$credits=0;
 				
 				/* Show opening balance */
 				echo "<tr><th>Opening Balance</th><td colspan='4' class='right'>$".number_format($customerData["C-BALANCE"], 2)."</td></tr>";
@@ -103,7 +104,7 @@
 				$query=mysql_query($q);
 				if ($query && mysql_num_rows($query)>0) {
 					echo "<tr><th colspan='5' style='border-top:2px solid #000000'>Previous Invoices</th></tr>";
-				  echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice Number</th><th colspan='2'>Invoice Total Charges</th></tr>";
+				  echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice #</th><th colspan='2'>Invoice Totals</th></tr>";
 					while ($row=mysql_fetch_assoc($query)) {
 						echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2' class='right'>$".number_format($row["TAB-SUM"],2)."</td></tr>";
 						$total+=$row["TAB-SUM"];
@@ -143,7 +144,6 @@
 					}
 					
 					/* List any credits or payments for the week */
-					$credits=0;
 					$q="SELECT * FROM `t-a-billing` WHERE `TAB-ADJ-TYPE`>9 AND `TAB-ADJ-TYPE` NOT BETWEEN 30 and 39";
 					$query=mysql_query($q);
 					if ($query && mysql_num_rows($query)>0) {
