@@ -4,22 +4,29 @@ QUESTIONS:
 TODO:
 0) Add a check for work ticket totals < 0 (NOT ALLOWED).
 	a. Negative values can only be for credits, not charges.
+	
 1) Invoice changes:
 	a. Include opening balance
 	b. Include adjusted charges (lost items, etc.) with work tickets and consolidate them into "previous invoice" totals
 	c. Include payments and other adjusted credits on invoices in a separate section and DO NOT consolidate them into "previous invoice" totals
 	d. Only include charges (with discount) and "previous invoice" totals in the total invoice amount
 	e. Show a "total balance" at the bottom, which includes the invoice's total minus the listed payments and credits
+
 3) End-of-week cycle
-	a. Process invoices into accounts receivable table
-	b. Print a summary of all (nonzero) account balances
-	c. Update the customer table to have the closing
+	a. Batch create all invoices that haven't been invoiced yet
+	b. Process invoices into accounts receivable table
+	c. Print a summary of all (nonzero) account balances
+	d. Update the customer table to have the closing
+	
 4) End-of-month cycle
 	a. Print a summary of all customers' nonzero balances for the month
 	b. For each customer, print a statement
 		i. The statement should list all invoice totals for the month and their opening and closing balance
+		
 --> Later...
+
 5) Ticket Lookups
+
 6) Customer Maintenance
 	a. Add new customers
 	b. Change customer information
