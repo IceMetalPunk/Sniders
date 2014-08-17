@@ -53,17 +53,23 @@
 		);
 		$q="INSERT INTO `t-a-billing` VALUES(";
 		$q.="'".mysql_real_escape_string($_POST['c_num'])."', "; // Customer number
-		$q.="'', '', "; // Bill date and number -- initially empty
-		$q.="NOW(), '".$adjNum."', "; // Adjustment date and number
+		$q.="'', '', "; // Post and invoice dates, blank for now
+		$q.="'', '".$adjNum."', "; // Invoice number (blank for now) and adjustment number
 		$q.=$_POST['adjustType'].", "; // Adjustment type
-		if (!empty($_POST['freeform'])) { $q.="'".mysql_real_escape_string($_POST['freeform'])."', "; } // Freeform info if any, or...
-		else {
-		  $ind=array_search($_POST['adjustType'], $types); // Textual description of adjustment type
-			$q.="'".mysql_real_escape_string($ind)."', ";
-		}
+		
+		$ind=array_search($_POST['adjustType'], $types); // Textual description of adjustment type
+		$q.="'".mysql_real_escape_string($ind);
+		
+		if (!empty($_POST['freeform'])) { $q.=" - ".mysql_real_escape_string($_POST['freeform']); } // Freeform info if any
+		$q.="', ";
 		$q.=$_POST['amt'].", "; // Subtotal
-		$q.="0.0, "; // Discount percentage -- Adjustments are not discounted for now. Needs discussion.
-		$q.=$_POST['amt']; // Total after discount -- Same as subtotal for adjustments, unless we end up discounting them. Needs discussion.
+		$q.=$customerData["C-DISCNT-PCT"].", "; // Discount percentage -- Only charge adjustments are discounted
+		if ($_POST['adjustType']>=30 && $_POST['adjustType']<40) {
+			$q.=$_POST['amt']*(100-$customerData["C-DISCNT-PCT"])/100; // Total after discount -- charge adjustments have this calculated
+		}
+		else {
+			$q.=$_POST['amt']; // Total after discount -- is equal to subtotal except for charge adjustments
+		}
 		$q.=")";
 		$query=mysql_query($q);
 		if (!$query) { $error=mysql_error(); }

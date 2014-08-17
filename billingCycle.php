@@ -41,7 +41,7 @@
 							else if (data.total==0) {
 								SetProgress(0, "No Bills To Process");
 								$("#FunctionButton").unbind("click");
-								$("#FunctionButton").val("Billing Complete");
+								$("#FunctionButton").val("Posting Complete");
 								$("#FunctionButton").prop("disabled", true);
 							}
 							else {
@@ -50,11 +50,11 @@
 								SetProgress(data.on/data.total, "Processing bill "+data.on+"/"+data.total);
 								if (data.on<data.total) { checkTimer=setTimeout(GetBillProgress, 100); }
 								else {
-									SetProgress(1, "Billing Complete");
+									SetProgress(1, "Posting Complete");
 									canceled=true;
-									document.title="Billing Complete";
+									document.title="Posting Complete";
 									$("#FunctionButton").unbind("click");
-									$("#FunctionButton").val("Billing Complete");
+									$("#FunctionButton").val("Posting Complete");
 									$("#FunctionButton").prop("disabled", true);
 								}
 							}
@@ -69,7 +69,7 @@
 					canceled=false;
 					$.get("startBilling.php");
 					$("#FunctionButton").unbind("click").click(CancelBilling);
-					$("#FunctionButton").val("Cancel Billing");
+					$("#FunctionButton").val("Cancel Posting");
 					GetBillProgress();
 				}
 				
@@ -86,7 +86,7 @@
 							else if (data.total==0) {
 								SetProgress(0, "No Invoices To Process");
 								$("#FunctionButton").unbind("click").click(StartBilling);
-								$("#FunctionButton").val("Begin Billing");
+								$("#FunctionButton").val("Begin Posting");
 							}
 							else {
 								numBills=data.total;
@@ -98,7 +98,7 @@
 									canceled=true;
 									document.title="Invoicing Complete";
 									$("#FunctionButton").unbind("click").click(StartBilling);
-									$("#FunctionButton").val("Begin Billing");
+									$("#FunctionButton").val("Begin Posting");
 								}
 							}
 						},
@@ -112,7 +112,7 @@
 				
 				/* Cancel billing */
 				function CancelBilling() {
-					if (!confirm("Are you sure you want to cancel the billing process?")) { return false; }
+					if (!confirm("Are you sure you want to cancel the posting process?")) { return false; }
 					clearTimeout(checkTimer);
 					canceled=true;
 					$.ajax({
@@ -120,8 +120,8 @@
 						url: "cancelBilling.php",
 						data: {cancel:true},
 						success: function(data) {
-							SetProgress(onBill/numBills, "Billing Cancelled ("+onBill+"/"+numBills+")");
-							document.title="Billing Cancelled";
+							SetProgress(onBill/numBills, "Posting Cancelled ("+onBill+"/"+numBills+")");
+							document.title="Posting Cancelled";
 						},
 						async:false,
 						dataType: "text"
@@ -131,7 +131,7 @@
 				
 				/* Cancel invoicing */
 				function CancelInvoice() {
-					if (!confirm("Are you sure you want to cancel the billing process?")) { return false; }
+					if (!confirm("Are you sure you want to cancel the posting process?")) { return false; }
 					clearTimeout(checkTimer);
 					canceled=true;
 					$.ajax({

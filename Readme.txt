@@ -1,7 +1,9 @@
 QUESTIONS:
-1) Should payments, credits, extra charges, and other adjustments be listed on the invoice as the date they were entered or the date they were invoiced?
+1) General design questions: how exactly should the invoices and summaries look?
 
 TODO:
+0) Add a check for work ticket totals < 0 (NOT ALLOWED).
+	a. Negative values can only be for credits, not charges.
 1) Invoice changes:
 	a. Include opening balance
 	b. Include adjusted charges (lost items, etc.) with work tickets and consolidate them into "previous invoice" totals
@@ -16,6 +18,12 @@ TODO:
 	a. Print a summary of all customers' nonzero balances for the month
 	b. For each customer, print a statement
 		i. The statement should list all invoice totals for the month and their opening and closing balance
+--> Later...
+5) Ticket Lookups
+6) Customer Maintenance
+	a. Add new customers
+	b. Change customer information
+	c. Delete customers
 
 --------------------------
 INSTALLATION AND SETUP
