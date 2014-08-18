@@ -13,8 +13,8 @@ THINGS WE NEED:
 
 TODO:
 0) Add a check for work ticket totals < 0 (NOT ALLOWED).
-	a. Negative values can only be for credits, not charges.
-	b. Change printer for tickets vs invoices.
+	a. Catch empty adjustment values gracefully when entering new adjustments.
+	b. Change printer and paper size for tickets vs invoices.
 	c. Add passwords to database.
 	
 1) Invoice changes:
@@ -26,9 +26,10 @@ TODO:
 
 3) End-of-week cycle
 ✓	a. Batch create all invoices that haven't been invoiced yet
-	b. Process invoices into accounts receivable table
-	c. Print a summary of all (nonzero) account balances
-	d. Update the customer table to have the closing balances
+✓	b. Process invoices into accounts receivable table
+✓	c. Print a summary of all (nonzero) account balances
+✓	d. Update the customer table to have the closing balances
+✓	e. Update the database lookup table to indicate the next end-of-cycle date (default: the next Sunday)
 	
 4) End-of-month cycle
 	a. Print a summary of all customers' nonzero balances for the month
