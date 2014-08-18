@@ -5,8 +5,14 @@
     <!-- Main styles -->
     <link rel="stylesheet" href="styles.css" />
 
+    <!-- Styles for autocomplete elements -->
+		<!--
+    <link rel="stylesheet" href="jquery-ui.css" />
+    <link rel="stylesheet" href="jquery-style.css" />-->
+
     <!-- jQuery library and its Autocomplete extension -->
     <script type="text/javascript" src="jquery-1.9.1.js"></script>
+    <!--<script type="text/javascript" src="jquery-ui.js"></script>-->
 
     <!-- Main Javascript library, including data pulled from the databases, hence why it must be in .php format -->
     <script type="text/javascript" src="scripts.php?<?php echo time(); ?>"></script>
@@ -43,6 +49,7 @@
 								$("#FunctionButton").unbind("click");
 								$("#FunctionButton").val("Posting Complete");
 								$("#FunctionButton").prop("disabled", true);
+								GetDate();
 							}
 							else {
 								numBills=data.total;
@@ -56,6 +63,7 @@
 									$("#FunctionButton").unbind("click");
 									$("#FunctionButton").val("Posting Complete");
 									$("#FunctionButton").prop("disabled", true);
+									GetDate();
 								}
 							}
 						},
@@ -63,6 +71,26 @@
 					).fail(function() {
 						GetBillProgress();
 					});
+				}
+				
+				function GetDate() {
+				$.get(
+						"getDates.php",
+						function (data) {
+							if (canceled) { return false; }
+							$("#use_date").val(data.nextCycle);
+							$("#FunctionButton").unbind("click");
+							$("#FunctionButton").click(SetDate);
+							$("#FunctionButton").val("Set Next Cycle End Date");
+							$("#FunctionButton").prop("disabled", false);
+							$("#dateForm").show();
+						},
+						"json"
+					);
+				}
+				
+				function SetDate() {
+					document.entry.submit();
 				}
 				
 				function StartBilling() {
@@ -152,6 +180,10 @@
 				$("#FunctionButton").unbind("click").click(CancelInvoice);
 			});
 		</script>
+		<form id="dateForm" style="display:none" name="entry" action="setCycleDate.php" method="post">
+			<input name="use_date" id="use_date" type="text" />
+			<input type="hidden" name="full_use_date" />
+		</form>
 		<input type="button" id="FunctionButton" value="Cancel Invoice" />
 	</body>
 </html>

@@ -37,18 +37,7 @@
 					<td><select id="adjustType" name="adjustType" style="width:100%">
 						<?php
 						  /* Output all the different adjustment types */
-							$types=array(
-								"Cash Payment"=>26,
-								"Credit Card Payment"=>22,
-								"Check Payment"=>23,
-								"Write-Off"=>24,
-								"Other Payment"=>25,
-								"Charge for Lost Item"=>31,
-								"Miscellaneous Charge"=>32,
-								"Delivery Charge"=>33,
-								"Miscellaneous Credit"=>41,
-								"Not Used"=>42
-							);
+							require("paymentTypes.php");
 							$started=false;
 							foreach ($types as $name=>$val) {
 							  echo "<option value='".$val."'".($started?"":" selected").">".$name."</option>\r\n";
@@ -60,7 +49,7 @@
 				
 				<tr>
 					<td>&nbsp;</td>
-					<td colSpan='3'><input id="freeform" name="freeform" placeholder="Description" style="width:100%; display:none" /></td>
+					<td colSpan='3'><input id="freeform" name="freeform" placeholder="Description" style="width:100%" /></td>
 				</tr>
 				
 				<tr>

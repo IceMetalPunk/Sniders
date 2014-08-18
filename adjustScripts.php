@@ -118,10 +118,7 @@ $( "#c_name" ).autocomplete({
 		AdjustType();
     var other=document.getElementById("sub");
     setTimeout(function() {
-      if (document.activeElement==other && $("#freeform").is(":visible")) { $("#freeform").focus(); }
-			else if (!$("#freeform").is(":visible") && document.activeElement!=document.getElementById("sub")) {
-			  $("#sub").focus();
-			}
+      if (document.activeElement==other) { $("#freeform").focus(); }
     }, 1); 
   });
 
@@ -200,20 +197,14 @@ function AdjustType() {
 	sel=document.getElementById("adjustType").options[sel];
 	$("#freeform").val("");
 	
-	if (sel.value==23 || sel.value==25 || sel.value==31 || sel.value==32 || sel.value==41) {
-	  if (sel.value==23) {
-		  $("#freeform").attr("placeholder", "Check #");
-		}
-		else if (sel.value==31) {
-			$("#freeform").attr("placeholder", "Item Info");
-		}
-		else {
-		  $("#freeform").attr("placeholder", "Description");
-		}
-	  $("#freeform").show();
+	if (sel.value==23) {
+	  $("#freeform").attr("placeholder", "Check #");
+	}
+	else if (sel.value==31) {
+		$("#freeform").attr("placeholder", "Item Info");
 	}
 	else {
-		$("#freeform").hide();
+	  $("#freeform").attr("placeholder", "Description");
 	}
 	
 }

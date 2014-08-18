@@ -38,19 +38,9 @@
 		if (($_POST['adjustType']>=20 && $_POST['adjustType']<=29) || ($_POST['adjustType']>39 && $_POST['adjustType']<50)) {
 		  $_POST['amt']*=-1;
 		}
+
+		include "paymentTypes.php";
 		
-		$types=array(
-			"Cash Payment"=>26,
-			"Credit Card Payment"=>22,
-			"Check Payment"=>23,
-			"Write-Off"=>24,
-			"Other Payment"=>25,
-			"Charge for Lost Item"=>31,
-			"Miscellaneous Charge"=>32,
-			"Delivery Charge"=>33,
-			"Miscellaneous Credit"=>41,
-			"Not Used"=>42
-		);
 		$q="INSERT INTO `t-a-billing` VALUES(";
 		$q.="'".mysql_real_escape_string($_POST['c_num'])."', "; // Customer number
 		$q.="'', '', "; // Post and invoice dates, blank for now
@@ -72,7 +62,7 @@
 		}
 		$q.=")";
 		$query=mysql_query($q);
-		if (!$query) { $error=mysql_error(); }
+		if (!$query) { $error=mysql_error()."<br />(".$q.")"; }
 	}
 	
 	if ($error=="") {
@@ -90,6 +80,9 @@
   </head>
   <body>
 		<b>Adjustment added. Redirecting back to the adjustment form.</b>
+		<!-- Speed up adjustment added page?
+		<script>$(function() { window.location.href="adjustments.php"; });</script>
+		-->
 	</body>
 <?php } else { // On insertion failure ?>
 		<title>Adjustment Failed</title>

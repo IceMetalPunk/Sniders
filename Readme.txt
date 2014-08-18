@@ -5,6 +5,8 @@ QUESTIONS:
 	b. Current balance
 	c. Number of invoiced/uninvoiced items
 	d. Anything else?
+3) What types of reports do you need? What specific information should they include?
+4) Should the invoice, etc. totals be on a separate report from the weekly summary of all customer accounts?
 
 THINGS WE NEED:
 1) An exported CSV of all current customer info from QuickBooks.
@@ -26,7 +28,7 @@ TODO:
 ✓	a. Batch create all invoices that haven't been invoiced yet
 	b. Process invoices into accounts receivable table
 	c. Print a summary of all (nonzero) account balances
-	d. Update the customer table to have the closing
+	d. Update the customer table to have the closing balances
 	
 4) End-of-month cycle
 	a. Print a summary of all customers' nonzero balances for the month
