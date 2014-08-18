@@ -14,13 +14,19 @@
 		if ($error=="") {
 	?>
 		<title>Invoice for <?php echo $_POST['c_num']; ?></title>
-		<link rel="stylesheet" href="styles.css" type="text/css" />
+		<!--<link rel="stylesheet" href="styles.css" type="text/css" />-->
 		<style>
+		
+			/* STYLES.CSS PULL-IN BECAUSE PRINTHTML WON'T ACCESS IT PROPERLY */
+			<?php include "styles.css"; ?>
+			/* END STYLES.CSS PULL-IN */
+		
 		  * { font-size:10pt; }
 			.topHeaders, .topHeaders * { font-size: 14pt; }
 			TH { font-weight:bold; padding:4px; border:1px solid #000000; background-color:#aaaaaa; }
 			TD { border:1px solid #000000; padding:4px; }
 			TABLE { border-collapse: collapse; }
+			
 			@media print {
 			  BUTTON { display:none; }
 				.message { display: none; }
