@@ -2,11 +2,17 @@ QUESTIONS:
 1) General design questions: how exactly should the invoices and summaries look?
 2) In customer information lookups, do you want:
 	a. Opening balance for the month
-	b. Current balance
+	b. Current balance including uninvoiced items (do not invoice automatically)
 	c. Number of invoiced/uninvoiced items
-	d. Anything else?
+	d. Name/address
+	e. Work tickets for the current cycle--lookup by customer number and reference
+
 3) What types of reports do you need? What specific information should they include?
+
 4) Should the invoice, etc. totals be on a separate report from the weekly summary of all customer accounts?
+	NO
+	
+5) Going forward, what other functionality do you need/want?
 
 THINGS WE NEED:
 1) An exported CSV of all current customer info from QuickBooks.
@@ -16,6 +22,8 @@ TODO:
 	a. Catch empty adjustment values gracefully when entering new adjustments.
 	b. Change printer and paper size for tickets vs invoices.
 	c. Add passwords to database.
+	d. Parse the .dat files from the InvoiceExpress exports
+		i. Truncate customer table and rebuild from these exports
 	
 1) Invoice changes:
 ✓	a. Include opening balance
@@ -31,7 +39,7 @@ TODO:
 ✓	d. Update the customer table to have the closing balances
 ✓	e. Update the database lookup table to indicate the next end-of-cycle date (default: the next Sunday)
 	
-4) End-of-month cycle
+4) Monthly Recap (date range inputs)
 	a. Print a summary of all customers' nonzero balances for the month
 	b. For each customer, print a statement
 		i. The statement should list all invoice totals for the month and their opening and closing balance
@@ -39,11 +47,21 @@ TODO:
 --> Later...
 
 5) Ticket Lookups
-
+	a. By reference, date, or customer number (or any combinations)
+	b. Show 99999 as customer number for any in-store entries
+	c. Optional -- search by item styles or information
+	
 6) Customer Maintenance
 	a. Add new customers
 	b. Change customer information
 	c. Delete customers
+
+7) Inventory Add/Change completion
+	a. Change is not done
+	
+--> Much later...
+
+8) Scanning in/out inventory
 
 --------------------------
 INSTALLATION AND SETUP
