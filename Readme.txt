@@ -134,6 +134,18 @@ BACKING UP THE DATABASE [OPTIONAL--CAN BE DONE AT ANY TIME]:
 8c) Leave the options at their defaults and click Go. Give it a little while to create the backup file.
 8d) Lastly, choose a place to save the backup.
 
+SYNCING BETWEEN COMPUTERS [ONLY NEEDED WHEN THERE ARE CHANGES]
+9) If you make a change on one computer that needs to be synced, open the Git Shell and run the following commands:
+	cd C:\wamp\www
+	git add --all
+	git commit -m "Type a message here to describe your changes. Make sure to keep the quotes around it and no quotes inside it."
+	git push --all
+	
+9a) If a change has been made and you need to sync it to your computer, opwn the Git Shell and run the following commands:
+	cd C:\wamp\www
+	git fetch
+	git reset --hard origin/master
+
 NOTES:
 -Whenever the computer is first turned on, WAMP will open, but Firefox won't. Make sure to open Firefox, as that's where the system will be.
 
