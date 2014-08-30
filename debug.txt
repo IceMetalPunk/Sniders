@@ -1,0 +1,7 @@
+Starting batch invoice...
+Process: Resource id #4
+Starting batch invoice...
+Process: Resource id #4
+Trying to close, getting status: 0
+Started batch invoice!
+DONE!

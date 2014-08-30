@@ -1,0 +1,18 @@
+.noprint { display: none; } 
+
+body { margin: 0; color: #444; background-color: #fff; font-family: Arial,sans-serif; font-size: 9pt; }
+h1 { font-weight: normal; font-size: 14pt; padding-bottom: 8px; margin-bottom: 10px; padding-left: 3px; color: #000; border-bottom: #e34147 2px solid; }
+h2 { font-weight: bold; font-size: 12pt; color: #4a4a4a;}
+h3 { font-weight: bold; font-size: 12pt; color: #000; border-bottom: #a8a8a8 1px solid; padding-bottom: 5px; margin-bottom: 10px}
+h4 { font-weight: bold; font-size: 10pt; color: #426792;}
+
+.title { color: #123759; font-size: 16pt; font-weight: bold;}
+.tblMain { border: none;}
+
+A { color: #444; text-decoration: underline }
+.thList { color: #000; text-decoration: none; }
+.trList { background-color: #ffffff; }
+.subnav { color: #ffffff; text-decoration: underline; }
+
+.tblList { font-size: 8pt;border-left: #ffffff 1px solid; border-right: #ffffff 1px solid;  border-top: #ffffff 1px solid;  border-bottom: #ffffff 1px solid;}
+.tdList { border-top:#cccccc 1px solid; }
