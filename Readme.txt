@@ -1,38 +1,36 @@
 QUESTIONS:
-1) General design questions: how exactly should the invoices and summaries look?
-2) In customer information lookups, do you want:
+1) In customer information lookups, do you want:
 	a. Opening balance for the month
 	b. Current balance including uninvoiced items (do not invoice automatically)
 	c. Number of invoiced/uninvoiced items
 	d. Name/address
 	e. Work tickets for the current cycle--lookup by customer number and reference
 
-3) What types of reports do you need? What specific information should they include?
-
-4) Should the invoice, etc. totals be on a separate report from the weekly summary of all customer accounts?
+2) Should the invoice, etc. totals be on a separate report from the weekly summary of all customer accounts?
 	NO
-	
-5) Going forward, what other functionality do you need/want?
 
 THINGS WE NEED:
-1) An exported CSV of all current customer info from QuickBooks.
+✓ 1) An exported CSV of all current customer info from QuickBooks.
 
 TODO:
-0) Add a check for work ticket totals < 0 (NOT ALLOWED).
-	a. Catch empty adjustment values gracefully when entering new adjustments.
-	b. Change printer and paper size for tickets vs invoices.
-	c. Add passwords to database.
-	d. Parse the .dat files from the InvoiceExpress exports
+0) Quick-ish things and fixes
+	a. Add a check for work ticket totals < 0 (NOT ALLOWED).
+	b. Fix invoice recap being blank bug
+	c. Move invoice balances and totals around
+	d. Catch empty adjustment values gracefully when entering new adjustments.
+	e. Change printer and paper size for tickets vs invoices.
+	f. Add passwords to database.
+✓ g. Parse the .dat files from the InvoiceExpress exports
 		i. Truncate customer table and rebuild from these exports
 	
-1) Invoice changes:
+✓ 1) Invoice changes:
 ✓	a. Include opening balance
 ✓	b. Include adjusted charges (lost items, etc.) with work tickets and consolidate them into "previous invoice" totals
 ✓	c. Include payments and other adjusted credits on invoices in a separate section and DO NOT consolidate them into "previous invoice" totals
 ✓	d. Only include charges (with discount) and "previous invoice" totals in the total invoice amount
 ✓	e. Show a "total balance" at the bottom, which includes the invoice's total minus the listed payments and credits
 
-3) End-of-week cycle
+✓ 3) End-of-week cycle
 ✓	a. Batch create all invoices that haven't been invoiced yet
 ✓	b. Process invoices into accounts receivable table
 ✓	c. Print a summary of all (nonzero) account balances
