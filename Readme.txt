@@ -18,9 +18,9 @@ TODO:
 	b. Fix invoice recap being blank bug
 	c. Move invoice balances and totals around
 	d. Catch empty adjustment values gracefully when entering new adjustments.
-	e. Change printer and paper size for tickets vs invoices.
-	f. Add passwords to database.
-✓ g. Parse the .dat files from the InvoiceExpress exports
+	e. Add passwords to database.
+		i. tux898
+✓ f. Parse the .dat files from the InvoiceExpress exports
 		i. Truncate customer table and rebuild from these exports
 	
 ✓ 1) Invoice changes:
@@ -41,13 +41,18 @@ TODO:
 	a. Print a summary of all customers' nonzero balances for the month
 	b. For each customer, print a statement
 		i. The statement should list all invoice totals for the month and their opening and closing balance
-		
+
+4B) Customer lookup
+	a. Lookup by any combination of fields
+	b. See top of README for more details
+	
 --> Later...
 
 5) Ticket Lookups
 	a. By reference, date, or customer number (or any combinations)
 	b. Show 99999 as customer number for any in-store entries
 	c. Optional -- search by item styles or information
+	d. Allow changes and canceling (canceled=VOID inv #)
 	
 6) Customer Maintenance
 	a. Add new customers
