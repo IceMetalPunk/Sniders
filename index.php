@@ -19,6 +19,10 @@
         <td style='text-align:right'><button onclick="window.location.href='adjustments.php'" accesskey="A"><u>A</u>djustments</button></td>
         <td><button onclick="window.location.href='billing.php'" accesskey="B"><u>B</u>illing</button></td>
       </tr>
+      <tr>
+        <td style='text-align:right'><button onclick="window.location.href='lookup.php'" accesskey="L">Customer <u>L</u>ookup</button></td>
+        <td>&nbsp;</td>
+      </tr>
     </table>
   </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-  $link=mysql_connect("localhost", "root", "");
+  $link=mysql_connect("localhost", "root", "tux898");
   
   /* Select the sniders2013 database */
   $db=mysql_select_db("sniders2013", $link);

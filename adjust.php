@@ -1,7 +1,7 @@
 <html>
   <head>
 <?php
-  $link=mysql_connect("localhost", "root", "");
+  $link=mysql_connect("localhost", "root", "tux898");
   $db=mysql_select_db("sniders2013", $link);
 	
 	$error="";
@@ -27,42 +27,50 @@
 		
 	}
 	
-	$q="SELECT * FROM `t-customer` WHERE `C-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
-	$query=mysql_query($q);
-	
-	if (!$query || mysql_num_rows($query)<=0) { $error="Customer not found."; }
+	if (empty($_POST['c_num']) || empty($_POST['amt'])) {
+		$error="Please enter all required information (customer and amount).";
+	}
+	else if (!is_numeric($_POST["amt"]) || $_POST['amt']<0) {
+		$error="Invalid amount. Please check and correct it.";
+	}
 	else {
-		$customerData=mysql_fetch_assoc($query);
-
-		$adjNum=GenerateAdjustmentNumber();
-		if (($_POST['adjustType']>=20 && $_POST['adjustType']<=29) || ($_POST['adjustType']>39 && $_POST['adjustType']<50)) {
-		  $_POST['amt']*=-1;
-		}
-
-		include "paymentTypes.php";
-		
-		$q="INSERT INTO `t-a-billing` VALUES(";
-		$q.="'".mysql_real_escape_string($_POST['c_num'])."', "; // Customer number
-		$q.="'', '', "; // Post and invoice dates, blank for now
-		$q.="'', '".$adjNum."', "; // Invoice number (blank for now) and adjustment number
-		$q.=$_POST['adjustType'].", "; // Adjustment type
-		
-		$ind=array_search($_POST['adjustType'], $types); // Textual description of adjustment type
-		$q.="'".mysql_real_escape_string($ind);
-		
-		if (!empty($_POST['freeform'])) { $q.=" - ".mysql_real_escape_string($_POST['freeform']); } // Freeform info if any
-		$q.="', ";
-		$q.=$_POST['amt'].", "; // Subtotal
-		$q.=$customerData["C-DISCNT-PCT"].", "; // Discount percentage -- Only charge adjustments are discounted
-		if ($_POST['adjustType']>=30 && $_POST['adjustType']<40) {
-			$q.=$_POST['amt']*(100-$customerData["C-DISCNT-PCT"])/100; // Total after discount -- charge adjustments have this calculated
-		}
-		else {
-			$q.=$_POST['amt']; // Total after discount -- is equal to subtotal except for charge adjustments
-		}
-		$q.=")";
+		$q="SELECT * FROM `t-customer` WHERE `C-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 		$query=mysql_query($q);
-		if (!$query) { $error=mysql_error()."<br />(".$q.")"; }
+		
+		if (!$query || mysql_num_rows($query)<=0) { $error="Customer not found. Please check and correct the customer number."; }
+		else {
+			$customerData=mysql_fetch_assoc($query);
+
+			$adjNum=GenerateAdjustmentNumber();
+			if (($_POST['adjustType']>=20 && $_POST['adjustType']<=29) || ($_POST['adjustType']>39 && $_POST['adjustType']<50)) {
+				$_POST['amt']*=-1;
+			}
+
+			include "paymentTypes.php";
+			
+			$q="INSERT INTO `t-a-billing` VALUES(";
+			$q.="'".mysql_real_escape_string($_POST['c_num'])."', "; // Customer number
+			$q.="'', '', "; // Post and invoice dates, blank for now
+			$q.="'', '".$adjNum."', "; // Invoice number (blank for now) and adjustment number
+			$q.=$_POST['adjustType'].", "; // Adjustment type
+			
+			$ind=array_search($_POST['adjustType'], $types); // Textual description of adjustment type
+			$q.="'".mysql_real_escape_string($ind);
+			
+			if (!empty($_POST['freeform'])) { $q.=" - ".mysql_real_escape_string($_POST['freeform']); } // Freeform info if any
+			$q.="', ";
+			$q.=$_POST['amt'].", "; // Subtotal
+			$q.=$customerData["C-DISCNT-PCT"].", "; // Discount percentage -- Only charge adjustments are discounted
+			if ($_POST['adjustType']>=30 && $_POST['adjustType']<40) {
+				$q.=$_POST['amt']*(100-$customerData["C-DISCNT-PCT"])/100; // Total after discount -- charge adjustments have this calculated
+			}
+			else {
+				$q.=$_POST['amt']; // Total after discount -- is equal to subtotal except for charge adjustments
+			}
+			$q.=")";
+			$query=mysql_query($q);
+			if (!$query) { $error=mysql_error()."<br />(".$q.")"; }
+		}
 	}
 	
 	if ($error=="") {

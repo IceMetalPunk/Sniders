@@ -2,7 +2,7 @@
 <html>
   <head>
 	<?php
-	  $link=mysql_connect("localhost", "root", "");
+	  $link=mysql_connect("localhost", "root", "tux898");
 		$db=mysql_select_db("sniders2013", $link);
 		
 		$error="";
@@ -95,12 +95,11 @@
 				$total=0;
 				$credits=0;
 				
-				/* Show opening balance */
-				echo "<tr><th>Opening Balance</th><td colspan='4' class='right'>$".number_format($customerData["C-BALANCE"], 2)."</td></tr>";
+				/* Get opening balance */
 				$balance=$customerData["C-BALANCE"];
 				
 				/* Get previous invoices for the current cycle and, if any exist, show a consolidation of their totals (including adjustment charges, but not credits) */
-				$q="SELECT *, SUM(`TAB-TOTAL`) as `TAB-SUM` FROM `t-a-billing` WHERE `TAB-INV-NO`!='' AND (`TAB-ADJ-TYPE`=0 OR `TAB-ADJ-TYPE` BETWEEN 30 and 39) GROUP BY `TAB-INV-NO` ORDER BY `TAB-INV-DT` ASC";
+				$q="SELECT *, SUM(`TAB-TOTAL`) as `TAB-SUM` FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-INV-NO`!='' AND (`TAB-ADJ-TYPE`=0 OR `TAB-ADJ-TYPE` BETWEEN 30 and 39) GROUP BY `TAB-INV-NO` ORDER BY `TAB-INV-DT` ASC";
 				$query=mysql_query($q);
 				if ($query && mysql_num_rows($query)>0) {
 					echo "<tr><th colspan='5' style='border-top:2px solid #000000'>Previous Invoices</th></tr>";
@@ -111,7 +110,8 @@
 					}
 					//if ($invNum!="RECAP") { echo "<tr><td colspan='5'>&nbsp;</td></tr>"; }
 				}
-				
+				echo "<tr><th>Total Previous Charges</th><td colspan='4' class='right'>$".number_format($total,2)."</td></tr>";
+								
 				/* List new items */
 				$disc=$customerData["C-DISCNT-PCT"];
 				if ($invNum!="RECAP") {
@@ -159,14 +159,15 @@
 					
 					/* Calculate total charges and balance */
 					$total+=$subtotal*(100-$disc)/100;
-					$balance+=$total-$credits;
 				}
+				$balance+=$total-$credits;
 				
 				/* Display totals */
 				echo "<tr><td colspan='5'>&nbsp;</td></tr>";
-				echo "<tr style='border-top:2px solid #000000'><th>Total Charges</th><td colspan='4' class='right'>$".number_format($total,2)."</td></tr>";
-				echo "<tr><th>Total Payments/Credits</th><td colspan='4' class='right'>$".number_format($credits, 2)."</td></tr>";
-				echo "<tr><th>Current Balance</th><td colspan='4' class='right'>$".number_format($balance, 2)."</td></tr>";
+				echo "<tr style='border-top:2px solid #000000'><th>Opening Balance</th><td colspan='4' class='right'>$".number_format($customerData["C-BALANCE"], 2)."</td></tr>";
+				echo "<tr><th>Total Charges</th><td colspan='4' class='right'>$".number_format($total,2)."</td></tr>";
+				if ($credits>0) { echo "<tr><th>Total Payments/Credits</th><td colspan='4' class='right'>(-$".number_format($credits, 2).")</td></tr>"; }
+				echo "<tr><th>Current Balance</th><td colspan='4' class='right'>".($balance<0?"(-$".number_format($balance, 2).")":"$".number_format($balance, 2))."</td></tr>";
 				
 				/* Insert invoice into billing table */
 				if ($invNum!="RECAP") {

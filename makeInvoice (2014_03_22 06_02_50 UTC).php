@@ -2,7 +2,7 @@
 <html>
   <head>
 	<?php
-	  $link=mysql_connect("localhost", "root", "");
+	  $link=mysql_connect("localhost", "root", "tux898");
 		$db=mysql_select_db("sniders2013", $link);
 		
 		$error="";

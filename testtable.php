@@ -6,7 +6,7 @@ TH, TD { border:1px solid #000000; padding:4px; }
 <table>
 <?php
   /* Connect to the MySQL-running server (on localhost, with username root and no password) */
-  $link=mysql_connect("localhost", "root", "");
+  $link=mysql_connect("localhost", "root", "tux898");
   
   /* Select the sniders2013 database for use later */
   $db=mysql_select_db("sniders2013", $link);

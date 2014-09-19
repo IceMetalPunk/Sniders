@@ -1,5 +1,5 @@
 <?php
-  $link=mysql_connect("localhost", "root", "");
+  $link=mysql_connect("localhost", "root", "tux898");
   if (!$link) { die("Couldn't connect to database"); }
   $db=mysql_select_db("sniders2013", $link);
   if (!$db) { mysql_close($link); die("Can't find database"); }

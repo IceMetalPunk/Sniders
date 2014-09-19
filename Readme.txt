@@ -1,10 +1,10 @@
 QUESTIONS:
-1) In customer information lookups, do you want:
-	a. Opening balance for the month
-	b. Current balance including uninvoiced items (do not invoice automatically)
-	c. Number of invoiced/uninvoiced items
-	d. Name/address
-	e. Work tickets for the current cycle--lookup by customer number and reference
+✓ 1) In customer information lookups, do you want:
+✓	a. Opening balance for the month
+✓	b. Current balance including uninvoiced items (do not invoice automatically)
+✓	c. Number of invoiced/uninvoiced items
+✓	d. Name/address
+✓	e. Work tickets for the current cycle--lookup by customer number and reference
 
 2) Should the invoice, etc. totals be on a separate report from the weekly summary of all customer accounts?
 	NO
@@ -14,12 +14,12 @@ THINGS WE NEED:
 
 TODO:
 0) Quick-ish things and fixes
-	a. Add a check for work ticket totals < 0 (NOT ALLOWED).
-	b. Fix invoice recap being blank bug
-	c. Move invoice balances and totals around
-	d. Catch empty adjustment values gracefully when entering new adjustments.
-	e. Add passwords to database.
-		i. tux898
+✓	a. Add a check for work ticket totals < 0 (NOT ALLOWED).
+✓	b. Fix invoice recap being blank bug
+✓	c. Move invoice balances and totals around
+✓	d. Catch empty adjustment values gracefully when entering new adjustments.
+✓	e. Add passwords to database.
+✓	i. tux898
 ✓ f. Parse the .dat files from the InvoiceExpress exports
 		i. Truncate customer table and rebuild from these exports
 	
@@ -42,9 +42,9 @@ TODO:
 	b. For each customer, print a statement
 		i. The statement should list all invoice totals for the month and their opening and closing balance
 
-4B) Customer lookup
-	a. Lookup by any combination of fields
-	b. See top of README for more details
+✓ 4B) Customer lookup
+✓	a. Lookup by any combination of fields
+✓	b. See top of README for more details
 	
 --> Later...
 

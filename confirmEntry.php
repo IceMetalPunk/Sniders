@@ -37,13 +37,29 @@
           ret=false;
         }
         if (ret==false) {
-          $("#errorbox").html("You've overridden the "+error+" price"+num+". Please reconfirm.<br />");
-          document.getElementById("errorbox").style.display="inline";
-          document.confirmForm.outfitPrice.focus();
-          document.confirmForm.outfitPrice.select();
-          window.scrollTo(0,0);
-          document.confirmForm.o_shoeprice.value=document.confirmForm.shoePrice.value;
-          document.confirmForm.o_outfitprice.value=document.confirmForm.outfitPrice.value;
+					if (isNaN(document.confirmForm.outfitPrice.value) || document.confirmForm.outfitPrice.value<0) {
+						$("#errorbox").html("You've entered an invalid override price for the outfit price. Please check and correct it.");
+						document.getElementById("errorbox").style.display="inline";
+						window.scrollTo(0,0);
+						document.confirmForm.outfitPrice.focus();
+						document.confirmForm.outfitPrice.select();
+					}
+					else if (isNaN(document.confirmForm.shoePrice.value) || document.confirmForm.shoePrice.value<0) {
+						$("#errorbox").html("You've entered an invalid override price for the shoe price. Please check and correct it.");
+						document.getElementById("errorbox").style.display="inline";
+						window.scrollTo(0,0);
+						document.confirmForm.shoePrice.focus();
+						document.confirmForm.shoePrice.select();
+					}
+					else {
+						$("#errorbox").html("You've overridden the "+error+" price"+num+". Please reconfirm.<br />");
+						document.confirmForm.outfitPrice.focus();
+						document.confirmForm.outfitPrice.select();
+						window.scrollTo(0,0);
+						document.confirmForm.o_shoeprice.value=document.confirmForm.shoePrice.value;
+						document.confirmForm.o_outfitprice.value=document.confirmForm.outfitPrice.value;
+					}
+					document.getElementById("errorbox").style.display="inline";
         }
         return ret;
       }
@@ -67,7 +83,7 @@
     
       /* Generate a ticket number based on the master lookup table */
       $nextTicket="A000";
-      $link=mysql_connect("localhost", "root", "");
+      $link=mysql_connect("localhost", "root", "tux898");
       $db=mysql_select_db("sniders2013", $link);
   
       $q="SELECT * FROM `t-lookup` WHERE `l-type`='Wrk'";
