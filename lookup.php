@@ -60,7 +60,7 @@
 			$total=0;
 			$credits=0;
 			$disc=$row["C-DISCNT-PCT"];
-			$balance=$row["C-OPEN-BALANCE"];
+			$balance=$row["C-BALANCE"];
 			
 			/* INV */
 			$q="SELECT *, SUM(`TAB-TOTAL`) as `TAB-SUM` FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($row['C-CUSTNO'])."' AND `TAB-INV-NO`!='' AND (`TAB-ADJ-TYPE`=0 OR `TAB-ADJ-TYPE` BETWEEN 30 and 39) GROUP BY `TAB-INV-NO` ORDER BY `TAB-INV-DT` ASC";
@@ -113,7 +113,7 @@
 				echo "<td>".$cust["C-ADDR1"];
 				if (!empty($cust["C-ADDR2"])) { echo ", ".$cust["C-ADDR2"]; }
 				echo ", ".$cust["C-CITY"].", ".$cust["C-STATE"]." ".$cust["C-ZIP"]."</td>";
-				echo "<td>$".number_format($cust["C-OPEN-BALANCE"], 2)."</td>";
+				echo "<td>$".number_format($cust["C-BALANCE"], 2)."</td>";
 				echo "<td>$".number_format($cust["Balance"], 2)."</td>";
 				echo "<td>".$cust["NumInv"]."</td>";
 				echo "<td>".$cust["NumUninv"]."</td>";

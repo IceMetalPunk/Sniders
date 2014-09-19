@@ -17,6 +17,15 @@
     <script type="text/javascript" src="jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="jquery-ui.js"></script>
 
+		<!-- Ticket-lookup-specific code -->
+		<script>
+			$(document).ready(function() {
+				$(".ticketThumb").click(function() {
+					window.location=this.src;
+				});
+			});
+		</script>
+		
     <!-- Main Javascript library, including data pulled from the databases, hence why it must be in .php format -->
 		<script type="text/javascript" src="invoiceScripts.php?<?php echo time(); ?>"></script>
 		
@@ -32,7 +41,7 @@
 		$whereclause="";
 		if (!empty($_GET['customer'])) { $whereclause.=" AND `C-CUSTNO`='".$_GET['customer']."'"; }
 		if (!empty($_GET['reference'])) { $whereclause.=" AND `W-REF` LIKE '%".$_GET['reference']."%'"; }
-		if (!empty($_GET['ticket'])) { $whereclause.=" AND `W-TKT`='".$_GET['ticket']."'"; }
+		if (!empty($_GET['ticket'])) { $whereclause.=" AND `W-TKT` LIKE '%".$_GET['ticket']."%'"; }
 		$q="SELECT * FROM `t-customer`, `t-work` WHERE `C-CUSTNO`=`W-CUSTNO`";
 		$q.=$whereclause." ORDER BY `C-CUSTNO`, `C-NAME`";
 		$query=mysql_query($q);
@@ -48,20 +57,26 @@
 		}
 		else {
 			echo "<table class='restab'><tr><th>Customer Name</th>";
-			foreach ($results[0] as $key=>$val) {
-				if ($key[0]=="W") {
-					echo "<th>".$key."</th>";
-				}
-			}
+			echo "<th>Customer #</th>";
+			echo "<th>Ticket #</th>";
+			echo "<th>Reference</th>";
+			echo "<th>Order Date</th>";
+			echo "<th>Use Date</th>";
+			echo "<th>Invoiced?</th>";
+			echo "<th>Ticket</th>";
 			echo "</tr>";
 			
 			foreach ($results as $key=>$cust) {
 				echo "<tr><td style='text-align:left'>".$cust["C-NAME"]."</td>";
-				foreach ($cust as $key=>$val) {
-					if ($key[0]=="W") {
-						echo "<td>".$val."</td>";
-					}
-				}
+				echo "<td>".$cust["C-CUSTNO"]."</td>";
+				echo "<td>".$cust["W-TKT"]."-".$cust["W-TKT-SUB"]."</td>";
+				echo "<td>".$cust["W-REF"]."</td>";
+				echo "<td>".date("j/n/Y", strtotime($cust["W-ORDER-DT"]))."</td>";
+				echo "<td>".date("j/n/Y", strtotime($cust["W-USE-DT"]))."</td>";
+				$inv=!($cust["W-INV-NO"]=="000000" || $cust["W-INV-NO"]=="");
+				echo "<td>".($inv?"Yes":"No")."</td>";
+				echo "<td><img src='tickets/Complete/ticket-".$cust["W-TKT"]."-".$cust["W-TKT-SUB"].".png' class='ticketThumb' /></td>";
+				echo "</tr>";
 			}
 			echo "</table>";
 		}

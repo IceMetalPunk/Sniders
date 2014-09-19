@@ -12,6 +12,12 @@ h3 {
   width:100%;
 }
 
+.ticketThumb {
+	max-width:100px;
+	max-height:100px;
+	cursor:pointer;
+}
+
 /* The active input field (whether input textbox or select-dropdown) has a light blue background */
 select:focus, input:focus, button:focus { background-color:#00eeff; }
 
