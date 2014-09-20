@@ -66,7 +66,7 @@
 					echo "</td></tr>";
 				}
 				
-				/* Display the total total...as in, total of all charges - all credits. Will put this in if needed.
+				/* Display the total total...as in, total of all charges - all credits. */
 				echo "<tr style='font-weight: bold'><td>Total</td><td class='right'>";
 				if ($allTotal<0) {
 					echo "($".number_format($allTotal, 2).")";
@@ -74,7 +74,7 @@
 				else {
 					echo "$".number_format($allTotal, 2);
 				}
-				echo "</td></tr>"; */
+				echo "</td></tr>";
 				
 			?>
 		</table>

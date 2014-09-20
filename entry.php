@@ -1,3 +1,23 @@
+<?php
+	$link=mysql_connect("localhost", "root", "tux898");
+	$db=mysql_select_db("sniders2013");
+	
+	$isEdit=false;
+	$editData=array();
+	if (!empty($_GET['edit'])) {
+		$q="SELECT * FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_GET['edit'])."'";
+		$query=mysql_query($q);
+		if (mysql_num_rows($query)>0) {
+			$isEdit=true;
+			while ($row=mysql_fetch_assoc($query)) {
+				$editData[]=$row;
+			}
+		}
+	}
+	
+	mysql_close($link);
+?>
+
 <html>
   <head>
     <title>Data Entry</title>
@@ -26,19 +46,27 @@
         if (!empty($_POST['redirected']) && $_POST['redirected']=="1") {
           echo "value='".$_POST['red_custno']."' ";
         }
+				else if ($isEdit) {
+					echo "value='".($editData[0]["W-CUSTNO"])."' ";
+				}
       ?>/> <input type="text" id="c_name" name="c_name" size=40 maxlength=40 placeholder="Customer Name" />
       <br/>
       
-      <?php
-        if (!empty($_POST['redirected']) && $_POST['redirected']=="1") { ?>
+      <?php if (!empty($_POST['redirected']) && $_POST['redirected']=="1") { ?>
       <script>
         $(function() {
           GetCustomer(document.entry.c_num.value, true);
-          document.entry.date_use.focus();
+					document.entry.date_use.focus();
           document.entry.date_use.select();
         });
       </script>
-      <?php  } ?>
+      <?php  } else if ($isEdit) { ?>
+			<script>
+        $(function() {
+          GetCustomer(document.entry.c_num.value, true);
+        });
+      </script>
+			<?php } ?>
       
       <!-- Dropdowns for delivery type and billing/payment type -->
       <select name="d_type">

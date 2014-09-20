@@ -24,6 +24,8 @@
 		$index=0;
 		file_put_contents("billCycleProgress.txt", "0\r\n".$n);
 		
+		sleep(2);
+		
 		/* Initialize the arrays to keep customer information and totals */
 		$customers=array();
 		$totals=array();

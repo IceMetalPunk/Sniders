@@ -6,8 +6,8 @@ QUESTIONS:
 ✓	d. Name/address
 ✓	e. Work tickets for the current cycle--lookup by customer number and reference
 
-2) Should the invoice, etc. totals be on a separate report from the weekly summary of all customer accounts?
-	NO
+✓	2) Should the invoice, etc. totals be on a separate report from the weekly summary of all customer accounts?
+✓	NO
 
 THINGS WE NEED:
 ✓ 1) An exported CSV of all current customer info from QuickBooks.
@@ -37,10 +37,12 @@ TODO:
 ✓	d. Update the customer table to have the closing balances
 ✓	e. Update the database lookup table to indicate the next end-of-cycle date (default: the next Sunday)
 	
-4) Monthly Recap (date range inputs)
-	a. Print a summary of all customers' nonzero balances for the month
-	b. For each customer, print a statement
-		i. The statement should list all invoice totals for the month and their opening and closing balance
+4) Monthly Statement
+	a. Range: end at last Sunday of month, begin at previous end
+	a. Print a summary of all customers' nonzero balances for range
+	b. For each customer
+		i. The statement should list all invoice totals for the range and their opening and closing balance
+		ii. Update opening balance
 
 ✓ 4B) Customer lookup
 ✓	a. Lookup by any combination of fields
@@ -48,18 +50,22 @@ TODO:
 	
 --> Later...
 
-5) Ticket Lookups
-	a. By reference, date, or customer number (or any combinations)
-	b. Show 99999 as customer number for any in-store entries
+5) Sales Reports (input range for dates)
+	a. By customer
+	b. Subtotals of invoices, total discounted, and totals/net of invoices
+
+✓	6) Ticket Lookups
+✓	a. By reference, date, or customer number (or any combinations)
+✓	b. Show 99999 as customer number for any in-store entries
 	c. Optional -- search by item styles or information
 	d. Allow changes and canceling (canceled=VOID inv #)
 	
-6) Customer Maintenance
+7) Customer Maintenance
 	a. Add new customers
 	b. Change customer information
 	c. Delete customers
 
-7) Inventory Add/Change completion
+8) Inventory Add/Change completion
 	a. Change is not done
 	
 --> Much later...

@@ -64,11 +64,12 @@
 			echo "<th>Use Date</th>";
 			echo "<th>Invoiced?</th>";
 			echo "<th>Ticket</th>";
-			echo "</tr>";
+			echo "<th>&nbsp;</th></tr>";
 			
 			foreach ($results as $key=>$cust) {
 				echo "<tr><td style='text-align:left'>".$cust["C-NAME"]."</td>";
-				echo "<td>".$cust["C-CUSTNO"]."</td>";
+				if ($cust["C-CUSTNO"]<70000) { echo "<td>".$cust["C-CUSTNO"]."</td>"; }
+				else { echo "<td>99999 (In-House)</td>"; }
 				echo "<td>".$cust["W-TKT"]."-".$cust["W-TKT-SUB"]."</td>";
 				echo "<td>".$cust["W-REF"]."</td>";
 				echo "<td>".date("j/n/Y", strtotime($cust["W-ORDER-DT"]))."</td>";
@@ -76,6 +77,7 @@
 				$inv=!($cust["W-INV-NO"]=="000000" || $cust["W-INV-NO"]=="");
 				echo "<td>".($inv?"Yes":"No")."</td>";
 				echo "<td><img src='tickets/Complete/ticket-".$cust["W-TKT"]."-".$cust["W-TKT-SUB"].".png' class='ticketThumb' /></td>";
+				echo "<td><a href='entry.php?edit=".$cust["W-TKT"]."'>Edit</a></td>";
 				echo "</tr>";
 			}
 			echo "</table>";
