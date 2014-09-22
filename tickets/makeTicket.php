@@ -162,6 +162,13 @@
 			$cols.="`".$col."`";
 			$values.=$val;
 		}
+		
+		/* If editing, remove the old ticket */
+		if (!empty($_POST['edit']) && $_POST['edit']==1) {
+			$q="DELETE FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."'";
+			$query=mysql_query($q);
+		}
+		
 		$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
 		$query=mysql_query($q);
 		

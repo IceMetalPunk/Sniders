@@ -16,7 +16,7 @@
       $(function() {
         document.confirmForm.outfitPrice.focus();
         document.confirmForm.outfitPrice.select();
-        
+
         $(document.confirmForm.outfitPrice).add(document.confirmForm.shoePrice).blur(function() {
           one=$(document.confirmForm.outfitPrice).val();
           two=$(document.confirmForm.shoePrice).val();
@@ -70,48 +70,45 @@
     <h3>Confirm Data Entry</h3>
     <span id="errorbox" class="smalltext error"></span>
     <form action="tickets/makeTicket.php" method="post" onsubmit="return Validate()" name='confirmForm'>
-    <?php
-      /* We want all the data posted to this page to be passed onto the confirmation page. So we build a hidden form with all
-         the data filled out and ready to be submitted. */
-      foreach ($_POST as $field=>$value) {
-        if ($field=="ticket" && empty($_POST['update'])) { continue; }
-        echo "<input type='hidden' name='".$field."' value='".htmlentities($value, ENT_QUOTES)."' />";
-      }
-    ?>
     <table border=0 class='smalltext' style="border-collapse:collapse">
     <?php
-    
+    	$link=mysql_connect("localhost", "root", "tux898");
+			$db=mysql_select_db("sniders2013", $link);
+				
       /* Generate a ticket number based on the master lookup table */
-      $nextTicket="A000";
-      $link=mysql_connect("localhost", "root", "tux898");
-      $db=mysql_select_db("sniders2013", $link);
-  
-      $q="SELECT * FROM `t-lookup` WHERE `l-type`='Wrk'";
-      $query=mysql_query($q);  
-      $row=mysql_fetch_assoc($query);
-      $nextnum=1;
-      $nextlet="A";
-      if (count($row)>0) {
-        $letter=$row["l-DESC"]."";
-        $num=$row["l-VALUE"];
-        
-        $nextnum=$num+1;
-        $nextlet=$letter;
-        if ($nextnum>999) {
-          $nextnum=1;
-          $nextlet=ord($nextlet)+1;
-          if ($nextlet>ord("Z")) { $nextlet="A"; }
-          else { $nextlet=chr($nextlet); }
-        }
-        
-        while (strlen($num)<3) { $num="0".$num; }
-        $nextTicket=$letter.$num;
+			$isEdit=true;
+			if (empty($_POST['ticket'])) {
+				$isEdit=false;
+				$nextTicket="A000";
+		
+				$q="SELECT * FROM `t-lookup` WHERE `l-type`='Wrk'";
+				$query=mysql_query($q);  
+				$row=mysql_fetch_assoc($query);
+				$nextnum=1;
+				$nextlet="A";
+				if (count($row)>0) {
+					$letter=$row["l-DESC"]."";
+					$num=$row["l-VALUE"];
+					
+					$nextnum=$num+1;
+					$nextlet=$letter;
+					if ($nextnum>999) {
+						$nextnum=1;
+						$nextlet=ord($nextlet)+1;
+						if ($nextlet>ord("Z")) { $nextlet="A"; }
+						else { $nextlet=chr($nextlet); }
+					}
+					
+					while (strlen($num)<3) { $num="0".$num; }
+					$nextTicket=$letter.$num;
+					$_POST['ticket']=$nextTicket;
+				}
+				
+				/* Immediately update the lookup table to the next available ticket number to prevent race conditions */
+				$q="UPDATE `t-lookup` SET `l-DESC`='".mysql_real_escape_string($nextlet)."', `l-VALUE`=".mysql_real_escape_string($nextnum)." WHERE `l-type`='Wrk'";
+				$query=mysql_query($q);  
       }
-      
-      /* Immediately update the lookup table to the next available ticket number to prevent race conditions */
-      $q="UPDATE `t-lookup` SET `l-DESC`='".mysql_real_escape_string($nextlet)."', `l-VALUE`=".mysql_real_escape_string($nextnum)." WHERE `l-type`='Wrk'";
-      $query=mysql_query($q);  
-      
+			
       /* Just make a quick array relating the type codes to their names so we can display the names instead of the codes
          in the confirmation page. Also allows us to check for replacement billing independent of code numbers. */
       $types=array();
@@ -236,7 +233,17 @@
       
       $total=$price+$shoeprice;
       mysql_close($link);
-      echo "<input name='ticket' type='hidden' value='".$nextTicket."' /><tr style='font-weight:bold'><td>Ticket Number: </td><td>".$nextTicket."</td></tr>";
+			echo "<tr style='font-weight:bold'><td>Ticket Number: </td><td>".$_POST['ticket'];
+			if ($isEdit) { echo " (Editing)"; }
+			echo "</td></tr>";
+    ?>
+    <?php
+      /* We want all the data posted to this page to be passed onto the confirmation page. So we build a hidden form with all
+         the data filled out and ready to be submitted. */
+      foreach ($_POST as $field=>$value) {
+        echo "<input type='hidden' name='".$field."' value='".htmlentities($value, ENT_QUOTES)."' />";
+      }
+			echo "<input type='hidden' name='edit' value='".($isEdit?"1":"0")."' />";
     ?>
     <tr>
       <td>Customer: </td>
