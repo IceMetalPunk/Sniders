@@ -19,7 +19,6 @@ TODO:
 ✓	c. Move invoice balances and totals around
 ✓	d. Catch empty adjustment values gracefully when entering new adjustments.
 ✓	e. Add passwords to database.
-✓	i. tux898
 ✓ f. Parse the .dat files from the InvoiceExpress exports
 		i. Truncate customer table and rebuild from these exports
 	
