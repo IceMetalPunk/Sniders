@@ -37,12 +37,12 @@ TODO:
 ✓	d. Update the customer table to have the closing balances
 ✓	e. Update the database lookup table to indicate the next end-of-cycle date (default: the next Sunday)
 	
-4) Monthly Statement
-	a. Range: end at last Sunday of month, begin at previous end
-	b. Print a summary of all customers' nonzero balances for range
-	c. For each customer
-		i. The statement should list all invoice totals for the range and their opening and closing balance
-		ii. Update opening balance
+✓	4) Monthly Statement
+✓	a. Range: end at last Sunday of month, begin at previous end
+✓	b. Print a summary of all customers' nonzero balances for range
+✓	c. For each customer
+✓		i. The statement should list all invoice totals for the range and their opening and closing balance
+✓		ii. Update opening balance
 
 ✓ 4B) Customer lookup
 ✓	a. Lookup by any combination of fields
@@ -56,9 +56,8 @@ TODO:
 
 ✓	6) Ticket Lookups
 ✓	a. By reference, date, or customer number (or any combinations)
-✓	b. Show 99999 as customer number for any in-store entries
-	c. Optional -- search by item styles or information
-✓	d. Allow changes
+	b. Optional -- search by item styles or information
+✓	c. Allow changes
 	
 7) Customer Maintenance
 	a. Add new customers
@@ -70,7 +69,7 @@ TODO:
 	
 --> Much later...
 
-8) Scanning in/out inventory
+9) Scanning in/out inventory
 
 --------------------------
 INSTALLATION AND SETUP
