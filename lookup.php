@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="jquery-style.css" />
 		<style>
 			.restab TD { padding:4px; border: 1px solid #555555; text-align:right; font-size:12pt; }
-			.restab TH { padding: 4px; border: 1px solid #000000; tet-align: center; font-size:12pt;}
+			.restab TH { padding: 4px; background-color: #aaaaaa; font-weight:bold; border: 1px solid #000000; text-align: center; font-size:12pt;}
 			.restab A { font-size:12pt; }
 			TABLE.restab { border-collapse: collapse; font-size:12pt; }
 		</style>

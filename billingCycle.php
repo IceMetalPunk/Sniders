@@ -49,7 +49,7 @@
 								$("#FunctionButton").unbind("click");
 								$("#FunctionButton").val("Posting Complete");
 								$("#FunctionButton").prop("disabled", true);
-								GetDate();
+								GetIsMonthly();
 							}
 							else {
 								numBills=data.total;
@@ -63,7 +63,7 @@
 									$("#FunctionButton").unbind("click");
 									$("#FunctionButton").val("Posting Complete");
 									$("#FunctionButton").prop("disabled", true);
-									GetDate();
+									GetIsMonthly();
 								}
 							}
 						},
@@ -73,17 +73,42 @@
 					});
 				}
 				
-				function GetDate() {
+			function GetDate() {
 				$.get(
 						"getDates.php",
 						function (data) {
 							if (canceled) { return false; }
+							$("#monthlyMessage").hide();
 							$("#use_date").val(data.nextCycle);
 							$("#FunctionButton").unbind("click");
 							$("#FunctionButton").click(SetDate);
 							$("#FunctionButton").val("Set Next Cycle End Date");
 							$("#FunctionButton").prop("disabled", false);
 							$("#dateForm").show();
+						},
+						"json"
+					);
+				}
+				
+			function GetIsMonthly() {
+				$.get(
+						"isMonthlyTime.php",
+						function (data) {
+							if (canceled) { return false; }
+							if (!data.result) {
+								GetDate();
+							}
+							else {
+								$("#monthlyMessage").show();
+								$("#FunctionButton").unbind("click");
+								$("#FunctionButton").click(function() {
+									var win=window.open("monthlyStatement.php", "_blank");
+									win.focus();
+									GetDate();
+								});
+								$("#FunctionButton").val("Print Monthly Statement");
+								$("#FunctionButton").prop("disabled", false);
+							}
 						},
 						"json"
 					);
@@ -180,6 +205,7 @@
 				$("#FunctionButton").unbind("click").click(CancelInvoice);
 			});
 		</script>
+		<span style="display:none; font-size:14pt" id="monthlyMessage">Your last monthly statement was generated last month. Click below to generate a new statement.<br /></span>
 		<form id="dateForm" style="display:none" name="entry" action="setCycleDate.php" method="post">
 			<input name="use_date" id="use_date" type="text" />
 			<input type="hidden" name="full_use_date" />

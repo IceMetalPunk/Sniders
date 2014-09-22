@@ -39,8 +39,8 @@ TODO:
 	
 4) Monthly Statement
 	a. Range: end at last Sunday of month, begin at previous end
-	a. Print a summary of all customers' nonzero balances for range
-	b. For each customer
+	b. Print a summary of all customers' nonzero balances for range
+	c. For each customer
 		i. The statement should list all invoice totals for the range and their opening and closing balance
 		ii. Update opening balance
 
@@ -58,7 +58,7 @@ TODO:
 ✓	a. By reference, date, or customer number (or any combinations)
 ✓	b. Show 99999 as customer number for any in-store entries
 	c. Optional -- search by item styles or information
-	d. Allow changes and canceling (canceled=VOID inv #)
+✓	d. Allow changes
 	
 7) Customer Maintenance
 	a. Add new customers
