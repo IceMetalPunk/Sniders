@@ -29,15 +29,16 @@
   $db=mysql_select_db("sniders2013", $link);
 	
 	if (!empty($_POST['submitted']) && $_POST['submitted']="Lookup") {
-		$whereclause="";
+		$whereclause="WHERE ";
 		foreach ($_POST as $key=>$val) {
 			if (!empty($_POST[$key]) && $key!="submitted") {
 				if ($key=="C-CUSTNO") { $oper="="; $end=""; }
 				else { $oper=" LIKE "; $end="%"; }
-				$whereclause.=" AND `".mysql_real_escape_string($key)."`".$oper."'".$end.mysql_real_escape_string($val).$end."'";
+				if ($whereclause!="WHERE ") { $whereclause.=" AND "; }
+				$whereclause.="`".mysql_real_escape_string($key)."`".$oper."'".$end.mysql_real_escape_string($val).$end."'";
 			}
 		}
-		$q="SELECT * FROM `t-customer`, `t-work` WHERE `C-CUSTNO`=`W-CUSTNO`".$whereclause." GROUP BY `C-CUSTNO`";
+		$q="SELECT * FROM `t-customer` LEFT JOIN `t-work` ON `C-CUSTNO`=`W-CUSTNO`".$whereclause." GROUP BY `C-CUSTNO`";
 		$query=mysql_query($q);
 		
 		$results=array();
