@@ -231,6 +231,10 @@
       }
       }
       
+			$q="SELECT `C-DISC-OUTFIT`, `C-DISC-SHOE` from `t-customer` WHERE `C-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
+			$query=mysql_query($q);
+			$discountInfo=mysql_fetch_assoc($query);
+			
       $total=$price+$shoeprice;
       mysql_close($link);
 			echo "<tr style='font-weight:bold'><td>Ticket Number: </td><td>".$_POST['ticket'];
@@ -413,19 +417,31 @@
     </tr>
     <?php } ?>
     
-    <tr>
-      <td style="border-top:1px solid #aaaaaa">Outfit Price: </td>
-      <td style="border-top:1px solid #aaaaaa"><input type='hidden' name='o_outfitprice' value='<?php echo number_format($price, 2); ?>' />$<input name='outfitPrice' type='text' value='<?php echo number_format($price, 2); ?>' /></td>
+    <tr style='font-size:14pt'>
+      <td style="border-top:1px solid #aaaaaa; font-size:14pt">Outfit Price: </td>
+      <td style="border-top:1px solid #aaaaaa; font-size:14pt"><input type='hidden' name='o_outfitprice' value='<?php echo number_format($price, 2); ?>' />$<input name='outfitPrice' type='text' value='<?php echo number_format($price, 2); ?>' />
+			<?php
+				if ($discountInfo["C-DISC-OUTFIT"]>0) {
+					echo '<a href="javascript:document.confirmForm.outfitPrice.value='."'".number_format($discountInfo["C-DISC-OUTFIT"], 2)."'".'; void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-OUTFIT"], 2).')</a>';
+				}
+			?>
+			</td>
     </tr>
     
-    <tr>
-      <td>Shoe Price: </td>
-      <td><input type='hidden' name='o_shoeprice' value='<?php echo number_format($shoeprice, 2); ?>' />$<input name='shoePrice' type='text' value='<?php echo number_format($shoeprice, 2); ?>' /></td>
+    <tr style='font-size:14pt'>
+      <td style='font-size:14pt'>Shoe Price: </td>
+      <td style='font-size:14pt'><input type='hidden' name='o_shoeprice' value='<?php echo number_format($shoeprice, 2); ?>' />$<input name='shoePrice' type='text' value='<?php echo number_format($shoeprice, 2); ?>' />
+			<?php
+				if ($discountInfo["C-DISC-SHOE"]>0) {
+					echo '<a href="javascript:document.confirmForm.shoePrice.value='."'".number_format($discountInfo["C-DISC-SHOE"], 2)."'".'; void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-SHOE"], 2).')</a>';
+				}
+			?>
+			</td>
     </tr>
     
-    <tr>
-      <td>Total Price: </td>
-      <td style="font-weight:bold">$<span id='totalPrice'><?php echo number_format($total, 2); ?></span></td>
+    <tr style='font-size:14pt'>
+      <td style='font-size:14pt'>Total Price: </td>
+      <td style="font-weight:bold; font-size:14pt">$<span id='totalPrice'><?php echo number_format($total, 2); ?></span></td>
     </tr>
     
     <tr>
