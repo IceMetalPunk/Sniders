@@ -31,6 +31,9 @@
 					<td><input id="c_name" name="c_name" size=40 placeholder="Customer Name" /></td>
 				</tr>
 				<tr>
+					<td colspan='2'><input id="c_useDiscount" name="use_discount" type="checkbox" value="true" checked /><label for="c_useDiscount">Use discount if applicable</label></td>
+				</tr>
+				<tr>
 					<td><button type='submit' id='sub' name='sub' accesskey='I'><u>I</u>nvoice</td>
 					<td>&nbsp;</td>
 				</tr>

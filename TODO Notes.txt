@@ -1,7 +1,19 @@
-Minor:
-  * Move Use Date on work ticket templates under the bar code to make room at the top for hole punching.
+Also 2 cols on Customer for Balance: C-OPEN-BALANCE, C-BALANCE
+C-BALANCE will now the closing balance after the invoice
 
-Major:
-  1) Focus on billing first
-     a) Inlcude column for customer that indicates don't print bills for it and instead create "false" invoice numbers
-  2) Credits, Payments, and Misc. Charges on one page
+The new format of the invoice will be:
+
+"Current Invoice" section
+	-Work tickets
+	-Adjustment charges (NOT CREDITS)
+New Total Charge
+Discount % (if applicable)
+New Total Invoiced (charge * discount/100)
+Previous Balance (C-BALANCE)
+New Credits
+Current Balance (Previous + New Total - New Credits)
+
+All credits will be considered invoiced on this bill but will only be summarized in the credits)
+We no longer show anything from previous  invoices on Current invoice 
+All credits that have not been invoiced (including payments and credits ) will be summed up in the Credits line (no details required)
+C-BALANCE will be updated after invoice calculated  with current balance

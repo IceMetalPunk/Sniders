@@ -114,6 +114,8 @@
 								
 				/* List new items */
 				$disc=$customerData["C-DISCNT-PCT"];
+				if (empty($_POST["c_useDiscount"]) || !$_POST["c_useDiscount"]) { $disc=0; }
+				
 				if ($invNum!="RECAP") {
 					echo "<tr style='border-top:2px solid #000000'><th colspan='5'>New Charges</th></tr>";
 					echo "<tr><th>Invoice Date</th><th>Transaction #</th><th>Reference</th><th>Use Date</th><th>Amount</th></tr>";
