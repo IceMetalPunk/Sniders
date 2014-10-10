@@ -42,7 +42,7 @@
 					if ($data["balance"]==0) { continue; } */
 					echo "<tr><td>".$custno."</td>"; // Customer number
 					echo "<td>".$data["name"]."</td>"; // Customer name
-					echo "<td class='right'>$".number_format($data["prevBalance"])."</td>"; // Previous balance
+					echo "<td class='right'>$".number_format($data["prevBalance"], 2)."</td>"; // Previous balance
 					echo "<td class='right'>$".number_format($data["charges"],2)."</td>"; // Charges for this cycle
 					echo "<td class='right'>($".number_format($data["credits"], 2).")</td>"; // Credits for this cycle
 					echo "<td class='right'>$".number_format($data["balance"], 2)."</td></tr>\r\n"; // Total balance

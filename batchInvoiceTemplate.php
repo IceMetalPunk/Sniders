@@ -168,6 +168,11 @@
 					/* And also update the fields in the view (which updates the work table and removes them from the view) */
 					$q="UPDATE `v-a-invoice` SET `W-INV-NO`='".mysql_real_escape_string($invNum)."' WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 					$query=mysql_query($q);
+					
+					/* Update the customer's balance */
+					$q="UPDATE `t-customer` SET `C-BALANCE`=".mysql_real_escape_string($balance)." WHERE `C-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
+					$query=mysql_query($q);
+					
 				}
 			?>
 		</table>

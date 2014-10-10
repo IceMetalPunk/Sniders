@@ -1,5 +1,5 @@
-Also 2 cols on Customer for Balance: C-OPEN-BALANCE, C-BALANCE
-C-BALANCE will now the closing balance after the invoice
+*Also 2 cols on Customer for Balance: C-OPEN-BALANCE, C-BALANCE
+*C-BALANCE will now the closing balance after the invoice
 
 The new format of the invoice will be:
 
@@ -16,4 +16,4 @@ Current Balance (Previous + New Total - New Credits)
 All credits will be considered invoiced on this bill but will only be summarized in the credits)
 We no longer show anything from previous  invoices on Current invoice 
 All credits that have not been invoiced (including payments and credits ) will be summed up in the Credits line (no details required)
-C-BALANCE will be updated after invoice calculated  with current balance
+*C-BALANCE will be updated after invoice calculated  with current balance
