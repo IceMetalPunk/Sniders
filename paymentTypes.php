@@ -6,9 +6,9 @@
 		"Write-Off"=>24,
 		"Other Payment"=>25,
 		"Charge for Lost Item"=>31,
-		"Miscellaneous Charge"=>32,
+		"Misc. Charge"=>32,
 		"Delivery Charge"=>33,
-		"Miscellaneous Credit"=>41,
+		"Misc. Credit"=>41,
 		"Not Used"=>42
 	);
 ?>

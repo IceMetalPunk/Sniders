@@ -102,30 +102,30 @@
 				$q="SELECT *, SUM(`TAB-TOTAL`) as `TAB-SUM` FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-INV-NO`!='' AND (`TAB-ADJ-TYPE`=0 OR `TAB-ADJ-TYPE` BETWEEN 30 and 39) GROUP BY `TAB-INV-NO` ORDER BY `TAB-INV-DT` ASC";
 				$query=mysql_query($q);
 				if ($query && mysql_num_rows($query)>0) {
-					echo "<tr><th colspan='5' style='border-top:2px solid #000000'>Previous Invoices</th></tr>";
-				  echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice #</th><th colspan='2'>Invoice Totals</th></tr>";
+					//echo "<tr><th colspan='5' style='border-top:2px solid #000000'>Previous Invoices</th></tr>";
+				  //echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice #</th><th colspan='2'>Invoice Totals</th></tr>";
 					while ($row=mysql_fetch_assoc($query)) {
-						echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2' class='right'>$".number_format($row["TAB-SUM"],2)."</td></tr>";
+						//echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2' class='right'>$".number_format($row["TAB-SUM"],2)."</td></tr>";
 						$total+=$row["TAB-SUM"];
 					}
 					//if ($invNum!="RECAP") { echo "<tr><td colspan='5'>&nbsp;</td></tr>"; }
 				}
-				echo "<tr><th>Total Previous Charges</th><td colspan='4' class='right'>$".number_format($total,2)."</td></tr>";
+				//echo "<tr><th>Total Previous Charges</th><td colspan='4' class='right'>$".number_format($total,2)."</td></tr>";
 								
 				/* List new items */
 				$disc=$customerData["C-DISCNT-PCT"];
 				if (empty($_POST["c_useDiscount"]) || !$_POST["c_useDiscount"]) { $disc=0; }
 				
 				if ($invNum!="RECAP") {
-					echo "<tr style='border-top:2px solid #000000'><th colspan='5'>New Charges</th></tr>";
-					echo "<tr><th>Invoice Date</th><th>Transaction #</th><th>Reference</th><th>Use Date</th><th>Amount</th></tr>";
+					echo "<tr><th colspan='4'>New Charges</th></tr>";
+					echo "<tr><th>Transaction #</th><th>Reference</th><th>Use Date</th><th>Amount</th></tr>";
 					$q="SELECT * FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 					$query=mysql_query($q);
 					
 					$subtotal=0;
 					
 					while ($row=mysql_fetch_assoc($query)) {
-						echo "<tr><td>".$now."</td><td>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td>".$row["W-REF"]."</td><td>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td class='right'>$".number_format($row["W-AMT"], 2)."</td>";
+						echo "<tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td style='border:0px'>".$row["W-REF"]."</td><td style='border:0px'>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td class='right' style='border:0px'>$".number_format($row["W-AMT"], 2)."</td>";
 						$subtotal+=$row["W-AMT"];
 					}
 					
@@ -134,27 +134,24 @@
 					$query=mysql_query($q);
 					if ($query && mysql_num_rows($query)>0) {
 						while ($row=mysql_fetch_assoc($query)) {
-							echo "<tr><td>&nbsp;</td><td>".$row["TAB-ADJ-NO"]."</td><td colspan='2'>".$row["TAB-ADJ-REF"]."</td><td class='right'>$".number_format($row["TAB-TOTAL"], 2)."</td></tr>";
+							echo "<tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>".$row["TAB-ADJ-NO"]."</td><td style='border:0px' colspan='2'>".$row["TAB-ADJ-REF"]."</td><td  style='border:0px' class='right'>$".number_format($row["TAB-TOTAL"], 2)."</td></tr>";
 							$subtotal+=$row["TAB-AMT"];
 						}
 					}
 					
 					/* Display subtotals and discounts etc. */
-					echo "<tr><th>New Charges</th><td colspan='4' class='right'>$".number_format($subtotal,2)."</td></tr>";
-					if ($disc>0) {
-						echo "<tr><th>Discount</th><td colspan='4' class='right'>".$disc."%</td></tr>";
-					}
+					//echo "<tr><th>New Charges</th><td colspan='4' class='right'>$".number_format($subtotal,2)."</td></tr>";
 					
 					/* List any credits or payments for the week */
 					$q="SELECT * FROM `t-a-billing` WHERE `TAB-ADJ-TYPE`>9 AND `TAB-ADJ-TYPE` NOT BETWEEN 30 and 39";
 					$query=mysql_query($q);
 					if ($query && mysql_num_rows($query)>0) {
-						echo "<tr style='border-top:2px solid #000000'><th colspan='5'>Payments and Credits</th></tr>";
-						echo "<tr><th>Transaction #</th><th colspan='3'>Details</th><th class='right'>Amount</th></tr>";
+						//echo "<tr style='border-top:2px solid #000000'><th colspan='5'>Payments and Credits</th></tr>";
+						//echo "<tr><th>Transaction #</th><th colspan='3'>Details</th><th class='right'>Amount</th></tr>";
 						while ($row=mysql_fetch_assoc($query)) {
-							echo "<tr><td>".$row["TAB-ADJ-NO"]."</td>"; // Adjustment number
-							echo "<td colspan='3'>".$row["TAB-ADJ-REF"]."</td>"; // Adjustment reference info
-							echo "<td class='right'>$".number_format(abs($row["TAB-TOTAL"]), 2)."</td></tr>"; // Amount of credit/payment
+							//echo "<tr><td>".$row["TAB-ADJ-NO"]."</td>"; // Adjustment number
+							//echo "<td colspan='3'>".$row["TAB-ADJ-REF"]."</td>"; // Adjustment reference info
+							//echo "<td class='right'>$".number_format(abs($row["TAB-TOTAL"]), 2)."</td></tr>"; // Amount of credit/payment
 							$credits+=abs($row["TAB-TOTAL"]);
 						}
 					}
@@ -165,11 +162,14 @@
 				$balance+=$total-$credits;
 				
 				/* Display totals */
-				echo "<tr><td colspan='5'>&nbsp;</td></tr>";
-				echo "<tr style='border-top:2px solid #000000'><th>Opening Balance</th><td colspan='4' class='right'>$".number_format($customerData["C-BALANCE"], 2)."</td></tr>";
-				echo "<tr><th>Total Charges</th><td colspan='4' class='right'>$".number_format($total,2)."</td></tr>";
-				if ($credits>0) { echo "<tr><th>Total Payments/Credits</th><td colspan='4' class='right'>(-$".number_format($credits, 2).")</td></tr>"; }
-				echo "<tr><th>Current Balance</th><td colspan='4' class='right'>".($balance<0?"(-$".number_format($balance, 2).")":"$".number_format($balance, 2))."</td></tr>";
+				//echo "<tr><td colspan='5'>&nbsp;</td></tr>";
+				echo "<tr style='border-top:2px solid #000000'><th>Total Charges</th><td colspan='3' class='right'>$".number_format($total,2)."</td></tr>";
+				if ($disc>0) {
+					echo "<tr><th>Discount</th><td colspan='3' class='right'>".$disc."%</td></tr>";
+				}
+				echo "<tr><th>Previous Balance</th><td colspan='3' class='right'>$".number_format($customerData["C-BALANCE"], 2)."</td></tr>";
+				if ($credits>0) { echo "<tr><th>Total Payments/Credits</th><td colspan='3' class='right'>(-$".number_format($credits, 2).")</td></tr>"; }
+				echo "<tr><th>Current Balance</th><td colspan='3' class='right'>".($balance<0?"(-$".number_format($balance, 2).")":"$".number_format($balance, 2))."</td></tr>";
 				
 				/* Insert invoice into billing table */
 				if ($invNum!="RECAP") {
