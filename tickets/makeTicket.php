@@ -14,7 +14,7 @@
   $link=mysql_connect("localhost", "root", "tux898");
   $db=mysql_select_db("sniders2013", $link);
 
-  if (empty($_POST['outfitPrice'])) {
+  if (!isset($_POST['outfitPrice']) || $_POST['outfitPrice']==="") {
     echo "<b>Some information is missing. Redirecting to the main menu.</b><meta http-equiv='refresh' content='5; url=../index.php' />";
   }
   else {
