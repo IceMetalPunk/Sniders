@@ -1,0 +1,96 @@
+/* Controls the page background colors and margings */
+.MainPage
+{
+			
+}
+			
+/* main table */
+.MainTable
+{
+			 
+}
+			
+			
+/* Report Title */
+.Title
+{
+			
+}
+			
+/* Separate between sections  */
+.Separator 
+{
+			
+}
+			
+/* The first grouping levels */
+.MainGroup
+{
+			
+}
+		
+/* Any subgrouping levels */
+.SubGroup
+{
+			
+}
+			
+/* records Table Header */
+.TableHeader
+{
+			
+}
+			
+			
+/* columns header */
+.ColumnHeader
+{
+	
+}
+			
+			
+/* Table Cell */
+.TableCell
+{
+		 
+}
+			
+/* Alternate table’s cell (Toggling) */
+.AlternateTableCell
+{
+			
+}
+			
+/* navigation menu */
+.menu {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	background-color:#FFAC33;
+	border-color:#00AC33;		
+}
+
+/* Navigation Menu when mouse hover */
+.menu_hover
+{
+	color: #000000;
+	background-color:#FFCC33;	
+}
+			
+/* visited links style */
+a:visited
+{
+			
+}
+			
+/* default links style
+a:link
+{
+			
+}	
+				
+				
+/* page Footer */
+.TableFooter
+{
+			
+}
