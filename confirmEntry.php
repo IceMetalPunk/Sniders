@@ -70,7 +70,6 @@
     <h3>Confirm Data Entry</h3>
     <span id="errorbox" class="smalltext error"></span>
     <form action="tickets/makeTicket.php" method="post" onsubmit="return Validate()" name='confirmForm'>
-    <table border=0 class='smalltext' style="border-collapse:collapse">
     <?php
     	$link=mysql_connect("localhost", "root", "tux898");
 			$db=mysql_select_db("sniders2013", $link);
@@ -137,19 +136,26 @@
       );
       
       /* Complete outfit price */
+			$notIn=array(); // Keep track of nonexistent styles, if any, for warnings.
       if (empty($_POST['accessories']) && !empty($_POST['complete'])) {
       
         /* Shoes */
         $q="SELECT `P-COMP-PR` FROM `t-price` WHERE `P-Type`='shoe' AND `P-STYLE`='".mysql_real_escape_string($_POST['sh_style'])."'";
         $query=mysql_query($q);
-        $row=mysql_fetch_assoc($query);
-        $shoeprice+=$row['P-COMP-PR'];
+				if ($query===FALSE || mysql_num_rows($query)<=0) { $notIn[]="shoe"; }
+				else {
+					$row=mysql_fetch_assoc($query);
+					$shoeprice+=$row['P-COMP-PR'];
+				}
       
         /* Coat */
         $q="SELECT `P-COMP-PR` FROM `t-price` WHERE `P-Type`='coat' AND `P-STYLE`='".mysql_real_escape_string($_POST['c_style'])."'";
         $query=mysql_query($q);
-        $row=mysql_fetch_assoc($query);
-        $price+=$row['P-COMP-PR'];
+				if ($query===FALSE || mysql_num_rows($query)<=0) { $notIn[]="coat"; }
+				else {
+					$row=mysql_fetch_assoc($query);
+					$price+=$row['P-COMP-PR'];
+				}
         
         /* Item upcharges - Take P-Type with it for accessories qty multiplication */
         $items["vest"]=!empty($_POST['a_vest'])?$_POST['a_vest']:"";
@@ -163,6 +169,7 @@
         foreach ($items as $item=>$value) {
           if ($itemList!="") { $itemList.=" OR "; }
           $itemList.="(`P-Type`='".mysql_real_escape_string($item)."' AND `P-STYLE`='".mysql_real_escape_string($value)."')";
+					if ($value!="" && $item!="Glove") { $notIn[]=$item; }
         }
         $q.=$itemList;
         $query=mysql_query($q);
@@ -177,6 +184,8 @@
           else {
             $price+=$row['P-UPCHARGE-O'];
           }
+					$ind=array_search($row['P-Type'], $notIn);
+					if ($ind!==FALSE) { unset($notIn[$ind]); }
           
         }
       }
@@ -201,10 +210,12 @@
         foreach ($items as $item=>$value) {
           if ($itemList!="") { $itemList.=" OR "; }
           $itemList.="(`P-Type`='".mysql_real_escape_string($item)."' AND `P-STYLE`='".mysql_real_escape_string($value)."')";
+					if ($value!="" && $item!="Glove") { $notIn[]=$item; }
         }
         $q.=$itemList;
         //print_r($q);
         $query=mysql_query($q);
+
         while ($row=mysql_fetch_assoc($query)) {
           if ($row['P-Type']=="shoe") {
             $shoeprice+=$row['P-ITEM'];
@@ -227,6 +238,8 @@
           else {
             $price+=$row['P-ITEM'];
           }
+					$ind=array_search($row['P-Type'], $notIn);
+					if ($ind!==FALSE) { unset($notIn[$ind]); }
         }
       }
       }
@@ -237,6 +250,19 @@
 			
       $total=$price+$shoeprice;
       mysql_close($link);
+			
+			/* Output missing style errors if need be */
+			if (count($notIn)>0) {
+				echo "<span style='font-size: 12pt; font-weight:bold; color:#aa0000'>The following styles are not in the database and have defaulted to $0.00:<ul>";
+				foreach ($notIn as $val) {
+					echo "<li style='font-size:12pt'>".ucwords($val)." - ".$items[$val]."</li>";
+				}
+				echo "</ul></span>";
+			}
+			
+		?>
+		<table border=0 class='smalltext' style="border-collapse:collapse">
+		<?php
 			echo "<tr style='font-weight:bold'><td>Ticket Number: </td><td>".$_POST['ticket'];
 			if ($isEdit) { echo " (Editing)"; }
 			echo "</td></tr>";
