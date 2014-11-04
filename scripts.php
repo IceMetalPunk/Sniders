@@ -305,12 +305,12 @@ function UpdateCustomer(cust) {
     }
     if ($typeInfo[$type]!=$type."Styles=[") { $typeInfo[$type].=", "; }
     
-    $typeInfo[$type].='{value: "'.$row["P-STYLE"].'", label: "'.$row["P-STYLE"].' - '.$row["P-DESC"].'"';
+    $typeInfo[$type].='{value: "'.$row["P-STYLE"].'", label: "'.trim($row["P-STYLE"]).' - '.trim($row["P-DESC"]).'"';
     foreach ($row as $key=>$val) {
       $parts=explode("-", $key);
       //echo "// Column: ".$key."\r\n";
       if ($parts[count($parts)-1]=="DEF") {
-        $typeInfo[$type].=', '.$parts[1].'_def: "'.$val.'"';
+        $typeInfo[$type].=', '.trim($parts[1]).'_def: "'.trim($val).'"';
       }
     }
     $typeInfo[$type].="}";
@@ -391,6 +391,29 @@ function UpdateCustomer(cust) {
       });
       document.getElementById("use_date").onblur=FormatDate; // When the Date of Use box loses focus, auto-fill the year.
     });
+		
+		$(function() {
+			document.entry.vest_a_style.onblur=function() { DefaultTie(document.entry.vest_a_style.value, document.entry.tie_a_style); }
+			document.entry.vest_style.onblur=function() { DefaultTie(document.entry.vest_style.value, document.entry.tie_style); }
+		});
+		
+		var vestAndTies={
+		<?php
+			$q="SELECT `P-STYLE`, `P-TIE-DEF` FROM `t-price` WHERE `P-Type`='vest'";
+			$query=mysql_query($q);
+			$found=false;
+			while ($row=mysql_fetch_assoc($query)) {
+				if ($found) { echo ", \n"; }
+				echo '"'.trim($row["P-STYLE"]).'": "'.trim($row["P-TIE-DEF"]).'"';
+				$found=true;
+			}
+		?>
+		};
+		function DefaultTie(style, where) {
+			if (style in vestAndTies) {
+				where.value=vestAndTies[style];
+			}
+		}
     
 /* The function to auto-fill the year */
 function FormatDate() {
