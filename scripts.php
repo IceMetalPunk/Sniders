@@ -14,6 +14,7 @@ function ShowInHouse() {
   document.getElementById("inHouseSpot").style.display="";
   document.entry.ref.placeholder="Party Name";
   $("#c_name").autocomplete("disable");
+	$("#c_name").focus();
 }
 
 /* Function to initialize the main data entry page when it loads */

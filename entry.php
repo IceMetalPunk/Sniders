@@ -59,15 +59,23 @@
       <?php if (!empty($_POST['redirected']) && $_POST['redirected']=="1") { ?>
       <script>
         $(function() {
-          GetCustomer(document.entry.c_num.value, true);
-					document.entry.date_use.focus();
-          document.entry.date_use.select();
+					if (document.entry.c_num.value=="99999") {
+						ShowInHouse();
+					}
+					else {
+						GetCustomer(document.entry.c_num.value, true);
+						document.entry.date_use.focus();
+						document.entry.date_use.select();
+					}
         });
       </script>
       <?php  } else if ($isEdit) { ?>
 			<script>
         $(function() {
-          GetCustomer(document.entry.c_num.value, true);
+					if (document.entry.c_num.value=="99999") {
+						ShowInHouse();
+					}
+					else { GetCustomer(document.entry.c_num.value, true); }
         });
       </script>
 			<?php } ?>
