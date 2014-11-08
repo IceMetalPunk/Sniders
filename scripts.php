@@ -129,7 +129,7 @@ customerList = [
 <?php
 
   /* Get all the information from the t-customer table */
-  $q="SELECT * FROM `t-customer`";
+  $q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<70000";
   $query=mysql_query($q);
   if ($query) {
     
