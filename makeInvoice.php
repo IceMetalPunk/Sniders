@@ -123,7 +123,7 @@
 				if ($invNum!="RECAP") {
 					echo "<tr><th colspan='4'>New Charges</th></tr>";
 					echo "<tr><th>Transaction #</th><th>Reference</th><th>Use Date</th><th>Amount</th></tr>";
-					$q="SELECT * FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
+					$q="SELECT * FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' ORDER BY `W-TKT`, `W-TKT-SUB` ASC";
 					$query=mysql_query($q);
 					
 					$subtotal=0;
