@@ -39,20 +39,24 @@
 		<br />
 		<span class="topHeaders">
 		<span style='float:right'><a href="index.php"><img src="logo.png" border=0 /></a><br />
-		2882 Long Beach Rd<br />
+		2898 Long Beach Rd<br />
 		Oceanside, NY 11572<br />
 		(516)442-2828</span><br clear='both' />
 		<?php
 			$q="SELECT COUNT(`W-CUSTNO`) AS num FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 			$query=mysql_query($q);
+			$q2="SELECT `TAB-CUSTNO` FROM `t-a-billing` WHERE `TAB-INV-NO`='' AND `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
+			$adjQuery=mysql_query($q2);
+			
+			$isRecap=(($query===FALSE || mysql_num_rows($query)<=0) && ($adjQuery===FALSE || mysql_num_rows($adjQuery)<=0));
 			
 			/* If there's no new items to invoice, show that message and set the number to RECAP instead of generating a new one */
-			if ($query===FALSE || mysql_num_rows($query)<=0) {
+			if ($isRecap) {
 				$invNum="RECAP";
 			}
 			else {
 				$q=mysql_fetch_assoc($query);
-				if ($q["num"]<=0) {
+				if ($q["num"]<=0 && ($adjQuery===FALSE || mysql_num_rows($adjQuery)<=0)) {
 					$invNum="RECAP";
 				}
 				
