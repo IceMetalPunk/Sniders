@@ -138,10 +138,10 @@
           <td><input id="pants_style" name="p_style" type="text" size=5 <?php if ($isEdit) { echo "value='".htmlentities($editData[0]["W-PANT-STYLE"], ENT_QUOTES)."' "; } ?>/></td>
           <td>Waist</td>
           <td><input name="p_waist" type="text" size=5 <?php if ($isEdit) { echo "value='".htmlentities($editData[0]["W-WAIST"], ENT_QUOTES)."' "; } ?>/></td>
+					<td>Seat</td>
+          <td><input name="p_seat" type="text" size=5 <?php if ($isEdit) { echo "value='".htmlentities($editData[0]["W-PANTS-SEAT"], ENT_QUOTES)."' "; } ?>/></td>
           <td>Length</td>
           <td><input name="p_length" type="text" size=5 <?php if ($isEdit) { echo "value='".htmlentities($editData[0]["W-PANT-LEN"], ENT_QUOTES)."' "; } ?>/></td>
-          <td>Seat</td>
-          <td><input name="p_seat" type="text" size=5 <?php if ($isEdit) { echo "value='".htmlentities($editData[0]["W-PANTS-SEAT"], ENT_QUOTES)."' "; } ?>/></td>
         </tr>
 
         <!-- Shirt row -->
