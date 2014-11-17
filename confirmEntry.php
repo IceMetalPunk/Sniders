@@ -148,7 +148,7 @@
         /* Shoes */
         $q="SELECT `P-COMP-PR` FROM `t-price` WHERE `P-Type`='shoe' AND `P-STYLE`='".mysql_real_escape_string($_POST['sh_style'])."'";
         $query=mysql_query($q);
-				if ($query===FALSE || mysql_num_rows($query)<=0) { $notIn[]="shoe"; }
+				if (!empty($_POST['sh_style']) && ($query===FALSE || mysql_num_rows($query)<=0)) { $notIn[]="shoe"; }
 				else {
 					$row=mysql_fetch_assoc($query);
 					$shoeprice+=$row['P-COMP-PR'];
@@ -157,7 +157,7 @@
         /* Coat */
         $q="SELECT `P-COMP-PR` FROM `t-price` WHERE `P-Type`='coat' AND `P-STYLE`='".mysql_real_escape_string($_POST['c_style'])."'";
         $query=mysql_query($q);
-				if ($query===FALSE || mysql_num_rows($query)<=0) { $notIn[]="coat"; }
+				if (!empty($_POST['c_style']) && ($query===FALSE || mysql_num_rows($query)<=0)) { $notIn[]="coat"; }
 				else {
 					$row=mysql_fetch_assoc($query);
 					$price+=$row['P-COMP-PR'];
