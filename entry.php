@@ -116,7 +116,11 @@
         if (!empty($_POST['redirected']) && $_POST['redirected']=="1") { 
           echo ' value="'.addslashes($_POST['red_usedate']).'"';
         }
-      ?> <?php if ($isEdit) { echo "value='".htmlentities($editDate, ENT_QUOTES)."'"; } ?>/><input type="hidden" name="full_use_date" <?php if ($isEdit) { echo "value='".htmlentities($editDate, ENT_QUOTES)."'"; } ?>/> <input name="ref" type="text" size=40 maxlength=50 placeholder="Reference" <?php if ($isEdit) { echo "value='".htmlentities($editData[0]["W-REF"], ENT_QUOTES)."'"; } ?>/> <input type="checkbox" name="complete" value="true" id="compBox" checked=true /><label for="compBox">Complete Outfit</label> <input type="checkbox" name="accessories" value="true" id="accBox" /><label for="accBox">Accessories Only</label>
+				else if ($isEdit) { echo "value='".htmlentities($editDate, ENT_QUOTES)."'"; } ?>/><input type="hidden" name="full_use_date"<?php
+        if (!empty($_POST['redirected']) && $_POST['redirected']=="1") { 
+          echo ' value="'.addslashes($_POST['red_usedate']).'"';
+        }
+				else if ($isEdit) { echo "value='".htmlentities($editDate, ENT_QUOTES)."'"; } ?>/> <input name="ref" type="text" size=40 maxlength=50 placeholder="Reference" <?php if ($isEdit) { echo "value='".htmlentities($editData[0]["W-REF"], ENT_QUOTES)."'"; } ?>/> <input type="checkbox" name="complete" value="true" id="compBox" checked=true /><label for="compBox">Complete Outfit</label> <input type="checkbox" name="accessories" value="true" id="accBox" /><label for="accBox">Accessories Only</label>
 
       <!-- Main table with item information fields -->
       <div id="mainForm">
