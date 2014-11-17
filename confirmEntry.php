@@ -501,7 +501,7 @@
 		</tr>
 		<?php }
 			else {
-				echo "<input type='text' name='print' value='true' />";
+				echo "<input type='hidden' name='print' value='true' />";
 			}
 		?>
     <tr>

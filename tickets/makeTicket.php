@@ -46,13 +46,20 @@
     $vals["W-BILL-INV"]="000000"; // Billing invoice number
     $vals["W-REF"]="'".mysql_real_escape_string($_POST['ref'])."'"; // Reference name
     $vals["W-COMP-OUT"]=(!empty($_POST['complete']))?"1":"0"; // Complete outfit?
+		
+		$styleCheck=$_POST["c_style"];
+		$okay=false;
     $vals["W-COAT"]="'".$_POST['c_style']."'"; // Coat style
     $vals["W-COAT-SZ"]="'".$_POST['c_size']."'"; // Coat size
     $vals["W-COAT-SLV"]="'".$_POST['c_sleeve']."'"; // Coat sleeve
+		
+		$styleCheck.=$_POST["p_style"];
     $vals["W-PANT-STYLE"]="'".$_POST['p_style']."'"; // Pants style
     $vals["W-WAIST"]="'".$_POST['p_waist']."'"; // Pants waist size
     $vals["W-PANT-LEN"]="'".$_POST['p_length']."'"; // Pants length
     $vals["W-PANTS-SEAT"]="'".$_POST['p_seat']."'"; // Pants seat size
+		
+		$styleCheck.=$_POST["s_style"];
     $vals["W-SHIRT"]="'".$_POST['s_style']."'"; // Shirt style
     $vals["W-SHIRT-SIZE"]="'".$_POST['s_size']."'"; // Shirt size
     
@@ -65,6 +72,7 @@
     $vals["W-HANKIE"]="''"; // Hankie style -- blank for accessories
     
     if (empty($_POST["accessories"])) {
+			$styleCheck.=$_POST["a_vest"].$_POST["a_sash"].$_POST["a_tie"].$_POST["a_hankie"];
       $vals["W-VEST"]="'".$_POST['a_vest']."'"; // Vest style
       $vals["W-SASH"]="'".$_POST['a_sash']."'"; // Sash style
       $vals["W-TIE"]="'".$_POST['a_tie']."'"; // Tie style
@@ -115,6 +123,7 @@
       $vals["WMXL"]="0"; // Accessories-only vest Men's Xtra Large total quantity
     }
     else {
+			$okay=true;
       $vals["W-TKT-TYPE"]=2;
       $vals["W-VEST-ACC"]=(!empty($_POST["vest_a_style"]))?"'".$_POST["vest_a_style"]."'":"''";
       $vals["W-SASH-ACC"]=(!empty($_POST["sash_a_style"]))?"'".$_POST["sash_a_style"]."'":"''";
@@ -154,6 +163,8 @@
     $vals["W-TKT-PRINTED"]="0"; // Ticket printed?
     $vals["W-TKT-BILLED"]="0"; // Ticket billed?
 
+		$okay=($okay || $styleCheck!=="");
+		
     /* Create a SQL query from the data */
 		$cols="(";
 		$values="(";
@@ -170,8 +181,11 @@
 			$query=mysql_query($q);
 		}
 		
-		$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
-		$query=mysql_query($q);
+		$query=true;
+		if ($okay) {
+			$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
+			$query=mysql_query($q);
+		}
 		
     /* Create one for the shoe ticket if needed */
     if ($query && !empty($_POST["sh_style"]) && empty($_POST['accessories'])) {
