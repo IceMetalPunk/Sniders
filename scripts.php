@@ -13,7 +13,7 @@ function ShowInHouse() {
   document.entry.c_name.value="";
   document.getElementById("inHouseSpot").style.display="";
   document.entry.ref.placeholder="Party Name";
-  $("#c_name").autocomplete("disable");
+  //$("#c_name").autocomplete("disable");
 	$("#c_name").focus();
 }
 
@@ -128,8 +128,33 @@ customerList = [
 /* Use PHP to dynamically create the customer-name autocomplete options from the database information */
 <?php
 
-  /* Get all the information from the t-customer table */
-  $q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<70000";
+  /* Get all the information from the t-customer table for non-walkins */
+  $q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<70000 ORDER BY `C-CUSTNO` ASC";
+  $query=mysql_query($q);
+  if ($query) {
+    
+    /* For each row in the table, make a Javascript object with the properties "label" (for the customer name) and "value" (for the 
+       customer number). Add that object to the autocomplete array by echoing it into the script */
+    $out="";
+    while ($row = mysql_fetch_assoc($query)) {
+      $row=array_map("addslashes", $row); // Needed so special characters like quotes, etc. are escaped before putting them in the script
+
+      if ($out!="") { $out.=", "; }
+      $out.='{label: "'.$row["C-NAME"].'", value: "'.$row["C-CUSTNO"].'", city: "'.$row["C-CITY"].'", shipping: '.$row["c-SHIP-METHOD"].', billing: '.$row["C-BILLING"].'}';
+    }
+    echo $out;
+  }
+
+?>
+];
+
+instoreList = [
+
+/* Use PHP to dynamically create the customer-name autocomplete options from the database information */
+<?php
+
+  /* Get all the information from the t-customer table for walkins */
+  $q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)>=70000 AND CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<99999 ORDER BY `C-NAME` ASC";
   $query=mysql_query($q);
   if ($query) {
     
@@ -159,11 +184,18 @@ $( "#c_name" ).autocomplete({
 
         /* The ^ in a Regular Expression pattern means "at the beginning of the text" */
         var matcher = new RegExp( "^" + re, "i" ); 
+				
+				if (document.entry.c_num.value!="99999") {
     
-        /* Respond with only those items in the itemStyles array whose labels match that pattern */
-        response($.grep( customerList, function(item){ 
-            return matcher.test(item.label); }) ); 
-       },
+					/* Respond with only those items in the itemStyles array whose labels match that pattern */
+					response($.grep( customerList, function(item){ 
+						return matcher.test(item.label); }) ); 
+				}
+				else {
+					response($.grep( instoreList, function(item){ 
+						return matcher.test(item.label); }) ); 
+				}
+				},
   autoFocus: true,
 
   /* When an autocomplete item is selected, update the customer name field and the customer number field */
@@ -188,7 +220,7 @@ $( "#c_name" ).autocomplete({
     /* Store the highlighted item's text, then change it to include the label (customer name) and the city as well */
     it=$("a.ui-state-focus");
     it.data("last-text", it.html());
-    it.html(ui.item.label+" ("+ui.item.city+")");
+    if (document.entry.c_num.value!="99999") { it.html(ui.item.label+" ("+ui.item.city+")"); }
 
     return false;
   }
@@ -243,9 +275,7 @@ function FindVal(where, what) {
 /* Given a customer number, look through the customerList array to find the matching customer and update the customer name field */
 function GetCustomer(c_num) {
 
-  /* Don't continue if the given number is simply empty (i.e. no number was entered when the box left focus) 
-     Also stop if the in-house rental number 99999 was entered, but something went wrong and we got here anyway */
-  if (c_num=="99999") { return false; }
+  /* Don't continue if the given number is simply empty (i.e. no number was entered when the box left focus) */
   document.getElementById("inHouseSpot").style.display="none";
   document.entry.ref.placeholder="Reference";
   $("#c_name").autocomplete("enable");
