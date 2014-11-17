@@ -65,15 +65,23 @@
       }
     </script>
   </head>
+	
+	<?php
+		$bigError="";
+		if (empty($_POST["c_num"])) {
+			$bigError="ERROR: No customer number has been entered. <a href='javascript:history.go(-1)' style='color:#ff0000'>Click here</a> to go back.";
+		}
+	?>
+	
   <body>
     <a href="index.php"><img src="logo.png" /></a>
     <h3>Confirm Data Entry</h3>
-    <span id="errorbox" class="smalltext error"></span>
+    <span id="errorbox" class="smalltext error" <?php if (!empty($bigError)) { echo "style='display:inline'"; } ?>><?php if (!empty($bigError)) { echo $bigError; } ?></span>
     <form action="tickets/makeTicket.php" method="post" onsubmit="return Validate()" name='confirmForm'>
     <?php
     	$link=mysql_connect("localhost", "root", "tux898");
 			$db=mysql_select_db("sniders2013", $link);
-				
+			
       /* Generate a ticket number based on the master lookup table */
 			$isEdit=true;
 			if (empty($_POST['ticket'])) {
@@ -487,7 +495,7 @@
     </tr>
     
     <tr>
-      <td colspan='2'><button accesskey="C" type="submit" value="Confirm"><u>C</u>onfirm</button></td>
+      <td colspan='2'><?php if (empty($bigError)) { ?><button accesskey="C" type="submit" value="Confirm"><u>C</u>onfirm</button><?php } ?></td>
     </tr>
     </table>
     </form>
