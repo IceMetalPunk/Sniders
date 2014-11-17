@@ -121,12 +121,14 @@
   $link=mysql_connect("localhost", "root", "tux898");
   $db=mysql_select_db("sniders2013", $link);
   
-  $q="SELECT * FROM `t-work` INNER JOIN `t-customer` ON `t-work`.`W-CUSTNO`=`t-customer`.`C-CUSTNO` WHERE `t-work`.`W-TKT`='".$_POST['ticket']."' AND `t-work`.`W-TKT-PRINTED`=0";
-  $query=mysql_query($q);
-  GenerateTickets($query);
-  
-  $q="UPDATE `t-work` SET `W-TKT-PRINTED`=1 WHERE `W-TKT`='".$_POST['ticket']."'";
-  $query=mysql_query($q);
+	if (!empty($_POST["red_print"]) && $_POST["red_print"]=="true") {
+		$q="SELECT * FROM `t-work` INNER JOIN `t-customer` ON `t-work`.`W-CUSTNO`=`t-customer`.`C-CUSTNO` WHERE `t-work`.`W-TKT`='".$_POST['ticket']."' AND `t-work`.`W-TKT-PRINTED`=0";
+		$query=mysql_query($q);
+		GenerateTickets($query);
+		
+		$q="UPDATE `t-work` SET `W-TKT-PRINTED`=1 WHERE `W-TKT`='".$_POST['ticket']."'";
+		$query=mysql_query($q);
+	}
   
   mysql_close($link);
   

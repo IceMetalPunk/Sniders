@@ -493,7 +493,17 @@
       <td>Comments:</td>
       <td><?php echo $_POST['comments']; ?></td>
     </tr>
-    
+    <?php
+			if ($isEdit) {
+		?>
+		<tr>
+			<td colspan='2'><label for='printoption'><input type='checkbox' name='print' value='true' checked id='printoption' />Print ticket upon confirmation.</label></td>
+		</tr>
+		<?php }
+			else {
+				echo "<input type='text' name='print' value='true' />";
+			}
+		?>
     <tr>
       <td colspan='2'><?php if (empty($bigError)) { ?><button accesskey="C" type="submit" value="Confirm"><u>C</u>onfirm</button><?php } ?></td>
     </tr>

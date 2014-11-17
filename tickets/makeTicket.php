@@ -196,7 +196,7 @@
 		}
 
     if ($query) { ?>
-      <b>Ticket added. Please wait while we begin printing.</b><br />
+      <b>Ticket added. <?php if (!empty($_POST["print"]) && $_POST["print"]=="true") { echo "Please wait while we begin printing."; } ?></b><br />
       <form name="redirect" action="printTicket.php" method="post">
         <input type="hidden" name="ticket" value="<?php echo $_POST['ticket']; ?>" />
         <?php
