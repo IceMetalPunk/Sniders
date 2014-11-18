@@ -37,11 +37,18 @@
   /* Select the sniders2013 database for use later */
   $db=mysql_select_db("sniders2013", $link);
 	
-	if (!empty($_GET['customer']) || !empty($_GET['reference']) || !empty($_GET['ticket'])) {
+	if (!empty($_GET['customer']) || !empty($_GET['reference']) || !empty($_GET['ticket']) || !empty($_GET['from']) || !empty($_GET['to'])) {
 		$whereclause="";
 		if (!empty($_GET['customer'])) { $whereclause.=" AND `C-CUSTNO`='".$_GET['customer']."'"; }
 		if (!empty($_GET['reference'])) { $whereclause.=" AND `W-REF` LIKE '%".$_GET['reference']."%'"; }
 		if (!empty($_GET['ticket'])) { $whereclause.=" AND `W-TKT` LIKE '%".$_GET['ticket']."%'"; }
+		$from=$_GET['from'];
+		if (empty($from)) { $from="2014-10-01"; }
+		$to=$_GET['to'];
+		if (empty($to)) { $to="2099-12-31"; }
+		
+		if (!empty($_GET['from']) || !empty($_GET['to'])) { $whereclause.=" AND (`W-USE-DT` BETWEEN '".mysql_real_escape_string($from)."' AND '".mysql_real_escape_string($to)."')"; }
+		
 		$q="SELECT * FROM `t-customer`, `t-work` WHERE `C-CUSTNO`=`W-CUSTNO`";
 		$q.=$whereclause." ORDER BY `C-CUSTNO`, `C-NAME`";
 		$query=mysql_query($q);
@@ -72,8 +79,8 @@
 				else { echo "<td>99999 (In-House)</td>"; }
 				echo "<td>".$cust["W-TKT"]."-".$cust["W-TKT-SUB"]."</td>";
 				echo "<td>".$cust["W-REF"]."</td>";
-				echo "<td>".date("j/n/Y", strtotime($cust["W-ORDER-DT"]))."</td>";
-				echo "<td>".date("j/n/Y", strtotime($cust["W-USE-DT"]))."</td>";
+				echo "<td>".date("n/j/Y", strtotime($cust["W-ORDER-DT"]))."</td>";
+				echo "<td>".date("n/j/Y", strtotime($cust["W-USE-DT"]))."</td>";
 				$inv=!($cust["W-INV-NO"]=="000000" || $cust["W-INV-NO"]=="");
 				echo "<td>".($inv?"Yes":"No")."</td>";
 				echo "<td><img src='tickets/Complete/ticket-".$cust["W-TKT"]."-".$cust["W-TKT-SUB"].".png' class='ticketThumb' /></td>";
@@ -98,6 +105,11 @@
 					<td>Ticket</td>
 					<td><input name="reference" placeholder="Reference" /></td>
 					<td><input name="ticket" placeholder="Ticket #" /></td>
+				</tr>
+				<tr>
+					<td>Use Date Between</td>
+					<td><input class="date" id="fromPicker" data-linked="from" /><input type="hidden" name="from" id="from" /> &amp; </td>
+					<td><input class="date" id="toPicker" data-linked="to" /><input type="hidden" name="to" id="to" /></td>
 				</tr>
 			</table>
 			<button type="submit" value="Lookup" name="submitted" accesskey="L"><u>L</u>ookup</button>

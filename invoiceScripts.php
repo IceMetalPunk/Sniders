@@ -25,6 +25,36 @@ function InitInvoice() {
   $(document.entry).keypress(function(e) {
     return (e.keyCode!=13);
   });
+	
+	/* Date pickers */
+	/* Make the Use Date boxes calendar pickers */
+  $(".date").datepicker({
+		onSelect: function(date, calendar) { this.focus(); } // When a date is picked from the calendar, focus back on the field.
+	});
+	$(".date").blur(FormatDate); // When the Date of Use box loses focus, auto-fill the year.
+}
+
+/* Format the dates */
+function FormatDate() {
+  var mm, dd, yy;
+  var now=new Date();
+  var val=this.value;
+  
+  if (val=="") { $("#"+$(this).data("linked")).val(""); return false; } // If the field is empty, clear the hidden field and do nothing more.
+  
+  var date=Date.parse(val); // Attempt to parse the date first.
+  val=val.split("/");
+	mm=parseInt(val[0]); // Get the month as an int
+	dd=parseInt(val[1]); // Get the date as an int
+	if (val.length<3) {
+		if (mm<now.getMonth()+1 || (mm==now.getMonth()+1 && dd<now.getDate())) { // If it's a previous month or day, add 1 to the year.
+			yy=now.getFullYear()+1;
+	}
+		else { yy=now.getFullYear(); } // If not, use the current year.
+	}
+	else { yy=val[2]; }
+	val=("0000"+yy).slice(-4)+"-"+("0"+mm).slice(-2)+"-"+("0"+dd).slice(-2);
+  $("#"+$(this).data("linked")).val(val); // Put the full date, with year, in the hidden form field.
 }
 
 /* This function doesn't allow anything but numbers in any field that triggers it on key press (i.e. customer number field) */
