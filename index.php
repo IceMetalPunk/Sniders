@@ -21,7 +21,7 @@
       </tr>
       <tr>
         <td style='text-align:right'><button onclick="window.location.href='lookup.php'" accesskey="L">Customer <u>L</u>ookup</button></td>
-        <td>&nbsp;</td>
+        <td><button onclick="window.location.href='invoiceSearch.php'" accesskey="I"><u>I</u>nvoice Lookup</button></td>
       </tr>
     </table>
   </body>
