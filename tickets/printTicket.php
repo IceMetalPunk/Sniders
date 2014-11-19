@@ -52,13 +52,13 @@
   $all=implode("", $all);
   
   if ($row["W-TKT-TYPE"]==1) {
-    $ticks=array("CUSTOMER"=>"CUSTOMER", "SHOE"=>"SHOE");
+    $ticks=array("CUSTOMER"=>"SHOE", "SHOE"=>"SHOE");
   }
   else if ($row["W-TKT-TYPE"]==2) {
-    $ticks=array("CUSTOMER"=>"CUSTOMER", "VEST"=>"ACCESSORIES");
+    $ticks=array("CUSTOMER"=>"SHIRT", "VEST"=>"ACCESSORIES");
   }
   else {
-    $ticks=array("CUSTOMER"=>"CUSTOMER", "COAT"=>"COAT", "PANT-STYLE"=>"PANTS", "VEST"=>"VEST", "SHIRT"=>"SHIRT");
+    $ticks=array("SHIRT"=>"SHIRT", "COAT"=>"COAT", "PANT-STYLE"=>"PANTS", "VEST"=>"VEST");
   }
   
   $numberPrinted=0;
@@ -66,7 +66,7 @@
     $temp=explode("$$"."TYPE$$", $all);
     $temp=implode($type, $temp);
     
-    if ($row["W-TKT-TYPE"]==0 && $type!="CUSTOMER" && empty($row["W-".$field])) { continue; }
+    if ($row["W-TKT-TYPE"]==0 && empty($row["W-".$field])) { continue; }
     if ($type=="SHIRT" && $numberPrinted>1) { continue; }
     
     ++$numberPrinted;
