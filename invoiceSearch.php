@@ -39,10 +39,10 @@
 			$where1.=" AND `TAB-INV-NO` LIKE '%".$_GET['invoice']."%'";
 			$where2.=" AND `TAR-INV-NO` LIKE '%".$_GET['invoice']."%'";
 		}
-		$from=$_GET['from'];
-		if (empty($from)) { $from="2014-10-01"; }
-		$to=$_GET['to'];
-		if (empty($to)) { $to="2099-12-31"; }
+		if (empty($_GET['from'])) { $from="2014-10-01"; }
+		else { $from=$_GET['from']; }
+		if (empty($_GET['to'])) { $to="2099-12-31"; }
+		else { $to=$_GET['to']; }
 		
 		if (!empty($_GET['from']) || !empty($_GET['to'])) {
 			$where1.=" AND (`TAB-INV-DT` BETWEEN '".mysql_real_escape_string($from)."' AND '".mysql_real_escape_string($to)."')";

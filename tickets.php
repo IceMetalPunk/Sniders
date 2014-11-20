@@ -42,10 +42,11 @@
 		if (!empty($_GET['customer'])) { $whereclause.=" AND `C-CUSTNO`='".$_GET['customer']."'"; }
 		if (!empty($_GET['reference'])) { $whereclause.=" AND `W-REF` LIKE '%".$_GET['reference']."%'"; }
 		if (!empty($_GET['ticket'])) { $whereclause.=" AND `W-TKT` LIKE '%".$_GET['ticket']."%'"; }
-		$from=$_GET['from'];
-		if (empty($from)) { $from="2014-10-01"; }
-		$to=$_GET['to'];
-		if (empty($to)) { $to="2099-12-31"; }
+		
+		if (empty($_GET['from'])) { $from="2014-10-01"; }
+		else { $from=$_GET['from']; }
+		if (empty($_GET['to'])) { $to="2099-12-31"; }
+		else { $to=$_GET['to']; }
 		
 		if (!empty($_GET['from']) || !empty($_GET['to'])) { $whereclause.=" AND (`W-USE-DT` BETWEEN '".mysql_real_escape_string($from)."' AND '".mysql_real_escape_string($to)."')"; }
 		
