@@ -1,0 +1,8 @@
+Add ticket totals on ticket search results
+Don't allow already-invoiced tickets to have their prices edited (can edit info, but keep old price)
+Only print shoe ticket if only shoe given
+Billing summary shows Feb 2020 as date?
+Customer # on tickets
+
+Customer add/delete/modify
+Pseudo-invoices if future billing cycles
