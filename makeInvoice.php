@@ -33,6 +33,7 @@
 	</head>
 	<body>
 		<button onclick="window.location='invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
+		<button onclick="window.print()" accesskey='P'><u>P</u>rint</button>
 		<br />
 		<span class="topHeaders">
 		<span style='float:right'><a href="index.php"><img src="logo.png" border=0 /></a><br />
