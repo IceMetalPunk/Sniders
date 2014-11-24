@@ -121,6 +121,12 @@
       $vals["WMM"]="0"; // Accessories-only vest Men's Medium quantity
       $vals["WML"]="0"; // Accessories-only vest Men's Large quantity
       $vals["WMXL"]="0"; // Accessories-only vest Men's Xtra Large total quantity
+      $vals["WM2XL"]="0"; // Accessories-only vest Men's Xtra Large total quantity
+      $vals["WM3XL"]="0"; // Accessories-only vest Men's Xtra Large total quantity
+      $vals["WM4XL"]="0"; // Accessories-only vest Men's Xtra Large total quantity
+      $vals["WM5XL"]="0"; // Accessories-only vest Men's Xtra Large total quantity
+      $vals["WOTHER"]="0"; // Accessories-only vest Men's Xtra Large total quantity
+			
     }
     else {
 			$okay=true;
@@ -131,7 +137,7 @@
       $vals["W-SASH"]=$vals["W-SASH-ACC"];
       
       $vestSashQty=0;
-      $sizes=array("bs", "bm", "bl", "ms", "mm", "ml", "mxl");
+      $sizes=array("bs", "bm", "bl", "ms", "mm", "ml", "mxl", "m2xl", "m3xl", "m4xl", "m5xl", "other");
       foreach ($sizes as $size) {
         $vestSashQty+=$_POST[$size."_vs_qty"];
         $vals["W".strtoupper($size)]=$_POST[$size."_vs_qty"];
