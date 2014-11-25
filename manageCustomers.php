@@ -57,6 +57,12 @@
 						}
 					}
 				}
+				else if ($act=="delete") {
+					echo "<input type='hidden' name='c_delnum' value='".htmlspecialchars(htmlspecialchars_decode($_POST['c_delnum']), ENT_QUOTES)."' />";
+					echo "<input type='hidden' name='c_delname' value='".htmlspecialchars(htmlspecialchars_decode($_POST['c_delname']), ENT_QUOTES)."' />";
+					echo "<tr><td>Customer #: </td><td>".htmlspecialchars_decode($_POST['c_delnum'])."</td></tr>";
+					echo "<tr><td>Customer Name: </td><td>".htmlspecialchars_decode($_POST['c_delname'])."</td></tr>";
+				}
 				echo "<tr><td colspan='2'><button name='sub' accesskey='C'><u>C</u>onfirm</button></tr></table>";
 			}
 			else {
@@ -66,8 +72,8 @@
 					$vals="VALUES ('".$_POST['c_num']."', ";
 					foreach ($_POST as $name=>$val) {
 						if (strtoupper(substr($name, 0, 2))=="C-") {
-							$str.="`".$name."`, ";
-							$vals.="'".$val."', ";
+							$str.="`".mysql_real_escape_string($name)."`, ";
+							$vals.="'".mysql_real_escape_string(htmlspecialchars_decode($val))."', ";
 						}
 					}
 					$vals=substr($vals, 0, -2).")";
@@ -87,7 +93,7 @@
 					$where="WHERE `C-CUSTNO`='".$_POST['c_num']."'";
 					foreach ($_POST as $name=>$val) {
 						if (strtoupper(substr($name, 0, 2))=="C-") {
-							$str.="`".mysql_real_escape_string(str_replace("`", "", $name))."`='".mysql_real_escape_string($val)."', ";
+							$str.="`".mysql_real_escape_string(str_replace("`", "", $name))."`='".mysql_real_escape_string(htmlspecialchars_decode($val))."', ";
 						}
 					}
 					$str=substr($str, 0, -2)." ".$where;
@@ -100,6 +106,17 @@
 						echo "Updated customer. Returning to customer management page. <meta http-equiv='refresh' content='0;customers.php' />";
 					}
 					
+				}
+				else if ($act=="delete") {
+					$query="DELETE FROM `t-customer` WHERE `C-CUSTNO`='".mysql_real_escape_string($_POST['c_delnum'])."' AND `C-NAME`='".mysql_real_escape_string($_POST['c_delname'])."'";
+					$q=mysql_query($query);
+					
+					if (!$q || mysql_affected_rows()<=0) {
+						echo "<span class='smalltext error' style='display:block'>Could not delete customer (".mysql_error().")</span>";
+					}
+					else {
+						echo "Deleted customer. Returning to customer management page. <meta http-equiv='refresh' content='0;customers.php' />";
+					}
 				}
 			}
 			

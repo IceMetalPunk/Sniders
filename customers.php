@@ -20,7 +20,7 @@
   <body onLoad="CustomerInit()">
     <span style="float:left">
     <!-- The buttons -->
-    <button type="button" accesskey="A" onClick="Show('addSection', document.entry['C-NAME']); MoveAccessKey(document.entry.nextButton, 'N')"><u>A</u>dd</button> <button type="button" accesskey="C" onClick="Show('changeSection', document.entry.c_num); MoveAccessKey(document.entry.lookup, 'L')"><u>C</u>hange</button> <button type="button" accesskey="D" onClick="Show('deleteSection')"><u>D</u>elete</button>
+    <button type="button" accesskey="A" onClick="Show('addSection', document.entry['C-NAME']); MoveAccessKey(document.entry.nextButton, 'N')"><u>A</u>dd</button> <button type="button" accesskey="C" onClick="Show('changeSection', document.entry.c_num); MoveAccessKey(document.entry.lookup, 'L')"><u>C</u>hange</button> <button type="button" accesskey="D" onClick="Show('deleteSection', document.entry['c_delnum']); MoveAccessKey(document.entry.remove, 'R')"><u>D</u>elete</button>
     </span>
     <!-- Logo that links to the main menu -->
     <a href="index.php"><span style="float:right"><img src="logo.png" /></span></a><br clear="both" />
@@ -30,6 +30,12 @@
          passed to the processing script so it can determine how to handle the data it's given. -->
     <input type="hidden" name="act" value="" />
     
+		<!-- The "Delete Customer" section -->
+		<div id="deleteSection" class="hiddenSection">
+        <input type="text" name="c_delnum" class="numOnly" placeholder="Customer Number" maxlength=5 size=15 /> <input type="text" id="c_delname" name="c_delname" size=40 maxlength=40 placeholder="Customer Name" />
+        <button type="submit" name="remove"><u>R</u>emove</button>			
+		</div>
+		
     <!-- The "Change Customer" section, first only showing the box to enter the customer name or ID -->
     <div id="changeSection" class="hiddenSection">
         <input type="text" name="c_num" class="numOnly" placeholder="Customer Number" maxlength=5 size=15 /> <input type="text" id="c_name" name="c_name" size=40 maxlength=40 placeholder="Customer Name" />

@@ -35,6 +35,9 @@ function CustomerInit() {
   document.entry.c_num.onblur=function() {
     GetCustomer(document.entry.c_num.value);
   }
+  document.entry.c_delnum.onblur=function() {
+    GetDelCustomer(document.entry.c_delnum.value);
+  }
   
   /* Create a list of states and their abbreviations, for autocomplete state fields */
   stateList=[
@@ -175,6 +178,59 @@ function CustomerInit() {
 			it=$("a.ui-state-focus");
 			it.data("last-text", it.html());
 			if (document.entry.c_num.value!="99999") { it.html(ui.item.label+" ("+ui.item.city+")"); }
+
+			return false;
+		}
+
+	});
+	
+	/* Define the c_delname input field as an autocomplete field */
+	$( "#c_delname" ).autocomplete({
+
+		/* Take the autocomplete options from the customerList array we built in PHP */
+		source: function(req, response) { 
+
+					/* Make a pattern out of whatever the person typed */
+					var re = $.ui.autocomplete.escapeRegex(req.term); 
+
+					/* The ^ in a Regular Expression pattern means "at the beginning of the text" */
+					var matcher = new RegExp( "^" + re, "i" ); 
+					
+					if (document.entry.c_delnum.value!="99999") {
+			
+						/* Respond with only those items in the itemStyles array whose labels match that pattern */
+						response($.grep( customerList, function(item){ 
+							return matcher.test(item.label); }) ); 
+					}
+					else {
+						response($.grep( instoreList, function(item){ 
+							return matcher.test(item.label); }) ); 
+					}
+					},
+		autoFocus: true,
+
+		/* When an autocomplete item is selected, update the customer name field and the customer number field */
+		select: function(e, ui) {
+			document.entry.c_delname.value=ui.item.label; // Just the name, not the city.
+			document.entry.c_delnum.value=ui.item.value; // Customer number auto-fill
+			return false;
+		},
+
+		/* When an autocomplete item is highlighted... */
+		focus: function(e, ui) {
+
+			/* Reset all items' texts to just their customer name, if that's been stored */
+			items=$("a.ui-corner-all");
+			items.each(function() {
+				if ($(this).data("last-text")!="undefined") {
+					$(this).html($(this).data("last-text"));
+				}
+			});
+
+			/* Store the highlighted item's text, then change it to include the label (customer name) and the city as well */
+			it=$("a.ui-state-focus");
+			it.data("last-text", it.html());
+			if (document.entry.c_delnum.value!="99999") { it.html(ui.item.label+" ("+ui.item.city+")"); }
 
 			return false;
 		}
@@ -345,6 +401,25 @@ function GetCustomer(c_num) {
 
   /* If no customer with that ID is found, display that message in the customer name field */
   document.entry.c_name.value="Customer Not Found";
+  return false;
+}
+
+function GetDelCustomer(c_num) {
+
+  /* Don't continue if the given number is simply empty (i.e. no number was entered when the box left focus) */
+  $("#c_delname").autocomplete("enable");
+  if (c_num=="") { return false; }
+  
+  /* Search the customerList array for one matching the fiven customer number and use that item's name */
+  for (i in customerList) {
+    if (customerList[i].value==c_num) {
+      document.entry.c_delname.value=customerList[i].label;      
+      return true;
+    }
+  }
+
+  /* If no customer with that ID is found, display that message in the customer name field */
+  document.entry.c_delname.value="Customer Not Found";
   return false;
 }
 
