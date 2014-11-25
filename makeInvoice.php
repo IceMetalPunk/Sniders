@@ -128,6 +128,7 @@
 					$query=mysql_query($q);
 					
 					$subtotal=0;
+					$charges=0;
 					
 					while ($row=mysql_fetch_assoc($query)) {
 						echo "<tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td style='border:0px'>".$row["W-REF"]."</td><td style='border:0px'>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td class='right' style='border:0px'>$".number_format($row["W-AMT"], 2)."</td>";
@@ -140,7 +141,7 @@
 					if ($query && mysql_num_rows($query)>0) {
 						while ($row=mysql_fetch_assoc($query)) {
 							echo "<tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>".$row["TAB-ADJ-NO"]."</td><td style='border:0px' colspan='2'>".$row["TAB-ADJ-REF"]."</td><td  style='border:0px' class='right'>$".number_format($row["TAB-TOTAL"], 2)."</td></tr>";
-							$subtotal+=$row["TAB-AMT"];
+							$charges+=$row["TAB-AMT"];
 						}
 					}
 					
@@ -164,6 +165,7 @@
 					
 					/* Calculate total charges and balance */
 					$total+=$subtotal*(100-$disc)/100;
+					$total+=$charges;
 				}
 				$balance+=$total-$credits;
 				
