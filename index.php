@@ -13,7 +13,7 @@
       </tr>
       <tr>
         <td style='text-align:right'><button onclick="window.location.href='prices.php'" accesskey="P"><u>P</u>rice Maintainance</button></td>
-        <td><button onclick="window.location.href='customers.php'" accesskey="C"><u>C</u>ustomer Maintainance</button></td>
+        <td><button onclick="window.location.href='customers.php'" accesskey="C"><u>C</u>ustomer Management</button></td>
       </tr>
       <tr>
         <td style='text-align:right'><button onclick="window.location.href='adjustments.php'" accesskey="A"><u>A</u>djustments</button></td>

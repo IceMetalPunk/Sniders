@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Customer Maintainance</title>
+    <title>Customer Management</title>
 
     <!-- Main styles -->
     <link rel="stylesheet" href="styles.css" />
@@ -13,8 +13,6 @@
     <script type="text/javascript" src="jquery-1.9.1.js"></script>
     <script type="text/javascript" src="jquery-ui.js"></script>
 
-    <!-- Main Javascript library, including data pulled from the databases, hence why it must be in .php format -->
-    <script type="text/javascript" src="scripts.php"></script>
     <!-- Customer maintainance Javascript library, including data pulled from the databases, hence why it must be in .php format -->
     <script type="text/javascript" src="customerScripts.php?<?php echo time(); ?>"></script>
     
@@ -37,7 +35,7 @@
         <input type="text" name="c_num" class="numOnly" placeholder="Customer Number" maxlength=5 size=15 /> <input type="text" id="c_name" name="c_name" size=40 maxlength=40 placeholder="Customer Name" />
         <button type="button" onClick="Lookup()" name="lookup"><u>L</u>ookup</button>
     </div>
-    
+
     <!-- The "Add Customer" and generic data entry section -->
       <div id="addSection" class="hiddenSection">
         <h3>Add Customer</h3>
@@ -136,13 +134,13 @@
           </tr>
           <tr>
             <td>Discount %</td>
-            <td><input type="text" name="C-DISCOUT" class="numOnly" value="0.00" maxlength=6 size=5 /></td>
+            <td><input type="text" name="C-DISCNT-PCT" class="numOnly" value="0.00" maxlength=6 size=5 /></td>
             <td>Shoe Discount %</td>
-            <td><input type="text" name="C-DISCSHOE" class="numOnly" value="0.00" maxlength=6 size=5 /></td>
+            <td><input type="text" name="C-DISC-SHOE" class="numOnly" value="0.00" maxlength=6 size=5 /></td>
           </tr>
           <tr>
-            <td><input name="C-ACTIVE" type="checkbox" value="yes" checked /> Active</td>
-            <td colSpan='3'><input name="C-DISCNT" type="checkbox" value="yes" /> Discount</td>
+            <td><input name="C-ACTIVE" type="checkbox" value="1" checked /> Active</td>
+            <!--<td colSpan='3'><input name="C-DISCNT" type="checkbox" value="yes" /> Discount</td>-->
           </tr>
         </table>
         <button type="submit" name="sub" class="access"><u>R</u>eview</button>

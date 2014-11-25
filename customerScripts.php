@@ -8,6 +8,24 @@
   $db=mysql_select_db("sniders2013", $link);
 ?>
 
+/* The groundwork for creating a request to the server without loading a new page (known as AJAX or XHR) */
+function Request() {
+  if (window.XMLHttpRequest ) { return new XMLHttpRequest(); }
+  else if (window.ActiveXObject) {
+    try {
+      return new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    catch (e) {
+      try {
+        return new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      catch (e) {
+        return false;
+      }
+    }
+  }
+}
+
 function CustomerInit() {
   $(".numOnly").keypress(validateNumber); // Make selected fields (those with the numOnly class) only accept numbers
   $(".phoneNum").keypress(FormatPhone); // Force phone number format on phoneNum textboxes.
@@ -53,7 +71,128 @@ function CustomerInit() {
        },
     autoFocus: true
   });
+	
+	/* Prevent ENTER from submitting the data entry form, because that's too easy to accidentally press */
+  $(document.entry).keypress(function(e) {
+    return (e.keyCode!=13);
+  });
+	
+	/* Use jQuery's Autocomplete library to make the Customer Name field an autocomplete box */
+	customerList = [
+
+	/* Use PHP to dynamically create the customer-name autocomplete options from the database information */
+	<?php
+
+		/* Get all the information from the t-customer table for non-walkins */
+		$q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<70000 ORDER BY `C-CUSTNO` ASC";
+		$query=mysql_query($q);
+		if ($query) {
+			
+			/* For each row in the table, make a Javascript object with the properties "label" (for the customer name) and "value" (for the 
+				 customer number). Add that object to the autocomplete array by echoing it into the script */
+			$out="";
+			while ($row = mysql_fetch_assoc($query)) {
+				$row=array_map("addslashes", $row); // Needed so special characters like quotes, etc. are escaped before putting them in the script
+
+				if ($out!="") { $out.=", "; }
+				$out.='{label: "'.$row["C-NAME"].'", value: "'.$row["C-CUSTNO"].'", city: "'.$row["C-CITY"].'", shipping: '.$row["c-SHIP-METHOD"].', billing: '.$row["C-BILLING"].'}';
+			}
+			echo $out;
+		}
+
+	?>
+	];
+
+	instoreList = [
+
+	/* Use PHP to dynamically create the customer-name autocomplete options from the database information */
+	<?php
+
+		/* Get all the information from the t-customer table for walkins */
+		$q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)>=70000 AND CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<99999 ORDER BY `C-NAME` ASC";
+		$query=mysql_query($q);
+		if ($query) {
+			
+			/* For each row in the table, make a Javascript object with the properties "label" (for the customer name) and "value" (for the 
+				 customer number). Add that object to the autocomplete array by echoing it into the script */
+			$out="";
+			while ($row = mysql_fetch_assoc($query)) {
+				$row=array_map("addslashes", $row); // Needed so special characters like quotes, etc. are escaped before putting them in the script
+
+				if ($out!="") { $out.=", "; }
+				$out.='{label: "'.$row["C-NAME"].'", value: "'.$row["C-CUSTNO"].'", city: "'.$row["C-CITY"].'", shipping: '.$row["c-SHIP-METHOD"].', billing: '.$row["C-BILLING"].'}';
+			}
+			echo $out;
+		}
+
+	?>
+	];
+
+	/* Define the c_name input field as an autocomplete field */
+	$( "#c_name" ).autocomplete({
+
+		/* Take the autocomplete options from the customerList array we built in PHP */
+		source: function(req, response) { 
+
+					/* Make a pattern out of whatever the person typed */
+					var re = $.ui.autocomplete.escapeRegex(req.term); 
+
+					/* The ^ in a Regular Expression pattern means "at the beginning of the text" */
+					var matcher = new RegExp( "^" + re, "i" ); 
+					
+					if (document.entry.c_num.value!="99999") {
+			
+						/* Respond with only those items in the itemStyles array whose labels match that pattern */
+						response($.grep( customerList, function(item){ 
+							return matcher.test(item.label); }) ); 
+					}
+					else {
+						response($.grep( instoreList, function(item){ 
+							return matcher.test(item.label); }) ); 
+					}
+					},
+		autoFocus: true,
+
+		/* When an autocomplete item is selected, update the customer name field and the customer number field */
+		select: function(e, ui) {
+			document.entry.c_name.value=ui.item.label; // Just the name, not the city.
+			document.entry.c_num.value=ui.item.value; // Customer number auto-fill
+			return false;
+		},
+
+		/* When an autocomplete item is highlighted... */
+		focus: function(e, ui) {
+
+			/* Reset all items' texts to just their customer name, if that's been stored */
+			items=$("a.ui-corner-all");
+			items.each(function() {
+				if ($(this).data("last-text")!="undefined") {
+					$(this).html($(this).data("last-text"));
+				}
+			});
+
+			/* Store the highlighted item's text, then change it to include the label (customer name) and the city as well */
+			it=$("a.ui-state-focus");
+			it.data("last-text", it.html());
+			if (document.entry.c_num.value!="99999") { it.html(ui.item.label+" ("+ui.item.city+")"); }
+
+			return false;
+		}
+
+	});
 }
+
+/* This function doesn't allow anything but numbers in any field that triggers it on key press (i.e. customer number field) */
+function validateNumber(event) {
+
+    /* Get which key was pressed */
+    key=window.event?event.keyCode:event.which;
+
+    /* Key Code 8 is backspace, code 9 is tab, code 46 is a decimal point, and code 0 is a key-triggered blur event. Allow those. Codes 48 to 57 are numbers; don't allow anything else */
+    if (key==8 || key==9 || key==0 || key==46) { return true; }
+    else if (key<48 || key>57 ) { return false; }
+    return true;
+};
 
 /* Helper function to set the caret position inside a textbox */
 function setCaretPosition(element, caretPos) {
@@ -187,6 +326,26 @@ function Lookup() {
   req.onreadystatechange=HandleLookups; // Tell it what function to call when the request's state (sending, receiving, done, etc.) changes
   req.type="ChangeReq"; // Mark this as a customer change request so the HandleLookups function can deal with it as well as other request types
   req.send(null); // Send the request
+}
+
+/* Given a customer number, look through the customerList array to find the matching customer and update the customer name field */
+function GetCustomer(c_num) {
+
+  /* Don't continue if the given number is simply empty (i.e. no number was entered when the box left focus) */
+  $("#c_name").autocomplete("enable");
+  if (c_num=="") { return false; }
+  
+  /* Search the customerList array for one matching the fiven customer number and use that item's name */
+  for (i in customerList) {
+    if (customerList[i].value==c_num) {
+      document.entry.c_name.value=customerList[i].label;      
+      return true;
+    }
+  }
+
+  /* If no customer with that ID is found, display that message in the customer name field */
+  document.entry.c_name.value="Customer Not Found";
+  return false;
 }
 
 <?php
