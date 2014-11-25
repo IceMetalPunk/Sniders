@@ -20,6 +20,7 @@
 
   while ($row=mysql_fetch_assoc($query)) {
   $prefix="";
+	if (empty($_POST['toprint_'.$row["W-TKT-SUB"]]) || $_POST['toprint_'.$row["W-TKT-SUB"]]==false || $_POST['toprint_'.$row["W-TKT-SUB"]]=="false") { continue; }
   if ($row["W-TKT-TYPE"]==1) { $prefix="shoe-"; }
   else if ($row["W-TKT-TYPE"]==2) { $prefix="acc-"; }
   $row["W-VS-QTY"]=$row["W-VEST-QTY"]+$row["W-SASH-QTY"];
@@ -124,6 +125,7 @@
 	if (!empty($_POST["red_print"]) && $_POST["red_print"]=="true") {
 		$q="SELECT * FROM `t-work` INNER JOIN `t-customer` ON `t-work`.`W-CUSTNO`=`t-customer`.`C-CUSTNO` WHERE `t-work`.`W-TKT`='".$_POST['ticket']."' AND `t-work`.`W-TKT-PRINTED`=0";
 		$query=mysql_query($q);
+		
 		GenerateTickets($query);
 		
 		$q="UPDATE `t-work` SET `W-TKT-PRINTED`=1 WHERE `W-TKT`='".$_POST['ticket']."'";

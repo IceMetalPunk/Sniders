@@ -19,6 +19,7 @@
   }
   else {
     $vals=array();
+		$hasChanged=array();
     $vals["W-TKT"]="'".$_POST['ticket']."'"; // Ticket number
     $vals["W-TKT-SUB"]="0"; // Subticket number
     
@@ -170,21 +171,38 @@
     $vals["W-TKT-BILLED"]="0"; // Ticket billed?
 
 		$okay=($okay || $styleCheck!=="");
+
+		/* If editing, remember the old ticket for comparison, then remove it from the database */
+		$oldTicket=null;
+		if (!empty($_POST['edit']) && $_POST['edit']==1) {
+			/* Save old ticket for later */
+			$q="SELECT * FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."' ORDER BY `W-TKT-SUB` ASC";
+			$query=mysql_query($q);
+			while ($row=mysql_fetch_assoc($query)) {
+				if ($oldTicket===null) { $oldTicket=array(); }
+				$oldTicket[]=$row;
+			}
+			
 		
-    /* Create a SQL query from the data */
+			$q="DELETE FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."'";
+			$query=mysql_query($q);
+		}
+		
+    /* Create a SQL query from the data and see if anything's changed from the old ticket if there is one */
 		$cols="(";
 		$values="(";
+		$hasChanged[0]=false;
 		foreach ($vals as $col=>$val) {
 			if ($cols!="(") { $cols.=", "; }
 			if ($values!="(") { $values.=", "; }
 			$cols.="`".$col."`";
 			$values.=$val;
-		}
-		
-		/* If editing, remove the old ticket */
-		if (!empty($_POST['edit']) && $_POST['edit']==1) {
-			$q="DELETE FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."'";
-			$query=mysql_query($q);
+			if ($col=="W-TKT-PRINTED") { continue; }
+			if ($val[0]=="'" && $val[strlen($val)-1]=="'") { $val=substr($val, 1, strlen($val)-2); }
+			if ($oldTicket!==null && !empty($oldTicket[0]) && substr($col, 0, 6)!="W-SHOE" && strpos($col, "-DT")===false && $oldTicket[0][$col]!=$val) {
+				$hasChanged[0]=true;
+				//echo "Outfit ".$col.": ".$oldTicket[0][$col]." => ".$val."<br />";
+			}
 		}
 		
 		$query=true;
@@ -205,11 +223,17 @@
 			/* Create a SQL query from the data */
 			$cols="(";
 			$values="(";
+			$hasChanged[1]=false;
 			foreach ($vals as $col=>$val) {
 				if ($cols!="(") { $cols.=", "; }
 				if ($values!="(") { $values.=", "; }
 				$cols.="`".$col."`";
 				$values.=$val;
+				if ($val[0]=="'" && $val[strlen($val)-1]=="'") { $val=substr($val, 1, strlen($val)-2); }
+				if ($oldTicket!==null && !empty($oldTicket[1]) && substr($col, 0, 6)=="W-SHOE" && $oldTicket[1][$col]!=$val) {
+					$hasChanged[1]=true;
+					//echo "Shoe ".$col.": ".$oldTicket[1][$col]." => ".$val."<br/ >";
+				}
 			}
 			$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
 			$query=mysql_query($q);
@@ -223,6 +247,9 @@
           foreach ($_POST as $key=>$val) {
             echo "<input type='hidden' name='red_".$key."' value='".addslashes($val)."' />";
           }
+					foreach ($hasChanged as $key=>$val) {
+						echo "<input type='hidden' name='toprint_".$key."' value='".(($val || empty($_POST['edit']) || $_POST['edit']==0)?"true":"false")."' />";
+					}
         ?>
         <noscript><button type="submit" accesskey="R">Click here if you are not <u>r</u>edirected within 5 seconds.</button></noscript>
       </form>
