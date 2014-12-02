@@ -59,15 +59,17 @@
     $ticks=array("CUSTOMER"=>"SHIRT", "VEST"=>"ACCESSORIES");
   }
   else {
-    $ticks=array("SHIRT"=>"SHIRT", "COAT"=>"COAT", "PANT-STYLE"=>"PANTS", "VEST"=>"VEST");
+    $ticks=array("CUSTOMER"=>"SHIRT", "COAT"=>"COAT", "PANT-STYLE"=>"PANTS", "VEST"=>"VEST");
   }
+	
+	//echo "Ticket type ".$row["W-TKT-TYPE"]." has ticks: ".print_r($ticks, true)."<br />";
   
   $numberPrinted=0;
   foreach ($ticks as $field=>$type) {
     $temp=explode("$$"."TYPE$$", $all);
     $temp=implode($type, $temp);
     
-    if ($row["W-TKT-TYPE"]==0 && empty($row["W-".$field])) { continue; }
+    if ($row["W-TKT-TYPE"]==0 && $field!=="CUSTOMER" && empty($row["W-".$field])) { continue; }
     if ($type=="SHIRT" && $numberPrinted>1) { continue; }
     
     ++$numberPrinted;
@@ -93,7 +95,7 @@
   $page2="ticket-".$_POST['ticket']."-".$row["W-TKT-SUB"].".html";
   $body="<html><head><style>BODY { float:left; width:1600px; }</style></head><body>";
   foreach ($ticks as $type) {
-    if (file_exists($_POST['ticket'])."-".$row["W-TKT-SUB"]."-".$type.".png") {
+    if (file_exists($_POST['ticket']."-".$row["W-TKT-SUB"]."-".$type.".png")) {
       $body.="<img style='float:left' src='".$_POST['ticket']."-".$row["W-TKT-SUB"]."-".$type.".png' />";  
     }
   }
