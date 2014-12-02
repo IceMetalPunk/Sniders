@@ -218,7 +218,7 @@
       $vals["W-AMT"]="".$_POST['shoePrice'];
       $vals["W-SHOE"]="'".$_POST['sh_style']."'"; // Shoe style -- Shoes are blank for non-shoe ticket
       $vals["W-SHOE-COLOR"]="'".$_POST['sh_color']."'"; // Shoe color
-      $vals["W-SHOE-SIZE"]="'".$_POST['sh_size']."'"; // Shoe size
+      $vals["W-SHOE-SIZE"]="'".$_POST['sh_size'].$_POST['sh_wide']."'"; // Shoe size, including wide/boys if applicable
 
 			/* Create a SQL query from the data */
 			$cols="(";

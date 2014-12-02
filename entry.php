@@ -189,7 +189,7 @@
 					</select></td>
           <td>Size</td>
           <td><input name="sh_size" type="text" size=5 <?php if ($isEdit) { echo "value='".htmlentities($editData[1]["W-SHOE-SIZE"], ENT_QUOTES)."' "; } ?>/></td>
-          <td colSpan='3'><input type="radio" name="sh_wide" value="Normal" id="shNormal" checked /><label for="shNormal">Normal</label> <input type="radio" name="sh_wide" value="Wide" id="shWide" /><label for="shWide">Wide</label> <input type="radio" name="sh_wide" value="Boys" id="shBoys" /><label for="shBoys">Boys</label></td>
+          <td colSpan='3'><input type="radio" name="sh_wide" value="" id="shNormal" checked /><label for="shNormal">Normal</label> <input type="radio" name="sh_wide" value="W" id="shWide" /><label for="shWide">Wide</label> <input type="radio" name="sh_wide" value="B" id="shBoys" /><label for="shBoys">Boys</label></td>
         </tr>
       </table>
 
