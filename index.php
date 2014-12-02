@@ -1,5 +1,5 @@
 <html>
-  <head>
+  <head> 
     <title>Snider's Formal Wear</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
