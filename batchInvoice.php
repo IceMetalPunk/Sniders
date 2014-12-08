@@ -22,7 +22,7 @@
 		return $num;
 	}	
 
-	$q="SELECT DISTINCT `W-CUSTNO` FROM `v-a-invoice`"; // Query to get the list of customers that have uninvoiced items.
+	$q="SELECT DISTINCT `W-CUSTNO` FROM `v-a-invoice` WHERE CAST(`W-CUSTNO` AS UNSIGNED INTEGER)<70000"; // Query to get the list of customers that have uninvoiced items.
 	$query=mysql_query($q);
 	
 	// If there are no uninvoiced items, say that and we're done.
