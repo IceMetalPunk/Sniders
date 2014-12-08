@@ -88,7 +88,7 @@
 				$balance=$customerData["C-BALANCE"];
 				
 				/* Get previous invoices for the current cycle and, if any exist, show a consolidation of their totals (including adjustment charges, but not credits) */
-				$q="SELECT *, SUM(`TAB-TOTAL`) as `TAB-SUM` FROM `t-a-billing` WHERE `TAB-INV-NO`!='' AND (`TAB-ADJ-TYPE`=0 OR `TAB-ADJ-TYPE` BETWEEN 30 and 39) GROUP BY `TAB-INV-NO` ORDER BY `TAB-INV-DT` ASC";
+				$q="SELECT *, SUM(`TAB-TOTAL`) as `TAB-SUM` FROM `t-a-billing` WHERE `TAB-INV-NO`!='' AND `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND (`TAB-ADJ-TYPE`=0 OR `TAB-ADJ-TYPE` BETWEEN 30 and 39) GROUP BY `TAB-INV-NO` ORDER BY `TAB-INV-DT` ASC";
 				$query=mysql_query($q);
 				if ($query && mysql_num_rows($query)>0) {
 					echo "<tr><th colspan='5' style='border-top:2px solid #000000'>Previous Invoices</th></tr>";
