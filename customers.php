@@ -140,12 +140,16 @@
           </tr>
           <tr>
             <td>Discount %</td>
-            <td><input type="text" name="C-DISCNT-PCT" class="numOnly" value="0.00" maxlength=6 size=5 /></td>
-            <td>Shoe Discount %</td>
-            <td><input type="text" name="C-DISC-SHOE" class="numOnly" value="0.00" maxlength=6 size=5 /></td>
+            <td colspan='3'><input type="text" name="C-DISCNT-PCT" class="numOnly" value="0.00" maxlength=6 size=5 /></td>
           </tr>
+					<tr>
+						<td>Outfit Special Pricing</td>
+						<td>$<input type='text' class='numOnly' name="C-DISC-OUTFIT" value='0.00' size=5 /> (Leave $0.00 if N/A.)</td>
+						<td>Shoe Special Pricing</td>
+						<td>$<input type='text' class='numOnly' name="C-DISC-SHOE" value='0.00' size=5 /> (Leave $0.00 if N/A.)</td>
+					</tr>
           <tr>
-            <td><input name="C-ACTIVE" type="checkbox" value="1" checked /> Active</td>
+            <td colspan='4'><input name="C-ACTIVE" type="checkbox" value="1" checked /> Active</td>
             <!--<td colSpan='3'><input name="C-DISCNT" type="checkbox" value="yes" /> Discount</td>-->
           </tr>
         </table>
