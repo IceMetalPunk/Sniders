@@ -10,6 +10,6 @@
 	//echo nl2br($output);
 	echo "<span style='font-size:14pt'><b>Follow the steps below to successfully import restorework2.csv:</b>";
 	echo "<ol><li>Import the restorework2.csv file into the t-work table from phpMyAdmin.</li>";
-	echo "<li>Copy the entire contents of the textarea below into a SQL query on t-work in phpMyAdmin and run it.</li></ol>";
+	echo "<li>Copy the entire contents of the textbox below into a SQL query on t-work in phpMyAdmin and run it.</li></ol>";
 	echo "<b>SQL Query:</b><br /></span><textarea rows=10 cols=50>".$output."</textarea>";
 ?>
