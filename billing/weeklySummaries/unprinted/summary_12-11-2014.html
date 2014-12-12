@@ -1,0 +1,167 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		
+		<style>
+			BODY {
+  background-color:#eeeeee;
+}
+img { border: 0px; }
+* { font-size:18pt; } /* Default font size for everything is 18pt */
+
+/* Text in header-3 style is size 24pt, light gray, with a light gray bottom border that reaches the entire page width */
+h3 {
+  font-size:24pt;
+  color:#aaaaaa;
+  border-bottom:2px inset #aaaaaa;
+  width:100%;
+}
+
+.ticketThumb {
+	max-width:100px;
+	max-height:100px;
+	cursor:pointer;
+}
+
+/* The active input field (whether input textbox or select-dropdown) has a light blue background */
+select:focus, input:focus, button:focus { background-color:#00eeff; }
+
+/* Data entry tables have no border and reach the entire page width, and their cells' borders collapse together */
+table.entryTable, table.bottomRow {
+  border:0px;
+  width:100%;
+  border-collapse:collapse;
+}
+
+/* Right-aligned fields */
+.right { text-align:right; }
+
+/* Data entry table cells have top and bottom borders as well as extra spacing on the right and bottom */
+.entryTable td {
+  padding-right:10px;
+  padding-bottom:4px;
+  border-bottom:1px solid #000000;
+  border-top:1px solid #000000;
+}
+
+/* Autocomplete list items have slightly smaller fonts, size 14pt, to better show long lists */
+.ui-corner-all { font-size:14pt; }
+
+/* Since the bottom row of the data entry form (the cane, glove, and suspenders) shouldn't be aligned to the rest of the form,
+   it's in its own table. As such, we remove the upper border for it so it blends seemlessly with the other table instead of doubling
+   with the other's bottom border and making it too thick. */
+.bottomRow td { border-top:0px; }
+
+/* Make the calendar font smaller than its large default */
+.ui-state-default, .ui-datepicker-calendar * { font-size:9pt !important; }
+.ui-datepicker-calendar { width:120px !important; }
+.ui-datepicker-header * { font-size:9pt !important; }
+.ui-datepicker-header { width:100% !important; }
+#ui-datepicker-div { width:auto !important; }
+.ui-datepicker-calendar  td, .ui-datepicker-calendar a, .ui-datepicker-calendar span { width:16px; height:16px; }
+
+/* Set the main form and accessories form to default visibilities */
+#mainForm { display: inline; }
+#accForm { display: none; }
+
+/* Buttons shouldn't have huge text */
+input[type=button], input[type=submit], input[type=reset], button, button * { font-size:12pt; }
+
+/* Some screens have sections that are initially hidden */
+.hiddenSection { display:none; }
+
+/* Certain places, like confirmation screens, need smaller font sizes */
+.smalltext, .smalltext * { font-size:12pt; }
+
+/* Make errors stand out */
+.error { display:none; color:#ff0000; font-weight:bold; }
+
+/* Progress bar styles - Background */
+.progBG {
+	background-color:#ffffff;
+	width:200px;
+	height:20px;
+	border:1px solid #000000;
+	padding:0px;
+	position:relative;
+}
+
+/* Progress bar styles - Foreground */
+.progFG {
+	background-color: #0000ff;
+	width:0%;
+	height:100%;
+	display:inline;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+/* Progress bar styles - Text */
+.progText {
+  background-color:transparent;
+	width:100%;
+	height:100%;
+	text-align:center;
+	padding-left:2px;
+	padding-right:2px;
+	vertical-align: middle;
+	display:inline;
+	color:#ff8800;
+	font-size:14px;
+	padding-top:0px;
+	padding-bottom:0px;
+	font-weight:bold;
+	position:relative;
+	left:0px;
+	top:0px;
+}			* { font-size: 10pt; }
+			TABLE, TD, TH, TR {
+				border: 0px;
+				padding: 4px;
+			}
+			TABLE { width: 100%; }
+		</style>
+	</head>
+	<body>
+		<h3>Summary for billing cycle ending on 12/11/2014</h3>
+		<table>
+			<tr>
+				<th>Customer #</th>
+				<th>Customer Name</th>
+				<th>Previous Balance</th>
+				<th>Charges</th>
+				<th>Payments/Credits</th>
+				<th>Balance</th>
+			</tr>
+			<tr><td>11763</td><td>69TH FASHION</td><td class='right'>$30,634.00</td><td class='right'>$30,634.00</td><td class='right'>($0.00)</td><td class='right'>$61,268.00</td></tr>
+<tr><td>11825</td><td>ABIGAIL'S BOUTIQUE</td><td class='right'>$30,337.00</td><td class='right'>$30,337.00</td><td class='right'>($0.00)</td><td class='right'>$60,674.00</td></tr>
+<tr><td>10104</td><td>ADVANCE FORMAL WEAR</td><td class='right'>$30,089.00</td><td class='right'>$30,089.00</td><td class='right'>($0.00)</td><td class='right'>$60,178.00</td></tr>
+<tr><td>11192</td><td>ARTHUR FASHION</td><td class='right'>$30,128.00</td><td class='right'>$30,128.00</td><td class='right'>($0.00)</td><td class='right'>$60,256.00</td></tr>
+<tr><td>11378</td><td>CAROL BRIDAL SHOP</td><td class='right'>$30,025.00</td><td class='right'>$30,025.00</td><td class='right'>($0.00)</td><td class='right'>$60,050.00</td></tr>
+<tr><td>11542</td><td>CHARISOL BRIDAL BOUTIQUE</td><td class='right'>$30,175.00</td><td class='right'>$30,175.00</td><td class='right'>($0.00)</td><td class='right'>$60,350.00</td></tr>
+<tr><td>10967</td><td>CHIC BOUTIQUE (NEW FASH)</td><td class='right'>$30,083.00</td><td class='right'>$30,083.00</td><td class='right'>($0.00)</td><td class='right'>$60,166.00</td></tr>
+<tr><td>11235</td><td>DIRE FORMAL WEAR</td><td class='right'>$30,057.00</td><td class='right'>$30,057.00</td><td class='right'>($0.00)</td><td class='right'>$60,114.00</td></tr>
+<tr><td>11642</td><td>DK BRIDAL</td><td class='right'>$30,125.00</td><td class='right'>$30,125.00</td><td class='right'>($0.00)</td><td class='right'>$60,250.00</td></tr>
+<tr><td>11108</td><td>DOUBLE P BRIDAL</td><td class='right'>$30,302.00</td><td class='right'>$30,302.00</td><td class='right'>($0.00)</td><td class='right'>$60,604.00</td></tr>
+<tr><td>30005</td><td>EDWARD ALAN    (COMMACK)</td><td class='right'>$29,854.44</td><td class='right'>$29,854.40</td><td class='right'>($0.00)</td><td class='right'>$59,708.84</td></tr>
+<tr><td>11249</td><td>EZIE'S MENS WEAR</td><td class='right'>$30,718.00</td><td class='right'>$30,718.00</td><td class='right'>($0.00)</td><td class='right'>$61,436.00</td></tr>
+<tr><td>10882</td><td>FORMAL WORLD</td><td class='right'>$30,057.00</td><td class='right'>$30,057.00</td><td class='right'>($0.00)</td><td class='right'>$60,114.00</td></tr>
+<tr><td>11806</td><td>INTERNATIONAL</td><td class='right'>$30,536.00</td><td class='right'>$30,536.00</td><td class='right'>($0.00)</td><td class='right'>$61,072.00</td></tr>
+<tr><td>30010</td><td>JESHUA'S BRIDAL</td><td class='right'>$30,158.37</td><td class='right'>$30,158.40</td><td class='right'>($0.00)</td><td class='right'>$60,316.77</td></tr>
+<tr><td>11107</td><td>JOAN'S BRIDAL</td><td class='right'>$30,098.00</td><td class='right'>$30,098.00</td><td class='right'>($0.00)</td><td class='right'>$60,196.00</td></tr>
+<tr><td>11277</td><td>LESTAN'S</td><td class='right'>$30,098.00</td><td class='right'>$30,098.00</td><td class='right'>($0.00)</td><td class='right'>$60,196.00</td></tr>
+<tr><td>11514</td><td>MARIA'S BRIDAL SHOP</td><td class='right'>$30,321.00</td><td class='right'>$30,321.00</td><td class='right'>($0.00)</td><td class='right'>$60,642.00</td></tr>
+<tr><td>11660</td><td>MELISSA'S BRIDAL SHOP</td><td class='right'>$30,377.00</td><td class='right'>$30,377.00</td><td class='right'>($0.00)</td><td class='right'>$60,754.00</td></tr>
+<tr><td>11183</td><td>PINATA PARTY SUPPLIES</td><td class='right'>$30,659.00</td><td class='right'>$30,659.00</td><td class='right'>($0.00)</td><td class='right'>$61,318.00</td></tr>
+<tr><td>11833</td><td>PINK HOUSE BRIDALS</td><td class='right'>$31,978.00</td><td class='right'>$31,816.00</td><td class='right'>($0.00)</td><td class='right'>$63,794.00</td></tr>
+<tr><td>11250</td><td>PRINGLE'S WEDDING CENTER</td><td class='right'>$30,609.00</td><td class='right'>$30,609.00</td><td class='right'>($0.00)</td><td class='right'>$61,218.00</td></tr>
+<tr><td>00499</td><td>RICO'S CLOTHING</td><td class='right'>$30,246.34</td><td class='right'>$29,804.90</td><td class='right'>($0.00)</td><td class='right'>$60,051.24</td></tr>
+<tr><td>11781</td><td>ROSARIO'S TUXEDO</td><td class='right'>$30,153.00</td><td class='right'>$30,153.00</td><td class='right'>($0.00)</td><td class='right'>$60,306.00</td></tr>
+<tr><td>30024</td><td>Test Case 2</td><td class='right'>$30,325.24</td><td class='right'>$270.22</td><td class='right'>($0.00)</td><td class='right'>$30,595.46</td></tr>
+<tr><td>30025</td><td>Test Case 3</td><td class='right'>$0.00</td><td class='right'>$30,025.00</td><td class='right'>($0.00)</td><td class='right'>$30,025.00</td></tr>
+<tr><td>11584</td><td>TRUE LOVE (FLUSHING)</td><td class='right'>$30,811.00</td><td class='right'>$30,811.00</td><td class='right'>($0.00)</td><td class='right'>$61,622.00</td></tr>
+<tr><td>11615</td><td>WILTSHIRE</td><td class='right'>$30,897.00</td><td class='right'>$30,897.00</td><td class='right'>($0.00)</td><td class='right'>$61,794.00</td></tr>
+<tr style='font-weight: bold'><td>Total Misc. Charges</td><td class='right'>$30,295.22</td></tr><tr style='font-weight: bold'><td>Total Invoices</td><td class='right'>$788,922.70</td></tr><tr style='font-weight: bold'><td>Total</td><td class='right'>$819,217.92</td></tr>		</table>
+	</body>
+</html>

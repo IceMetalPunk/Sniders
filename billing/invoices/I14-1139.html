@@ -1,0 +1,32 @@
+<html>
+  <head>
+			<title>Invoice for 30025</title>
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+		<style>
+		  * { font-size:10pt; }
+			.topHeaders, .topHeaders * { font-size: 14pt; }
+			TH { font-weight:bold; padding:4px; border:1px solid #000000; background-color:#aaaaaa; }
+			TD { border:1px solid #000000; padding:4px; }
+			TABLE { border-collapse: collapse; }
+			@media print {
+			  BUTTON { display:none; }
+				.message { display: none; }
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.9.1.js"></script>
+	</head>
+	<body>
+		<button onclick="window.location='invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
+		<button onclick="window.print()" accesskey='P'><u>P</u>rint</button>
+		<br />
+		<span class="topHeaders">
+		<span style='float:right'><a href="index.php"><img src="logo.png" border=0 /></a><br />
+		2898 Long Beach Rd<br />
+		Oceanside, NY 11572<br />
+		(516)442-2828</span><br clear='both' />
+		<span style='float:left'>Test Case 3</span><span style='float:right; font-weight:bold'>Invoice #I14-1139</span><br /><span style='float:left'>51 AND 11 FIXED RATE</span><span style='float:right; font-weight:bold'>12/12/2014</span><br /><span style='float:left'>,  </span></span><br /><br />		<table>
+			<tr><th colspan='4'>New Charges</th></tr><tr><th>Transaction #</th><th>Reference</th><th>Use Date</th><th>Amount</th></tr><tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>B218-0</td><td style='border:0px'>TEST  131A</td><td style='border:0px'>12/11/2014</td><td class='right' style='border:0px'>$51.00</td><tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>B218-1</td><td style='border:0px'>TEST  131A</td><td style='border:0px'>12/11/2014</td><td class='right' style='border:0px'>$11.00</td><tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>B219-0</td><td style='border:0px'>Test Case</td><td style='border:0px'>12/13/2014</td><td class='right' style='border:0px'>$51.00</td><tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>B219-1</td><td style='border:0px'>Test Case</td><td style='border:0px'>12/13/2014</td><td class='right' style='border:0px'>$11.00</td><tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>B220-0</td><td style='border:0px'>test case 2</td><td style='border:0px'>12/13/2014</td><td class='right' style='border:0px'>$51.00</td><tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>B220-1</td><td style='border:0px'>test case 2</td><td style='border:0px'>12/13/2014</td><td class='right' style='border:0px'>$11.00</td><tr style='border-top:2px solid #000000'><th>Total Charges</th><td colspan='3' class='right'>$186.00</td></tr><tr><th>Previous Balance</th><td colspan='3' class='right'>$30,025.00</td></tr><tr><th>Current Balance</th><td colspan='3' class='right'>$30,211.00</td></tr><script>$(function() { window.print(); });</script>		</table>
+		<br />
+		<button onclick="window.location='invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
+		</body>
+</html>
