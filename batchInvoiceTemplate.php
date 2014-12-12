@@ -70,11 +70,16 @@
 			echo "<span style='float:left'>".$customerData["C-NAME"]."</span>"; // Customer name
 			echo "<span style='float:right; font-weight:bold'>Invoice ".($invNum=="RECAP"?$invNum:"#".$invNum)."</span><br />"; // Invoice #
 			echo "<span style='float:left'>".$customerData["C-ADDR1"]."</span>"; // Customer address line 1
-			echo "<span style='float:right; font-weight:bold'>".$now."</span><br />"; // Current date
+			echo "<span style='float:right; font-weight:bold'>Customer #".$_POST['c_num']."</span><br />"; // Customer number
 			if (!empty($customerData["C-ADDR2"])) {
 				echo "<span style='float:left'>".$customerData["C-ADDR2"]."</span><br />"; // Customer address line 2
+				echo "<span style='float:right; font-weight:bold'>".$now."</span><br />"; // Current date
+				echo "<span style='float:left'>".$customerData["C-CITY"].", ".$customerData["C-STATE"]." ".$customerData["C-ZIP"]."</span></span><br /><br />";
 			}
-			echo "<span style='float:left'>".$customerData["C-CITY"].", ".$customerData["C-STATE"]." ".$customerData["C-ZIP"]."</span></span><br /><br />";
+			else {
+				echo "<span style='float:left'>".$customerData["C-CITY"].", ".$customerData["C-STATE"]." ".$customerData["C-ZIP"]."</span></span>";
+				echo "<span style='float:right; font-weight:bold'>".$now."</span><br /><br />"; // Current date
+			}
 		?>
 		<table>
 			<?php

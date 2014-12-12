@@ -58,6 +58,9 @@
 						window.scrollTo(0,0);
 						document.confirmForm.o_shoeprice.value=document.confirmForm.shoePrice.value;
 						document.confirmForm.o_outfitprice.value=document.confirmForm.outfitPrice.value;
+						var one=$(document.confirmForm.outfitPrice).val();
+						var two=$(document.confirmForm.shoePrice).val();
+						$("#totalPrice").html((one*1+two*1).toFixed(2));
 					}
 					document.getElementById("errorbox").style.display="inline";
         }
@@ -466,7 +469,7 @@
       <td style="border-top:1px solid #aaaaaa; font-size:14pt"><input type='hidden' name='o_outfitprice' value='<?php echo number_format($price, 2); ?>' />$<input name='outfitPrice' type='text' value='<?php echo number_format($price, 2); ?>' />
 			<?php
 				if ($discountInfo["C-DISC-OUTFIT"]>0) {
-					echo '<a href="javascript:document.confirmForm.outfitPrice.value='."'".number_format($discountInfo["C-DISC-OUTFIT"], 2)."'".'; void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-OUTFIT"], 2).')</a>';
+					echo '<a href="javascript:document.confirmForm.outfitPrice.value='."'".number_format($discountInfo["C-DISC-OUTFIT"], 2)."'".'; $(document.confirmForm.outfitPrice).blur(); document.confirmForm.outfitPrice.focus(); confirmForm.outfitPrice.select(); void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-OUTFIT"], 2).')</a>';
 				}
 			?>
 			</td>

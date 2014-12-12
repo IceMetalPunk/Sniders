@@ -33,7 +33,7 @@
 				</tr>
 				<tr>
 					<td style="text-align:right">$</td>
-					<td><input class="numOnly" name="amt" id="amt" size=6 maxlength=6 placeholder="0.00" /></td>
+					<td><input class="numOnly" name="amt" id="amt" size=6 maxlength=8 placeholder="0.00" /></td>
 					<td><select id="adjustType" name="adjustType" style="width:100%">
 						<?php
 						  /* Output all the different adjustment types */
