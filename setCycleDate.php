@@ -4,11 +4,13 @@
 	
 	if (!empty($_POST["use_date"])) {
 		$newDate=strtotime($_POST["use_date"]);
-		$newDate=date("Y-m-d", $newDate);
-	
-		/* Update the cycle's end date */
-		$q="UPDATE `t-lookup` SET `l-DESC`='".$newDate."' WHERE `l-VALUE`=301";
-		$query=mysql_query($q);
+		if ($newDate!==FALSE) {
+			$newDate=date("Y-m-d", $newDate);
+		
+			/* Update the cycle's end date */
+			$q="UPDATE `t-lookup` SET `l-DESC`='".$newDate."' WHERE `l-VALUE`=301";
+			$query=mysql_query($q);
+		}
 	}
 	
 	mysql_close($link);

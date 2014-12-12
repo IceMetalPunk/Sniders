@@ -174,58 +174,60 @@ instoreList = [
 ];
 
 /* Define the c_name input field as an autocomplete field */
-$( "#c_name" ).autocomplete({
+if ($("#c_name").length>0) {
+	$( "#c_name" ).autocomplete({
 
-  /* Take the autocomplete options from the customerList array we built in PHP */
-  source: function(req, response) { 
+		/* Take the autocomplete options from the customerList array we built in PHP */
+		source: function(req, response) { 
 
-        /* Make a pattern out of whatever the person typed */
-        var re = $.ui.autocomplete.escapeRegex(req.term); 
+					/* Make a pattern out of whatever the person typed */
+					var re = $.ui.autocomplete.escapeRegex(req.term); 
 
-        /* The ^ in a Regular Expression pattern means "at the beginning of the text" */
-        var matcher = new RegExp( "^" + re, "i" ); 
-				
-				if (document.entry.c_num.value!="99999") {
-    
-					/* Respond with only those items in the itemStyles array whose labels match that pattern */
-					response($.grep( customerList, function(item){ 
-						return matcher.test(item.label); }) ); 
+					/* The ^ in a Regular Expression pattern means "at the beginning of the text" */
+					var matcher = new RegExp( "^" + re, "i" ); 
+					
+					if (document.entry.c_num.value!="99999") {
+			
+						/* Respond with only those items in the itemStyles array whose labels match that pattern */
+						response($.grep( customerList, function(item){ 
+							return matcher.test(item.label); }) ); 
+					}
+					else {
+						response($.grep( instoreList, function(item){ 
+							return matcher.test(item.label); }) ); 
+					}
+					},
+		autoFocus: true,
+
+		/* When an autocomplete item is selected, update the customer name field and the customer number field */
+		select: function(e, ui) {
+			document.entry.c_name.value=ui.item.label; // Just the name, not the city.
+			document.entry.c_num.value=ui.item.value; // Customer number auto-fill
+			UpdateCustomer(ui.item); // Update the customer's shipping and billing optionsnote
+			return false;
+		},
+
+		/* When an autocomplete item is highlighted... */
+		focus: function(e, ui) {
+
+			/* Reset all items' texts to just their customer name, if that's been stored */
+			items=$("a.ui-corner-all");
+			items.each(function() {
+				if ($(this).data("last-text")!="undefined") {
+					$(this).html($(this).data("last-text"));
 				}
-				else {
-					response($.grep( instoreList, function(item){ 
-						return matcher.test(item.label); }) ); 
-				}
-				},
-  autoFocus: true,
+			});
 
-  /* When an autocomplete item is selected, update the customer name field and the customer number field */
-  select: function(e, ui) {
-    document.entry.c_name.value=ui.item.label; // Just the name, not the city.
-    document.entry.c_num.value=ui.item.value; // Customer number auto-fill
-    UpdateCustomer(ui.item); // Update the customer's shipping and billing optionsnote
-    return false;
-  },
+			/* Store the highlighted item's text, then change it to include the label (customer name) and the city as well */
+			it=$("a.ui-state-focus");
+			it.data("last-text", it.html());
+			if (document.entry.c_num.value!="99999") { it.html(ui.item.label+" ("+ui.item.city+")"); }
 
-  /* When an autocomplete item is highlighted... */
-  focus: function(e, ui) {
+			return false;
+		}
 
-    /* Reset all items' texts to just their customer name, if that's been stored */
-    items=$("a.ui-corner-all");
-    items.each(function() {
-      if ($(this).data("last-text")!="undefined") {
-        $(this).html($(this).data("last-text"));
-      }
-    });
-
-    /* Store the highlighted item's text, then change it to include the label (customer name) and the city as well */
-    it=$("a.ui-state-focus");
-    it.data("last-text", it.html());
-    if (document.entry.c_num.value!="99999") { it.html(ui.item.label+" ("+ui.item.city+")"); }
-
-    return false;
-  }
-
-});
+	});
+}
 });
 
 
@@ -357,22 +359,24 @@ function UpdateCustomer(cust) {
     $(function() {
 
       /* The .add() here also makes the accessories form fields autocomplete fields where appropriate */
-      $("#<?php echo $type; ?>_style").add("#<?php echo $type; ?>_a_style").autocomplete({
-        source: function(req, response) { 
+			if ($("#<?php echo $type; ?>_style").add("#<?php echo $type; ?>_a_style").length>0) {
+				$("#<?php echo $type; ?>_style").add("#<?php echo $type; ?>_a_style").autocomplete({
+					source: function(req, response) { 
 
-        /* Make a pattern out of whatever the person typed */
-        var re = $.ui.autocomplete.escapeRegex(req.term); 
+					/* Make a pattern out of whatever the person typed */
+					var re = $.ui.autocomplete.escapeRegex(req.term); 
 
-        /* The ^ in a Regular Expression pattern means "at the beginning of the text" */
-        var matcher = new RegExp( "^" + re, "i" ); 
-    
-        /* Respond with only those items in the itemStyles array whose labels match that pattern */
-        response($.grep( <?php echo $type; ?>Styles, function(item){ 
-            return matcher.test(item.label); }) ); 
-       },
+					/* The ^ in a Regular Expression pattern means "at the beginning of the text" */
+					var matcher = new RegExp( "^" + re, "i" ); 
+			
+					/* Respond with only those items in the itemStyles array whose labels match that pattern */
+					response($.grep( <?php echo $type; ?>Styles, function(item){ 
+							return matcher.test(item.label); }) ); 
+				 },
 
-    autoFocus: true
-      });
+			autoFocus: true
+				});
+			}
     });
     
     <?php } /* End types loop */ ?>
@@ -424,8 +428,10 @@ function UpdateCustomer(cust) {
     });
 		
 		$(function() {
-			document.entry.vest_a_style.onblur=function() { DefaultTie(document.entry.vest_a_style.value, document.entry.tie_a_style); }
-			document.entry.vest_style.onblur=function() { DefaultTie(document.entry.vest_style.value, document.entry.tie_style); }
+			if (document.entry.vest_a_style) {
+				document.entry.vest_a_style.onblur=function() { DefaultTie(document.entry.vest_a_style.value, document.entry.tie_a_style); }
+				document.entry.vest_style.onblur=function() { DefaultTie(document.entry.vest_style.value, document.entry.tie_style); }
+			}
 		});
 		
 		var vestAndTies={

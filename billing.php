@@ -15,7 +15,7 @@
 		<a href="index.php"><span style="float:right"><img src="logo.png" /></span></a><br clear="both" />
 		<button name="cycle" onclick="window.location='billingCycle.php'" accesskey="C">Begin Billing <u>C</u>ycle</button>
 		<button name="invoice" onclick="window.location='invoice.php'" accesskey="I">Create <u>I</u>nvoice</button>
-		
+		<button name="setdate" onclick="window.location='setDate.php'" accesskey="D">Set Cycle End <u>D</u>ate</button>
 		
   </body> 
 </html>
