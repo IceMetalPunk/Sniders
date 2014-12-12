@@ -61,12 +61,12 @@
 			$q.="', ";
 			$q.=$_POST['amt'].", "; // Subtotal
 			$q.=$customerData["C-DISCNT-PCT"].", "; // Discount percentage -- Only charge adjustments are discounted
-			if ($_POST['adjustType']>=30 && $_POST['adjustType']<40) {
-				$q.=$_POST['amt']*(100-$customerData["C-DISCNT-PCT"])/100; // Total after discount -- charge adjustments have this calculated
-			}
-			else {
+//			if ($_POST['adjustType']>=30 && $_POST['adjustType']<40) {
+//				$q.=$_POST['amt']*(100-$customerData["C-DISCNT-PCT"])/100; // Total after discount -- charge adjustments have this calculated
+//			}
+//			else {
 				$q.=$_POST['amt']; // Total after discount -- is equal to subtotal except for charge adjustments
-			}
+//			}
 			$q.=")";
 			$query=mysql_query($q);
 			if (!$query) { $error=mysql_error()."<br />(".$q.")"; }

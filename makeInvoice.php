@@ -127,8 +127,8 @@
 				if (empty($_POST["c_useDiscount"]) || !$_POST["c_useDiscount"]) { $disc=0; }
 				
 				if ($invNum!="RECAP") {
-					echo "<tr><th colspan='4'>New Charges</th></tr>";
-					echo "<tr><th>Transaction #</th><th>Reference</th><th>Use Date</th><th>Amount</th></tr>";
+					$chargeout="<tr><th colspan='4'>New Charges</th></tr>";
+					$chargrout.="<tr><th>Transaction #</th><th>Reference</th><th>Use Date</th><th>Amount</th></tr>";
 					$q="SELECT * FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' ORDER BY `W-TKT`, `W-TKT-SUB` ASC";
 					$query=mysql_query($q);
 					
@@ -136,19 +136,21 @@
 					$charges=0;
 					
 					while ($row=mysql_fetch_assoc($query)) {
-						echo "<tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td style='border:0px'>".$row["W-REF"]."</td><td style='border:0px'>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td class='right' style='border:0px'>$".number_format($row["W-AMT"], 2)."</td>";
+						$chargeout.="<tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>".$row["W-TKT"]."-".$row["W-TKT-SUB"]."</td><td style='border:0px'>".$row["W-REF"]."</td><td style='border:0px'>".date("n/j/Y" ,strtotime($row["W-USE-DT"]))."</td><td class='right' style='border:0px'>$".number_format($row["W-AMT"], 2)."</td>";
 						$subtotal+=$row["W-AMT"];
 					}
 					
 					/* List new adjusted charges */
-					$q="SELECT * FROM `t-a-billing` WHERE `TAB-INV-NO`='' AND `TAB-ADJ-TYPE`>9 AND `TAB-ADJ-TYPE` BETWEEN 30 and 39";
+					$q="SELECT * FROM `t-a-billing` WHERE `TAB-INV-NO`='' AND `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-ADJ-TYPE`>9 AND `TAB-ADJ-TYPE` BETWEEN 30 and 39";
 					$query=mysql_query($q);
 					if ($query && mysql_num_rows($query)>0) {
 						while ($row=mysql_fetch_assoc($query)) {
-							echo "<tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>".$row["TAB-ADJ-NO"]."</td><td style='border:0px' colspan='2'>".$row["TAB-ADJ-REF"]."</td><td  style='border:0px' class='right'>$".number_format($row["TAB-TOTAL"], 2)."</td></tr>";
+							$chargeout.="<tr style='border-left:1px solid #000000; border-right:1px solid #000000'><td style='border:0px'>".$row["TAB-ADJ-NO"]."</td><td style='border:0px' colspan='2'>".$row["TAB-ADJ-REF"]."</td><td  style='border:0px' class='right'>$".number_format($row["TAB-TOTAL"], 2)."</td></tr>";
 							$charges+=$row["TAB-AMT"];
 						}
 					}
+
+					if ($charges!=0 || $subtotal!=0) { echo $chargeout; }
 					
 					/* Display subtotals and discounts etc. */
 					//echo "<tr><th>New Charges</th><td colspan='4' class='right'>$".number_format($subtotal,2)."</td></tr>";
@@ -176,7 +178,9 @@
 				
 				/* Display totals */
 				//echo "<tr><td colspan='5'>&nbsp;</td></tr>";
-				echo "<tr style='border-top:2px solid #000000'><th>Total Charges</th><td colspan='3' class='right'>$".number_format($total,2)."</td></tr>";
+				if ($total>0) {
+					echo "<tr style='border-top:2px solid #000000'><th>Total Charges</th><td colspan='3' class='right'>$".number_format($total,2)."</td></tr>";
+				}
 				if ($disc>0) {
 					echo "<tr><th>Discount</th><td colspan='3' class='right'>".$disc."%</td></tr>";
 				}

@@ -121,7 +121,7 @@
 					}
 					
 					/* List new adjusted charges */
-					$q="SELECT * FROM `t-a-billing` WHERE `TAB-INV-NO`='' AND `TAB-ADJ-TYPE`>9 AND `TAB-ADJ-TYPE` BETWEEN 30 and 39";
+					$q="SELECT * FROM `t-a-billing` WHERE `TAB-INV-NO`='' AND `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-ADJ-TYPE`>9 AND `TAB-ADJ-TYPE` BETWEEN 30 and 39";
 					$query=mysql_query($q);
 					if ($query && mysql_num_rows($query)>0) {
 						while ($row=mysql_fetch_assoc($query)) {
@@ -137,7 +137,7 @@
 					}
 					
 					/* List any credits or payments for the week */
-					$q="SELECT * FROM `t-a-billing` WHERE `TAB-ADJ-TYPE`>9 AND `TAB-ADJ-TYPE` NOT BETWEEN 30 and 39";
+					$q="SELECT * FROM `t-a-billing` WHERE `TAB-ADJ-TYPE`>9 AND `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-ADJ-TYPE` NOT BETWEEN 30 and 39";
 					$query=mysql_query($q);
 					if ($query && mysql_num_rows($query)>0) {
 						echo "<tr style='border-top:2px solid #000000'><th colspan='5'>Payments and Credits</th></tr>";
