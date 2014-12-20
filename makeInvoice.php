@@ -124,7 +124,7 @@
 								
 				/* List new items */
 				$disc=$customerData["C-DISCNT-PCT"];
-				if (empty($_POST["c_useDiscount"]) || !$_POST["c_useDiscount"]) { $disc=0; }
+				if (empty($_POST["use_discount"]) || !$_POST["use_discount"]) { $disc=0; }
 				
 				if ($invNum!="RECAP") {
 					$chargeout="<tr><th colspan='4'>New Charges</th></tr>";
@@ -170,7 +170,7 @@
 						}
 					}
 					
-					/* Calculate total charges and balance */
+					/* Calculate charges and balance */
 					$total+=$subtotal*(100-$disc)/100;
 					$total+=$charges;
 				}
@@ -179,10 +179,11 @@
 				/* Display totals */
 				//echo "<tr><td colspan='5'>&nbsp;</td></tr>";
 				if ($total>0) {
-					echo "<tr style='border-top:2px solid #000000'><th>Total Charges</th><td colspan='3' class='right'>$".number_format($total,2)."</td></tr>";
+					echo "<tr style='border-top:2px solid #000000'><th>Total Charges</th><td colspan='3' class='right'>$".number_format($subtotal+$charges,2)."</td></tr>";
 				}
 				if ($disc>0) {
 					echo "<tr><th>Discount</th><td colspan='3' class='right'>".$disc."%</td></tr>";
+					echo "<tr><th>Net Charges</th><td colspan='3' class='right'>$".number_format($total, 2)."</td></tr>";
 				}
 				echo "<tr><th>Previous Balance</th><td colspan='3' class='right'>$".number_format($customerData["C-BALANCE"], 2)."</td></tr>";
 				if ($credits>0) { echo "<tr><th>Total Payments/Credits</th><td colspan='3' class='right'>(-$".number_format($credits, 2).")</td></tr>"; }
