@@ -109,18 +109,18 @@
 				$balance=$customerData["C-BALANCE"];
 				
 				/* Get previous invoices for the current cycle and, if any exist, show a consolidation of their totals (including adjustment charges and credits) */
-				$q="SELECT *, SUM(`TAB-TOTAL`) as `TAB-SUM` FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-INV-NO`!=''  GROUP BY `TAB-INV-NO` ORDER BY `TAB-INV-DT` ASC";
+				/*$q="SELECT *, SUM(`TAB-TOTAL`) as `TAB-SUM` FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."' AND `TAB-INV-NO`!=''  GROUP BY `TAB-INV-NO` ORDER BY `TAB-INV-DT` ASC";
 				$query=mysql_query($q);
 				if ($query && mysql_num_rows($query)>0) {
-					//echo "<tr><th colspan='5' style='border-top:2px solid #000000'>Previous Invoices</th></tr>";
-				  //echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice #</th><th colspan='2'>Invoice Totals</th></tr>";
+					echo "<tr><th colspan='5' style='border-top:2px solid #000000'>Previous Invoices</th></tr>";
+				  echo "<tr><th colspan='2'>Invoice Date</th><th colspan='2'>Invoice #</th><th colspan='2'>Invoice Totals</th></tr>";
 					while ($row=mysql_fetch_assoc($query)) {
-						//echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2' class='right'>$".number_format($row["TAB-SUM"],2)."</td></tr>";
+						echo "<tr><td colspan='2'>".$row["TAB-INV-DT"]."</td><td colspan='2'>".$row["TAB-INV-NO"]."</td><td colspan='2' class='right'>$".number_format($row["TAB-SUM"],2)."</td></tr>";
 						$total+=$row["TAB-SUM"];
 					}
-					//if ($invNum!="RECAP") { echo "<tr><td colspan='5'>&nbsp;</td></tr>"; }
+					if ($invNum!="RECAP") { echo "<tr><td colspan='5'>&nbsp;</td></tr>"; }
 				}
-				//echo "<tr><th>Total Previous Charges</th><td colspan='4' class='right'>$".number_format($total,2)."</td></tr>";
+				echo "<tr><th>Total Previous Charges</th><td colspan='4' class='right'>$".number_format($total,2)."</td></tr>";*/
 								
 				/* List new items */
 				$disc=$customerData["C-DISCNT-PCT"];
