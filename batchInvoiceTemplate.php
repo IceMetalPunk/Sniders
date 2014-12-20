@@ -38,25 +38,6 @@
 		Oceanside, NY 11572<br />
 		(516)442-2828</span><br clear='both' />
 		<?php
-			function GenerateInvoiceNumber() {
-				$q="SELECT `l-DESC` FROM `t-lookup` WHERE `l-VALUE`=997";
-				$query=mysql_query($q);
-				$row=mysql_fetch_assoc($query);
-				$num=$row["l-DESC"];
-
-				/* Update to new invoice number */
-				$newNum=explode("-", $num);
-				$numPart=$newNum[1]+1;
-				if ($numPart>99999) { $numPart="0001"; }
-				while (strlen($numPart)<4) { $numPart="0".$numPart; }
-				$newNum="I".date("y")."-".$numPart;
-
-				$q="UPDATE `t-lookup` SET `l-DESC`='".$newNum."' WHERE `l-VALUE`=997";
-				$query=mysql_query($q);
-						
-				return $num;
-			}
-				
 			$q="SELECT COUNT(`W-CUSTNO`) AS num FROM `v-a-invoice` WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 			$query=mysql_query($q);
 			$q2="SELECT `TAB-CUSTNO` FROM `t-a-billing` WHERE `TAB-INV-NO`='' AND `TAB-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
