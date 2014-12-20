@@ -269,7 +269,7 @@
       mysql_close($link);
 			
 			/* Output missing style errors if need be */
-			if (count($notIn)>0) {
+			if (isset($notin) && count($notIn)>0) {
 				echo "<span style='font-size: 12pt; font-weight:bold; color:#aa0000'>The following styles are not in the database and have defaulted to $0.00:<ul>";
 				foreach ($notIn as $val) {
 					echo "<li style='font-size:12pt'>".ucwords($val)." - ".$items[$val]."</li>";
