@@ -83,20 +83,39 @@
 				echo "<tr><td style='text-align:left'>".$cust["C-NAME"]."</td>";
 				if ($cust["C-CUSTNO"]<70000) { echo "<td>".$cust["C-CUSTNO"]."</td>"; }
 				else { echo "<td>99999 (In-House)</td>"; }
-				if (!empty($cust["TAR-INV-NO"])) { $num=$cust["TAR-INV-NO"]; }
-				else { $num=$cust["TAB-INV-NO"]; }				
+				
+				if (isset($cust["TAR-INV-NO"])) {
+					$num=$cust["TAR-INV-NO"];
+				}
+				else if (isset($cust["TAB-INV-NO"])) {
+					$num=$cust["TAB-INV-NO"];
+				}
+				else {
+					$num="&nbsp;";
+				}
 				echo "<td>".$num."</td>";
 				
-				if (!empty($cust["TAR-POST-DT"])) {
+				if (isset($cust["TAR-POST-DT"])) {
 					echo "<td>".date("n/j/Y", strtotime($cust["TAR-POST-DT"]))."</td>";
 					echo "<td>Yes</td>";
 				}
-				else {
+				else if (isset($cust["TAB-INV-DT"])) {
 					echo "<td>".date("n/j/Y", strtotime($cust["TAB-INV-DT"]))."</td>";
 					echo "<td>No</td>";
 				}
-				if (!empty($cust["TAR-AMT"])) { echo "<td>$".number_format($cust["TAR-AMT"], 2)."</td>"; }
-				else { echo "<td>$".number_format($cust["TAB-TOTAL"], 2)."</td>"; }
+				else {
+					echo "<td>&nbsp;</td><td>&nbsp;</td>";
+				}
+				
+				if (isset($cust["TAR-AMT"])) {
+					echo "<td>$".number_format($cust["TAR-AMT"], 2)."</td>";
+				}
+				else if (isset($cust["TAB-TOTAL"])) {
+					echo "<td>$".number_format($cust["TAB-TOTAL"], 2)."</td>";
+				}
+				else {
+					echo "<td>&nbsp;</td>";
+				}
 				echo "<td><a href='billing/invoices/".$num.".html'>View/Print</a></td>";
 				
 				echo "</tr>";
