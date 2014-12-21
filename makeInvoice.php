@@ -187,7 +187,7 @@
 				}
 				echo "<tr><th>Previous Balance</th><td colspan='3' class='right'>$".number_format($customerData["C-BALANCE"], 2)."</td></tr>";
 				if ($credits>0) { echo "<tr><th>Total Payments/Credits</th><td colspan='3' class='right'>(-$".number_format($credits, 2).")</td></tr>"; }
-				echo "<tr><th>Current Balance</th><td colspan='3' class='right'>".($balance<0?"(-$".number_format($balance, 2).")":"$".number_format($balance, 2))."</td></tr>";
+				echo "<tr style='font-weight:bold; font-size:12pt'><th style='font-size:12pt'>Current Balance</th><td colspan='3' class='right' style='font-size:12pt'>".($balance<0?"(-$".number_format($balance, 2).")":"$".number_format($balance, 2))."</td></tr>";
 				
 				/* Insert invoice into billing table */
 				if ($invNum!="RECAP") {
