@@ -106,7 +106,7 @@
 									win.focus();
 									GetDate();
 								});
-								$("#FunctionButton").val("Print Monthly Statement");
+								$("#FunctionButton").val("Print Balance Summary");
 								$("#FunctionButton").prop("disabled", false);
 							}
 						},
@@ -205,7 +205,7 @@
 				$("#FunctionButton").unbind("click").click(CancelInvoice);
 			});
 		</script>
-		<span style="display:none; font-size:14pt" id="monthlyMessage">Your last monthly statement was generated last month. Click below to generate a new statement.<br /></span>
+		<span style="display:none; font-size:14pt" id="monthlyMessage">Your last balance summary was generated over a month ago. Click below to generate a new statement.<br /></span>
 		<form id="dateForm" style="display:none" name="entry" action="setCycleDate.php" method="post">
 			<input name="use_date" id="use_date" type="text" />
 			<input type="hidden" name="full_use_date" />

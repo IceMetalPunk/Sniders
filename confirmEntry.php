@@ -134,7 +134,7 @@
       $shoeprice=0;
       $total=0;
       /* Calculate the price  if not replacement */
-			if ($_POST['c_num']=="99999") { // In-stores default to $0.00, because that's what Barry asked for.
+			if ((int)$_POST['c_num']>=70000) { // In-stores default to $0.00, because that's what Barry asked for.
 				$price=0;
 				$shoeprice=0;
 				$total=0;
