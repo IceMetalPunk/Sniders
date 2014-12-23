@@ -72,7 +72,7 @@
       <?php  } else if ($isEdit) { ?>
 			<script>
         $(function() {
-					if (document.entry.c_num.value=="99999") {
+					if (parseInt(document.entry.c_num.value)==99999) {
 						ShowInHouse();
 					}
 					else { GetCustomer(document.entry.c_num.value, true); }

@@ -31,7 +31,6 @@
       $q="SELECT MAX(`C-CUSTNO`) AS CustNum FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)>=70000 && CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<99999";
       $query=mysql_query($q);
       $row=mysql_fetch_assoc($query);
-			print_r($row);
       if ($query<1 || $row["CustNum"]=="") { $vals["W-CUSTNO"]="70000"; }
       else { $vals["W-CUSTNO"]=$row["CustNum"]+1; }
       

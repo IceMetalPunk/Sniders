@@ -284,16 +284,30 @@ function GetCustomer(c_num) {
   if (c_num=="") { return false; }
   
   /* Search the customerList array for one matching the fiven customer number and use that item's name */
-  for (i in customerList) {
-    if (customerList[i].value==c_num) {
-      document.entry.c_name.value=customerList[i].label;
-      
-      /* If found, update the customer's default shipping and billing info */
-      UpdateCustomer(customerList[i]);
-      
-      return true;
-    }
-  }
+	if (c_num<70000) {
+		for (i in customerList) {
+			if (customerList[i].value==c_num) {
+				document.entry.c_name.value=customerList[i].label;
+				
+				/* If found, update the customer's default shipping and billing info */
+				UpdateCustomer(customerList[i]);
+				
+				return true;
+			}
+		}
+	}
+	else {
+		for (i in instoreList) {
+			if (instoreList[i].value==c_num) {
+				document.entry.c_name.value=instoreList[i].label;
+				
+				/* If found, update the customer's default shipping and billing info */
+				UpdateCustomer(instoreList[i]);
+				
+				return true;
+			}
+		}
+	}
 
   /* If no customer with that ID is found, display that message in the customer name field */
   document.entry.c_name.value="Customer Not Found";
