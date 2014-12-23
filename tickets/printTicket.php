@@ -52,14 +52,19 @@
   
   $all=implode("", $all);
   
+	$vestSashTie="";
+	if (!empty($row["W-VEST"])) { $vestSashTie="VEST"; }
+	if (!empty($row["W-SASH"])) { $vestSashTie="SASH"; }
+	if (!empty($row["W-TIE"])) { $vestSashTie="TIE"; }
+	
   if ($row["W-TKT-TYPE"]==1) {
     $ticks=array("CUSTOMER"=>"SHOE", "SHOE"=>"SHOE");
   }
   else if ($row["W-TKT-TYPE"]==2) {
-    $ticks=array("CUSTOMER"=>"SHIRT", "VEST"=>"ACCESSORIES");
+    $ticks=array("CUSTOMER"=>"SHIRT", $vestSashTie=>"ACCESSORIES");
   }
   else {
-    $ticks=array("CUSTOMER"=>"SHIRT", "COAT"=>"COAT", "PANT-STYLE"=>"PANTS", "VEST"=>"VEST");
+    $ticks=array("CUSTOMER"=>"SHIRT", "COAT"=>"COAT", "PANT-STYLE"=>"PANTS", $vestSashTie=>"VEST");
   }
 	
 	//echo "Ticket type ".$row["W-TKT-TYPE"]." has ticks: ".print_r($ticks, true)."<br />";
