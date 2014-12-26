@@ -58,7 +58,6 @@
 								if (data.on<data.total) { checkTimer=setTimeout(GetBillProgress, 100); }
 								else {
 									SetProgress(1, "Posting Complete");
-									canceled=true;
 									document.title="Posting Complete";
 									$("#FunctionButton").unbind("click");
 									$("#FunctionButton").val("Posting Complete");
@@ -148,7 +147,6 @@
 								if (data.on<data.total) { checkTimer=setTimeout(GetInvoiceProgress, 100); }
 								else {
 									SetProgress(1, "Invoicing Complete");
-									canceled=true;
 									document.title="Invoicing Complete";
 									$("#FunctionButton").unbind("click").click(StartBilling);
 									$("#FunctionButton").val("Begin Posting");
