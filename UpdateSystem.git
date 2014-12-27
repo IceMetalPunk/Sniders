@@ -1,4 +1,5 @@
 cd "C:\wamp\www"
 git fetch
+pause
 git reset --hard origin/master
 pause
