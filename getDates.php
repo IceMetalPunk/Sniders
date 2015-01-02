@@ -9,6 +9,9 @@
 	$cycleDate=mysql_fetch_assoc($query);
 	$cycleDate=strtotime($cycleDate["l-DESC"]);
 	$nextCycle=strtotime("next Sunday");
+	if (date("w")!=0) {
+		$nextCycle=strtotime("+7 days", $nextCycle);
+	}
 	echo '{"cycleDate": "'.date("n/j/Y", $cycleDate).'", "nextCycle": "'.date("n/j/Y", $nextCycle).'"}';
 	
 	mysql_close($link);

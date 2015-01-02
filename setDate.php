@@ -27,6 +27,9 @@
 				$(function() {
 					document.entry.use_date.value="<?php
 						$nextCycle=strtotime("next Sunday");
+						if (date("w")!=0) {
+							$nextCycle=strtotime("+7 days", $nextCycle);
+						}
 						echo date("n/j/Y", $nextCycle);
 						?>";
 					$(document.entry.use_date).blur();
