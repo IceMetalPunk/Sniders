@@ -81,7 +81,7 @@
 		if (mysql_num_rows($query)>0) {
 			//echo "<h3>Monthly Statement for ".date("F Y", $lastDatePHP)."</h3>";
 			echo "<h3>Accounts Receivable Summary Report For ".date("n/j/Y", $lastDatePHP)." - ".date("n/j/Y")."</h3>";
-			echo "<table class='restab'><tr><th>Customer Name</th><th>Customer #</th><th>Previous Balance</th><th>Invoice Total</th><th>Adjustment Total</th><th>Balance</th></tr>";
+			echo "<table class='restab'><tr><th>Customer Name</th><th>Previous Balance</th><th>Invoice Total</th><th>Adjustment Total</th><th>Balance</th></tr>";
 			
 			while ($custRow=mysql_fetch_assoc($query)) {
 				$q="SELECT SUM(`TAR-AMT`) AS amt, `TAR-TYPE` FROM `t-a-rec` WHERE `TAR-CUSTNO`='".mysql_real_escape_string($custRow["C-CUSTNO"])."' AND `TAR-POST-DT` BETWEEN '".mysql_real_escape_string($lastDate)."' AND NOW() GROUP BY `TAR-TYPE`";
@@ -94,7 +94,7 @@
 						else { $adjTotal+=$info["amt"]; }
 					}	
 				}
-				echo "<tr><td>".$custRow["C-NAME"]."</td><td>".$custRow["C-CUSTNO"]."</td>";
+				echo "<tr><td>".$custRow["C-NAME"]."</td>";//<td>".$custRow["C-CUSTNO"]."</td>";
 				echo "<td>".($custRow['C-OPEN-BALANCE']>=0?"$".number_format($custRow['C-OPEN-BALANCE'], 2):"(-$".number_format($custRow['C-OPEN-BALANCE'], 2).")")."</td>";
 				echo "<td>".($invTotal>=0?"$".number_format($invTotal, 2):"(-$".number_format($invTotal, 2).")")."</td>";
 				echo "<td>".($adjTotal>=0?"$".number_format($adjTotal, 2):"(-$".number_format($adjTotal, 2).")")."</td>";
