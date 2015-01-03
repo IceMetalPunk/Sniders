@@ -210,7 +210,6 @@
 		<script>$("#red").submit();</script>
 		<?php
 			}
-			mysql_close($link);
 		?>
 	</body>
 </html>

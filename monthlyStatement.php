@@ -81,7 +81,7 @@
 		if (mysql_num_rows($query)>0) {
 			//echo "<h3>Monthly Statement for ".date("F Y", $lastDatePHP)."</h3>";
 			echo "<h3>Accounts Receivable Summary Report For ".date("n/j/Y", $lastDatePHP)." - ".date("n/j/Y")."</h3>";
-			echo "<table class='restab'><tr><th>Customer Name</th><th>Customer #</th><th>Opening Balance</th><th>Invoice Total</th><th>Adjustment Total</th><th>Balance</th></tr>";
+			echo "<table class='restab'><tr><th>Customer Name</th><th>Customer #</th><th>Previous Balance</th><th>Invoice Total</th><th>Adjustment Total</th><th>Balance</th></tr>";
 			
 			while ($custRow=mysql_fetch_assoc($query)) {
 				$q="SELECT SUM(`TAR-AMT`) AS amt, `TAR-TYPE` FROM `t-a-rec` WHERE `TAR-CUSTNO`='".mysql_real_escape_string($custRow["C-CUSTNO"])."' AND `TAR-POST-DT` BETWEEN '".mysql_real_escape_string($lastDate)."' AND NOW() GROUP BY `TAR-TYPE`";
@@ -101,8 +101,8 @@
 				echo "<td>".($custRow['C-BALANCE']>=0?"$".number_format($custRow['C-BALANCE'], 2):"(-$".number_format($custRow['C-BALANCE'], 2).")")."</td>";
 				echo "</tr>";
 				
-				$q="UPDATE `t-customer` SET `C-OPEN-BALANCE`='".mysql_real_escape_string($custRow["C-BALANCE"])."' WHERE `C-CUSTNO`='".mysql_real_escape_string($custRow["C-CUSTNO"])."'";
-				$custUpdate=mysql_query($q);
+				//$q="UPDATE `t-customer` SET `C-OPEN-BALANCE`='".mysql_real_escape_string($custRow["C-BALANCE"])."' WHERE `C-CUSTNO`='".mysql_real_escape_string($custRow["C-CUSTNO"])."'";
+				//$custUpdate=mysql_query($q);
 			
 			}
 			echo "</table>";
