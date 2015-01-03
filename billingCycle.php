@@ -49,7 +49,8 @@
 								$("#FunctionButton").unbind("click");
 								$("#FunctionButton").val("Posting Complete");
 								$("#FunctionButton").prop("disabled", true);
-								GetIsMonthly();
+								//GetIsMonthly();
+								GetDate();
 							}
 							else {
 								numBills=data.total;
@@ -62,7 +63,8 @@
 									$("#FunctionButton").unbind("click");
 									$("#FunctionButton").val("Posting Complete");
 									$("#FunctionButton").prop("disabled", true);
-									GetIsMonthly();
+									//GetIsMonthly();
+									GetDate();
 								}
 							}
 						},
@@ -89,7 +91,7 @@
 					);
 				}
 				
-			function GetIsMonthly() {
+			/*function GetIsMonthly() {
 				$.get(
 						"isMonthlyTime.php",
 						function (data) {
@@ -111,7 +113,7 @@
 						},
 						"json"
 					);
-				}
+				}*/
 				
 				function SetDate() {
 					document.entry.submit();
