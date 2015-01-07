@@ -1,4 +1,4 @@
-Last Updated January 7, 2015 at 3:55PM EST
+Last Updated January 7, 2015 at 4:30PM EST
 
 Changes:
 	Accounts Receivable Summary Report now includes unposted invoices an adjustments in totals.

@@ -195,7 +195,7 @@
 					$q.="'".mysql_real_escape_string($_POST['c_num'])."', "; // Customer number
 					$q.="'', NOW(), '".mysql_real_escape_string($invNum)."', "; // Post date (blank for now), invoice date, and invoice number
 					$q.="'', 0, '', "; // Adjustment number (blank for invoices), adjustment type (0=invoice), and adjustment reference (blank for invoices)
-					$q.=$subtotal.", ".mysql_real_escape_string($disc).", ".mysql_real_escape_string($subtotal*(100-$disc)/100).")"; // Subtotal, discount, and total
+					$q.=$subtotal.", ".mysql_real_escape_string($disc).", ".mysql_real_escape_string($subtotal*(100-$disc)/100+$charges).")"; // Subtotal, discount, and total
 					$query=mysql_query($q);
 					
 					/* Update the adjustments to have the proper invoice numbers */
