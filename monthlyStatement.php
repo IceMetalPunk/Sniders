@@ -94,6 +94,16 @@
 						else { $adjTotal+=$info["amt"]; }
 					}	
 				}
+				
+				$q="SELECT SUM(`TAB-TOTAL`) AS amt, `TAB-ADJ-TYPE` FROM `t-a-billing` WHERE `TAB-CUSTNO`='".mysql_real_escape_string($custRow["C-CUSTNO"])."' AND `TAB-INV-NO`!='' GROUP BY `TAB-ADJ-TYPE`";
+				$subquery=mysql_query($q);
+				if (mysql_num_rows($subquery)>0) {
+					while ($info=mysql_fetch_assoc($subquery)) {
+						if ($info["TAB-ADJ-TYPE"]==0) { $invTotal+=$info["amt"]; }
+						else { $adjTotal+=$info["amt"]; }
+					}	
+				}
+				
 				echo "<tr><td>".$custRow["C-NAME"]."</td>";//<td>".$custRow["C-CUSTNO"]."</td>";
 				echo "<td>".($custRow['C-OPEN-BALANCE']>=0?"$".number_format($custRow['C-OPEN-BALANCE'], 2):"(-$".number_format($custRow['C-OPEN-BALANCE'], 2).")")."</td>";
 				echo "<td>".($invTotal>=0?"$".number_format($invTotal, 2):"(-$".number_format($invTotal, 2).")")."</td>";
