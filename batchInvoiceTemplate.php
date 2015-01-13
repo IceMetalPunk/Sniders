@@ -190,7 +190,7 @@
 				}
 				
 				if ($invNum!="RECAP") {
-					echo "<script>$(function() { window.print(); });</script>";				
+					echo "<script>$(function() { window.print(); });</script>";
 				}
 			?>
 		</table>

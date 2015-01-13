@@ -39,7 +39,7 @@
 					"charges"=>0,
 					"credits"=>0,
 					"balance"=>$row["C-BALANCE"],
-					"prevBalance"=>$row["C-BALANCE"],
+					"prevBalance"=>$row["C-OPEN-BALANCE"],
 					"name"=>$row["C-NAME"]
 				);
 			}
@@ -51,7 +51,7 @@
 			else {
 				$customers[$row["TAB-CUSTNO"]]["credits"]+=abs($row["TAB-TOTAL"]);
 			}
-			$customers[$row["TAB-CUSTNO"]]["balance"]+=$row["TAB-TOTAL"];
+			//$customers[$row["TAB-CUSTNO"]]["balance"]+=$row["TAB-TOTAL"];
 			
 			/* Update the totals information */
 			if (empty($totals[$row["TAB-ADJ-TYPE"]])) {
@@ -74,7 +74,7 @@
 		
 		/* Update customer balances */
 		foreach ($customers as $custno=>$data) {
-			$q="UPDATE `t-customer` SET `C-BALANCE`=".mysql_real_escape_string($data["balance"])." WHERE `C-CUSTNO`='".mysql_real_escape_string($custno)."'";
+			$q="UPDATE `t-customer` SET `C-OPEN-BALANCE`=".mysql_real_escape_string($data["balance"])." WHERE `C-CUSTNO`='".mysql_real_escape_string($custno)."'";
 			$query=mysql_query($q);
 		}
 		
