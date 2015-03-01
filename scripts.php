@@ -20,17 +20,21 @@ function ShowInHouse() {
 /* Function to initialize the main data entry page when it loads */
 function Initialize(startAtCustomer) {
   if (typeof startAtCustomer=="undefined") { startAtCustomer=false; }
-  /* Focus the cursor on the Customer Number field (the first one) */
-  if (startAtCustomer) { document.entry.c_num.focus(); }
 
   /* When the customer number field blurs (loses focus), call the function to look up the corresponding customer name
      or the one to handle in-house rentals (customer pseudo-number 99999) */
   document.entry.c_num.onblur=function() {
-    if (document.entry.c_num.value=="99999") {
+    if (document.entry.c_num.value=="99999" || document.entry.c_num.value*1>70000) {
       ShowInHouse();
     }
     else { GetCustomer(document.entry.c_num.value); }
   }
+	
+  /* Focus the cursor on the Customer Number field (the first one) */
+  if (startAtCustomer) {
+		document.entry.c_num.focus();
+	}
+	
   $(".numOnly").keypress(validateNumber); // Make selected fields (those with the numOnly class) only accept numbers
   
   /* Set up accessories box and complete-outfit box to make them exclusive by unchecking the other when they're checked */

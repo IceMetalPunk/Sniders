@@ -14,8 +14,19 @@
 			}
 			if (count($editData)<2) { $editData[]=$editData[0]; }
 			$editDate=$editData[0]["W-USE-DT"];
+			$editData[0]["C-PHONE"]="";
+			$editData[0]["C-PHONE2"]="";
 			$editDate=strtotime($editDate);
 			$editDate=date("n/j/Y", $editDate);
+			
+			$q="SELECT `C-PHONE`, `C-PHONE2` FROM `t-customer` WHERE `C-CUSTNO`='".$editData[0]["W-CUSTNO"]."'";
+			$query=mysql_query($q);
+			if (mysql_num_rows($query)>0) {
+				$row=mysql_fetch_assoc($query);
+				$editData[0]["C-PHONE"]=$row["C-PHONE"];
+				$editData[0]["C-PHONE2"]=$row["C-PHONE2"];
+			}
+			
 		}
 	}
 	
@@ -56,10 +67,10 @@
       ?>/> <input type="text" id="c_name" name="c_name" size=40 maxlength=40 placeholder="Customer Name" />
       <br/>
       
-      <?php if (!empty($_POST['redirected']) && $_POST['redirected']=="1") { ?>
+      <?php if ((!empty($_POST['redirected']) && $_POST['redirected']=="1") || $isEdit) { ?>
       <script>
-        $(function() {
-					if (document.entry.c_num.value=="99999") {
+        document.body.onload=function() {
+					if (document.entry.c_num.value=="99999" || document.entry.c_num.value*1>=70000) {
 						ShowInHouse();
 					}
 					else {
@@ -67,7 +78,7 @@
 						document.entry.date_use.focus();
 						document.entry.date_use.select();
 					}
-        });
+        };
       </script>
       <?php  } else if ($isEdit) { ?>
 			<script>
@@ -93,18 +104,29 @@
         <option value="109">Other</option>
       </select>
       <select name="b_type">
-        <option value="203">COD</option>
-        <option value="204">COD-Cash</option>
-        <option value="201">Standard</option>
-        <option value="202">Standard-Discount</option>
-        <option value="208">Standard-Discount 2</option>
-        <option value="207">Fashion Show</option>
-        <option value="206">Replacement</option> 
-        <option value="205">Try-On</option>
+				<?php
+					$billTypes[201]="Standard";
+					$billTypes[202]="Standard-Discount";
+					$billTypes[203]="COD";
+					$billTypes[204]="COD-Cash";
+					$billTypes[205]="Try-On";
+					$billTypes[206]="Replacement";
+					$billTypes[207]="Fashion Show";
+					$billTypes[208]="Standard-Discount 2";
+					foreach ($billTypes as $i=>$name) {
+						echo "<option value='".$i."'";
+						if ($isEdit && $editData[0]["W-SHP-INST"]==$i) { echo " selected='selected'"; }
+						echo ">".$name."</option>";
+					}
+				?>
       </select>
       <br />
-      <div id="inHouseSpot" style="display:none">Cell Phone&nbsp;&nbsp;&nbsp; <input type='text' name='cellPhone' /><br/>
-      Home Phone <input type='text' name='homePhone' /></div>
+      <div id="inHouseSpot" style="display:none">Cell Phone&nbsp;&nbsp;&nbsp; <input type='text' name='cellPhone' value='<?php
+				if ($isEdit) { echo $editData[0]["C-PHONE2"]; }
+			?>' /><br/>
+      Home Phone <input type='text' name='homePhone' value='<?php
+				if ($isEdit) { echo $editData[0]["C-PHONE"]; }
+			?>' /></div>
       </span>
       <!-- Logo that links to the main menu -->
       <a href="index.php"><span style="float:right"><img src="logo.png" /></span></a><br clear="both" />

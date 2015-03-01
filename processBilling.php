@@ -11,9 +11,8 @@
 	file_put_contents("billCycleProgress.txt", "0\r\n0"); // Initialize progress indicator
 	require("paymentTypes.php");
 	
-	
 	/* Get all unprocessed items from TAB, sorted by customer name */
-	$q="SELECT `t-a-billing`.*, `C-BALANCE`, `C-NAME` FROM `t-a-billing`, `t-customer` WHERE `TAB-CUSTNO`=`C-CUSTNO` AND CAST(`TAB-CUSTNO` AS UNSIGNED INTEGER)<70000 ORDER BY `C-NAME`, `C-CUSTNO`";
+	$q="SELECT `t-a-billing`.*, `C-BALANCE`, `C-OPEN-BALANCE`, `C-NAME` FROM `t-a-billing`, `t-customer` WHERE `TAB-CUSTNO`=`C-CUSTNO` AND CAST(`TAB-CUSTNO` AS UNSIGNED INTEGER)<70000 ORDER BY `C-NAME`, `C-CUSTNO`";
 	$query=mysql_query($q);
 
 	if (!$query || mysql_num_rows($query)<=0) {

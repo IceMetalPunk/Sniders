@@ -42,6 +42,7 @@
     $vals["W-ORDER-DT"]="NOW()"; // Order date
     $vals["W-USE-DT"]="STR_TO_DATE('".$_POST['full_use_date']." 00:00:00', '%m/%e/%Y %H:%i:%s')"; // Use date
     $vals["W-SHP-INST"]=$_POST['d_type']; // Shipping instructions
+    $vals["W-BILL-INST"]=$_POST['b_type']; // Billing instructions
     $vals["W-COD-INV"]="0";  // COD invoice number
     $vals["W-BILL-INV"]="000000"; // Billing invoice number
     $vals["W-REF"]="'".mysql_real_escape_string($_POST['ref'])."'"; // Reference name
@@ -194,6 +195,8 @@
 		foreach ($vals as $col=>$val) {
 			if ($cols!="(") { $cols.=", "; }
 			if ($values!="(") { $values.=", "; }
+			if ($col=="b_type") { $col="W-BILL-INST"; }
+			else if ($col=="d_type") { $col="W-SHP-INST"; }
 			$cols.="`".$col."`";
 			$values.=$val;
 			if ($col=="W-TKT-PRINTED") { continue; }
