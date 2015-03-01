@@ -93,15 +93,22 @@
       
       <!-- Dropdowns for delivery type and billing/payment type -->
       <select name="d_type">
-        <option value="101">Delivery</option>
-        <option value="102">Pickup</option>
-        <option value="103">UPS</option>
-        <option value="104">UPS Priority</option>
-        <option value="105">UPS Air</option>
-        <option value="106">FedEx</option>
-        <option value="107">Delivery Today</option>
-        <option value="108">Pickup Today</option>
-        <option value="109">Other</option>
+				<?php
+					$Types[201]="Delivery";
+					$Types[202]="Pickup";
+					$Types[203]="UPS";
+					$Types[204]="UPS Priority";
+					$Types[205]="UPS Air";
+					$Types[206]="FedEx";
+					$Types[207]="Delivery Today";
+					$Types[208]="Pickup Today";
+					$Types[209]="Other";
+					foreach ($Types as $i=>$name) {
+						echo "<option value='".$i."'";
+						if ($isEdit && $editData[0]["W-SHP-INST"]==$i) { echo " selected='selected'"; }
+						echo ">".$name."</option>";
+					}
+				?>
       </select>
       <select name="b_type">
 				<?php
@@ -115,7 +122,7 @@
 					$billTypes[208]="Standard-Discount 2";
 					foreach ($billTypes as $i=>$name) {
 						echo "<option value='".$i."'";
-						if ($isEdit && $editData[0]["W-SHP-INST"]==$i) { echo " selected='selected'"; }
+						if ($isEdit && $editData[0]["W-BILL-INST"]==$i) { echo " selected='selected'"; }
 						echo ">".$name."</option>";
 					}
 				?>
