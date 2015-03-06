@@ -22,7 +22,7 @@
 		<!-- Some code for the newly independent Balance Summary report button -->
 		<script type="text/javascript">
 			$("#balanceSummary").click(function() {
-				var win=window.open("monthlyStatement.php", "_blank");
+				var win=window.open("ARReport.php", "_blank");
 				win.focus();
 			});
 		</script>

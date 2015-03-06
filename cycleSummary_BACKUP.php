@@ -18,11 +18,10 @@
 			<tr>
 				<th>Customer #</th>
 				<th>Customer Name</th>
-				<th>Total Invoiced This Cycle</th>
-				<th>Total Adjusted Charges This Cycle</th>
-				<th>Total Payments/Credits This Cycle</th>
-				<th>Net Transactions This Cycle</th>
-				<th>Current Balance</th>
+				<th>Previous Balance</th>
+				<th>Charges</th>
+				<th>Payments/Credits</th>
+				<th>Balance</th>
 			</tr>
 			<?php
 			
@@ -43,22 +42,39 @@
 					if ($data["balance"]==0) { continue; } */
 					echo "<tr><td>".$custno."</td>"; // Customer number
 					echo "<td>".$data["name"]."</td>"; // Customer name
-					echo "<td class='right'>$".number_format($data["invoiced"], 2)."</td>"; // Previous balance
+					echo "<td class='right'>$".number_format($data["prevBalance"], 2)."</td>"; // Previous balance
 					echo "<td class='right'>$".number_format($data["charges"],2)."</td>"; // Charges for this cycle
-					echo "<td class='right'>($".number_format(abs($data["credits"]), 2).")</td>"; // Credits for this cycle
-					$net=$data["invoiced"]+$data["charges"]-abs($data["credits"]);
-					echo "<td class='right'>".($net<0?"(-":"")."$".number_format(abs($net), 2).($net<0?")":"")."</td>";
-					echo "<td class='right'>".($data["balance"]<0?"(-":"")."$".number_format(abs($data["balance"]), 2).($data["balance"]<0?")":"")."</td>";
+					echo "<td class='right'>($".number_format($data["credits"], 2).")</td>"; // Credits for this cycle
+					echo "<td class='right'>$".number_format($data["balance"], 2)."</td></tr>\r\n"; // Total balance
 				}
-
-				/* Output totals */				
-				echo "<tr style='font-weight:bold'><td>&nbsp;</td><td>Totals</td>";
-				echo "<td class='right'>$".number_format($totals["Invoiced"], 2)."</td>"; // Previous balance
-				echo "<td class='right'>$".number_format($totals["Charges"],2)."</td>"; // Charges for this cycle
-				echo "<td class='right'>($".number_format(abs($totals["Credits"]), 2).")</td>"; // Credits for this cycle
-				$net=$totals["Invoiced"]+$totals["Charges"]-abs($totals["Credits"]);
-				echo "<td class='right'>".($net<0?"(-":"")."$".number_format(abs($net), 2).($net<0?")":"")."</td>";
-				echo "<td>&nbsp;</td></tr>";
+				
+				/* Output totals */
+				$allTotal=0;
+				foreach ($totals as $type=>$val) {
+					echo "<tr style='font-weight: bold'>";
+					if ($type==0) { $typeN="Invoice"; }
+					else { $typeN=array_search($type, $types); }
+					echo "<td>Total ".$typeN."s</td><td class='right'>";
+					if ($type>=10 && ($type<30 || $type>=40)) {
+						echo "($".number_format($val, 2).")";
+						$allTotal-=$val;
+					}
+					else {
+						echo "$".number_format($val, 2);
+						$allTotal+=$val;
+					}
+					echo "</td></tr>";
+				}
+				
+				/* Display the total total...as in, total of all charges - all credits. */
+				echo "<tr style='font-weight: bold'><td>Total</td><td class='right'>";
+				if ($allTotal<0) {
+					echo "($".number_format($allTotal, 2).")";
+				}
+				else {
+					echo "$".number_format($allTotal, 2);
+				}
+				echo "</td></tr>";
 				
 			?>
 		</table>

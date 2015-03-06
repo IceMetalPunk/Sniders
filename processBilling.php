@@ -27,7 +27,11 @@
 		
 		/* Initialize the arrays to keep customer information and totals */
 		$customers=array();
-		$totals=array();
+		$totals=array(
+			"Invoiced"=>0,
+			"Charges"=>0,
+			"Credits"=>0
+		);
 		
 		/* Copy the items into TAR, keeping track of charges, credits, etc. */
 		while ($row=mysql_fetch_assoc($query)) {
@@ -35,6 +39,7 @@
 			/* If the customer hasn't been encountered yet, initialize their array for charges, credits, etc. */
 			if (empty($customers[$row["TAB-CUSTNO"]])) {
 				$customers[$row["TAB-CUSTNO"]]=array(
+					"invoiced"=>0,
 					"charges"=>0,
 					"credits"=>0,
 					"balance"=>$row["C-BALANCE"],
@@ -43,20 +48,20 @@
 				);
 			}
 			
-			/* Update the customer information */
-			if ($row["TAB-TOTAL"]>0) {
+			/* Update the customer information and totals */
+			if ($row["TAB-ADJ-TYPE"]<2) {
+				$customers[$row["TAB-CUSTNO"]]["invoiced"]+=$row["TAB-TOTAL"];
+				$totals["Invoiced"]+=$row["TAB-TOTAL"];
+			}
+			else if ($row["TAB-TOTAL"]>0) {
 				$customers[$row["TAB-CUSTNO"]]["charges"]+=$row["TAB-TOTAL"];
+				$totals["Charges"]+=$row["TAB-TOTAL"];
 			}
 			else {
 				$customers[$row["TAB-CUSTNO"]]["credits"]+=abs($row["TAB-TOTAL"]);
+				$totals["Credits"]+=abs($row["TAB-TOTAL"]);
 			}
 			//$customers[$row["TAB-CUSTNO"]]["balance"]+=$row["TAB-TOTAL"];
-			
-			/* Update the totals information */
-			if (empty($totals[$row["TAB-ADJ-TYPE"]])) {
-				$totals[$row["TAB-ADJ-TYPE"]]=0;
-			}
-			$totals[$row["TAB-ADJ-TYPE"]]+=abs($row["TAB-TOTAL"]);
 			
 			/* Copy items into TAR */
 			$q="INSERT INTO `t-a-rec` VALUES (";
