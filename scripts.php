@@ -24,10 +24,10 @@ function Initialize(startAtCustomer) {
   /* When the customer number field blurs (loses focus), call the function to look up the corresponding customer name
      or the one to handle in-house rentals (customer pseudo-number 99999) */
   document.entry.c_num.onblur=function() {
-    if (document.entry.c_num.value=="99999" || document.entry.c_num.value*1>70000) {
+    if (document.entry.c_num.value*1>70000) {
       ShowInHouse();
     }
-    else { GetCustomer(document.entry.c_num.value); }
+    if (document.entry.c_num.value!="99999") { GetCustomer(document.entry.c_num.value); }
   }
 	
   /* Focus the cursor on the Customer Number field (the first one) */
@@ -190,7 +190,7 @@ if ($("#c_name").length>0) {
 					/* The ^ in a Regular Expression pattern means "at the beginning of the text" */
 					var matcher = new RegExp( "^" + re, "i" ); 
 					
-					if (document.entry.c_num.value!="99999") {
+					if (document.entry.c_num.value*1<70000) {
 			
 						/* Respond with only those items in the itemStyles array whose labels match that pattern */
 						response($.grep( customerList, function(item){ 
@@ -225,7 +225,7 @@ if ($("#c_name").length>0) {
 			/* Store the highlighted item's text, then change it to include the label (customer name) and the city as well */
 			it=$("a.ui-state-focus");
 			it.data("last-text", it.html());
-			if (document.entry.c_num.value!="99999") { it.html(ui.item.label+" ("+ui.item.city+")"); }
+			if (document.entry.c_num.value*1<70000) { it.html(ui.item.label+" ("+ui.item.city+")"); }
 
 			return false;
 		}

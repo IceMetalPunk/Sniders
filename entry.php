@@ -72,6 +72,7 @@
         document.body.onload=function() {
 					if (document.entry.c_num.value=="99999" || document.entry.c_num.value*1>=70000) {
 						ShowInHouse();
+						if (document.entry.c_num.value!="99999") { GetCustomer(document.entry.c_num.value, true); }
 					}
 					else {
 						GetCustomer(document.entry.c_num.value, true);
@@ -83,7 +84,7 @@
       <?php  } else if ($isEdit) { ?>
 			<script>
         $(function() {
-					if (parseInt(document.entry.c_num.value)==99999) {
+					if (parseInt(document.entry.c_num.value)>=70000) {
 						ShowInHouse();
 					}
 					else { GetCustomer(document.entry.c_num.value, true); }
