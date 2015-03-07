@@ -45,7 +45,7 @@
 		$grandIndicator = "";
 		if (mysql_num_rows($query)>0) {
 			//echo "<h3>Monthly Statement for ".date("F Y", $lastDatePHP)."</h3>";
-			echo "<h3>Accounts Receivable Summary Report to Date</h3>";
+			echo "<h3>Accounts Receivable Summary Report</h3>";
 			echo "<table class='restab'>";
 			echo "<tr><th>Customer Name</th><th>Opening Balance</th><th>Invoice Total</th><th>Miscellaneous Charges</th><th>Credits/Payments</th><th>Current Balance</th></tr>";
 			
@@ -113,7 +113,7 @@
 			echo "<span style='font-size:10pt; font-style:italic'>*Amounts followed by a star include uninvoiced manual adjustments (payments, credits, or miscellaneous charges)</span>";
 		}
 		else {
-			echo "<h3>Accounts Receivable Summary Report to Date</h3><br />All customers have $0.00 balance.";
+			echo "<h3>Accounts Receivable Summary Report</h3><br />All customers have $0.00 balance.";
 		}
 		
 // $q="UPDATE `t-lookup` SET `l-DESC`=NOW() WHERE `l-VALUE`=996";
