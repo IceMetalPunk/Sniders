@@ -282,7 +282,9 @@ function FindVal(where, what) {
 function GetCustomer(c_num) {
 
   /* Don't continue if the given number is simply empty (i.e. no number was entered when the box left focus) */
-  document.getElementById("inHouseSpot").style.display="none";
+  if (c_num*1<70000) { document.getElementById("inHouseSpot").style.display="none"; }
+	else { document.getElementById("inHouseSpot").style.display=""; }
+	
   document.entry.ref.placeholder="Reference";
   $("#c_name").autocomplete("enable");
   if (c_num=="") { return false; }
