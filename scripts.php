@@ -37,7 +37,7 @@ function Initialize(startAtCustomer) {
 	
   $(".numOnly").keypress(validateNumber); // Make selected fields (those with the numOnly class) only accept numbers
   
-  /* Set up accessories box and complete-outfit box to make them exclusive by unchecking the other when they're checked */
+	/* Set up accessories box and complete-outfit box to make them exclusive by unchecking the other when they're checked */
   $("#accBox").click(function() {
     if (this.checked) { document.getElementById("compBox").checked=false; }
     ToggleAccessories(); // Show/hide the appropriate forms.
@@ -90,7 +90,7 @@ function Initialize(startAtCustomer) {
   });
 }
 
-/* The function to auto-total accesory quantities from individual size quantities */
+/* The function to auto-total accessory quantities from individual size quantities */
 function Totals(name) { // Takes a name so it can handle each type of accessory separately.
   var total=0;
 

@@ -69,7 +69,7 @@
       
       <?php if ((!empty($_POST['redirected']) && $_POST['redirected']=="1") || $isEdit) { ?>
       <script>
-        document.body.onload=function() {
+        $(document).ready(function() {
 					if (document.entry.c_num.value=="99999" || document.entry.c_num.value*1>=70000) {
 						ShowInHouse();
 						if (document.entry.c_num.value!="99999") { GetCustomer(document.entry.c_num.value, true); }
@@ -79,7 +79,7 @@
 						document.entry.date_use.focus();
 						document.entry.date_use.select();
 					}
-        };
+        });
       </script>
       <?php  } else if ($isEdit) { ?>
 			<script>
