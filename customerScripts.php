@@ -86,8 +86,8 @@ function CustomerInit() {
 	/* Use PHP to dynamically create the customer-name autocomplete options from the database information */
 	<?php
 
-		/* Get all the information from the t-customer table for non-walkins */
-		$q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<70000 ORDER BY `C-CUSTNO` ASC";
+		/* Get all the information from the t-customer table for everyone */
+		$q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<99999 ORDER BY `C-CUSTNO` ASC";
 		$query=mysql_query($q);
 		if ($query) {
 			
