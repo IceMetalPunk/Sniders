@@ -22,21 +22,29 @@
 		return $num;
 	}	
 
-	$q="SELECT DISTINCT `W-CUSTNO` FROM `v-a-invoice` WHERE CAST(`W-CUSTNO` AS UNSIGNED INTEGER)<70000"; // Query to get the list of customers that have uninvoiced items.
+	$q="SELECT DISTINCT `W-CUSTNO` FROM `v-a-invoice` WHERE CAST(`W-CUSTNO` AS UNSIGNED INTEGER)<70000"; // Query to get the list of customers that have uninvoiced tickets.
 	$query=mysql_query($q);
 	
+	$q2="SELECT DISTINCT `W-CUSTNO` FROM `t-a-billing` WHERE CAST(`TAB-CUSTNO` AS UNSIGNED INTEGER)<70000 AND `TAB-INV-NO`=''"; // Query to get the list of customers that have uninvoiced adjustments.
+	$query2=mysql_query($q2);
+	
 	// If there are no uninvoiced items, say that and we're done.
-	if ($query===FALSE || mysql_num_rows($query)<=0) {
+	if (($query===FALSE || mysql_num_rows($query)<=0) && ($query2===FALSE || mysql_num_rows($query2)<=0)) {
 		file_put_contents("batchInvoiceProgress.txt", "-1\r\nNo items to be invoiced.");
 	}
 	
 	// If there ARE uninvoiced items, it's time to invoice them.
 	else {
-		$num=mysql_num_rows($query);
+		$num=mysql_num_rows($query)+mysql_num_rows($query2);
 		$n=0;
 		file_put_contents("batchInvoiceProgress.txt", $n."\r\n".$num); // Initialize the progress to 0%.
-		while ($row=mysql_fetch_assoc($query)) { // Get the next customer with uninvoiced items
+		while ($row=mysql_fetch_assoc($query)) { // Get the next customer with uninvoiced tickets
 			$customer=$row["W-CUSTNO"];
+			Invoice($customer); // Perform the invoicing for that customer
+			file_put_contents("batchInvoiceProgress.txt", ++$n."\r\n".$num); // Update the progress
+		}
+		while ($row=mysql_fetch_assoc($query2)) { // Get the next customer with uninvoiced adjustments
+			$customer=$row["TAB-CUSTNO"];
 			Invoice($customer); // Perform the invoicing for that customer
 			file_put_contents("batchInvoiceProgress.txt", ++$n."\r\n".$num); // Update the progress
 		}
