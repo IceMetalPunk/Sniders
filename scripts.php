@@ -27,7 +27,7 @@ function Initialize(startAtCustomer) {
     if (document.entry.c_num.value*1>70000) {
       ShowInHouse();
     }
-    if (document.entry.c_num.value!="99999") { GetCustomer(document.entry.c_num.value); }
+    GetCustomer(document.entry.c_num.value);
   }
 	
   /* Focus the cursor on the Customer Number field (the first one) */
@@ -144,7 +144,7 @@ customerList = [
       $row=array_map("addslashes", $row); // Needed so special characters like quotes, etc. are escaped before putting them in the script
 
       if ($out!="") { $out.=", "; }
-      $out.='{label: "'.$row["C-NAME"].'", value: "'.$row["C-CUSTNO"].'", city: "'.$row["C-CITY"].'", shipping: '.$row["c-SHIP-METHOD"].', billing: '.$row["C-BILLING"].'}';
+      $out.='{label: "'.$row["C-NAME"].'", value: "'.$row["C-CUSTNO"].'", city: "'.$row["C-CITY"].'", shipping: '.$row["c-SHIP-METHOD"].', billing: '.$row["C-BILLING"].', phone: "'.$row["C-PHONE"].'", phone2: "'.$row["C-PHONE2"].'"}';
     }
     echo $out;
   }
@@ -169,7 +169,7 @@ instoreList = [
       $row=array_map("addslashes", $row); // Needed so special characters like quotes, etc. are escaped before putting them in the script
 
       if ($out!="") { $out.=", "; }
-      $out.='{label: "'.$row["C-NAME"].'", value: "'.$row["C-CUSTNO"].'", city: "'.$row["C-CITY"].'", shipping: '.$row["c-SHIP-METHOD"].', billing: '.$row["C-BILLING"].'}';
+      $out.='{label: "'.$row["C-NAME"].'", value: "'.$row["C-CUSTNO"].'", city: "'.$row["C-CITY"].'", shipping: '.$row["c-SHIP-METHOD"].', billing: '.$row["C-BILLING"].', phone: "'.$row["C-PHONE"].'", phone2: "'.$row["C-PHONE2"].'"}';
     }
     echo $out;
   }
@@ -288,8 +288,15 @@ function GetCustomer(c_num) {
   document.entry.ref.placeholder="Reference";
   $("#c_name").autocomplete("enable");
   if (c_num=="") { return false; }
-  
-  /* Search the customerList array for one matching the fiven customer number and use that item's name */
+
+	document.entry.cellPhone.disabled=false;
+	document.entry.homePhone.disabled=false;
+	document.entry.cellPhone.value="";
+	document.entry.homePhone.value="";
+	
+	if (c_num=="99999") { return false; }
+	
+  /* Search the customerList array for one matching the given customer number and use that item's name */
 	if (c_num<70000) {
 		for (i in customerList) {
 			if (customerList[i].value==c_num) {
@@ -335,6 +342,12 @@ function UpdateCustomer(cust) {
     if (list.options[i].value==cust.billing) { list.selectedIndex=i; break; }
   }
   
+	/* Insert their phone number */
+	document.entry.cellPhone.value=cust.phone2;
+	document.entry.homePhone.value=cust.phone;
+	document.entry.cellPhone.disabled=true;
+	document.entry.homePhone.disabled=true;
+	
 }
 
 /* Load the styles from the database */
