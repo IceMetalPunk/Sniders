@@ -25,7 +25,7 @@
 	$q="SELECT DISTINCT `W-CUSTNO` FROM `v-a-invoice` WHERE CAST(`W-CUSTNO` AS UNSIGNED INTEGER)<70000"; // Query to get the list of customers that have uninvoiced tickets.
 	$query=mysql_query($q);
 	
-	$q2="SELECT DISTINCT `W-CUSTNO` FROM `t-a-billing` WHERE CAST(`TAB-CUSTNO` AS UNSIGNED INTEGER)<70000 AND `TAB-INV-NO`=''"; // Query to get the list of customers that have uninvoiced adjustments.
+	$q2="SELECT DISTINCT `TAB-CUSTNO` FROM `t-a-billing` WHERE CAST(`TAB-CUSTNO` AS UNSIGNED INTEGER)<70000 AND `TAB-INV-NO`=''"; // Query to get the list of customers that have uninvoiced adjustments.
 	$query2=mysql_query($q2);
 	
 	// If there are no uninvoiced items, say that and we're done.
@@ -56,7 +56,6 @@
 		// Using output buffers here to store all the HTML, so that it can be echoed normally, but ultimately put into a file instead of displayed
 		ob_start();
 		ob_clean();
-		
 		include "batchInvoiceTemplate.php"; // Generate the invoice
 		
 		ob_end_clean();

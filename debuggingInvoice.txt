@@ -1,0 +1,9 @@
+Running ticket invoice for customer 11763
+Invoice function for customer 11763
+Didn't find customer 11763
+Running ticket invoice for customer 499
+Invoice function for customer 499
+Didn't find customer 499
+Running ticket invoice for customer 1214
+Invoice function for customer 1214
+Didn't find customer 1214

@@ -6,7 +6,9 @@
 		$q="SELECT * FROM `t-customer` WHERE `C-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 		$query=mysql_query($q);
 		
-		if (!$query || mysql_num_rows($query)<=0) { $error="Customer not found."; }
+		if (!$query || mysql_num_rows($query)<=0) {
+			$error="Customer not found.";
+		}
 		else {
 			$customerData=mysql_fetch_assoc($query);
 		}
