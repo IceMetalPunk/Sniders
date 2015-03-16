@@ -1,0 +1,3 @@
+Version March 15, 2015, 10:20PM EST
+-------------------------------------
+Fixed billing cycle bug which didn't properly invoice customers with adjustments but not tickets.
