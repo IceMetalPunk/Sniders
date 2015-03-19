@@ -1,3 +1,9 @@
+Version March 18, 2015, 8:47PM EST
+-------------------------------------
+Created scripts to restore accounts receivable and billing table data.
+
+Please open Firefox and go to localhost/RestoreTables.php and wait for the success messages. If you get any failure messages, please contact Barry or Kevin.
+
 Version March 15, 2015, 10:20PM EST
 -------------------------------------
 Fixed billing cycle bug which didn't properly invoice customers with adjustments but not tickets.
