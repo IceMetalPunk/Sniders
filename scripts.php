@@ -12,7 +12,7 @@
 function ShowInHouse() {
   document.entry.c_name.value="";
   document.getElementById("inHouseSpot").style.display="";
-  document.entry.ref.placeholder="Party Name";
+  document.entry.c_name.placeholder="Party Name";
   //$("#c_name").autocomplete("disable");
 	$("#c_name").focus();
 }
