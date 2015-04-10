@@ -176,6 +176,8 @@
 		$oldTicket=null;
 		$error=0;
 		if (!empty($_POST['edit']) && $_POST['edit']==1) {
+			$hasChanged[0]=false;
+			$hasChanged[1]=false;
 			/* Save old ticket for later */
 			$q="SELECT * FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."' ORDER BY `W-TKT-SUB` ASC";
 			$query=mysql_query($q);
@@ -188,40 +190,33 @@
 				$error=1;
 			}
 			
-			if (!$error) {
-				$q="DELETE FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."'";
-				$query=mysql_query($q);
-			}
 		}
 		
-		if (!$error) {
     /* Create a SQL query from the data and see if anything's changed from the old ticket if there is one */
-		$cols="(";
-		$values="(";
-		$hasChanged[0]=false;
+		$cols=array();
+		$cols[0]="(";
+		$values=array();
+		$values[0]="(";
 		foreach ($vals as $col=>$val) {
-			if ($cols!="(") { $cols.=", "; }
-			if ($values!="(") { $values.=", "; }
+			if ($cols[0]!="(") { $cols[0].=", "; }
+			if ($values[0]!="(") { $values[0].=", "; }
 			if ($col=="b_type") { $col="W-BILL-INST"; }
 			else if ($col=="d_type") { $col="W-SHP-INST"; }
-			$cols.="`".$col."`";
-			$values.=$val;
+			$cols[0].="`".$col."`";
+			$values[0].=$val;
 			if ($col=="W-TKT-PRINTED") { continue; }
 			if ($val[0]=="'" && $val[strlen($val)-1]=="'") { $val=substr($val, 1, strlen($val)-2); }
 			if ($oldTicket!==null && !empty($oldTicket[0]) && substr($col, 0, 6)!="W-SHOE" && strpos($col, "-DT")===false && $oldTicket[0][$col]!=$val) {
+				echo "Changed: ".$col;
 				$hasChanged[0]=true;
 				//echo "Outfit ".$col.": ".$oldTicket[0][$col]." => ".$val."<br />";
 			}
 		}
 		
 		$query=true;
-		if ($okay && !$error) {
-			$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
-			$query=mysql_query($q);
-		}
-		
+				
     /* Create one for the shoe ticket if needed */
-    if ($okay && !$error && $query && !empty($_POST["sh_style"]) && empty($_POST['accessories'])) {
+    if ($okay && $query && !empty($_POST["sh_style"]) && empty($_POST['accessories'])) {
       $vals["W-TKT-TYPE"]=1;
       $vals["W-TKT-SUB"]="1";
       $vals["W-AMT"]="".$_POST['shoePrice'];
@@ -230,35 +225,46 @@
       $vals["W-SHOE-SIZE"]="'".$_POST['sh_size'].$_POST['sh_wide']."'"; // Shoe size, including wide/boys if applicable
 
 			/* Create a SQL query from the data */
-			$cols="(";
-			$values="(";
-			$hasChanged[1]=false;
+			$cols[1]="(";
+			$values[1]="(";
 			foreach ($vals as $col=>$val) {
-				if ($cols!="(") { $cols.=", "; }
-				if ($values!="(") { $values.=", "; }
-				$cols.="`".$col."`";
-				$values.=$val;
+				if ($cols[1]!="(") { $cols[1].=", "; }
+				if ($values[1]!="(") { $values[1].=", "; }
+				$cols[1].="`".$col."`";
+				$values[1].=$val;
 				if ($val[0]=="'" && $val[strlen($val)-1]=="'") { $val=substr($val, 1, strlen($val)-2); }
 				if ($oldTicket!==null && !empty($oldTicket[1]) && substr($col, 0, 6)=="W-SHOE" && $oldTicket[1][$col]!=$val) {
 					$hasChanged[1]=true;
 					//echo "Shoe ".$col.": ".$oldTicket[1][$col]." => ".$val."<br/ >";
 				}
 			}
-			$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
-			$query=mysql_query($q);
 		}
+					
+		//echo $hasChanged[0]." , ".$hasChanged[1]." , ".$_POST['print_option'];
+		if (!empty($hasChanged) && (!$error || (!$hasChanged[0] && !$hasChanged[1] && $_POST['print_option']=="all"))) {
+			$q="DELETE FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."'";
+			$query=mysql_query($q);
+			$error=0;
+		}
+		if (empty($hasChanged) || ($okay && !$error)) {
+			$q="INSERT INTO `t-work` ".$cols[0].") VALUES ".$values[0].")";
+			$query=mysql_query($q);
+			if (!empty($cols[1])) {
+				$q="INSERT INTO `t-work` ".$cols[1].") VALUES ".$values[1].")";
+				$query=mysql_query($q);
+			}
 		}
 
     if ($query && !$error) { ?>
-      <b>Ticket added. <?php if ($_POST["print_option"]=="all" || $hasChanged[0] || $hasChanged[1]) { echo "Please wait while we begin printing."; } ?></b><br />
+      <b>Ticket added. <?php if ($_POST["print_option"]=="all" || empty($hasChanged) || $hasChanged[0] || $hasChanged[1]) { echo "Please wait while we begin printing."; } ?></b><br />
       <form name="redirect" action="printTicket.php" method="post">
         <input type="hidden" name="ticket" value="<?php echo $_POST['ticket']; ?>" />
         <?php
           foreach ($_POST as $key=>$val) {
             echo "<input type='hidden' name='red_".$key."' value='".addslashes($val)."' />";
           }
-					foreach ($hasChanged as $key=>$val) {
-						echo "<input type='hidden' name='toprint_".$key."' value='".(($val || $_POST["print_option"]=="all" || empty($_POST['edit']) || $_POST['edit']==0)?"true":"false")."' />";
+					for ($key=0; $key<4; ++$key) {
+						echo "<input type='hidden' name='toprint_".$key."' value='".((!isset($hasChanged[$key]) || $hasChanged[$key] || $_POST["print_option"]=="all" || empty($_POST['edit']) || $_POST['edit']==0)?"true":"false")."' />";
 					}
         ?>
         <noscript><button type="submit" accesskey="R">Click here if you are not <u>r</u>edirected within 5 seconds.</button></noscript>

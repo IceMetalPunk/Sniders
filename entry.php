@@ -95,15 +95,15 @@
       <!-- Dropdowns for delivery type and billing/payment type -->
       <select name="d_type">
 				<?php
-					$Types[201]="Delivery";
-					$Types[202]="Pickup";
-					$Types[203]="UPS";
-					$Types[204]="UPS Priority";
-					$Types[205]="UPS Air";
-					$Types[206]="FedEx";
-					$Types[207]="Delivery Today";
-					$Types[208]="Pickup Today";
-					$Types[209]="Other";
+					$Types[101]="Delivery";
+					$Types[102]="Pickup";
+					$Types[103]="UPS";
+					$Types[104]="UPS Priority";
+					$Types[105]="UPS Air";
+					$Types[106]="FedEx";
+					$Types[107]="Delivery Today";
+					$Types[108]="Pickup Today";
+					$Types[109]="Other";
 					foreach ($Types as $i=>$name) {
 						echo "<option value='".$i."'";
 						if ($isEdit && $editData[0]["W-SHP-INST"]==$i) { echo " selected='selected'"; }
