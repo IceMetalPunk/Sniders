@@ -77,7 +77,7 @@ customerList = [
 <?php
 
   /* Get all the information from the t-customer table */
-  $q="SELECT * FROM `t-customer`";
+  $q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<70000 ORDER BY `C-CUSTNO` ASC";
   $query=mysql_query($q);
   if ($query) {
     
@@ -96,22 +96,54 @@ customerList = [
 ?>
 ];
 
+instoreList = [
+
+/* Use PHP to dynamically create the customer-name autocomplete options from the database information */
+<?php
+
+  /* Get all the information from the t-customer table for walkins */
+  $q="SELECT * FROM `t-customer` WHERE CAST(`C-CUSTNO` AS UNSIGNED INTEGER)>=70000 AND CAST(`C-CUSTNO` AS UNSIGNED INTEGER)<99999 ORDER BY `C-NAME` ASC";
+  $query=mysql_query($q);
+  if ($query) {
+    
+    /* For each row in the table, make a Javascript object with the properties "label" (for the customer name) and "value" (for the 
+       customer number). Add that object to the autocomplete array by echoing it into the script */
+    $out="";
+    while ($row = mysql_fetch_assoc($query)) {
+      $row=array_map("addslashes", $row); // Needed so special characters like quotes, etc. are escaped before putting them in the script
+
+      if ($out!="") { $out.=", "; }
+      $out.='{label: "'.$row["C-NAME"].'", value: "'.$row["C-CUSTNO"].'", city: "'.$row["C-CITY"].'", shipping: '.$row["c-SHIP-METHOD"].', billing: '.$row["C-BILLING"].', phone: "'.$row["C-PHONE"].'", phone2: "'.$row["C-PHONE2"].'"}';
+    }
+    echo $out;
+  }
+
+?>
+];
+
 /* Define the c_name input field as an autocomplete field */
 $( "#c_name" ).autocomplete({
 
   /* Take the autocomplete options from the customerList array we built in PHP */
   source: function(req, response) { 
 
-        /* Make a pattern out of whatever the person typed */
-        var re = $.ui.autocomplete.escapeRegex(req.term); 
+					/* Make a pattern out of whatever the person typed */
+					var re = $.ui.autocomplete.escapeRegex(req.term); 
 
-        /* The ^ in a Regular Expression pattern means "at the beginning of the text" */
-        var matcher = new RegExp( "^" + re, "i" ); 
-    
-        /* Respond with only those items in the itemStyles array whose labels match that pattern */
-        response($.grep( customerList, function(item){ 
-            return matcher.test(item.label); }) ); 
-       },
+					/* The ^ in a Regular Expression pattern means "at the beginning of the text" */
+					var matcher = new RegExp( "^" + re, "i" ); 
+					
+					if (document.entry.c_num.value*1<70000) {
+			
+						/* Respond with only those items in the itemStyles array whose labels match that pattern */
+						response($.grep( customerList, function(item){ 
+							return matcher.test(item.label); }) ); 
+					}
+					else {
+						response($.grep( instoreList, function(item){ 
+							return matcher.test(item.label); }) ); 
+					}
+					},
   autoFocus: true,
 
   /* When an autocomplete item is selected, update the customer name field and the customer number field */
@@ -124,21 +156,21 @@ $( "#c_name" ).autocomplete({
   /* When an autocomplete item is highlighted... */
   focus: function(e, ui) {
 
-    /* Reset all items' texts to just their customer name, if that's been stored */
-    items=$("a.ui-corner-all");
-    items.each(function() {
-      if ($(this).data("last-text")!="undefined") {
-        $(this).html($(this).data("last-text"));
-      }
-    });
+			/* Reset all items' texts to just their customer name, if that's been stored */
+			items=$("a.ui-corner-all");
+			items.each(function() {
+				if ($(this).data("last-text")!="undefined") {
+					$(this).html($(this).data("last-text"));
+				}
+			});
 
-    /* Store the highlighted item's text, then change it to include the label (customer name) and the city as well */
-    it=$("a.ui-state-focus");
-    it.data("last-text", it.html());
-    it.html(ui.item.label+" ("+ui.item.city+")");
+			/* Store the highlighted item's text, then change it to include the label (customer name) and the city as well */
+			it=$("a.ui-state-focus");
+			it.data("last-text", it.html());
+			if (document.entry.c_num.value*1<70000) { it.html(ui.item.label+" ("+ui.item.city+")"); }
 
-    return false;
-  }
+			return false;
+		}
 
 });
 

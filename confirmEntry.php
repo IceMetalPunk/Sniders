@@ -503,12 +503,14 @@
     <?php
 			if ($isEdit) {
 		?>
+		<tr><td colspan='2'>&nbsp;</td></tr>
 		<tr>
-			<td colspan='2'><label for='printoption'><input type='checkbox' name='print' value='true' checked id='printoption' />Print ticket upon confirmation.</label></td>
+			<td colspan='2'><label for='print_changed'><input type='radio' name='print_option' value='changed' checked id='print_changed' />Print tickets only where changed.</label><label for='print_all'><input type='radio' name='print_option' value='all' id='print_all' />Print all tickets.</label></td>
 		</tr>
+		<tr><td colspan='2'>&nbsp;</td></tr>
 		<?php }
 			else {
-				echo "<input type='hidden' name='print' value='true' />";
+				echo "<input type='hidden' name='print_option' value='all' />";
 			}
 		?>
     <tr>

@@ -174,6 +174,7 @@
 
 		/* If editing, remember the old ticket for comparison, then remove it from the database */
 		$oldTicket=null;
+		$error=0;
 		if (!empty($_POST['edit']) && $_POST['edit']==1) {
 			/* Save old ticket for later */
 			$q="SELECT * FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."' ORDER BY `W-TKT-SUB` ASC";
@@ -183,11 +184,17 @@
 				$oldTicket[]=$row;
 			}
 			
-		
-			$q="DELETE FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."'";
-			$query=mysql_query($q);
+			if ($oldTicket!==null && $oldTicket[0]["W-INV-NO"]!="0000000" && $oldTicket[0]["W-INV-NO"]!="") {
+				$error=1;
+			}
+			
+			if (!$error) {
+				$q="DELETE FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."'";
+				$query=mysql_query($q);
+			}
 		}
 		
+		if (!$error) {
     /* Create a SQL query from the data and see if anything's changed from the old ticket if there is one */
 		$cols="(";
 		$values="(";
@@ -208,13 +215,13 @@
 		}
 		
 		$query=true;
-		if ($okay) {
+		if ($okay && !$error) {
 			$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
 			$query=mysql_query($q);
 		}
 		
     /* Create one for the shoe ticket if needed */
-    if ($query && !empty($_POST["sh_style"]) && empty($_POST['accessories'])) {
+    if ($okay && !$error && $query && !empty($_POST["sh_style"]) && empty($_POST['accessories'])) {
       $vals["W-TKT-TYPE"]=1;
       $vals["W-TKT-SUB"]="1";
       $vals["W-AMT"]="".$_POST['shoePrice'];
@@ -240,9 +247,10 @@
 			$q="INSERT INTO `t-work` ".$cols.") VALUES ".$values.")";
 			$query=mysql_query($q);
 		}
+		}
 
-    if ($query) { ?>
-      <b>Ticket added. <?php if (!empty($_POST["print"]) && $_POST["print"]=="true") { echo "Please wait while we begin printing."; } ?></b><br />
+    if ($query && !$error) { ?>
+      <b>Ticket added. <?php if ($_POST["print_option"]=="all" || $hasChanged[0] || $hasChanged[1]) { echo "Please wait while we begin printing."; } ?></b><br />
       <form name="redirect" action="printTicket.php" method="post">
         <input type="hidden" name="ticket" value="<?php echo $_POST['ticket']; ?>" />
         <?php
@@ -250,7 +258,7 @@
             echo "<input type='hidden' name='red_".$key."' value='".addslashes($val)."' />";
           }
 					foreach ($hasChanged as $key=>$val) {
-						echo "<input type='hidden' name='toprint_".$key."' value='".(($val || empty($_POST['edit']) || $_POST['edit']==0)?"true":"false")."' />";
+						echo "<input type='hidden' name='toprint_".$key."' value='".(($val || $_POST["print_option"]=="all" || empty($_POST['edit']) || $_POST['edit']==0)?"true":"false")."' />";
 					}
         ?>
         <noscript><button type="submit" accesskey="R">Click here if you are not <u>r</u>edirected within 5 seconds.</button></noscript>
@@ -260,6 +268,7 @@
       </script>
      
 <?php }
+		else if ($error) { echo "<b>You cannot edit a ticket that has already been invoiced. Please issue a credit for the ticket amount ($".number_format($oldTicket[0]["W-AMT"],2).") and create a new ticket to replace it.</b><br /><a href='index.php'>Click here to return to the main menu</a>"; }
     else { echo "<b>Ticket creation Failed.</b><br />Please contact the administrator and give them the following error message: ".mysql_error()."<br /><a href='index.php'>Click here to return to the main menu</a>"; }
   }
   
