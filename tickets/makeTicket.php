@@ -23,6 +23,7 @@
     $vals["W-TKT"]="'".$_POST['ticket']."'"; // Ticket number
     $vals["W-TKT-SUB"]="0"; // Subticket number
     
+		$vals["W-INV-NO"]="'0000000'";
     if ($_POST['c_num']!="99999") {
       $vals["W-CUSTNO"]="'".$_POST['c_num']."'"; // Customer number for non-in-house rentals
     }
@@ -186,8 +187,11 @@
 				$oldTicket[]=$row;
 			}
 			
-			if ($oldTicket!==null && $oldTicket[0]["W-INV-NO"]!="0000000" && $oldTicket[0]["W-INV-NO"]!="") {
-				$error=1;
+			if ($oldTicket!==null) {
+				if ($oldTicket[0]["W-INV-NO"]!="0000000" && $oldTicket[0]["W-INV-NO"]!="") {
+					$error=1;
+				}
+				$vals["W-INV-NO"]="'".$oldTicket[0]["W-INV-NO"]."'";
 			}
 			
 		}
@@ -207,8 +211,8 @@
 			if ($col=="W-TKT-PRINTED") { continue; }
 			if ($val[0]=="'" && $val[strlen($val)-1]=="'") { $val=substr($val, 1, strlen($val)-2); }
 			if ($oldTicket!==null && !empty($oldTicket[0]) && substr($col, 0, 6)!="W-SHOE" && strpos($col, "-DT")===false && $oldTicket[0][$col]!=$val) {
-				echo "Changed: ".$col;
 				$hasChanged[0]=true;
+				echo $col;
 				//echo "Outfit ".$col.": ".$oldTicket[0][$col]." => ".$val."<br />";
 			}
 		}
@@ -235,13 +239,14 @@
 				if ($val[0]=="'" && $val[strlen($val)-1]=="'") { $val=substr($val, 1, strlen($val)-2); }
 				if ($oldTicket!==null && !empty($oldTicket[1]) && substr($col, 0, 6)=="W-SHOE" && $oldTicket[1][$col]!=$val) {
 					$hasChanged[1]=true;
+					echo $col;
 					//echo "Shoe ".$col.": ".$oldTicket[1][$col]." => ".$val."<br/ >";
 				}
 			}
 		}
 					
 		//echo $hasChanged[0]." , ".$hasChanged[1]." , ".$_POST['print_option'];
-		if (!empty($hasChanged) && (!$error || (!$hasChanged[0] && !$hasChanged[1] && $_POST['print_option']=="all"))) {
+		if (isset($hasChanged) && (!$error || (!$hasChanged[0] && !$hasChanged[1] && $_POST['print_option']=="all"))) {
 			$q="DELETE FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."'";
 			$query=mysql_query($q);
 			$error=0;

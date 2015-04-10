@@ -266,7 +266,6 @@
 			$discountInfo=mysql_fetch_assoc($query);
 			
       $total=$price+$shoeprice;
-      mysql_close($link);
 			
 			/* Output missing style errors if need be */
 			if (isset($notin) && count($notIn)>0) {
@@ -281,7 +280,22 @@
 		<table border=0 class='smalltext' style="border-collapse:collapse">
 		<?php
 			echo "<tr style='font-weight:bold'><td>Ticket Number: </td><td>".$_POST['ticket'];
-			if ($isEdit) { echo " (Editing)"; }
+			if ($isEdit) {
+					echo " (Editing)";
+					$oldTotal=array(0, 0);
+					$q="SELECT `W-AMT` FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."' AND `W-TKT-SUB`=0";
+					$query=mysql_query($q);
+					if (mysql_num_rows($query)>0) {
+						$row=mysql_fetch_assoc($query);
+						$oldTotal[0]=$row["W-AMT"];
+					}
+					$q="SELECT `W-AMT` FROM `t-work` WHERE `W-TKT`='".mysql_real_escape_string($_POST['ticket'])."' AND `W-TKT-SUB`=1";
+					$query=mysql_query($q);
+					if (mysql_num_rows($query)>0) {
+						$row=mysql_fetch_assoc($query);
+						$oldTotal[1]=$row["W-AMT"];
+					}
+				}
 			echo "</td></tr>";
     ?>
     <?php
@@ -471,6 +485,9 @@
 				if ($discountInfo["C-DISC-OUTFIT"]>0) {
 					echo '<a href="javascript:document.confirmForm.outfitPrice.value='."'".number_format($discountInfo["C-DISC-OUTFIT"], 2)."'".'; $(document.confirmForm.outfitPrice).blur(); document.confirmForm.outfitPrice.focus(); confirmForm.outfitPrice.select(); void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-OUTFIT"], 2).')</a>';
 				}
+				if ($isEdit) {
+					echo " <small>(Original ticket price: $".number_format($oldTotal[0], 2).")</small>";
+				}
 			?>
 			</td>
     </tr>
@@ -481,6 +498,9 @@
 			<?php
 				if ($discountInfo["C-DISC-SHOE"]>0) {
 					echo '<a href="javascript:document.confirmForm.shoePrice.value='."'".number_format($discountInfo["C-DISC-SHOE"], 2)."'".'; void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-SHOE"], 2).')</a>';
+				}
+				if ($isEdit) {
+					echo " <small>(Original ticket price: $".number_format($oldTotal[0], 2).")</small>";
 				}
 			?>
 			</td>
@@ -520,3 +540,4 @@
     </form>
   </body> 
 </html>
+<?php mysql_close($link); ?>
