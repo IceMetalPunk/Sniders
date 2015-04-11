@@ -279,7 +279,10 @@
       </script>
      
 <?php }
-		else if ($error) { echo "<b>You cannot edit a ticket that has already been invoiced. Please issue a credit for the ticket amount ($".number_format($oldTicket[0]["W-AMT"],2).") and create a new ticket to replace it.</b><br /><a href='../index.php'>Click here to return to the main menu</a>"; }
+		else if ($error) {
+			if (empty($oldTicket[1]["W-AMT"])) { $oldTicket[1]["W-AMT"]=0; }
+			echo "<b>You cannot edit a ticket that has already been invoiced. Please issue a credit for the ticket amount ($".number_format($oldTicket[0]["W-AMT"]+$oldTicket[1]["W-AMT"],2).") and create a new ticket to replace it.</b><br /><a href='../index.php'>Click here to return to the main menu</a>";
+		}
     else { echo "<b>Ticket creation Failed.</b><br />Please contact the administrator and give them the following error message: ".mysql_error()."<br /><a href='../index.php'>Click here to return to the main menu</a>"; }
   }
   

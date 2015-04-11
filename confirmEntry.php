@@ -499,8 +499,8 @@
 				if ($discountInfo["C-DISC-SHOE"]>0) {
 					echo '<a href="javascript:document.confirmForm.shoePrice.value='."'".number_format($discountInfo["C-DISC-SHOE"], 2)."'".'; void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-SHOE"], 2).')</a>';
 				}
-				if ($isEdit) {
-					echo " <small>(Original ticket price: $".number_format($oldTotal[0], 2).")</small>";
+				if ($isEdit && !empty($oldTotal[1])) {
+					echo " <small>(Original ticket price: $".number_format($oldTotal[1], 2).")</small>";
 				}
 			?>
 			</td>
