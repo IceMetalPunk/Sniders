@@ -212,7 +212,6 @@
 			if ($val[0]=="'" && $val[strlen($val)-1]=="'") { $val=substr($val, 1, strlen($val)-2); }
 			if ($oldTicket!==null && !empty($oldTicket[0]) && substr($col, 0, 6)!="W-SHOE" && strpos($col, "-DT")===false && $oldTicket[0][$col]!=$val) {
 				$hasChanged[0]=true;
-				echo $col;
 				//echo "Outfit ".$col.": ".$oldTicket[0][$col]." => ".$val."<br />";
 			}
 		}
@@ -239,7 +238,6 @@
 				if ($val[0]=="'" && $val[strlen($val)-1]=="'") { $val=substr($val, 1, strlen($val)-2); }
 				if ($oldTicket!==null && !empty($oldTicket[1]) && substr($col, 0, 6)=="W-SHOE" && $oldTicket[1][$col]!=$val) {
 					$hasChanged[1]=true;
-					echo $col;
 					//echo "Shoe ".$col.": ".$oldTicket[1][$col]." => ".$val."<br/ >";
 				}
 			}
