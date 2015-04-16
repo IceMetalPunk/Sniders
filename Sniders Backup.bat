@@ -11,4 +11,5 @@ echo Backing up invoices and reports...
 echo D | xcopy "C:\wamp\www\billing" "DB_Backups/billing" /E /Y
 
 echo Backup completed. Press ENTER.
+echo.
 pause
