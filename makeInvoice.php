@@ -217,7 +217,7 @@
 			?>
 		</table>
 		<br />
-		<button onclick="window.location='invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
+		<button onclick="window.location='http://127.0.0.1/invoice.php'" accesskey='R'><u>R</u>eturn to invoice form</button>
 	<?php } else { ?>
 		<title>Invoice Generation Failed</title>
 		<script type="text/javascript" src="jquery-1.9.1.js"></script>
