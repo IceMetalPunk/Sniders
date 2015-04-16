@@ -1,3 +1,34 @@
-cd "C:\wamp\www"
+@echo off
+set /p backup=Create new backup? (y/n)
+echo.
+
+if /i {%backup%}=={y} (
+	call "Sniders Backup.bat"
+	echo.
+)
+
+if not exist DB_Backups (
+	echo No backups found. For safety, updates will not be performed without a backup in place.
+	goto finish
+)
+
+if not exist DB_Backups/tickets (
+	echo Ticket backup folder could not be found. For safety, updates will not be performed without a valid backup in place.
+	goto finish
+)
+
+if not exist DB_Backups/billing (
+	echo Billing backup folder could not be found. For safety, updates will not be performed without a valid backup in place.
+	goto finish
+)
+
+echo Found backup! Updating...
+echo.
+
+cd "C:\wamp\www\Sniders"
 git fetch
-git reset --hard origin/master >> "C:\wamp\www\CurrentVersion.txt"
+git reset --hard origin/master >> "C:\wamp\www\Sniders\CurrentVersion.txt"
+
+:finish
+echo.
+pause
