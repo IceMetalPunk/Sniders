@@ -91,7 +91,9 @@
     $vals["W-SUSP-B"]="0"; // Boy's Suspender QTY -- exists whether accessories-only or not
     $vals["W-SUSP-QTY"]="0"; // Suspender quantity -- exists whether accessories-only or not
     
-        
+		$shoeOnly=false;
+		if ($styleCheck=="" && !empty($_POST["sh_style"])) { $shoeOnly=true; }
+    $styleCheck.=$_POST["sh_style"];
     $vals["W-SHOE"]="''"; // Shoe style -- Shoes are blank for non-shoe ticket
     $vals["W-SHOE-COLOR"]="''"; // Shoe color
     $vals["W-SHOE-SIZE"]="''"; // Shoe size
@@ -250,8 +252,10 @@
 			$error=0;
 		}
 		if (empty($hasChanged) || ($okay && !$error)) {
-			$q="INSERT INTO `t-work` ".$cols[0].") VALUES ".$values[0].")";
-			$query=mysql_query($q);
+			if (!$shoeOnly) {
+				$q="INSERT INTO `t-work` ".$cols[0].") VALUES ".$values[0].")";
+				$query=mysql_query($q);
+			}
 			if (!empty($cols[1])) {
 				$q="INSERT INTO `t-work` ".$cols[1].") VALUES ".$values[1].")";
 				$query=mysql_query($q);
