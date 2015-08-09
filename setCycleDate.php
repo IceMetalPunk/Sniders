@@ -8,7 +8,7 @@
 			$newDate=date("Y-m-d", $newDate);
 		
 			/* Update the cycle's end date */
-			$q="UPDATE `t-lookup` SET `l-DESC`='".$newDate."' WHERE `l-VALUE`=301";
+			$q="UPDATE `t-lookup` SET `l-DESC`='".$newDate."' WHERE `l-VALUE`=301 AND `l-type`='Dat'";
 			$query=mysql_query($q);
 		}
 	}

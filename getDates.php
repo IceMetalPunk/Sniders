@@ -3,7 +3,7 @@
   $db=mysql_select_db("sniders2013", $link);
 	
 	/* Get current cycle end date */
-	$q="SELECT `l-DESC` FROM `t-lookup` WHERE `l-VALUE`=301";
+	$q="SELECT `l-DESC` FROM `t-lookup` WHERE `l-VALUE`=301  AND `l-type`='Dat'";
 	$query=mysql_query($q);
 	
 	$cycleDate=mysql_fetch_assoc($query);
