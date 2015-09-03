@@ -23,6 +23,10 @@
         <td style='text-align:right'><button onclick="window.location.href='lookup.php'" accesskey="L">Customer <u>L</u>ookup</button></td>
         <td><button onclick="window.location.href='invoiceSearch.php'" accesskey="I"><u>I</u>nvoice Lookup</button></td>
       </tr>
+      <tr>
+        <td style='text-align:right'><button onclick="window.location.href='transactionSearch.php'" accesskey="R">T<u>r</u>ansaction Search</button></td>
+        <td>&nbsp;</td>
+      </tr>
     </table>
   </body>
 </html>

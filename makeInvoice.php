@@ -36,7 +36,7 @@
 		<button onclick="window.print()" accesskey='P'><u>P</u>rint</button>
 		<br />
 		<span class="topHeaders">
-		<span style='float:right'><a href="index.php"><img src="logo.png" border=0 /></a><br />
+		<span style='float:right'><a href="http://127.0.0.1/index.php"><img src="logo.png" border=0 /></a><br />
 		2898 Long Beach Rd<br />
 		Oceanside, NY 11572<br />
 		(516)442-2828</span><br clear='both' />
