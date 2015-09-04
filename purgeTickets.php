@@ -33,6 +33,7 @@
 		<script type="text/javascript" src="jquery-ui.js"></script>
 
     <!-- Main Javascript library, including data pulled from the databases, hence why it must be in .php format -->
+		<script>purging=true;</script>
     <script type="text/javascript" src="scripts.php?<?php echo time(); ?>"></script>
 		
 		<!-- Purge-specific script -->

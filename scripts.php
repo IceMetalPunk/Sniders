@@ -454,7 +454,7 @@ function UpdateCustomer(cust) {
     /* Make the Date of Use box a calendar picker */
     $(function() {
       $("#use_date").datepicker({
-        minDate: new Date(),
+        minDate: (typeof purging=="undefined" || !purging) ? new Date() : new Date(1900, 0, 1),
         onSelect: function(date, calendar) { this.focus(); } // When a date is picked from the calendar, focus back on the field.
       });
       document.getElementById("use_date").onblur=FormatDate; // When the Date of Use box loses focus, auto-fill the year.
