@@ -84,7 +84,12 @@
 				echo "<td>".date("n/j/Y", strtotime($cust["W-USE-DT"]))."</td>";
 				$inv=!($cust["W-INV-NO"]=="000000" || $cust["W-INV-NO"]=="");
 				echo "<td>".($inv?"Yes":"No")."</td>";
-				echo "<td><img src='tickets/Complete/ticket-".$cust["W-TKT"]."-".$cust["W-TKT-SUB"].".png' class='ticketThumb' /></td>";
+				if (file_exists("./tickets/Complete/ticket-".$cust["W-TKT"]."-".$cust["W-TKT-SUB"].".png") {
+					echo "<td><img src='tickets/Complete/ticket-".$cust["W-TKT"]."-".$cust["W-TKT-SUB"].".png' class='ticketThumb' /></td>";
+				}
+				else {
+					echo "<td><img src='purged/Tickets/ticket-".$cust["W-TKT"]."-".$cust["W-TKT-SUB"].".png' class='ticketThumb' /></td>";
+				}
 				echo "<td><a href='entry.php?edit=".$cust["W-TKT"]."'>Edit</a></td>";
 				echo "</tr>";
 			}
