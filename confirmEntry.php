@@ -480,13 +480,14 @@
     
     <tr style='font-size:14pt'>
       <td style="border-top:1px solid #aaaaaa; font-size:14pt">Outfit Price: </td>
-      <td style="border-top:1px solid #aaaaaa; font-size:14pt"><input type='hidden' name='o_outfitprice' value='<?php echo number_format($price, 2); ?>' />$<input name='outfitPrice' type='text' value='<?php echo number_format($price, 2); ?>' />
+      <td style="border-top:1px solid #aaaaaa; font-size:14pt"><input type='hidden' name='o_outfitprice' value='<?php echo number_format($oldTotal[0], 2); ?>' />$<input name='outfitPrice' type='text' value='<?php echo number_format($oldTotal[0], 2); ?>' />
 			<?php
 				if ($discountInfo["C-DISC-OUTFIT"]>0) {
 					echo '<a href="javascript:document.confirmForm.outfitPrice.value='."'".number_format($discountInfo["C-DISC-OUTFIT"], 2)."'".'; $(document.confirmForm.outfitPrice).blur(); document.confirmForm.outfitPrice.focus(); confirmForm.outfitPrice.select(); void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-OUTFIT"], 2).')</a>';
 				}
 				if ($isEdit) {
-					echo " <small>(Original ticket price: $".number_format($oldTotal[0], 2).")</small>";
+					echo ' <a href="javascript:document.confirmForm.outfitPrice.value='."'".number_format($price, 2)."'".'; $(document.confirmForm.outfitPrice).blur(); document.confirmForm.outfitPrice.focus(); confirmForm.outfitPrice.select(); void(0)"><small>(Use new calculated price of $'.number_format($price, 2).')</small></a>';
+					//echo " <small>(Original ticket price: $".number_format($oldTotal[0], 2).")</small>";
 				}
 			?>
 			</td>
@@ -494,13 +495,14 @@
     
     <tr style='font-size:14pt'>
       <td style='font-size:14pt'>Shoe Price: </td>
-      <td style='font-size:14pt'><input type='hidden' name='o_shoeprice' value='<?php echo number_format($shoeprice, 2); ?>' />$<input name='shoePrice' type='text' value='<?php echo number_format($shoeprice, 2); ?>' />
+      <td style='font-size:14pt'><input type='hidden' name='o_shoeprice' value='<?php echo number_format($oldTotal[1], 2); ?>' />$<input name='shoePrice' type='text' value='<?php echo number_format($oldTotal[1], 2); ?>' />
 			<?php
 				if ($discountInfo["C-DISC-SHOE"]>0) {
 					echo '<a href="javascript:document.confirmForm.shoePrice.value='."'".number_format($discountInfo["C-DISC-SHOE"], 2)."'".'; void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-SHOE"], 2).')</a>';
 				}
 				if ($isEdit && !empty($oldTotal[1])) {
-					echo " <small>(Original ticket price: $".number_format($oldTotal[1], 2).")</small>";
+					echo ' <a href="javascript:document.confirmForm.shoePrice.value='."'".number_format($shoeprice, 2)."'".'; void(0)"><small>(Use new calculated price of $'.number_format($shoeprice, 2).')</small></a>';
+					//echo " <small>(Original ticket price: $".number_format($oldTotal[1], 2).")</small>";
 				}
 			?>
 			</td>
