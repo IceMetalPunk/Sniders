@@ -27,7 +27,7 @@ if not exist DB_Backups/billing (
 echo.
 echo Updating system...
 echo.
-set gitbash=C:\Program Files (x86)\Git\bin\bash.exe
+set bash=C:\Users\Stu\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin\bash.exe
 @"%gitbash%" --login -i -c "exec "UpdateSystem.git""
 echo.
 echo Update complete. Restoring tickets and invoices from backup.
