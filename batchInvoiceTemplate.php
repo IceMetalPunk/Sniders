@@ -219,8 +219,14 @@
 	if ($error=="") {
 	  if (!file_exists("billing")) { mkdir("billing"); }
 	  if (!file_exists("billing/invoices")) { mkdir("billing/invoices"); }
+		if (!file_exists("billing/invoices/Complete")) { mkdir("billing/invoices/Complete"); }
 
-		file_put_contents("billing/invoices/".$invNum.".html", ob_get_contents());
+		if ($customerData["C-BALANCE"]*1!=0) {
+			file_put_contents("billing/invoices/".$invNum.".html", ob_get_contents());
+		}
+		else {
+			file_put_contents("billing/invoices/Complete/".$invNum.".html", ob_get_contents());
+		}
 	}
   ob_end_flush();
 ?>
