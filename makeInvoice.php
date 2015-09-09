@@ -191,11 +191,65 @@
 				
 				/* Insert invoice into billing table */
 				if ($invNum!="RECAP") {
+
+					/* Apply any outstanding payments to this new invoice */
+					$remaining=$subtotal*(100-$disc)/100;
+					$adjToUpdate=array();
+					$checkoff=array();
+					
+					// From TAR
+					if ($remaining>0) {
+						$q="SELECT * FROM `t-a-rec` WHERE (`TAR-TYPE` BETWEEN 20 AND 29) AND (`TAR-TYPE`!=24) AND (`TAR-REMAINING`>0) ORDER BY `TAR-INV-DT` ASC, `TAR-INV-NO` ASC, `TAR-ADJ-NUM` ASC";
+						$query=mysql_query($q);
+						while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
+							$adjToUpdate[$row["TAR-ADJ-NUM"]]=$row["TAR-REMAINING"]-min($remaining, $row["TAR-REMAINING"]);
+							$checkoff[]=$row["TAR-ADJ-NUM"];
+							$remaining-=min($remaining, $row["TAR-REMAINING"]);							
+						}
+					
+						foreach ($adjToUpdate as $num=>$amt) {
+							$q="SELECT `TAR-CHECKOFF` FROM `t-a-rec` WHERE `TAR-ADJ-NUM`='".$num."'";
+							$query=mysql_query($q);
+							$row=mysql_fetch_assoc($query);
+							$oldCheckoff=unserialize($row["TAR-CHECKOFF"]);
+							$oldCheckoff[]=$invNum;
+							
+							$q="UPDATE `t-a-rec` SET `TAR-REMAINING`=".$amt.", `TAR-CHECKOFF`='".mysql_real_escape_string(serialize($oldCheckoff))."' WHERE `TAR-ADJ-NUM`='".$num."'";
+							$query=mysql_query($q);							
+						}
+					}
+					
+					// From TAB
+					if ($remaining>0) {
+						unset($adjToUpdate);
+						$adjToUpdate=array();
+						$q="SELECT * FROM `t-a-billing` WHERE (`TAB-ADJ-TYPE` BETWEEN 20 AND 29) AND (`TAB-ADJ-TYPE`!=24) AND (`TAB-REMAINING`>0) ORDER BY `TAB-INV-DT` ASC, `TAB-INV-NO` ASC,  `TAB-ADJ-NO` ASC";
+						$query=mysql_query($q);
+						while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
+							$adjToUpdate[$row["TAB-ADJ-NO"]]=$row["TAB-REMAINING"]-min($remaining, $row["TAB-REMAINING"]);
+							$checkoff[]=$row["TAB-ADJ-NO"];
+							$remaining-=min($remaining, $row["TAB-REMAINING"]);							
+						}
+					
+						foreach ($adjToUpdate as $num=>$amt) {
+							$q="SELECT `TAB-CHECKOFF` FROM `t-a-billing` WHERE `TAB-ADJ-NO`='".$num."'";
+							$query=mysql_query($q);
+							$row=mysql_fetch_assoc($query);
+							$oldCheckoff=unserialize($row["TAB-CHECKOFF"]);
+							$oldCheckoff[]=$invNum;
+							
+							$q="UPDATE `t-a-billing` SET `TAB-REMAINING`=".$amt.", `TAB-CHECKOFF`='".mysql_real_escape_string(serialize($oldCheckoff))."' WHERE `TAB-ADJ-NO`='".$num."'";
+							$query=mysql_query($q);							
+						}
+					}
+					
+					// Insert invoice into TAB
 					$q="INSERT INTO `t-a-billing` VALUES (";
 					$q.="'".mysql_real_escape_string($_POST['c_num'])."', "; // Customer number
 					$q.="'', NOW(), '".mysql_real_escape_string($invNum)."', "; // Post date (blank for now), invoice date, and invoice number
 					$q.="'', 0, '', "; // Adjustment number (blank for invoices), adjustment type (0=invoice), and adjustment reference (blank for invoices)
-					$q.=$subtotal.", ".mysql_real_escape_string($disc).", ".mysql_real_escape_string($subtotal*(100-$disc)/100).")"; // Subtotal, discount, and total
+					$q.=$subtotal.", ".mysql_real_escape_string($disc).", ".mysql_real_escape_string($subtotal*(100-$disc)/100).", "; // Subtotal, discount, and total
+					$q.="'".mysql_real_escape_string(serialize($checkoff))."', ".$remaining.")"; // Checkoff list and remaining total
 					$query=mysql_query($q);
 					
 					/* Update the adjustments to have the proper invoice numbers */
@@ -206,8 +260,8 @@
 					$q="UPDATE `v-a-invoice` SET `W-INV-NO`='".mysql_real_escape_string($invNum)."' WHERE `W-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 					$query=mysql_query($q);
 					
-					/* Update the customer's balance */
-					$q="UPDATE `t-customer` SET `C-BALANCE`=".mysql_real_escape_string($balance)." WHERE `C-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
+					/* Update the customer's balance and last invoice date */
+					$q="UPDATE `t-customer` SET `C-BALANCE`=".mysql_real_escape_string($balance).", `c-lastInvoice`=NOW() WHERE `C-CUSTNO`='".mysql_real_escape_string($_POST['c_num'])."'";
 					$query=mysql_query($q);
 				}
 				

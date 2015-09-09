@@ -11,6 +11,8 @@
 			.restab TH { padding: 4px; background-color: #aaaaaa; font-weight:bold; border: 1px solid #000000; text-align: center; font-size:12pt;}
 			.restab A { font-size:12pt; }
 			TABLE.restab { border-collapse: collapse; font-size:12pt; }
+			.folded * { font-size:12pt; }
+			.folded { display:none; }
 		</style>
 
     <!-- jQuery library and its Autocomplete extension -->
@@ -95,7 +97,7 @@
 				if (!empty($_GET['from']) || !empty($_GET['to'])) { $whereTAR.=" AND (`TAR-POST-DT` BETWEEN '".mysql_real_escape_string($from)."' AND '".mysql_real_escape_string($to)."')"; }
 				
 				$q="SELECT * FROM `t-a-rec` WHERE ";
-				$q.=$whereTAR." ORDER BY `TAR-CUSTNO`, `TAR-POST-DT`, `TAR-TYPE`";
+				$q.=$whereTAR." ORDER BY `TAR-CUSTNO`, `TAR-POST-DT` DESC, `TAR-TYPE`";
 				$query=mysql_query($q);
 				
 				$TARresults=array();
@@ -106,14 +108,17 @@
 				
 				echo "<h10><i>Posted Transactions</i></h10>";
 				echo "<table class='restab'>";
-				echo "<tr><th colSpan='5'>".$custInfo["C-NAME"]." (".$custInfo["C-CUSTNO"].")</th></tr>";
+				echo "<tr><th colSpan='7'>".$custInfo["C-NAME"]." (".$custInfo["C-CUSTNO"].")</th></tr>";
 				echo "<tr><th>Transaction #</th>";
 				echo "<th>Date</th>";
 				echo "<th>Type</th>";
 				echo "<th>Description</th>";
-				echo "<th>Amount</th></tr>";
+				echo "<th>Amount</th>";
+				echo "<th>Remaining</th>";
+				echo "<th>Check-Off</th></tr>";
 				$offset=0;
 					
+				$foldNum=0;
 				if (count($TARresults)>0) {
 					foreach ($TARresults as $key=>$item) {
 						if ($types=="all" || ($types=="pay" && $item["TAR-TYPE"]>=20 && $item["TAR-TYPE"]<=29) || ($types=="invoice" && $item["TAR-TYPE"]<=1) || ($types=="charge" && $item["TAR-TYPE"]>=10 && ($item["TAR-TYPE"]<20 || $item["TAR-TYPE"]>29))) {
@@ -129,12 +134,23 @@
 								$offset+=$item["TAR-AMT"];
 							}
 							echo "</td>";
+							echo "<td>".(($item["TAR-TYPE"]>=20 && $item["TAR-TYPE"]<=29)?"(-$".number_format($item["TAR-REMAINING"],2).")":"$".number_format($item["TAR-REMAINING"],2))."</td>";
+							
+							$checkoff=unserialize($item["TAR-CHECKOFF"]);
+							if ($item["TAR-CHECKOFF"]==null || count($checkoff)<=0) {
+								echo "<td>&nbsp;</td>";
+							}
+							else {
+								if ($item["TAR-TYPE"]>=20 && $item["TAR-TYPE"]<=29) { $type="Invoices"; }
+								else { $type="Payments/Credits"; }
+								echo "<td style='text-align:left'><a href='javascript:void(0)' onclick='Fold(".(++$foldNum).")'><span id='fold".$foldNum."'>+</span>".count($checkoff)." ".$type."</a><div id='folded".$foldNum."' class='folded'><ul><li>".implode("<li>", $checkoff)."</ul></div></td>";
+							}
 							echo "</tr>";
 						}
 					}
 				}
 				else {
-					echo "<tr><td colSPan='5'><i>No posted transactions match your search.</td></tr>";
+					echo "<tr><td colSPan='7' style='text-align:center'><i>No posted transactions match your search.</td></tr>";
 				}
 				echo "</table>";
 				echo "<br/>";
@@ -150,7 +166,7 @@
 			$custInfo=mysql_fetch_assoc($custQuery);
 			
 			$q="SELECT * FROM `t-a-billing` WHERE ";
-			$q.=$whereTAB." ORDER BY `TAB-CUSTNO`, `TAB-INV-DT`, `TAB-ADJ-TYPE`";
+			$q.=$whereTAB." ORDER BY `TAB-CUSTNO`, `TAB-INV-DT` DESC, `TAB-ADJ-TYPE`";
 			$query=mysql_query($q);
 			
 			$results=array();
@@ -161,13 +177,15 @@
 			
 			echo "<h10><i>Unposted Transactions</i></h10>";
 			echo "<table class='restab'>";
-			echo "<tr><th colSpan='5'>".$custInfo["C-NAME"]." (".$custInfo["C-CUSTNO"].")</th></tr>";
-			echo "<tr><td colSpan='3' style='text-align:center'>Opening Balance</td><td colSpan='2' style='text-align:center'>$".number_format($custInfo["C-OPEN-BALANCE"],2)."</td></tr>";
+			echo "<tr><th colSpan='7'>".$custInfo["C-NAME"]." (".$custInfo["C-CUSTNO"].")</th></tr>";
+			echo "<tr><td colSpan='3' style='text-align:center'>Opening Balance</td><td colSpan='4' style='text-align:left'>$".number_format($custInfo["C-OPEN-BALANCE"],2)."</td></tr>";
 			echo "<tr><th>Transaction #</th>";
 			echo "<th>Date</th>";
 			echo "<th>Type</th>";
 			echo "<th>Description</th>";
-			echo "<th>Amount</th></tr>";
+			echo "<th>Amount</th>";
+			echo "<th>Remaining</th>";
+			echo "<th>Check-Off</th></tr>";
 			$offset=0;
 				
 			if (count($results)>0) {
@@ -185,13 +203,24 @@
 						$offset+=$item["TAB-TOTAL"];
 					}
 					echo "</td>";
+					echo "<td>".(($item["TAB-ADJ-TYPE"]>=20 && $item["TAB-ADJ-TYPE"]<=29)?"(-$".number_format($item["TAB-REMAINING"],2).")":"$".number_format($item["TAB-REMAINING"],2))."</td>";
+					
+					$checkoff=unserialize($item["TAB-CHECKOFF"]);
+					if (count($checkoff)<=0) {
+						echo "<td>&nbsp;</td>";
+					}
+					else {
+						if ($item["TAB-ADJ-TYPE"]>=20 && $item["TAB-ADJ-TYPE"]<=29) { $type="Invoices"; }
+						else { $type="Payments/Credits"; }
+						echo "<td style='text-align:left'><a href='javascript:void(0)' onclick='Fold(".(++$foldNum).")'><span id='fold".$foldNum."'>+</span>".count($checkoff)." ".$type."</a><div id='folded".$foldNum."' class='folded'><ul><li>".implode("<li>", $checkoff)."</ul></div></td>";
+					}
 					echo "</tr>";
 				}
 			}
 			else {
-				echo "<tr><td colSPan='5'><i>No unposted transactions match your search.</td></tr>";
+				echo "<tr><td colSPan='7'><i>No unposted transactions match your search.</td></tr>";
 			}
-			echo "<tr><th colSpan='3'>Balance</th><th colSpan='2'>".(($custInfo["C-BALANCE"]+$offset)>=0?"$".number_format($custInfo["C-BALANCE"]+$offset,2):"(-$".number_format(abs($offset+$custInfo["C-BALANCE"]),2).")")."</th></tr>";
+			echo "<tr><th colSpan='3'>Balance</th><th colSpan='4' style='text-align:left'>".(($custInfo["C-BALANCE"]+$offset)>=0?"$".number_format($custInfo["C-BALANCE"]+$offset,2):"(-$".number_format(abs($offset+$custInfo["C-BALANCE"]),2).")")."</th></tr>";
 			echo "</table>";
 			echo "<br/>";
 		}

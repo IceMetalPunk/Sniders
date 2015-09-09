@@ -25,6 +25,31 @@ function InitAdjust() {
   $(document.entry).keypress(function(e) {
     return (e.keyCode!=13);
   });
+	
+	$(document.entry.amt).blur(GetInvoices);
+	$(document.entry.adjustType).change(GetInvoices);
+	
+}
+
+/* Get a list of invoices that a payment will apply to, if necessary. */
+function GetInvoices() {
+	if (document.entry.amt.value!="" && document.entry.adjustType.value>=20 && document.entry.adjustType.value<=29 && document.entry.adjustType.value!=24) {
+		$("#invoices").html("<b>Looking for applicable invoices...</b>");
+		$("#invoices").show();
+		$.ajax({
+			type: "POST",
+			url: "getPaymentInvoices.php",
+			data: {amt:document.entry.amt.value},
+			success: function(data) {
+				$("#invoices").html(data);
+			},
+			async:true,
+			dataType: "text"
+		});
+	}
+	else {
+		$("#invoices").hide();
+	}
 }
 
 /* This function doesn't allow anything but numbers in any field that triggers it on key press (i.e. customer number field) */

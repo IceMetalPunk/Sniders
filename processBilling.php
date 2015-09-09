@@ -44,7 +44,9 @@
 					"credits"=>0,
 					"balance"=>$row["C-BALANCE"],
 					"prevBalance"=>$row["C-OPEN-BALANCE"],
-					"name"=>$row["C-NAME"]
+					"name"=>$row["C-NAME"],
+					"lastInvoice"=>$row["c-lastInvoice"],
+					"lastPayment"=>$row["c-lastPayment"]
 				);
 			}
 			
@@ -70,8 +72,17 @@
 			$q.="'".mysql_real_escape_string($row["TAB-ADJ-NO"])."', "; // Adjustment number, if any
 			$q.="'".mysql_real_escape_string($row["TAB-ADJ-REF"])."', "; // Adjustment text description, if any
 			$q.=mysql_real_escape_string($row["TAB-ADJ-TYPE"]).", "; // Adjustment type (0=invoice, 20-29=payments, 30-39=charges, 40-49=credits/misc.)
-			$q.=mysql_real_escape_string($row["TAB-TOTAL"]).")"; // Total amount of item
+			$q.=mysql_real_escape_string($row["TAB-TOTAL"]).", "; // Total amount of item
+			$q.="'".mysql_real_escape_string($row["TAB-INV-DT"])."', "; // Invoice date
+			if ($row["TAB-CHECKOFF"]==NULL || $row["TAB-CHECKOFF"]=="") {
+				$q.="NULL, ";
+			}
+			else {
+				$q.="'".mysql_real_escape_string($row["TAB-CHECKOFF"])."', "; // Checkoff list
+			}
+			$q.=mysql_real_escape_string($row["TAB-REMAINING"]).")"; // Remaining amount
 			$copyQuery=mysql_query($q);
+			
 			++$index;
 			file_put_contents("billCycleProgress.txt", $index."\r\n".$n);
 		}

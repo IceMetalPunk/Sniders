@@ -23,6 +23,8 @@
 				<th>Total Payments/Credits This Cycle</th>
 				<th>Net Transactions This Cycle</th>
 				<th>Current Balance</th>
+				<th>Last Invoice</th>
+				<th>Last Payment</th>
 			</tr>
 			<?php
 			
@@ -39,8 +41,7 @@
 			
 				/* Ouput customer info */
 				foreach ($customers as $custno=>$data) {
-					/* Don't show customers with 0 balance. Will put this in if needed.
-					if ($data["balance"]==0) { continue; } */
+					if ($data["balance"]==0) { continue; }
 					echo "<tr><td>".$custno."</td>"; // Customer number
 					echo "<td>".$data["name"]."</td>"; // Customer name
 					echo "<td class='right'>$".number_format($data["invoiced"], 2)."</td>"; // Previous balance
@@ -49,6 +50,8 @@
 					$net=$data["invoiced"]+$data["charges"]-abs($data["credits"]);
 					echo "<td class='right'>".($net<0?"(-":"")."$".number_format(abs($net), 2).($net<0?")":"")."</td>";
 					echo "<td class='right'>".($data["balance"]<0?"(-":"")."$".number_format(abs($data["balance"]), 2).($data["balance"]<0?")":"")."</td>";
+					echo "<td class='right'>".date("n/j/Y", $data["lastInvoice"])."</td>";
+					echo "<td class='right'>".date("n/j/Y", $data["lastPayment"])."</td>";
 				}
 
 				/* Output totals */				
@@ -58,7 +61,7 @@
 				echo "<td class='right'>($".number_format(abs($totals["Credits"]), 2).")</td>"; // Credits for this cycle
 				$net=$totals["Invoiced"]+$totals["Charges"]-abs($totals["Credits"]);
 				echo "<td class='right'>".($net<0?"(-":"")."$".number_format(abs($net), 2).($net<0?")":"")."</td>";
-				echo "<td>&nbsp;</td></tr>";
+				echo "<td colSpan='3'>&nbsp;</td></tr>";
 				
 			?>
 		</table>

@@ -34,6 +34,24 @@ function InitInvoice() {
 	$(".date").blur(FormatDate); // When the Date of Use box loses focus, auto-fill the year.
 }
 
+/* Fold/unfold checkoff lists in transaction search */
+function Fold(n) {
+	for (var p=1; document.getElementById("folded"+p)!==null; ++p) {
+		if (p!=n) {
+			$("#folded"+p).hide();
+			$("#fold"+p).html("+");
+		}
+		else if ($("#fold"+p).html()=="+") {
+			$("#folded"+p).show();
+			$("#fold"+p).html("-");
+		}
+		else {
+			$("#folded"+p).hide();
+			$("#fold"+p).html("+");
+		}
+	}
+}
+
 /* Format the dates */
 function FormatDate() {
   var mm, dd, yy;

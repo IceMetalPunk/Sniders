@@ -4,6 +4,9 @@
 
     <!-- Main styles -->
     <link rel="stylesheet" href="styles.css" />
+		<style>
+			#invoiceOnlyField { display:none; }
+		</style>
 
 		<!-- Styles for autocomplete elements -->
     <link rel="stylesheet" href="jquery-ui.css" />
@@ -59,6 +62,7 @@
 				</tr>
 				
 			</table>
+			<div id="invoices"></div>
 		</form>
 		
   </body> 
