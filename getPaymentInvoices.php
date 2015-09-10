@@ -8,10 +8,10 @@
 	
 	// From TAR
 	if ($remaining>0) {
-		$q="SELECT * FROM `t-a-rec` WHERE (`TAR-TYPE`=0) AND (`TAR-REMAINING`>0) ORDER BY `TAR-INV-DT` ASC, `TAR-INV-NO` ASC, `TAR-ADJ-NUM` ASC";
+		$q="SELECT * FROM `t-a-rec` WHERE (`TAR-CUSTNO`='".mysql_real_escape_string($_POST['cust'])."') AND (`TAR-TYPE`=0) AND (`TAR-REMAINING`>0) ORDER BY `TAR-INV-DT` ASC, `TAR-INV-NO` ASC, `TAR-ADJ-NUM` ASC";
 		$query=mysql_query($q);
 		while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
-			if ($row["TAR-INV-NO"]!='') {
+			if ($row["TAR-INV-NO"]!=NULL && $row["TAR-INV-NO"]!='') {
 				$invToUpdate[$row["TAR-INV-NO"]]=$row["TAR-REMAINING"]-min($remaining, $row["TAR-REMAINING"]);
 			}
 			else {
@@ -26,7 +26,7 @@
 	if ($remaining>0) {
 		unset($invToUpdate);
 		$invToUpdate=array();
-		$q="SELECT * FROM `t-a-billing` WHERE `TAB-ADJ-TYPE`<=1 AND `TAB-REMAINING`>0 ORDER BY `TAB-INV-DT` ASC, `TAB-INV-NO` ASC, `TAB-ADJ-NO` ASC";
+		$q="SELECT * FROM `t-a-billing` WHERE (`TAB-CUSTNO`='".mysql_real_escape_string($_POST['cust'])."') AND `TAB-ADJ-TYPE`<=1 AND `TAB-REMAINING`>0 ORDER BY `TAB-INV-DT` ASC, `TAB-INV-NO` ASC, `TAB-ADJ-NO` ASC";
 		$query=mysql_query($q);
 		while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
 			$invToUpdate[$row["TAB-INV-NO"]]=$row["TAB-REMAINING"]-min($remaining, $row["TAB-REMAINING"]);

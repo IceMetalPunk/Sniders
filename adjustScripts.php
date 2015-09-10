@@ -33,13 +33,13 @@ function InitAdjust() {
 
 /* Get a list of invoices that a payment will apply to, if necessary. */
 function GetInvoices() {
-	if (document.entry.amt.value!="" && document.entry.adjustType.value>=20 && document.entry.adjustType.value<=29 && document.entry.adjustType.value!=24) {
+	if (document.entry.amt.value!="" && document.entry.c_num.value!="" && document.entry.adjustType.value>=20 && document.entry.adjustType.value<=29 && document.entry.adjustType.value!=24) {
 		$("#invoices").html("<b>Looking for applicable invoices...</b>");
 		$("#invoices").show();
 		$.ajax({
 			type: "POST",
 			url: "getPaymentInvoices.php",
-			data: {amt:document.entry.amt.value},
+			data: {amt:document.entry.amt.value,cust:document.entry.c_num.value},
 			success: function(data) {
 				$("#invoices").html(data);
 			},
