@@ -65,6 +65,7 @@
 	
 	$error=0;
 	$errorText="";
+	$foldNum=0;
 	if (!empty($_GET['customer']) || !empty($_GET['range']) || !empty($_GET['from']) || !empty($_GET['to'])) {
 		if (empty($_GET['customer'])) {
 			$error|=1;
@@ -118,7 +119,6 @@
 				echo "<th>Check-Off</th></tr>";
 				$offset=0;
 					
-				$foldNum=0;
 				if (count($TARresults)>0) {
 					foreach ($TARresults as $key=>$item) {
 						if ($types=="all" || ($types=="pay" && $item["TAR-TYPE"]>=20 && $item["TAR-TYPE"]<=29) || ($types=="invoice" && $item["TAR-TYPE"]<=1) || ($types=="charge" && $item["TAR-TYPE"]>=10 && ($item["TAR-TYPE"]<20 || $item["TAR-TYPE"]>29))) {
