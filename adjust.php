@@ -48,59 +48,61 @@
 
 			include "paymentTypes.php";
 			
-			/* Apply any outstanding payments to this new invoice */
+			/* Apply tihs payment to any outstanding charges. */
 			$remaining=abs($_POST['amt']);
 			$invToUpdate=array();
 			$checkoff=array();
 			
-			// From TAR
-			if ($remaining>0) {
-				$q="SELECT * FROM `t-a-rec` WHERE (`TAR-CUSTNO`='".$_POST['c_num']."') AND (`TAR-TYPE`=0) AND (`TAR-REMAINING`>0) ORDER BY `TAR-INV-DT` ASC, `TAR-INV-NO` ASC, `TAR-ADJ-NUM` ASC";
-				$query=mysql_query($q);
-				while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
-					if ($row["TAR-INV-NO"]!='') {
-						$invToUpdate[$row["TAR-INV-NO"]]=$row["TAR-REMAINING"]-min($remaining, $row["TAR-REMAINING"]);
-					}
-					else {
-						$invToUpdate[$row["TAR-ADJ-NUM"]]=$row["TAR-REMAINING"]-min($remaining, $row["TAR-REMAINING"]);
-					}
-					$checkoff[]=$row["TAR-INV-NO"];
-					$remaining-=min($remaining, $row["TAR-REMAINING"]);							
-				}
-			
-				foreach ($invToUpdate as $num=>$amt) {
-					$q="SELECT `TAR-CHECKOFF` FROM `t-a-rec` WHERE `TAR-INV-NO`='".$num."'";
+			if ($_POST['adjustType']>=20 && $_POST['adjustType']<=29) {
+				// From TAR
+				if ($remaining>0) {
+					$q="SELECT * FROM `t-a-rec` WHERE (`TAR-CUSTNO`='".$_POST['c_num']."') AND (`TAR-TYPE`=0) AND (`TAR-REMAINING`>0) ORDER BY `TAR-INV-DT` ASC, `TAR-INV-NO` ASC, `TAR-ADJ-NUM` ASC";
 					$query=mysql_query($q);
-					$row=mysql_fetch_assoc($query);
-					$oldCheckoff=unserialize($row["TAR-CHECKOFF"]);
-					$oldCheckoff[]=$adjNum;
-					
-					$q="UPDATE `t-a-rec` SET `TAR-REMAINING`=".$amt.", `TAR-CHECKOFF`='".mysql_real_escape_string(serialize($oldCheckoff))."' WHERE `TAR-CUSTNO`='".$_POST['c_num']."' AND `TAR-INV-NO`='".$num."' AND `TAR-TYPE`<=1";
-					$query=mysql_query($q);							
+					while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
+						if ($row["TAR-INV-NO"]!='') {
+							$invToUpdate[$row["TAR-INV-NO"]]=$row["TAR-REMAINING"]-min($remaining, $row["TAR-REMAINING"]);
+						}
+						else {
+							$invToUpdate[$row["TAR-ADJ-NUM"]]=$row["TAR-REMAINING"]-min($remaining, $row["TAR-REMAINING"]);
+						}
+						$checkoff[]=$row["TAR-INV-NO"];
+						$remaining-=min($remaining, $row["TAR-REMAINING"]);							
+					}
+				
+					foreach ($invToUpdate as $num=>$amt) {
+						$q="SELECT `TAR-CHECKOFF` FROM `t-a-rec` WHERE `TAR-INV-NO`='".$num."'";
+						$query=mysql_query($q);
+						$row=mysql_fetch_assoc($query);
+						$oldCheckoff=unserialize($row["TAR-CHECKOFF"]);
+						$oldCheckoff[]=$adjNum;
+						
+						$q="UPDATE `t-a-rec` SET `TAR-REMAINING`=".$amt.", `TAR-CHECKOFF`='".mysql_real_escape_string(serialize($oldCheckoff))."' WHERE `TAR-CUSTNO`='".$_POST['c_num']."' AND `TAR-INV-NO`='".$num."' AND `TAR-TYPE`<=1";
+						$query=mysql_query($q);							
+					}
 				}
-			}
-			
-			// From TAB
-			if ($remaining>0) {
-				unset($invToUpdate);
-				$invToUpdate=array();
-				$q="SELECT * FROM `t-a-billing` WHERE `TAB-CUSTNO`='".$_POST['c_num']."' AND `TAB-ADJ-TYPE`<=1 AND `TAB-REMAINING`>0 ORDER BY `TAB-INV-DT` ASC, `TAB-INV-NO` ASC, `TAB-ADJ-NO` ASC";
-				$query=mysql_query($q);
-				while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
-					$invToUpdate[$row["TAB-INV-NO"]]=$row["TAB-REMAINING"]-min($remaining, $row["TAB-REMAINING"]);
-					$checkoff[]=$row["TAB-INV-NO"];
-					$remaining-=min($remaining, $row["TAB-REMAINING"]);							
-				}
-			
-				foreach ($invToUpdate as $num=>$amt) {
-					$q="SELECT `TAB-CHECKOFF` FROM `t-a-billing` WHERE `TAB-INV-NO`='".$num."'";
+				
+				// From TAB
+				if ($remaining>0) {
+					unset($invToUpdate);
+					$invToUpdate=array();
+					$q="SELECT * FROM `t-a-billing` WHERE `TAB-CUSTNO`='".$_POST['c_num']."' AND `TAB-ADJ-TYPE`<=1 AND `TAB-REMAINING`>0 ORDER BY `TAB-INV-DT` ASC, `TAB-INV-NO` ASC, `TAB-ADJ-NO` ASC";
 					$query=mysql_query($q);
-					$row=mysql_fetch_assoc($query);
-					$oldCheckoff=unserialize($row["TAB-CHECKOFF"]);
-					$oldCheckoff[]=$adjNum;
-					
-					$q="UPDATE `t-a-billing` SET `TAB-REMAINING`=".$amt.", `TAB-CHECKOFF`='".mysql_real_escape_string(serialize($oldCheckoff))."' WHERE `TAB-INV-NO`='".$num."' AND `TAB-ADJ-TYPE`<=1";
-					$query=mysql_query($q);							
+					while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
+						$invToUpdate[$row["TAB-INV-NO"]]=$row["TAB-REMAINING"]-min($remaining, $row["TAB-REMAINING"]);
+						$checkoff[]=$row["TAB-INV-NO"];
+						$remaining-=min($remaining, $row["TAB-REMAINING"]);							
+					}
+				
+					foreach ($invToUpdate as $num=>$amt) {
+						$q="SELECT `TAB-CHECKOFF` FROM `t-a-billing` WHERE `TAB-INV-NO`='".$num."'";
+						$query=mysql_query($q);
+						$row=mysql_fetch_assoc($query);
+						$oldCheckoff=unserialize($row["TAB-CHECKOFF"]);
+						$oldCheckoff[]=$adjNum;
+						
+						$q="UPDATE `t-a-billing` SET `TAB-REMAINING`=".$amt.", `TAB-CHECKOFF`='".mysql_real_escape_string(serialize($oldCheckoff))."' WHERE `TAB-INV-NO`='".$num."' AND `TAB-ADJ-TYPE`<=1";
+						$query=mysql_query($q);							
+					}
 				}
 			}
 			
