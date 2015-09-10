@@ -50,7 +50,7 @@
 	$query="UPDATE `t-a-billing` SET `TAB-CHECKOFF`='".$ar."'";
 	$q=mysql_query($query);
 	
-	$query="UPDATE `t-a-rec` SET `TAB-CHECKOFF`='".$ar."'";
+	$query="UPDATE `t-a-rec` SET `TAR-CHECKOFF`='".$ar."'";
 	$q=mysql_query($query);
 	
 	echo "Adding remaining invoice/charge/payment balance columns...<br />";
