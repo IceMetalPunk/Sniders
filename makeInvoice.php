@@ -199,7 +199,7 @@
 					
 					// From TAR
 					if ($remaining>0) {
-						$q="SELECT * FROM `t-a-rec` WHERE (`TAR-TYPE` BETWEEN 20 AND 29) AND (`TAR-TYPE`!=24) AND (`TAR-REMAINING`>0) ORDER BY `TAR-INV-DT` ASC, `TAR-INV-NO` ASC, `TAR-ADJ-NUM` ASC";
+						$q="SELECT * FROM `t-a-rec` WHERE (`TAR-CUSTNO`='".$_POST['c_num']."') AND (`TAR-TYPE` BETWEEN 20 AND 29) AND (`TAR-TYPE`!=24) AND (`TAR-REMAINING`>0) ORDER BY `TAR-INV-DT` ASC, `TAR-INV-NO` ASC, `TAR-ADJ-NUM` ASC";
 						$query=mysql_query($q);
 						while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
 							$adjToUpdate[$row["TAR-ADJ-NUM"]]=$row["TAR-REMAINING"]-min($remaining, $row["TAR-REMAINING"]);
@@ -223,7 +223,7 @@
 					if ($remaining>0) {
 						unset($adjToUpdate);
 						$adjToUpdate=array();
-						$q="SELECT * FROM `t-a-billing` WHERE (`TAB-ADJ-TYPE` BETWEEN 20 AND 29) AND (`TAB-ADJ-TYPE`!=24) AND (`TAB-REMAINING`>0) ORDER BY `TAB-INV-DT` ASC, `TAB-INV-NO` ASC,  `TAB-ADJ-NO` ASC";
+						$q="SELECT * FROM `t-a-billing` WHERE `TAB-CUSTNO`='".$_POST['c_num']."' AND (`TAB-ADJ-TYPE` BETWEEN 20 AND 29) AND (`TAB-ADJ-TYPE`!=24) AND (`TAB-REMAINING`>0) ORDER BY `TAB-INV-DT` ASC, `TAB-INV-NO` ASC,  `TAB-ADJ-NO` ASC";
 						$query=mysql_query($q);
 						while ($remaining>0 && ($row=mysql_fetch_assoc($query))) {
 							$adjToUpdate[$row["TAB-ADJ-NO"]]=$row["TAB-REMAINING"]-min($remaining, $row["TAB-REMAINING"]);

@@ -47,7 +47,14 @@
 			//echo "<h3>Monthly Statement for ".date("F Y", $lastDatePHP)."</h3>";
 			echo "<h3>Accounts Receivable Summary Report</h3>";
 			echo "<table class='restab'>";
-			echo "<tr><th>Customer Name</th><th>Opening Balance</th><th>Invoice Total</th><th>Miscellaneous Charges</th><th>Credits/Payments</th><th>Current Balance</th></tr>";
+			echo "<tr><th>Customer Name</th>";
+			echo "<th>Opening Balance</th>";
+			echo "<th>Invoice Total</th>";
+			echo "<th>Miscellaneous Charges</th>";
+			echo "<th>Credits/Payments</th>";
+			echo "<th>Current Balance</th>";
+			echo "<th>Last Invoice</th>";
+			echo "<th>Last Payment</th></tr>";
 			
 			while ($custRow=mysql_fetch_assoc($query)) {
 				
@@ -92,6 +99,8 @@
 				
 				$bal=$custRow["C-OPEN-BALANCE"]+$charges+$invoiced-abs($credits);
 				echo "<td class='right'>".format_amount($bal).$indicator."</td>";
+				echo "<td class='right'>".date("n/j/Y", strtotime($custRow["c-lastInvoice"]))."</td>";
+				echo "<td class='right'>".date("n/j/Y", strtotime($custRow["c-lastPayment"]))."</td>";
 				echo "</tr>";
 				
 				$grandInv+=$invoiced;
