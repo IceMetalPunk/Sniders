@@ -291,11 +291,13 @@
 	</body>
 </html>
 <?php
-	if ($error=="") {
+	if ($error=="" && !$isRecap && $invNum!="RECAP") {
 	  if (!file_exists("billing")) { mkdir("billing"); }
 	  if (!file_exists("billing/invoices")) { mkdir("billing/invoices"); }
-
-		file_put_contents("billing/invoices/".$invNum.".html", ob_get_contents());
+		if (!file_exists("billing/invoices/Complete")) { mkdir("billing/invoices/Complete"); }
+		$dir="billing/invoices";
+		if ($balance==0) { $dir="billing/invoices/Complete"; }
+		file_put_contents($dir."/".$invNum.".html", ob_get_contents());
 	}
   ob_end_flush();
 ?>

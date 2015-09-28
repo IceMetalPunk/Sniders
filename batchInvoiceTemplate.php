@@ -270,12 +270,12 @@
 	</body>
 </html>
 <?php
-	if ($error=="") {
+	if ($error=="" && $invNum!="RECAP" && !$isRecap) {
 	  if (!file_exists("billing")) { mkdir("billing"); }
 	  if (!file_exists("billing/invoices")) { mkdir("billing/invoices"); }
 		if (!file_exists("billing/invoices/Complete")) { mkdir("billing/invoices/Complete"); }
 
-		if ($customerData["C-BALANCE"]*1!=0) {
+		if ($balance!=0) {
 			file_put_contents("billing/invoices/".$invNum.".html", ob_get_contents());
 		}
 		else {

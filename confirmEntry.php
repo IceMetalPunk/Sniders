@@ -495,7 +495,7 @@
     
     <tr style='font-size:14pt'>
       <td style='font-size:14pt'>Shoe Price: </td>
-      <td style='font-size:14pt'><input type='hidden' name='o_shoeprice' value='<?php echo number_format($isEdit?$oldTotal[1]:$shoeprice, 2); ?>' />$<input name='shoePrice' type='text' value='<?php echo number_format($isEdit?$oldTotal[1]:$shoeprice, 2); ?>' />
+      <td style='font-size:14pt'><input type='hidden' name='o_shoeprice' value='<?php echo number_format(($isEdit && !empty($oldTotal[1]))?$oldTotal[1]:$shoeprice, 2); ?>' />$<input name='shoePrice' type='text' value='<?php echo number_format(($isEdit && !empty($oldTotal[1]))?$oldTotal[1]:$shoeprice, 2); ?>' />
 			<?php
 				if ($discountInfo["C-DISC-SHOE"]>0) {
 					echo '<a href="javascript:document.confirmForm.shoePrice.value='."'".number_format($discountInfo["C-DISC-SHOE"], 2)."'".'; void(0)">(Use special price of $'.number_format($discountInfo["C-DISC-SHOE"], 2).')</a>';
