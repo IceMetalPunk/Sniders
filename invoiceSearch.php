@@ -1,3 +1,4 @@
+
 <html>
   <head>
     <title>Invoice Lookup</title>
@@ -116,7 +117,7 @@
 				else {
 					echo "<td>&nbsp;</td>";
 				}
-				echo "<td><a href='billing/invoices/".$num.".html'>View/Print</a></td>";
+				echo "<td><a href='billing/invoices/Complete/".$num.".html'>View/Print</a></td>";
 				
 				echo "</tr>";
 			}
