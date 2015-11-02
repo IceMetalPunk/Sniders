@@ -170,7 +170,7 @@
 				if (!empty($_POST['hankie_a_style'])) { $q.=" AND `W-HANKIE-ACC`='".$_POST['hankie_a_style']."'"; }
 				if (!empty($_POST['cane_a_style'])) { $q.=" AND `W-CANE`='".$_POST['cane_a_style']."'"; }
 				
-				$q.=" ORDER BY `W-ORDER-DT` DESC";
+				$q.=" ORDER BY `W-USE-DT` DESC, `C-NAME` ASC, `W-ORDER-DT` DESC";
 				$query=mysql_query($q);
 				
 				if (!$query) {
