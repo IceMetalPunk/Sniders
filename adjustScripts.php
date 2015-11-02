@@ -11,6 +11,16 @@
 
 /* Function to initialize the main data entry page when it loads */
 function InitAdjust() {
+	
+	/* Make sure the type defaults to Cash */
+	var opts=document.getElementById("adjustType").options;
+	for (var ind in opts) {
+		if (opts[ind].text=="Cash Payment") {
+			document.getElementById("adjustType").selectedIndex=ind;
+			break;
+		}
+	}
+	
   /* Focus the cursor on the Customer Number field (the first one) */
   document.entry.c_num.focus();
 

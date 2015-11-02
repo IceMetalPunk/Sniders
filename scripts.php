@@ -23,16 +23,16 @@ function Initialize(startAtCustomer) {
 
   /* When the customer number field blurs (loses focus), call the function to look up the corresponding customer name
      or the one to handle in-house rentals (customer pseudo-number 99999) */
-  document.entry.c_num.onblur=function() {
+  $(document.entry.c_num).blur(function() {
     if (document.entry.c_num.value*1>70000) {
       ShowInHouse();
     }
     GetCustomer(document.entry.c_num.value);
-  }
+  });
 	
   /* Focus the cursor on the Customer Number field (the first one) */
   if (startAtCustomer) {
-		document.entry.c_num.focus();
+		$(document.entry.c_num).focus();
 	}
 	
   $(".numOnly").keypress(validateNumber); // Make selected fields (those with the numOnly class) only accept numbers
@@ -63,25 +63,25 @@ function Initialize(startAtCustomer) {
   
   /* Make the accessories-only vest and sash fields exclusive */
   $("#vest_a_style").change(function() {
-    var other=document.getElementById("sash_a_style"); // Shorthand for the other box to look at
+    var other=$("#sash_a_style"); // Shorthand for the other box to look at
     if (this.value=="") { // If the vest field was cleared...
-      other.disabled=false; // Enable the sash field
+      other.attr("disabled", false); // Enable the sash field
       setTimeout(function() { // Wait 1ms to let the MS qty field be selected, since it'll happen before the sash field is enabled
         if (document.activeElement==document.entry.ms_vs_qty) { other.focus(); } // If the MS field is focused, move back to the sash field
       }, 1);
     } 
     else { // If not...
       setTimeout(function() { // Wait 1ms to give the sash field time to become active if it should
-        if (document.activeElement==other) { document.entry.ms_vs_qty.focus(); } // Then skip to the MS dropdown
-        other.disabled=true;  // Then disable and clear the sash field.
-        other.value="";
+        if (document.activeElement==other) { $(document.entry.ms_vs_qty).focus(); } // Then skip to the MS dropdown
+        other.attr("disabled",true);  // Then disable and clear the sash field.
+        other.val("");
       }, 1); 
     } 
   });
   $("#sash_a_style").change(function() {
-    var other=document.getElementById("vest_a_style"); // Shorthand for the other box to look at
-    if (this.value=="") { other.disabled=false; } // If this was cleared, enable the vest field.
-    else { other.disabled=true; other.value=""; } // If not, disable and clear the vest field.
+    var other=$("#vest_a_style"); // Shorthand for the other box to look at
+    if (this.value=="") { other.attr("disabled",false); } // If this was cleared, enable the vest field.
+    else { other.attr("disabled",true); other.val(""); } // If not, disable and clear the vest field.
   });
   
   /* Prevent ENTER from submitting the data entry form, because that's too easy to accidentally press */
@@ -457,13 +457,13 @@ function UpdateCustomer(cust) {
         minDate: (typeof purging=="undefined" || !purging) ? new Date() : new Date(1900, 0, 1),
         onSelect: function(date, calendar) { this.focus(); } // When a date is picked from the calendar, focus back on the field.
       });
-      document.getElementById("use_date").onblur=FormatDate; // When the Date of Use box loses focus, auto-fill the year.
+      $("#use_date").blur(FormatDate); // When the Date of Use box loses focus, auto-fill the year.
     });
 		
 		$(function() {
 			if (document.entry.vest_a_style) {
-				document.entry.vest_a_style.onblur=function() { DefaultTie(document.entry.vest_a_style.value, document.entry.tie_a_style); }
-				document.entry.vest_style.onblur=function() { DefaultTie(document.entry.vest_style.value, document.entry.tie_style); }
+				$(document.entry.vest_a_style).blur(function() { DefaultTie($(document.entry.vest_a_style).val(), document.entry.tie_a_style); });
+				$(document.entry.vest_style).blur(function() { DefaultTie($(document.entry.vest_style).val(), document.entry.tie_style); });
 			}
 		});
 		

@@ -41,10 +41,8 @@
 						<?php
 						  /* Output all the different adjustment types */
 							require("paymentTypes.php");
-							$started=false;
 							foreach ($types as $name=>$val) {
-							  echo "<option value='".$val."'".($started?"":" selected").">".$name."</option>\r\n";
-								$started=true;
+							  echo "<option value='".$val."'".(($name=="Cash Payment")?"":" selected").">".$name."</option>\r\n";
 							}
 						?>
 					</select>

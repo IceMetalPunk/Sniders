@@ -66,6 +66,7 @@
 			$adjQuery=mysql_query($q2);
 			
 			$isRecap=(($query===FALSE || mysql_num_rows($query)<=0) && ($adjQuery===FALSE || mysql_num_rows($adjQuery)<=0));
+			$hasCharges=false;
 			
 			/* If there's no new items to invoice, show that message and set the number to RECAP instead of generating a new one */
 			if ($isRecap) {
@@ -174,6 +175,7 @@
 					$total+=$subtotal*(100-$disc)/100;
 					$total+=$charges;
 				}
+				if ($total>=0) { $hasCharges=true; }
 				$balance+=$total-$credits;
 				
 				/* Display totals */
@@ -296,8 +298,18 @@
 	  if (!file_exists("billing/invoices")) { mkdir("billing/invoices"); }
 		if (!file_exists("billing/invoices/Complete")) { mkdir("billing/invoices/Complete"); }
 		$dir="billing/invoices";
-		if ($balance==0) { $dir="billing/invoices/Complete"; }
-		file_put_contents($dir."/".$invNum.".html", ob_get_contents());
+		if ($balance!=0 && $hasCharges) {
+			file_put_contents("billing/invoices/".$invNum.".html", ob_get_contents());
+			ob_end_flush();
+		}
+		else {
+			file_put_contents("billing/invoices/Complete/".$invNum.".html", ob_get_contents());
+			if ($hasCharges) { ob_end_flush(); }
+			else {
+				$buffer=ob_get_contents();
+				ob_end_clean();
+				echo "<span class='message' style='font-size:14pt;font-weight:bold;color:#aa0000'>This invoice has no charges. If you'd like to print it, please manually do so.<br /></span>";
+			}
+		}
 	}
-  ob_end_flush();
 ?>

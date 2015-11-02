@@ -27,6 +27,10 @@
         <td style='text-align:right'><button onclick="window.location.href='transactionSearch.php'" accesskey="R">T<u>r</u>ansaction Search</button></td>
         <td><button onclick="window.location.href='purgeTickets.php'" accesskey="O">Purge <u>O</u>ld Tickets</button></td>
       </tr>
+			<tr>
+				<td style='text-align:right'><button onclick="window.location.href='inventorySearch.php'" accesskey="V">In<u>v</u>entory Search</td>
+				<td>&nbsp;</td>
+			</tr>
     </table>
   </body>
 </html>
