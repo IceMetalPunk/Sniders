@@ -206,7 +206,15 @@
 							echo "<td>".$row["W-REF"]."</td>";
 							echo "<td>".date("n/j/Y", strtotime($row["W-ORDER-DT"]))."</td>";
 							echo "<td>".date("n/j/Y", strtotime($row["W-USE-DT"]))."</td>";
-							if (!empty($row["W-INV-NO"]) && $row["W-INV-NO"]!="00000") { echo "<td>".$row["W-INV-NO"]."</td>"; }
+							if (!empty($row["W-INV-NO"]) && $row["W-INV-NO"]!="00000") {
+								$invLink="./billing/invoices/Complete/".$row["W-INV-NO"].".html";
+								if (file_exists($invLink)) {
+									echo "<td><a href='".$invLink."' target='_blank'>".$row["W-INV-NO"]."</a></td>";
+								}
+								else {
+									echo "<td>".$row["W-INV-NO"]."</td>";
+								}
+							}
 							else { echo "<td>(Not Invoiced)</td>"; }
 							echo "</tr>";
 						}
