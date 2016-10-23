@@ -78,7 +78,7 @@ SYNCING BETWEEN COMPUTERS [ONLY NEEDED WHEN THERE ARE CHANGES]
 	git commit -m "Type a message here to describe your changes. Make sure to keep the quotes around it and no quotes inside it."
 	git push --all
 	
-9a) If a change has been made and you need to sync it to your computer, opwn the Git Shell and run the following commands:
+9a) If a change has been made and you need to sync it to your computer, open the Git Shell and run the following commands:
 	cd C:\wamp\www
 	git fetch
 	git reset --hard origin/master
