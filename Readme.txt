@@ -41,7 +41,7 @@ DATABASE IMPORT:
   4c.3) Change the line that says post_max_size to 100M
   4c.4) Save the file, then click the WAMP icon and choose Restart All
         Services. Wait for the icon to turn green again.
-  4c.5) Reload the phpmyadmin page and try #5b again.
+  4c.5) Reload the phpmyadmin page and try #4b again.
 
 MAKING WAMP START WITH WINDOWS:
 5) Open the Task Scheduler by typing "Schedule Tasks" in the Charms bar search
