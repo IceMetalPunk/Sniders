@@ -1,5 +1,7 @@
 ﻿NOTICE: The code in this repository are copyright Sniders Formal Wear, and are not for public use, distribution, or modification.
 
+WARNING: This code was designed for a specific, air-gapped system. DO NOT USE in a system connected to the internet; it is unsecure in that situation and is not intended for such use.
+
 --------------------------
 INSTALLATION AND SETUP
 --------------------------
